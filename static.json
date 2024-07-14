@@ -1,0 +1,9 @@
+{
+    "dev" : {
+        "url" : "http://localhost:3000"
+    },
+    "build" : {
+        "url" : "/wave",
+        "directory" : "/Users/tonylea/Sites/devdojo/public/wave"
+    }
+ }

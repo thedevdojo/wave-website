@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <style>[x-cloak] { display: none; }</style>
+
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <meta name="description" content="Wave is the ultimate Laravel boilerplate for building your next great idea.">
+    <meta property="og:url" content="https://static.devdojo.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Wave · The perfect Laravel Starter Kit for your next idea.">
+    <meta property="og:image" content="https://static.devdojo.com/assets/images/static-og-image.jpg">
+    <meta property="og:image:alt" content="A screenshot of Wave">
+    <meta property="og:description" content="Wave is the ultimate Laravel boilerplate for building your next great idea.">
+    <meta property="og:site_name" content="Static">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thedevdojo">
+    <meta name="twitter:creator" content="@tnylea">
+    <meta name="twitter:url" content="https://static.devdojo.com">
+    <meta name="twitter:title" content="Wave">
+    <meta name="twitter:description" content="Wave is the ultimate Laravel boilerplate for building your next great idea.">
+    <meta name="twitter:image" content="https://static.devdojo.com/assets/images/static-og-image.jpg">
+    <meta name="twitter:image:alt" content="A screenshot of Static">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/dracula.min.css">
+    <style>
+        .hljs {
+            color: #f8e164;
+        }
+
+        @media(min-width: 768px) {
+          .features-tailwind.hljs{
+            overflow:hidden;
+            padding-top: 15px !important;
+              padding-left: 20px !important;
+              padding-right: 190px !important;
+              padding-bottom: 150px !important;
+              background-size:top right;
+              /* background-image:url('/assets/images/page.svg'); */
+          }
+        }
+
+
+        .features-tailwind.hljs{
+          overflow:hidden;
+          padding: 15px;
+        }
+
+        @media(min-width: 768px) {
+          .features-layouts.hljs{
+            padding-top: 30px !important;
+            padding-left: 45px !important;
+            padding-bottom: 30px !important;
+          }
+        }
+
+        .features-layouts.hljs{
+            padding: 15px;
+          }
+
+        .hljs-addition,
+        .hljs-code,
+        .hljs-string,
+        .hljs-title.class_.inherited__ {
+            color: #f8e164 !important;
+        }
+
+        @font-face {
+          font-family: 'pistoleerhalfital';
+          src:url('/fonts/pistoleerhalfital.woff') format('woff'),
+              url('/fonts/pistoleerhalfital.woff2') format('woff2'),
+              url('/fonts/pistoleerhalfital.svg#pistoleerhalfital') format('svg'),
+              url('/fonts/pistoleerhalfital.eot'),
+              url('/fonts/pistoleerhalfital.eot?#iefix') format('embedded-opentype'),
+              url('/fonts/pistoleerhalfital.ttf') format('truetype');
+
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+      }
+
+      /* .prose h1, .prose h2, .prose h3, .prose h4{
+        padding-top: 100px; margin-top: -100px;
+        display: inline-block;
+      } */
+
+      
+
+      .pistol-font { 
+        font-family: 'pistoleerhalfital';
+      }  
+    </style>
+    <script>
+      let templatesInitilized = false;
+      window.windowTemplates = null;
+    document.addEventListener('DOMContentLoaded', function() {
+      templatesInitilized = true; 
+      window.windowTemplates=JSON.parse('{collections.templates.json}'); 
+    });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/powershell.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/shell.min.js"></script>
+
+    <style>
+
+    .prose-sm pre code{
+  font-size:14px;
+}
+
+.docs .prose pre {
+  padding:0px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:rgba(255, 255, 255, 0.06);
+  border-radius:10px;
+  white-space: break-spaces;
+  display:grid;
+}
+
+
+
+.docs .prose pre code {
+  padding:18px;
+  white-space:pre;
+}
+
+@media (min-width: 640px) {
+  .docs .prose pre code {
+    padding:26px;
+  }
+}
+
+.prose p{
+  color:rgba(255, 255, 255, 0.8);
+}
+
+
+.prose h2{
+  font-size:30px;
+  font-weight:800;
+}
+    </style>
+
+    <style>
+      .language-makefile .hljs-comment{
+        color: #87e778;
+      }
+    </style>
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/alpine-morph.js"></script>
+    
+    {tailwindcss}
+
+</head>
+<body class="overflow-x-hidden pt-10 bg-white">
+    <div id="loader" class="fixed inset-0 z-[200] flex items-center justify-center w-screen h-screen duration-300 ease-out bg-white">
+      <img src="/assets/images/water.gif" class="w-32 h-auto">
+    </div>
+
+    <div class="flex cursor-pointer w-full fixed top-0 z-[199] group text-white bg-blue-600 overflow-hidden">
+      <div  id="top-bar" class="flex justify-between items-center px-10 mx-auto w-full max-w-6xl h-10 duration-300 ease-out md:px-8" x-cloak>
+          <a href="https://devdojo.com" class="flex relative items-center pl-5 h-full font-semibold text-zinc-200 group-hover:text-white group-hover:opacity-100 lg:w-auto lg:items-center lg:justify-center">
+              <span class="overflow-hidden absolute left-0 w-4 h-4 transition duration-300 transform -rotate-180 -translate-x-0.5 ease group-hover:rotate-0 group-hover:translate-x-0 group-hover:w-4">
+                  <svg  class="w-4 h-4"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 101" fill="none"><path fill="currentColor" d="m93.178 50.665-32.715-50h35.29l34.003 50-34.002 50h-35.29l32.714-50Zm-92.992 50 32.715-50L.186.665h35.29l34.003 50-34.002 50H.187Z"/></svg>
+              </span>
+              <span class="mx-auto ml-1 text-xs leading-none select-none">Back to DevDojo Home</span>
+          </a>
+      </div>
+  </div>
+    
+
+    <div x-data="{ 
+          route: '/', 
+          leftSidebar: false,
+          templatePreview: false, 
+          templateDropdownShow: false,
+          iframeReady: false,
+          activeTemplate: null,
+          templateURL: 'about:blank',
+          iframeURL: 'about:blank',
+          changeTheme: function(slug, url){
+            this.ifreamReady=false;
+            window.dispatchEvent(new CustomEvent('change-template', { detail : { slug: slug }}));
+            this.iframeURL = 'about:blank';
+            let that = this;
+            setTimeout(function(){
+                that.changeURL(url);
+                that.iframeReady=true;
+                console.log('change');
+                console.log(slug);
+            }, 100);
+          },
+          showTemplatePreview: function(templateURL){
+            this.iframeURL = 'about:blank';
+            if(window.innerWidth < 768){ 
+              window.open(templateURL, '_blank'); 
+            }else{ 
+              this.templatePreview=true;
+              let that = this;
+              setTimeout(function(){
+                  that.iframeReady=true;
+                  that.iframeURL=templateURL; 
+              }, 10);
+            }
+          },
+          templateInstallCommand(){
+            if(this.activeTemplate != null){
+                if(this.activeTemplate.slug == 'starter'){
+                    return 'static new project';
+                } else {
+                    return 'static new project --' + this.activeTemplate.slug;
+                }
+            }
+
+            return '';
+          },
+          setActiveTemplate(template_slug){
+                for(let i =0; i<window.windowTemplates.length; i++){
+                    if(window.windowTemplates[i].slug == template_slug){
+                        this.activeTemplate = window.windowTemplates[i];
+                    }
+                }
+                if(this.activeTemplate == 'undefined'){
+                    this.activeTemplate = {
+                        name: ''
+                    };
+                }
+            },
+            favicon(){
+                if(this.activeTemplate != null){
+                    return this.activeTemplate.favicon;
+                }
+                return '';
+            },
+            name(){
+                if(this.activeTemplate != null){
+                    return this.activeTemplate.name;
+                }
+                return '';
+            },
+            slug(){
+                if(this.activeTemplate != null){
+                    return this.activeTemplate.slug;
+                }
+                return '';
+            },
+            get url(){
+                if(this.activeTemplate != null){
+                    return this.activeTemplate.url;
+                }
+                return '';
+            },
+            get repo(){
+                if(this.activeTemplate != null){
+                    return this.activeTemplate.repo;
+                }
+                return '';
+            } 
+            }"
+        x-init="
+            $watch('leftSidebar', function(value){
+                if(value){
+                    window.dispatchEvent(new CustomEvent('close-mobile-menu', {}));
+                }
+            });
+            $watch('templatePreview', function(value){
+                if(!value){
+                  url = 'about:blank';
+                }
+            })
+        "
+        @show-template-preview.window="showTemplatePreview(event.detail.url);" 
+        @set-active-template.window="setActiveTemplate(event.detail.slug);"
+        @close-left-sidebar.window="leftSidebar = false"
+        x-init="route=window.location.pathname" 
+        @set-route.window="route=event.detail.route" id="site">
+      <include src="header.html"></include>
+      <div id="site-content">
+        {slot}
+      </div>
+      <include src="footer.html"></include> 
+    </div>
+
+    
+    <script src="{ url('/assets/js/main.js') }"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C905RXGGNC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-C905RXGGNC');
+    </script>
+</body>
+</html>

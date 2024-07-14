@@ -1,0 +1,77 @@
+<layout title="{frontmatter.title}" src="main.html">
+   
+    <div  class="flex items-start px-6 mx-auto md:px-4 max-w-7xl docs">
+
+        
+
+        <div 
+            :class="{ 'translate-x-0  bg-white/90 border-r border-neutral-800/20 md:bg-transparent': leftSidebar, 'md:-translate-x-0 border-transparent -translate-x-full': !leftSidebar }"
+            class="fixed  md:sticky flex-shrink-0 z-[101] md:left-auto left-0 top-[80px] md:transition-none ease-out duration-300 md:top-[50px] md:mt-[50px] text-white md:-ml-0.5 h-full w-64  xl:w-72" x-cloak>
+            
+            <div @click="leftSidebar=!leftSidebar"
+            :class="{ 'border-neutral-800/40': leftSidebar, 'border-neutral-800/60': !leftSidebar }"
+                class="fixed z-[99] cursor-pointer md:hidden flex items-center group right-0 top-[5px] translate-x-full bg-white/90 border  border-l-0 w-[70px] text-xs rounded-r-md h-auto py-2 text-white">
+                <svg :class="{ 'rotate-180' : leftSidebar }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 group-hover:translate-x-0.5 ease-out duration-300 h-3 mx-1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>      
+                <span>Menu</span>
+            </div>
+            <div class="h-full py-5 md:py-16 px-5 md:pl-0.5 md:pr-8 xl:pr-16 overflow-scroll no-scrollbar">
+                <include src="search.html"></include>
+                <include src="docs-sidebar.html"></include>
+            </div>
+        </div>
+        <div x-show="leftSidebar" @click="leftSidebar=false" class="fixed inset-0 z-20 w-screen h-screen bg-white bg-opacity-[95%]"></div>
+
+        <div id="docs-content" class="flex items-start pb-10">
+            {static_content_element}
+            <div class="max-w-4xl pt-24 mx-auto mt-3 mr-0 md:pr-5 lg:mr-64 lg:pr-0">
+
+                <include src="docs/home-header.html"></include>
+            
+                <article class="w-full max-w-full prose-sm prose text-white lg:prose-md prose-invert">
+                    {content}
+                </article>
+
+                <div class="flex flex-col items-stretch justify-between gap-5 my-8 md:flex-row">
+                    <If condition="frontmatter.prevURL != 'undefined' && frontmatter.prevURL != null">
+                        <button hx-get="{frontmatter.prevURL}" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
+                            class="flex items-center w-full p-4 ease-linear border rounded-md md:w-1/2 duration-50 border-neutral-700 hover:border-yellow-400 text-neutral-400 group hover:text-yellow-400">
+                            <svg class="w-6 h-6 ml-1.5 mr-4 duration-300 ease-out group-hover:-translate-x-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="none"><path d="M3.75 12h16.5m-16.5 0l6.5 6.25M3.75 12l6.5-6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                            <div class="flex flex-col items-start justify-center">
+                                <small>Back</small>
+                                <p class="text-xl group-hover:text-white">{frontmatter.prevTitle}</p>
+                            </div>
+                        </button>
+                    </If>
+
+                    <If condition="frontmatter.prevURL == 'undefined' || frontmatter.prevURL == null || frontmatter.prevURL == ''">
+                        <div class="items-center justify-center hidden w-full py-8 text-sm ease-linear border rounded-md opacity-50 md:flex md:w-1/2 duration-50 border-neutral-700 text-neutral-400 group bg-neutral-900">
+                            No Previous Section
+                        </div>
+                    </If>
+
+                    <If condition="frontmatter.nextURL != null">
+                        <button hx-get="{frontmatter.nextURL}" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
+                            class="flex items-center justify-end w-full p-4 ease-linear border rounded-md md:w-1/2 duration-50 border-neutral-700 hover:border-yellow-400 text-neutral-400 group hover:text-yellow-400">
+                            <div class="flex flex-col items-end justify-center">
+                                <small>Next Page</small>
+                                <p class="text-xl group-hover:text-white">{frontmatter.nextTitle}</p>
+                            </div>
+                            <svg class="w-6 h-6 mr-1.5 ml-4 duration-300 ease-out group-hover:translate-x-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" class="signal-icon-wrapper" stroke="none"><path d="M20.25 12H3.75m16.5 0l-6.5 6.25m6.5-6.25l-6.5-6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                        </button>
+                    </If>
+
+                    <If condition="frontmatter.nextURL == 'undefined' || frontmatter.nextURL == null || frontmatter.nextURL == ''">
+                        <div class="items-center justify-center hidden w-full py-8 text-sm ease-linear border rounded-md opacity-50 md:flex md:w-1/2 duration-50 border-neutral-700 text-neutral-400 group bg-neutral-900">
+                            No Next Section
+                        </div>
+                    </If>
+                </div>
+                
+            </div>
+
+            <include src="toc.html"></include>
+        </div>
+
+    </div>
+    
+</layout>

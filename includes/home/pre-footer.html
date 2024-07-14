@@ -1,0 +1,20 @@
+<div hx-get="/docs/getting-started" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="document.getElementById('header').dispatchEvent(new CustomEvent('set-page-active', { detail: { active: 'docs' }})); document.getElementById('header').dispatchEvent(new CustomEvent('set-page-full-width', { detail: {}})); route=$el.getAttribute('hx-get')" data-docs class="relative flex flex-col-reverse group md:mt-16 cursor-pointer items-center justify-between w-full overflow-hidden ring-1 ring-white/[5%] border-t border-neutral-700 radial-background bg-white px-6 md:px-8 py-6 md:flex-row">
+    <div class="flex flex-col items-start justify-between w-full max-w-6xl mx-auto space-y-5 md:items-center md:pl-10 md:pr-32 md:space-y-0 md:flex-row">
+        <div class="relative w-full md:pr-16 md:w-auto">
+            <div class="relative flex items-center mb-2 space-x-2 ">
+                <span>📖</span>
+                <p class="relative inline-block text-lg font-semibold tracking-tight text-transparent opacity-90 group-hover:opacity-100">
+                    
+                    <span class="relative z-20 bg-clip-text bg-gradient-to-r from-neutral-400 via-neutral-100 to-neutral-500 group-hover:from-neutral-200 group-hover:via-neutral-100 group-hover:to-neutral-200">Learn More</span>
+                </p>
+            </div>
+            <p class="text-sm leading-6 text-white/80 opacity-70 group-hover:opacity-100">Learn more about Static by checking out the official documentation. Thanks for visiting!</p>
+        </div>
+        <div class="relative flex-shrink-0 w-auto">
+            <button hx-get="/docs/getting-started" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="document.getElementById('header').dispatchEvent(new CustomEvent('set-page-active', { detail: { active: 'docs' }})); document.getElementById('header').dispatchEvent(new CustomEvent('set-page-full-width', { detail: {}})); route=$el.getAttribute('hx-get')" data-docs="" class="relative inline-block w-full px-4 py-2 text-xs font-medium text-center text-white bg-transparent rounded-full opacity-70 group-hover:opacity-100 group ring-1 ring-white/20 md:w-auto">
+                <span>View the Documentation</span>
+                <span class="text-[#e66735] group-hover:translate-x-1 inline-block ml-0.5 ease-out duration-300">→</span>
+            </button>
+        </div>
+    </div>
+</div>

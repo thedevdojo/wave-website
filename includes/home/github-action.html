@@ -1,0 +1,22 @@
+<div class="relative flex flex-col-reverse items-center justify-between w-full max-w-xl mx-auto overflow-hidden ring-1 ring-white/[25%] radial-background bg-gradient-to-br from-white to-white pl-4 pt-4 pr-5 pb-4 md:flex-row rounded-md">
+    <div class="relative flex-shrink-0 text-white/70">
+        <div class="flex items-center space-x-2 font-bold leading-none">
+            <svg class="w-6 h-6 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+              </svg>
+              
+            <span>{title}</span> 
+        </div>
+        <p class="mt-1 ml-8 text-xs">{description}</p>
+    </div>
+    <div class="relative flex-col flex-shrink-0 hidden space-y-1 text-xs md:flex text-neutral-500">
+        <p class="flex items-center space-x-1">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+            <span>{minutes} minutes ago</span>
+        </p>
+        <p class="flex items-center space-x-1">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>{seconds} seconds</span>
+        </p>
+    </div>
+</div>

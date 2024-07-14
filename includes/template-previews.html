@@ -1,0 +1,61 @@
+<div x-data x-init="
+        document.getElementById('iframe').onload = function() {
+            if(url != 'about:blank'){
+                setTimeout(function(){
+                    console.log('ready');
+                    iframeReady = true;
+                }, 300);
+            }
+          };
+          $watch('templatePreview', function(value){
+            if(value){
+                document.body.classList.add('overflow-hidden');
+            } else {
+                iframeReady = false;
+                url = 'about:blank';
+                document.body.classList.remove('overflow-hidden');
+            }
+          });
+        " 
+        
+        
+        @keydown.escape.window="templatePreview = false"
+        x-show="templatePreview" id="templates" class="z-[205] fixed inset-0 w-screen h-screen bg-white flex flex-col items-stretch" style="display:none" x-cloak>
+
+    <div class="relative flex items-center z-20 justify-between w-screen border-b h-10 pb-0.5 bg-neutral-100 border-neutral-900" x-cloak>
+        <div :class="{ 'z-20' : templateDropdownShow }" class="relative flex items-start h-full" x-cloak>
+
+
+            <div class="relative bottom-0 left-0 z-20 items-stretch flex-shrink-0 hidden w-full h-full px-3 leading-none sm:flex" x-cloak>
+                <p class="flex items-center h-full pr-2 text-xs font-medium border-r text-neutral-500 border-neutral-200">Install by running</p>
+                <code class="flex items-stretch h-full pl-2 font-mono text-xs font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-400 via-green-400">
+                    <span x-text="templateInstallCommand" class="flex items-center h-full"></span>
+                </code>
+            </div>
+        </div>
+
+        <div class="relative flex items-center h-full divide-x divide-neutral-200">
+            <button @click="window.open(repo, '_blank');" class="px-3 py-1 text-[0.65rem] font-medium space-x-1.5  h-full hidden md:flex items-center hover:bg-white text-neutral-600 hover:text-neutral-900">
+                <svg class="w-4 h-4 duration-300 ease-out -translate-y-px fill-current" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+                <span>View on Github</span>
+            </button>
+            <button @click="window.open(url, '_blank');" class="px-3 py-1 text-[0.65rem] font-medium space-x-1  h-full flex  items-center hover:bg-white text-neutral-600 hover:text-neutral-900">
+                <span>Open in New Tab</span>
+                <svg class="w-3.5 h-3.5 duration-100 ease-out fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="none"><path d="M10.25 4.75h-2.5a4 4 0 0 0-4 4v7.5a4 4 0 0 0 4 4h7.5a4 4 0 0 0 4-4V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20.25 3.75v5.5m0-5.5h-5.5m5.5 0l-10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+            </button>
+            <span class="flex items-center justify-center w-10 h-full cursor-pointer text-neutral-600 hover:text-neutral-900 hover:bg-white" @click="templatePreview=false">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+            </span>
+        </div>
+        <div class="absolute bottom-0 left-0 z-10 flex items-center translate-y-px w-full h-0.5">
+            <div class="w-1/4 h-0.5 bg-gradient-to-r from-purple-500 via-teal-300 to-blue-500"></div>
+            <div class="w-1/4 h-0.5 bg-gradient-to-r from-blue-500 via-pink-500 to-yellow-300"></div>
+            <div class="w-1/4 h-0.5 bg-gradient-to-r from-yellow-300 via-purple-500 to-teal-300"></div>
+            <div class="w-1/4 h-0.5 bg-gradient-to-r from-teal-300 via-blue-500 to-pink-500"></div>
+        </div>
+    </div>
+    <iframe x-show="iframeReady" :class="{ 'opacity-0' : !iframeReady }" id="iframe" :src="iframeURL" class="relative z-20 w-full h-full duration-300 ease-out delay-500 bg-white"></iframe>
+    <div class="fixed z-10 flex items-center justify-center w-screen h-screen bg-white">
+        <svg class="w-5 h-5 text-black animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+    </div>
+</div>

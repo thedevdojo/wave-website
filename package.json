@@ -1,0 +1,15 @@
+{
+    "name": "Static",
+    "version": "1.0",
+    "description": "Static",
+    "author": "Your Name",
+    "license": "ISC",
+    "dependencies": {
+        "@alpinejs/focus": "^3.13.0",
+        "@alpinejs/morph": "^3.13.0",
+        "@tailwindcss/typography": "^0.5.10",
+        "alpinejs": "^3.13.0",
+        "gsap": "^3.12.2",
+        "markdown-toc": "^1.2.0"
+    }
+}

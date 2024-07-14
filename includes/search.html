@@ -1,0 +1,279 @@
+<div x-data="{
+    commandOpen: false,
+}"
+x-init="
+    $watch('commandOpen', function(value){
+        if(value === true){
+            document.body.classList.add('overflow-hidden');
+            $nextTick(() => { window.dispatchEvent(new CustomEvent('command-input-focus', {})); });
+        }else{
+            document.body.classList.remove('overflow-hidden');
+        }
+    })
+
+    window.addEventListener('keydown', function(event){
+        if (event.keyCode === 75 && event.metaKey) {
+            commandOpen = true;
+        }
+    })
+"
+@keydown.escape.window="commandOpen = false"
+@close-search.window="commandOpen = false"
+class="relative z-50 w-auto h-auto">
+<button @click="commandOpen=true" class="focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 shadow-sm ring-1 ring-inset ring-neutral-700 text-neutral-200 bg-neutral-800 hover:bg-neutral-700/50 disabled:bg-neutral-800 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-primary-400 w-full flex justify-center items-center mb-5" type="button">
+    <svg class="flex-shrink-0 w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>  
+    Search 
+    <div class="hidden lg:inline-flex gap-0.5 ml-auto">
+        <kbd class="inline-flex items-center justify-center text-white h-5 min-w-[20px] text-[11px] px-1 rounded font-medium font-sans bg-neutral-800 ring-1 ring-neutral-700 ring-inset">⌘</kbd>
+        <kbd class="inline-flex items-center justify-center text-white h-5 min-w-[20px] text-[11px] px-1 rounded font-medium font-sans bg-neutral-800 ring-1 ring-neutral-700 ring-inset">K</kbd>
+    </div>
+</button>
+<template x-teleport="body">
+
+    <div x-show="commandOpen" class="fixed top-0 left-0 z-[205] flex items-center justify-center w-screen h-screen" x-cloak>
+        <div x-show="commandOpen" 
+            x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="ease-in duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            @click="commandOpen=false" class="absolute inset-0 w-full h-full bg-neutral-800 bg-opacity-80">
+        </div>
+        <div 
+            x-show="commandOpen"
+            x-trap.inert.noscroll="commandOpen"
+            x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0 sm:scale-95"
+            x-transition:enter-end="opacity-100 sm:scale-100"
+            x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100 sm:scale-100"
+            x-transition:leave-end="opacity-0 sm:scale-95"
+            x-data="{
+                commandItems: {
+                    'Getting Started': [
+                        {
+                            title: 'Introduction',
+                            value: 'introduction',
+                            button: 'introduction-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 mr-2 fill-current\' viewBox=\'0 0 24 24\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><g fill=\'none\' stroke=\'none\'><path d=\'M12 20.25V5.74999C9.30735 3.95489 6.62809 3.75848 3.7454 3.7483C3.19498 3.74636 2.75 4.19482 2.75 4.74525V18.4735C2.75 18.8371 3.12789 19.0832 3.47435 18.9728C6.23535 18.0924 10.1673 18.6464 12 20.25Z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M12 20.25V5.75001C14.6926 3.95491 17.3719 3.7585 20.2546 3.74832C20.805 3.74637 21.25 4.19484 21.25 4.74527V18.4735C21.25 18.8371 20.8721 19.0832 20.5257 18.9728C17.7647 18.0924 13.8327 18.6464 12 20.25Z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path></g></svg>',
+                            default: true,
+                        },
+                        {
+                            title: 'Installation',
+                            value: 'installation',
+                            button: 'installation-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 mr-2 fill-current\' viewBox=\'0 0 24 24\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><g fill=\'none\' stroke=\'none\'><path d=\'M18.2502 20.25C19.3548 20.25 20.2502 19.3546 20.2502 18.25L20.2501 9.45157C20.2501 8.99742 20.0955 8.5568 19.8118 8.20217L16.8505 4.50059C16.4709 4.02617 15.8963 3.75 15.2888 3.75L5.75 3.75C4.64543 3.75 3.75 4.64543 3.75 5.75V18.25C3.75 19.3546 4.64543 20.25 5.75 20.25H18.2502Z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M15.25 8C12.6715 8 11.0903 8 8.75041 8C8.19813 8 7.75 7.55228 7.75 7L7.75 4.25\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M7.75 20.25V14.5C7.75 13.6716 8.42157 13 9.25 13H14.75C15.5784 13 16.25 13.6716 16.25 14.5V20.25\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path></g></svg>',
+                            default: true,
+                        }
+                        // {
+                        //     title: 'title',
+                        //     value: 'value',
+                        //     button: 'introduction-docs',
+                        //     icon: 'svg',
+                        //     default: true,
+                        // }
+                    ],
+                    features : [
+                        {
+                            title: 'Page-based Routing',
+                            value: 'page-based-routing',
+                            button: 'page-based-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 fill-current mr-2\' viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\'><g fill=\'none\' stroke=\'none\'><path d=\'M3.75 5.75a3 3 0 0 1 3-3h5.172a2 2 0 0 1 1.415.586l6.327 6.328a2 2 0 0 1 .586 1.414v7.172a3 3 0 0 1-3 3H6.75a3 3 0 0 1-3-3V5.75z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M12.75 2.93v5.32a2 2 0 0 0 2 2h5.32\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path></g></svg>',
+                            default: true,
+                        },
+                        {
+                            title: 'Layouts',
+                            value: 'layouts',
+                            button: 'layouts-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 mr-2 fill-current\' viewBox=\'0 0 24 24\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><g fill=\'none\' stroke=\'none\'><path d=\'M2.74927 6.75C2.74927 5.09315 4.09241 3.75 5.74927 3.75H18.2509C19.9078 3.75 21.2509 5.09315 21.2509 6.75V17.25C21.2509 18.9069 19.9078 20.25 18.2509 20.25H5.74927C4.09241 20.25 2.74927 18.9069 2.74927 17.25V6.75Z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M2.74878 9.25H21.25\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M7.75 9.25V20.25\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path></g></svg>',
+                            default: true,
+                        },
+                        {
+                            title: 'Includes',
+                            value: 'includes',
+                            button: 'includes-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 mr-2 fill-current\' viewBox=\'0 0 24 24\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><g fill=\'none\' stroke=\'none\'><path d=\'M8.2467 9.75L6.17877 11.2419C5.60268 11.6575 5.60268 12.3425 6.17877 12.7581L8.2467 14.25\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M15.7467 9.75L17.8146 11.2419C18.3907 11.6575 18.3907 12.3425 17.8146 12.7581L15.7467 14.25\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M18.2502 20.25C19.907 20.25 21.2502 18.9068 21.2502 17.25L21.25 6.74997C21.25 5.09313 19.9069 3.75 18.25 3.75L5.75 3.75C4.09315 3.75 2.75 5.09315 2.75 6.75V17.25C2.75 18.9069 4.09315 20.25 5.75 20.25H18.2502Z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M10.75 14.25L13.25 9.75\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path></g></svg>',
+                            default: true,
+                        },
+                        {
+                            title: 'Collections',
+                            value: 'collections',
+                            button: 'collections-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 mr-2 fill-current\' viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\'><g fill=\'none\' stroke=\'none\'><path d=\'M3.75 5.326c0-.87.705-1.576 1.575-1.576h3.349c.87 0 1.576.705 1.576 1.576v3.348c0 .87-.706 1.576-1.576 1.576h-3.35c-.87 0-1.575-.705-1.575-1.576V5.326z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M3.75 15.326c0-.87.705-1.576 1.575-1.576h3.349c.87 0 1.576.706 1.576 1.576v3.348c0 .87-.706 1.576-1.576 1.576h-3.35c-.87 0-1.575-.706-1.575-1.576v-3.348z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M13.75 5.326c0-.87.705-1.576 1.575-1.576h3.349c.87 0 1.576.705 1.576 1.576v3.348c0 .87-.706 1.576-1.576 1.576h-3.35c-.87 0-1.575-.705-1.575-1.576V5.326z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M13.75 15.326c0-.87.705-1.576 1.575-1.576h3.349c.87 0 1.576.706 1.576 1.576v3.348c0 .87-.706 1.576-1.576 1.576h-3.35c-.87 0-1.575-.706-1.575-1.576v-3.348z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path></g></svg>',
+                            default: true,
+                        },
+                        {
+                            title: 'Content',
+                            value: 'content',
+                            button: 'content-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 mr-2 fill-current\' viewBox=\'0 0 24 24\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><g fill=\'none\' stroke=\'none\'><path d=\'M21.2635 17.75C21.2635 19.5429 20.3671 21.25 18.8531 21.25C16.1145 21.25 16.5968 18.5765 16.75 17.75H21.2635Z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M3.88189 17.75C3.72862 18.5765 3.24635 21.25 5.98492 21.25H18.7383\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M8.74963 10.25L15.2496 10.25\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M7.74963 13.75L12.2496 13.75\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M5.75002 2.75H16.25C14.2373 2.75 13.25 4.45711 13.25 6.25H2.75C2.75 4.45711 3.73731 2.75 5.75002 2.75Z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M16.2499 2.75C18.2626 2.75 19.5882 4.45698 19.25 6.25L16.75 17.75\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M6.38147 6.25L3.88152 17.75\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path></g></svg>',
+                            default: true,
+                        },
+                        {
+                            title: 'Live Reloading',
+                            value: 'live-reloading',
+                            button: 'live-reloading-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 mr-2 fill-current\' viewBox=\'0 0 24 24\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><g fill=\'none\' stroke=\'none\'><path d=\'M7.73535 6.13705C8.97295 5.23681 10.4637 4.75128 11.9941 4.75C13.5245 4.74872 15.016 5.23176 16.2551 6.12994C17.4942 7.02812 18.4173 8.29536 18.8922 9.75021C19.3604 11.1844 19.3693 12.7283 18.9187 14.167\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\'></path><path d=\'M16.2648 17.8629C15.0272 18.7631 13.5364 19.2487 12.0061 19.2499C10.4757 19.2512 8.98412 18.7682 7.74502 17.87C6.50591 16.9718 5.58281 15.7046 5.10791 14.2497C4.63963 12.8152 4.63081 11.2709 5.08176 9.83191\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\'></path><path d=\'M2.75 12.252L5 9.75L7.25 12.252\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M16.75 11.75L18.9996 14.25L21.25 11.75\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path></g></svg>',
+                            default: true,
+                        },
+                        {
+                            title: 'TailwindCSS Integration',
+                            value: 'tailwind',
+                            button: 'tailwind-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 mr-2 fill-current\' viewBox=\'0 0 54 33\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path fill-rule=\'evenodd\' clip-rule=\'evenodd\' d=\'M39.403 5.797C36.756 3.11 33.692 0 27 0c-5.232 0-9.039 1.901-11.42 5.704-.895 1.43-1.588 3.128-2.08 5.096 1.166-1.555 2.417-2.69 3.751-3.406 1.755-.94 3.654-1.155 5.699-.644 2.052.513 3.52 2.002 5.143 3.649l.004.004C30.744 13.09 33.808 16.2 40.5 16.2c5.232 0 9.039-1.901 11.42-5.704.895-1.43 1.588-3.128 2.08-5.096-1.166 1.555-2.417 2.69-3.751 3.406-1.755.94-3.654 1.155-5.699.644-2.052-.513-3.52-2.001-5.143-3.649l-.004-.004Zm4.59 5.884s-4.562-2.576-6.059-4.097l-.17-.173c-1.342-1.362-2.568-2.59-4.193-3.527C31.998 2.979 29.957 2.3 27 2.3c-2.988 0-5.254.69-6.964 1.913 1.138-.093 2.3.013 3.471.306m20.485 7.162a10.69 10.69 0 0 0 3.472.306C45.754 13.21 43.488 13.9 40.5 13.9c-2.957 0-4.998-.678-6.57-1.584-1.626-.936-2.852-2.164-4.195-3.527l-.17-.173c-1.496-1.521-3.37-3.426-6.058-4.097m2.396 17.478C23.256 19.31 20.192 16.2 13.5 16.2c-5.232 0-9.039 1.901-11.42 5.704C1.187 23.334.493 25.032 0 27c1.166-1.555 2.417-2.69 3.751-3.406 1.755-.94 3.654-1.155 5.699-.644 2.054.514 3.521 2.003 5.146 3.652l.001.001C17.244 29.29 20.308 32.4 27 32.4c5.232 0 9.039-1.901 11.42-5.703.895-1.43 1.588-3.13 2.08-5.097-1.166 1.555-2.417 2.69-3.751 3.406-1.755.94-3.654 1.155-5.699.644-2.052-.513-3.52-2.002-5.143-3.649l-.004-.004Zm4.59 5.884c-2.69-.671-4.562-2.576-6.059-4.097l-.17-.173c-1.342-1.362-2.568-2.59-4.193-3.527-1.573-.905-3.614-1.584-6.571-1.584-2.988 0-5.254.69-6.964 1.913 1.138-.093 2.3.013 3.472.306 2.689.673 4.562 2.577 6.06 4.1l.167.17c1.343 1.362 2.569 2.59 4.194 3.527 1.573.906 3.614 1.584 6.571 1.584 2.988 0 5.254-.69 6.964-1.913a10.69 10.69 0 0 1-3.472-.306Z\' fill=\'currentColor\'/></svg>',
+                            default: true,
+                        },
+                        {
+                            title: 'Github Action',
+                            value: 'github-action',
+                            button: 'github-action-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 mr-2 fill-current\' viewBox=\'0 0 256 256\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><g clip-path=\'url(#a)\' fill=\'currentColor\'><path d=\'M53.604 0c29.604 0 53.604 23.992 53.604 53.59 0 29.09-23.189 52.75-52.093 53.553 0 2.461.109 7.111 1.502 9.919 1.932 3.894 13.524 11.145 24.891 11.145h4.084c2.567-18.271 18.257-32.332 37.24-32.332 18.906 0 34.55 13.946 37.211 32.109h21.129c2.662-18.163 18.305-32.109 37.211-32.109 20.775 0 37.617 16.837 37.617 37.607 0 20.769-16.842 37.606-37.617 37.606-18.906 0-34.55-13.948-37.211-32.111h-21.128c-2.661 18.163-18.305 32.111-37.212 32.111-18.871 0-34.494-13.893-37.198-32.007l-4.516.135c-7.435-.056-15.29-2.042-21.598-6.328-1.72-1.169-3.415-2.397-5.182-3.561v2.442c-.01.79-.153 12.657-.164 25.833v2.79c.005 8.641.073 17.545.277 24.039.446 14.247 12.034 25.746 24.822 28.437 1.663.349 4.52.394 6.321.238 2.571-18.264 18.259-32.32 37.238-32.32 20.774 0 37.616 16.838 37.616 37.607S143.606 256 122.832 256c-18.769 0-34.323-13.744-37.153-31.714h-3.254c-24.436-1.334-39.628-23.746-39.363-41.923.334-22.877.082-45.764.079-68.647v-7.564C18.546 101.286 0 79.606 0 53.591 0 23.992 23.999 0 53.604 0Zm69.228 191.779c-14.701 0-26.62 11.916-26.62 26.614 0 14.699 11.919 26.614 26.62 26.614 14.702 0 26.62-11.915 26.62-26.614 0-14.698-11.918-26.614-26.62-26.614Zm0-84.911c-14.701 0-26.62 11.915-26.62 26.614 0 14.697 11.919 26.613 26.62 26.613 14.702 0 26.62-11.916 26.62-26.613 0-14.699-11.918-26.614-26.62-26.614Zm95.551 0c-14.702 0-26.619 11.915-26.619 26.614 0 14.697 11.917 26.613 26.619 26.613 14.703 0 26.621-11.916 26.621-26.613 0-14.699-11.918-26.614-26.621-26.614Zm15.161 15.408a5.496 5.496 0 0 1 .17 7.606l-.16.168-16.309 16.345a5.499 5.499 0 0 1-7.577.198l-.172-.163-7.985-7.86a5.496 5.496 0 0 1-.061-7.773 5.5 5.5 0 0 1 7.607-.22l.168.16 4.092 4.027 12.452-12.477a5.498 5.498 0 0 1 7.775-.011Zm-95.99-.08a5.496 5.496 0 0 1 .171 7.606l-.161.168-16.309 16.344a5.498 5.498 0 0 1-7.577.198l-.172-.163-7.985-7.86a5.498 5.498 0 0 1 7.546-7.992l.168.16 4.093 4.027 12.451-12.478a5.499 5.499 0 0 1 7.775-.01ZM53.604 10.993c-23.532 0-42.608 19.07-42.608 42.598 0 23.525 19.076 42.597 42.608 42.597 23.532 0 42.608-19.072 42.608-42.597 0-23.527-19.076-42.598-42.608-42.598ZM49.171 28.13A743.562 743.562 0 0 1 75.7 44.842c7.308 4.82 7.29 13.562-.1 18.393a608.466 608.466 0 0 1-27.058 16.713c-7.455 4.339-15.8-.651-16.002-9.344-.13-5.603-.024-11.212-.032-16.818-.006-5.454-.113-10.911.019-16.363.222-9.248 8.736-14.066 16.643-9.293Zm-5.91 8.872v3.868c0 1.916 0 3.806-.002 5.675V55.734c0 4.231.002 8.394.01 12.558.003 1.96 1.023 1.88 2.343 1.063 7.605-4.714 15.214-9.423 22.827-14.127 1.258-.776 1.294-1.587.06-2.365-8.154-5.139-16.318-10.26-25.238-15.862Z\'/><path d=\'M133.227 223.879a5.498 5.498 0 1 0-5.498-5.496 5.498 5.498 0 0 0 5.498 5.496Z\'/><path d=\'M112.179 223.879a5.498 5.498 0 1 0-5.498-5.496 5.498 5.498 0 0 0 5.498 5.496Z\'/><path d=\'M218.384 245.007c-14.702 0-26.62-11.915-26.62-26.614 0-14.698 11.918-26.614 26.62-26.614 14.701 0 26.62 11.916 26.62 26.614 0 14.699-11.919 26.614-26.62 26.614Zm0-64.221c-18.906 0-34.551 13.948-37.211 32.111h-6.153c-2.685 0-4.864 2.461-4.864 5.496 0 3.036 2.179 5.497 4.864 5.497h6.153c2.66 18.163 18.305 32.11 37.211 32.11C239.158 256 256 239.162 256 218.393s-16.842-37.607-37.616-37.607Z\'/></g><defs><clipPath id=\'a\'><rect width=\'256\' height=\'256\' fill=\'currentColor\'/></clipPath></defs></svg>',
+                            default: true,
+                        }
+                    ],
+                    guides: [
+                        {
+                            title: 'Deploying Your Site',
+                            value: 'deploying-your-site',
+                            button: 'deploying-your-site-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 mr-2 fill-current\' viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\'><g fill=\'none\' stroke=\'none\'><path d=\'M18.805 11.043a7.737 7.737 0 0 0 2.445-5.645V3.75a1 1 0 0 0-1-1h-1.651a7.734 7.734 0 0 0-5.64 2.442 38.669 38.669 0 0 0-4.586 5.955l-1.451 2.32a1 1 0 0 0 .14 1.237l2.228 2.232a1 1 0 0 0 1.237.142l2.323-1.452a38.685 38.685 0 0 0 5.955-4.583z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M10.691 7.839c-2.244-.337-4.367.167-6.376 1.149-.88.43-.681 1.737.286 1.887l3.594.556m4.374 4.37l.556 3.602c.15.968 1.458 1.166 1.887.286.984-2.017 1.5-4.139 1.163-6.393\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M5.682 16.323c-1.066.62-1.237 1.147-1.608 2.63L3.75 20.25l1.297-.324c1.485-.372 2.013-.543 2.634-1.615\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M17.25 8a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0z\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path></g></svg>',
+                            default: true,
+                        },
+                        {
+                            title: 'Folder Structure',
+                            value: 'folder-structure',
+                            button: 'folder-structure-docs',
+                            icon: '<svg class=\'z-20 flex-shrink-0 w-4 h-4 mr-2 fill-current\' viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\'><g fill=\'none\' stroke=\'none\'><path d=\'M16.89 20.25H5.75a3 3 0 0 1-3-3V6.75a3 3 0 0 1 3-3H7.9a3 3 0 0 1 1.573.445l1.804 1.11a3 3 0 0 0 1.572.445h2.402a3 3 0 0 1 3 3v1\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path><path d=\'M16.89 20.25a3 3 0 0 0 2.916-2.294l1.39-5.735a2 2 0 0 0-1.944-2.471h-9.24a3 3 0 0 0-2.885 2.176l-2.343 8.166\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'></path></g></svg>',
+                            default: true,
+                        }
+                    ]
+                },
+                commandItemsFiltered: [],
+                commandItemActive: null,
+                commandItemSelected: null,
+                commandId: $id('command'),
+                commandSearch: '',
+                commandSearchIsEmpty() {
+                    return this.commandSearch.length == 0;
+                },
+                commandItemIsActive(item) {
+                    return this.commandItemActive && this.commandItemActive.value==item.value;
+                },
+                commandItemActiveNext(){
+                    let index = this.commandItemsFiltered.indexOf(this.commandItemActive);
+                    if(index < this.commandItemsFiltered.length-1){
+                        this.commandItemActive = this.commandItemsFiltered[index+1];
+                        this.commandScrollToActiveItem();
+                    }
+                },
+                commandItemActivePrevious(){
+                    let index = this.commandItemsFiltered.indexOf(this.commandItemActive);
+                    if(index > 0){
+                        this.commandItemActive = this.commandItemsFiltered[index-1];
+                        this.commandScrollToActiveItem();
+                    }
+                },
+                commandScrollToActiveItem(){
+                    if(this.commandItemActive){
+                        activeElement = document.getElementById(this.commandItemActive.value + '-' + this.commandId)
+                        if(!activeElement) return;
+                        
+                        newScrollPos = (activeElement.offsetTop + activeElement.offsetHeight) - this.$refs.commandItemsList.offsetHeight;
+                        if(newScrollPos > 0){
+                            this.$refs.commandItemsList.scrollTop=newScrollPos;
+                        } else {
+                            this.$refs.commandItemsList.scrollTop=0;
+                        }
+                    }
+                },
+                commandSearchItems() {
+                    if(!this.commandSearchIsEmpty()){
+                        searchTerm = this.commandSearch.replace(/\*/g, '').toLowerCase();
+                        this.commandItemsFiltered = this.commandItems.filter(item => item.title.toLowerCase().startsWith(searchTerm));
+                        
+                        this.commandScrollToActiveItem();
+                    } else {
+                        this.commandItemsFiltered = this.commandItems.filter(item => item.default);
+                    }
+                    this.commandItemActive = this.commandItemsFiltered[0];
+                },
+                commandShowCategory(item, index){
+                    if(index == 0) return true;
+                    if(typeof this.commandItems[index-1] === 'undefined') return false;
+                    return item.category != this.commandItems[index-1].category;
+                },
+                commandCategoryCapitalize(string){
+                    return string.charAt(0).toUpperCase() + string.slice(1);
+                },
+                commandItemsReorganize(){
+                    commandItemsOriginal = this.commandItems;
+                    keys = Object.keys(this.commandItems);
+                    this.commandItems = [];
+                    keys.forEach((key, index) => {
+                        for(i=0; i<commandItemsOriginal[key].length; i++){
+                            commandItemsOriginal[key][i].category = key;
+                            this.commandItems.push( commandItemsOriginal[key][i] );
+                        }
+                    });
+                }
+            }" x-init="
+                commandItemsReorganize();
+                commandItemsFiltered = commandItems;
+                commandItemActive=commandItems[0];
+                $watch('commandSearch', value => commandSearchItems());
+                $watch('commandItemSelected', function(item){
+                    console.log('yeah');
+                    if(item){
+                        
+                        $dispatch('close-search');
+                        document.getElementById(item.button).click();
+                        setTimeout(function(){
+                            commandSearch = '';
+                        }, 300);
+                        
+                        console.log('item:', item);
+                        
+                    }
+                });
+            " 
+            @keydown.down="event.preventDefault(); commandItemActiveNext();" 
+            @keydown.up="event.preventDefault(); commandItemActivePrevious()" 
+            @keydown.enter="commandItemSelected=commandItemActive;"
+            @command-input-focus.window="$refs.commandInput.focus();"
+            class="flex min-h-[370px] justify-center w-full max-w-xl items-start relative" x-cloak>
+            <div class="box-border flex flex-col w-full h-full overflow-hidden bg-white rounded-md shadow-md bg-opacity-90 drop-shadow-md backdrop-blur-sm">
+                <div class="flex items-center px-3 border-b border-neutral-800">
+                    <svg class="w-4 h-4 mr-0 text-neutral-400 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
+                    <input type="text" x-ref="commandInput" x-model="commandSearch" class="flex w-full px-2 py-3 text-sm text-white bg-transparent border-0 rounded-md outline-none focus:outline-none focus:ring-0 focus:border-0 placeholder:text-neutral-400 h-11 disabled:cursor-not-allowed disabled:opacity-50" placeholder="Type a command or search..." autocomplete="off" autocorrect="off" spellcheck="false">
+                </div>
+                <div x-ref="commandItemsList" class="max-h-[320px] overflow-y-auto overflow-x-hidden">
+                    <template x-for="(item, index) in commandItemsFiltered" :key="'item-' + index">
+        
+                        <div class="pb-1 space-y-1">
+                            <template x-if="commandShowCategory(item, index)">
+                                <div class="px-1 overflow-hidden text-gray-700">
+                                    <div class="px-2 py-1 my-1 text-xs font-medium text-neutral-500" x-text="commandCategoryCapitalize(item.category)"></div>
+                                </div>
+                            </template>
+                            
+                            <template x-if="(item.default && commandSearchIsEmpty()) || !commandSearchIsEmpty()">
+                                <div class="px-1">
+                                    <div :id="item.value + '-' + commandId" @click="commandItemSelected=item" @mousemove="commandItemActive=item" :class="{ 'bg-gradient-to-br from-yellow-300 to-yellow-400 text-yellow-950' : commandItemIsActive(item), 'text-neutral-400' : !commandItemIsActive(item) }" class="relative flex cursor-default select-none items-center rounded-md px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
+                                        <span x-html="item.icon"></span>
+                                        <span x-text="item.title"></span>
+                                        <template x-if="item.right">
+                                            <span class="ml-auto text-xs tracking-widest text-muted-foreground" x-text="item.right"></span>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+        
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+</div>

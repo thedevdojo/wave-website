@@ -1,0 +1,16 @@
+<section x-data="{ mode: 'normal' }" class="relative">
+    <div class="flex items-center text-xs rounded-full h-[34px] bg-neutral-800">
+        <div class="relative w-1/2 h-full p-1 pr-0">
+            <div class="flex items-center justify-center h-full text-center rounded-full cursor-pointer bg-neutral-700">Normal Mode</div>
+            <span :class="{ 'w-full left-0' : mode=='normal', 'w-0 left-1/2' : mode!='normal' }"    
+                            class="absolute bottom-0 px-1.5 h-px duration-300 ease-out"><span class="relative block w-full h-px bg-gradient-to-r md:from-white/0 md:via-white/40 md:to-white/0"></span></span>
+            
+        </div>
+        <div class="relative w-1/2 h-full p-1 pl-0">
+            <div class="flex items-center justify-center h-full text-center rounded-full cursor-pointer hover:bg-neutral-700">LOL Mode</div>
+            <span :class="{ 'w-full left-0' : mode=='lol', 'w-0 left-1/2' : mode!='lol' }"    
+                            class="absolute bottom-0 px-1.5 h-px duration-300 ease-out"><span class="relative block w-full h-px bg-gradient-to-r md:from-white/0 md:via-white/40 md:to-white/0"></span></span>
+            
+        </div>
+    </div>
+</section>

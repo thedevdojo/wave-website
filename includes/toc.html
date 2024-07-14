@@ -1,0 +1,14 @@
+<div class="fixed z-20 top-[34px] bottom-0 right-0 xl:right-[max(0px,calc(50%-45rem))] w-64 xl:w-[19.5rem] py-20 overflow-y-auto lg:block hidden">
+    <div class="hidden pl-8 lg:block">
+        <h5 class="mb-4 text-sm font-semibold leading-6 text-white">On this page</h5>
+        <ul id="table-of-contents"  x-data="{ toc: null }"
+            @set-toc.window="toc = $event.detail.toc; setTimeout(function(){ renderTocFunctionality(); }, 10);"
+            class="text-sm leading-6 toc text-slate-400">
+            <template x-for="tocItem in toc">
+                <li :class="{ 'ml-0': tocItem.lvl === 2, 'ml-3.5': tocItem.lvl === 3 }">
+                    <a :href="'#' + tocItem.slug" class="block py-1 hover:text-yellow-300 [.active_&]:text-yellow-300" x-text="tocItem.content"></a>
+                </li>
+            </template>
+        </ul>
+    </div>
+</div>
