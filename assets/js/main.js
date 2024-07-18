@@ -191,6 +191,7 @@ function loadGsapAnimations(){
             y: 0
         });
     }
+
 }
 
 function createRadialBackgrounds(){
@@ -230,10 +231,22 @@ function domReadyLoop(){
         let domReadyInterval = setInterval(function(){
             if(document.readyState === 'complete' || intervalCount++ > maxIntervalCount){
                 clearInterval(domReadyInterval);
+                
+                // Hide the loader
                 document.getElementById('loader').classList.add('opacity-0');
                 setTimeout(function(){
                     document.getElementById('loader').remove();
+
+                    
                 }, 300);
+
+                setTimeout(function(){
+                    // start the slide down
+                    const tl = gsap.timeline();
+
+                    tl.set('.slideDown', { y: 0, yPercent: -100 })
+                                    .to('.slideDown', { duration: 2, ease: 'power3.out', yPercent: 100, force3D: true});
+                }, 150);
             }       
         }, 500);
     }
@@ -341,3 +354,25 @@ function setAllOthersToInactive(link){
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  
+    const marquee = document.getElementById('vertical-marquee');
+    const itemsContainer = document.getElementById('marquee-container');
+  
+    // Calculate the height of the content and the container
+    const scrollHeight = itemsContainer.scrollHeight;
+    const containerHeight = marquee.offsetHeight;
+  
+    // Create the scroll trigger animation
+    gsap.to(itemsContainer, {
+      yPercent: -30 * (scrollHeight / containerHeight - 1),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: marquee,
+        start: 'top bottom',  // Start the animation when the top of the marquee hits the bottom of the viewport
+        end: 'bottom top',    // End the animation when the bottom of the marquee hits the top of the viewport
+        scrub: true           // Link the animation to the scroll position
+      }
+    });
+  });
