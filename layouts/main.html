@@ -7,7 +7,8 @@
     <title>{title}</title>
     <style>[x-cloak] { display: none; }</style>
 
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-light.png" media="(prefers-color-scheme: dark)">
 
     <meta name="description" content="Wave is the ultimate Laravel boilerplate for building your next great idea.">
     <meta property="og:url" content="https://static.devdojo.com">
@@ -91,10 +92,10 @@
             font-style: normal;
         }
 
-      /* .prose h1, .prose h2, .prose h3, .prose h4{
-        padding-top: 100px; margin-top: -100px;
+      .prose h1, .prose h2, .prose h3, .prose h4{
+        font-family: 'giarek';
         display: inline-block;
-      } */
+      } 
 
       
       
@@ -126,7 +127,6 @@
 .docs .prose pre {
   padding:0px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background:rgba(255, 255, 255, 0.06);
   border-radius:10px;
   white-space: break-spaces;
   display:grid;
@@ -143,10 +143,6 @@
   .docs .prose pre code {
     padding:26px;
   }
-}
-
-.prose p{
-  color:rgba(255, 255, 255, 0.8);
 }
 
 
