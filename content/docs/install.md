@@ -1,91 +1,67 @@
 ---
-title: Installing Static
-description: Learn how to install Static and start using it to build your next website.
-nextTitle: 'Page Based Routing'
-nextURL: '/docs/features/page-based-routing'
+title: Installing Wave
+description: Learn how to install Wave
 prevTitle: 'Getting Started'
 prevURL: '/docs/getting-started'
+nextTitle: 'Local Development'
+nextURL: '/docs/local-dev'
 ---
 
-<div class="flex items-start px-5 py-5 mb-12 md:mb-5 mt-1 md:translate-y-0 translate-y-5 leading-[18px] bg-neutral-950 border border-yellow-400 rounded-md">
-   <img class="hidden w-auto h-12 my-0 mr-5 md:h-20 md:block" src="/assets/images/icons/install.png" />
-   <div>
-      <h1 class="mb-0 text-base md:text-3xl">Installation</h1>
-      <p class="my-1">Installing Static is very easy. There are a few things you'll need in order to make this journey as seemless as possible. Here are a few pre-requisites.</p>
-   </div>
-</div>
+# Installing Wave
 
-## Installing Static
+Before installation you need a local PHP development environment. The easiest way to do this is to download and install <a href="https://herd.laravel.com" target="_blank">Laravel Herd</a>. Once your local environment is set up, we can move on to the next step and download Wave.
 
-Installing Static is very easy. There are a few things you'll need in order to make this journey as seemless as possible. Here are a few pre-requisites.
+## Download Wave
 
-## Pre-requisites
+To download a fresh copy of Wave, click the button below. You can also find download links to all <a href="https://github.com/thedevdojo/wave/tags" target="_blank">versions here</a>.
 
-- **Node.js** - A fresh copy of <a href="https://nodejs.org" class="text-yellow-400" target="_blank">NodeJS</a> installed on your machine.
-- **Text Editor** - A code editor like <a href="https://code.visualstudio.com/" class="text-yellow-400" target="_blank">VS Code</a> or <a href="https://www.sublimetext.com/" class="text-yellow-400" target="_blank">Sublime Text</a>.
-- **Terminal** - A basic understanding of Terminal or Command Prompt.
+<a href="/wave/download" class="inline-block flex-shrink-0 px-6 py-3 mb-5 w-full text-sm font-bold text-center text-white no-underline bg-gray-900 rounded-full shadow-xl sm:w-auto hover:bg-gray-950">Download Wave V3</a>
 
+After downloading, follow these steps to finish the installation:
 
-## Installation
+1. Unzip the downloaded file.
+2. Rename the unzipped folder to any name you prefer.
+3. Move the renamed folder to one of your <a href="https://herd.laravel.com/docs/1/getting-started/sites" target="_blank">site directories</a>. For example, you can move it to `~/Herd`.
+4. Open your browser and visit `foldername.test` to start the installation process. Remember to replace `foldername` with the actual name of the folder.
 
-Simply open your terminal or command prompt and paste the following command:
-
-```
-npm install -g @devdojo/static
-```
-
-Press Enter and in a few seconds **Static** will be installed on your machine. You can verify that Static is installed by running the following command:
-
-```
-static --version
-```
-
-This command will display the current version installed on your machine.
-
-## Static Commands
-
-After you've installed Static you'll have a few new commands available in your arsenal:
-
-- **static new** - Create a new Static website
-- **static dev** - Start a Static Development Server in the current directory
-- **static build** - Build your site and make it ready for production
-
-
-### Static New
-
-This command will create a new Static website in a new folder:
-
-```
-static new folder-name
-```
-
-You will pass one argument to the `static new` command which will be the **folder-name** you wish to create and install a static website. You can place this folder anywhere on your computer.
-
-> Some people like to create an easy to find Sites folder on their machine. This is where they will store all their local websites. It's totally up to as to where you want to store your websites.
-
-### Static Dev
-
-This command will start a dev server inside of the current folder. As an example, say that we had a website created at `~/Sites/radical`, we will want to be inside that folder `cd ~/Sites/radical`, and run:
-
-```
-static dev
-```
-
-You'll see a new message that says `Server running at http://localhost:3000`. This means that you can now navigate to **http://localhost:3000** in your browser to see a live working version of your website.
-
-### Static Build
-
-This command will build your website into a new `_site` folder. All the assets and HTML files for your newly built website will be added to this folder. Using the example project from the previous section we could build our site by running the following commands:
-
-```
-cd ~/Sites/radical
-static build
-```
-
-You should see a message that says your new website has been successfully built. You can now move the contents of the `_site` folder to the hosting solution of your choice. This could be an Amazon S3 bucket or Github pages.
-
-> If you want to build your site and host it on Github Pages, we actually have an action for that, which can make this process as simple as possible.
+> 🎉 That’s it! Wave is now installed. If you encounter any errors during the automated installer, continue reading; otherwise, skip to the **Database** section
 
 ---
 
-Those are the basic commands that you'll be using to develop and build your awesome new websites. Next, we'll dive into all the goodies that you get with Static.
+If receive an error when trying to run through the automated installer, you may need to run the following commands from your project folder:
+
+```bash
+cp .env.example .env
+composer install
+```
+
+Then, visit the project URL in the browser to finish the installation.
+
+## Database
+
+By default Wave uses an `SQLite` connection stored at `database/database.sqlite`. If you wish, you can change this connection from inside your `.env` file. As an example, this is how a MySQL connection will look: 
+
+```bash
+CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=database-name
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+In most cases `SQLite` will work totally fine.
+
+<a name="login"></a>
+## Logging into your Application
+
+After installing Wave, you should automatically be logged in as the admin user. If you need to log in again, you can use the following credentials:
+
+- **email**: admin@admin.com
+- **password**: password
+
+Once you've logged in, you can modify the admin email, username, and password by accessing the settings section within the user menu.
+
+---
+
+Next, we'll cover a few more local development commands.

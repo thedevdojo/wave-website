@@ -6,7 +6,7 @@ import focus from '@alpinejs/focus'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
  
-
+window.TOCoffset = 150;
 
 gsap.registerPlugin(ScrollTrigger);
  
@@ -252,6 +252,20 @@ function domReadyLoop(){
     }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const proseLinks = document.querySelectorAll('.prose ul li a');
+    proseLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            if(link.getAttribute('href').startsWith('#')) {
+                event.preventDefault();
+                renderLinkAsTOC(link);
+            }
+            //console.log(`Link clicked: ${this.href}`);
+            // Add any additional functionality as needed
+        });
+    });
+});
+
 
 document.addEventListener("DOMContentLoaded", function() {
     hljs.highlightAll();
@@ -291,17 +305,7 @@ window.renderTocFunctionality = function(){
     tocALinks.forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const offset = 99; // Adjust the offset value as per your requirement
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                window.scrollTo({
-                    top: targetPosition - offset,
-                    behavior: 'smooth'
-                });
-            }
+            renderLinkAsTOC(link);
         });
     });
 
@@ -335,14 +339,28 @@ window.renderTocFunctionality = function(){
     });
 }
 
+window.renderLinkAsTOC = function(link){
+    const targetId = link.getAttribute('href').substring(1);
+    const offset = TOCoffset; // Adjust the offset value as per your requirement
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+            top: targetPosition - offset,
+            behavior: 'smooth'
+        });
+    }
+}
+
 // Helper function to check if an element is in the viewport
 function isElementAtTopAndNotReachedNextSection(element) {
     const rect = element.getBoundingClientRect();
     const nextSection = document.querySelector('section + section');
 
     return (
-        rect.top <= 100 &&
-        (!nextSection || rect.bottom < (nextSection.offsetTop +100))
+        rect.top <= TOCoffset &&
+        (!nextSection || rect.bottom < (nextSection.offsetTop +TOCoffset))
     );
 }
 

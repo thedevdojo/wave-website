@@ -23,16 +23,17 @@
             {static_content_element}
             <div class="pt-24 mx-auto mt-3.5 mr-0 max-w-4xl md:pr-5 lg:mr-64 lg:pr-0">
 
-                <include src="docs/home-header.html"></include>
             
-                <article class="w-full max-w-full text-gray-500 prose-sm prose lg:prose-md">
+                <article class="w-full max-w-full text-gray-500 prose-sm prose lg:prose-lg">
                     {content}
                 </article>
+
+                <div class="mt-8 w-full h-px bg-gradient-to-r from-gray-50 via-gray-200 to-gray-50"></div>
 
                 <div class="flex flex-col gap-5 justify-between items-stretch my-8 md:flex-row">
                     <If condition="frontmatter.prevURL != 'undefined' && frontmatter.prevURL != null">
                         <button hx-get="{frontmatter.prevURL}" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
-                            class="flex items-center p-4 w-full rounded-md border ease-linear md:w-1/2 duration-50 border-neutral-700 hover:border-yellow-400 text-neutral-400 group hover:text-yellow-400">
+                            class="flex items-center p-4 w-full rounded-md border shadow-sm ease-linear md:w-1/2 duration-50 border-neutral-100 hover:bg-black hover:border-black text-neutral-600 group hover:text-white">
                             <svg class="mr-4 ml-1.5 w-6 h-6 duration-300 ease-out group-hover:-translate-x-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="none"><path d="M3.75 12h16.5m-16.5 0l6.5 6.25M3.75 12l6.5-6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
                             <div class="flex flex-col justify-center items-start">
                                 <small>Back</small>
@@ -42,14 +43,14 @@
                     </If>
 
                     <If condition="frontmatter.prevURL == 'undefined' || frontmatter.prevURL == null || frontmatter.prevURL == ''">
-                        <div class="hidden justify-center items-center py-8 w-full text-sm rounded-md border opacity-50 ease-linear md:flex md:w-1/2 duration-50 border-neutral-700 text-neutral-400 group bg-neutral-900">
+                        <div class="hidden justify-center items-center py-8 w-full text-sm bg-gray-50 rounded-md border opacity-50 ease-linear md:flex md:w-1/2 duration-50 border-neutral-200 text-neutral-400 group">
                             No Previous Section
                         </div>
                     </If>
 
                     <If condition="frontmatter.nextURL != null">
                         <button hx-get="{frontmatter.nextURL}" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
-                            class="flex justify-end items-center p-4 w-full rounded-md border ease-linear md:w-1/2 duration-50 border-neutral-700 hover:border-yellow-400 text-neutral-400 group hover:text-yellow-400">
+                            class="flex justify-end items-center p-4 w-full rounded-md border shadow-sm ease-linear border-neutral-100 md:w-1/2 duration-50 hover:bg-black hover:border-black text-neutral-600 group hover:text-white">
                             <div class="flex flex-col justify-center items-end">
                                 <small>Next Page</small>
                                 <p class="text-xl group-hover:text-white">{frontmatter.nextTitle}</p>
@@ -59,7 +60,7 @@
                     </If>
 
                     <If condition="frontmatter.nextURL == 'undefined' || frontmatter.nextURL == null || frontmatter.nextURL == ''">
-                        <div class="hidden justify-center items-center py-8 w-full text-sm rounded-md border opacity-50 ease-linear md:flex md:w-1/2 duration-50 border-neutral-700 text-neutral-400 group bg-neutral-900">
+                        <div class="hidden justify-center items-center py-8 w-full text-sm bg-gray-50 rounded-md border opacity-50 ease-linear md:flex md:w-1/2 duration-50 border-neutral-200 text-neutral-400 group">
                             No Next Section
                         </div>
                     </If>

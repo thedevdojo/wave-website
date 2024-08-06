@@ -7,6 +7,7 @@ prevTitle: 'Collections'
 prevURL: '/docs/features/collections'
 ---
 
+<a name="user-notifications"></a>
 # User Notifications
 
 Wave leverages the default <a href="https://laravel.com/docs/notifications" target="_blank">Laravel Notification</a> system and gives you an elegant UI to display those notifications in your app.
