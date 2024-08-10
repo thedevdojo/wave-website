@@ -18,7 +18,7 @@ To download a fresh copy of Wave, click the download button below.<span class="h
 <div class="flex relative justify-start items-start">
 <div class="flex overflow-hidden relative justify-center items-center p-1 mb-5 rounded-full border border-gray-200 duration-300 ease-out group">
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[250px] rounded-full group-hover:opacity-100 opacity-0 blur-sm duration-300 ease-out scale-100 h-[250px] -translate-y-1/2 origin-center">
-        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-400 via-teal-300 to-blue-600 rounded-full group-hover:animate-spin"></span>
+        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-500 via-teal-300 to-blue-500 rounded-full group-hover:animate-spin-slow"></span>
     </div>
     
     <a href="/wave/download" class="inline-block relative z-20 flex-shrink-0 px-6 py-3 w-full text-sm font-bold text-center text-white no-underline bg-gray-900 rounded-full shadow-xl sm:w-auto hover:bg-gray-950">Download Wave V3</a>

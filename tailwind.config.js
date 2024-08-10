@@ -13,7 +13,7 @@ module.exports = {
                 marqueefast2: 'marquee2 15s linear infinite',
                 marqueefaster: 'marquee 10s linear infinite',
                 marqueefaster2: 'marquee2 10s linear infinite',
-                'spin-slow': 'spin 4s linear infinite',
+                'spin-slow': 'spin 2s linear infinite',
             },
             keyframes: {
                 marquee: {
