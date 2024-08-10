@@ -41,29 +41,42 @@ Building apps with Wave should be fun and exciting! It has a ton of features to 
 
 Here's an overview of Wave's key features, which we'll explore in more detail later.
 
-**Authentication** - Wave ships with authentication allowing users to Login, Register, Verify Email, Password Reset/Confirmation, and enable Two-Factor authentication.
+ - **Authentication** - Wave ships with authentication allowing users to Login, Register, Verify Email, Password Reset/Confirmation, and enable Two-Factor authentication.
 
-**User Management** - Users can have roles and permissions to access certain parts of your app. Wave also includes features for impersonation, user management, and user profiles.
+ - **User Management** - Users can have roles and permissions to access certain parts of your app. Wave also includes features for impersonation, user management, and user profiles.
 
-**Billing**
+ - **Billing** - You can easily integrate Stripe or Paddle into your application. Create subscription plans and associate them with user roles to control access to specific features.
 
-You can easily integrate Stripe or Paddle into your application. Create subscription plans and associate them with user roles to control access to specific features.
+ - **Changelog** - Creating a changelog is a great way to notify users about new features and fixes while keeping yourself accountable. Document your progress in the changelog.
 
-**Changelog** - Creating a changelog is a great way to notify users about new features and fixes while keeping yourself accountable. Document your progress in the changelog.
+- **Blog** - Write blog posts and attract free traffic from search engines. Share your knowledge about technology and tools as you build your SaaS.
 
-**Blog** - Write blog posts and attract free traffic from search engines. Share your knowledge about technology and tools as you build your SaaS.
+- **API** - API tokens can be created for API access. These tokens are used to generate Bearer tokens for authenticating future API requests.
 
-**API** - API tokens can be created for API access. These tokens are used to generate Bearer tokens for authenticating future API requests.
+- **Admin** - Wave leverages FilamentPHP for admin CRUD functionality. You may also use the Table Builder, Form Builder, Notifications, and more within theme files.
 
-**Admin** - Wave leverages FilamentPHP for admin CRUD functionality. You may also use the Table Builder, Form Builder, Notifications, and more within theme files.
-
-**Themes** - Customize your app's look and feel with Wave's theming system. Each theme in `resources/views/theme` includes its own assets and views.
+- **Themes** - Customize your app's look and feel with Wave's theming system. Each theme in `resources/views/theme` includes its own assets and views.
 
 ### Under The Hood
 
-asdf
+Along with Wave being built with the Laravel Framework, there are also a good amount of other technologies under the hood. Below is a list of them.
 
+**Technologies**
 
+- <a href="https://livewire.laravel.com" target="_blank" class="font-bold">Livewire</a> - Waves functionalitiy heavily relies on Livewire, in fact all the functionality in each of the themes utilize Livewire. It makes building interactive applications so fun and easy.
+- <a href="https://filamentphp.com" target="_blank" class="font-bold">FilamentPHP</a> - We use Filament as the main Admin section for Wave. Along with Filament panels, you can also take advantage of the Filament Table Builder, Form Builder, and Notifications inside your theme files.
+- <a href="https://tailwidcss.com" target="_blank" class="font-bold">Tailwind CSS</a> - Tailwind makes it easy and simple to stylize your application.
+- <a href="https://alpinejs.dev" target="_blank" class="font-bold">Alpine</a> - Easily add in sprinkles of Javascript functionality with Alpine. Pairs perfectly with Livewire.
+- <a href="https://vitejs.dev/" target="_blank" class="font-bold">Vite</a> - We utilize the default Laravel Vite functionality to run and build assets for each theme. 
+
+**Packages**
+
+- <a href="https://devdojo.com/auth" target="_blank" class="font-bold">DevDojo Auth</a> - We use the DevDojo Auth which gives you a full authenticaiton system in your app.
+- <a href="https://github.com/thedevdojo/themes" target="_blank" class="font-bold">DevDojo Themes</a> - The themes functionality for Wave is extracted into it's own theme package.
+- <a href="https://github.com/404labfr/laravel-impersonate" target="_blank" class="font-bold">Impersonation Package</a>
+- <a href="https://spatie.be/docs/laravel-permission" target="_blank" class="font-bold">Spatie Roles (Permissions) Package</a>
+- <a href="https://laravel.com/docs/folio" target="_blank" class="font-bold">Laravel Folio</a> - Inside of each theme folder, you can include a `pages` directory and these will utilize Folio and be mapped to a route.
+- <a href="https://livewire.laravel.com/docs/volt" target="_blank" class="font-bold">Laravel Volt</a> - Many folio pages in Wave utilize Wave for creating single-file volt functionality.
 
 ## Demo
 

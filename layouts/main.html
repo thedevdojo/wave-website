@@ -202,6 +202,7 @@
           templatePreview: false, 
           templateDropdownShow: false,
           iframeReady: false,
+          docsAvailable: false,
           activeTemplate: null,
           templateURL: 'about:blank',
           iframeURL: 'about:blank',
@@ -216,6 +217,14 @@
                 console.log('change');
                 console.log(slug);
             }, 100);
+          },
+          sidebarOpenClick: function(){
+            if(this.docsAvailable){ 
+              this.leftSidebar=!this.leftSidebar;
+            } else {
+              docsURL = $el.dataset.docsurl;
+              window.location.href=docsURL;
+            }
           },
           showTemplatePreview: function(templateURL){
             this.iframeURL = 'about:blank';
@@ -265,6 +274,13 @@
                 }
                 return '';
             },
+            ajaxLoaded(){
+              if(document.getElementById('docs-sidebar')){ 
+                this.docsAvailable = true;
+              } else { 
+                this.docsAvailable = false;
+              }
+            },
             slug(){
                 if(this.activeTemplate != null){
                     return this.activeTemplate.slug;
@@ -285,6 +301,11 @@
             } 
             }"
         x-init="
+            if(document.getElementById('docs-sidebar')){ 
+              docsAvailable = true;
+            } else { 
+              docsAvailable = false;
+            }
             $watch('leftSidebar', function(value){
                 if(value){
                     window.dispatchEvent(new CustomEvent('close-mobile-menu', {}));
@@ -300,7 +321,10 @@
         @set-active-template.window="setActiveTemplate(event.detail.slug);"
         @close-left-sidebar.window="leftSidebar = false"
         x-init="route=window.location.pathname" 
-        @set-route.window="route=event.detail.route" id="site">
+        @set-route.window="route=event.detail.route"
+        data-docsurl="{ url('/docs') }" 
+        @ajax-loaded.window="ajaxLoaded()"
+        id="site">
       <include src="header.html"></include>
       
       <div id="site-content" class="relative z-20">

@@ -293,6 +293,7 @@ document.addEventListener('htmx:afterSettle', function(evt) {
     setTimeout(function(){
         updateTOC();
         markdownTOCClickFunc();
+        window.dispatchEvent(new CustomEvent('ajax-loaded'));
     }, 10);
 });
 
