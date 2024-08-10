@@ -1,13 +1,12 @@
 ---
 title: User Notifications
 description: Learn how to add content to your website
-nextTitle: 'Live-Reloading'
-nextURL: '/docs/features/live-reloading'
-prevTitle: 'Collections'
-prevURL: '/docs/features/collections'
+prevTitle: 'Roles & Permissions'
+prevURL: '/docs/features/roles-permissions'
+nextTitle: 'Changelog'
+nextURL: '/docs/features/changelog'
 ---
 
-<a name="user-notifications"></a>
 # User Notifications
 
 Wave leverages the default <a href="https://laravel.com/docs/notifications" target="_blank">Laravel Notification</a> system and gives you an elegant UI to display those notifications in your app.

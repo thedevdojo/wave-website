@@ -6,10 +6,12 @@
                     <span class="{icon_class}"></span>
                     <span class="ml-1.5">{title}</span>
                 </h2>
-                <p class="mt-4 text-sm text-gray-500">
+                <p class="my-4 text-sm text-gray-500">
                     {description}
                 </p>
-                <a href="{link_href}" class="inline-block px-4 py-2.5 mt-5 text-sm font-semibold text-white bg-gray-900 rounded-full shadow-sm hover:bg-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">{link_text}</a>
+                <include src="elements/button.html"
+                      text="{link_text}"
+                      link="{link_href}"></include>
             </div>
         </div>
         <div class="relative mt-12 w-1/2 sm:mt-16 lg:mt-0">

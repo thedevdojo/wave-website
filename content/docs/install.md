@@ -13,9 +13,19 @@ Before installation you need a local PHP development environment. The easiest wa
 
 ## Download Wave
 
-To download a fresh copy of Wave, click the button below. You can also find download links to all <a href="https://github.com/thedevdojo/wave/tags" target="_blank">versions here</a>.
+To download a fresh copy of Wave, click the download button below.<span class="hidden">You can also find links to all <a href="https://github.com/thedevdojo/wave/tags" target="_blank">versions here</a>.</span>
 
-<a href="/wave/download" class="inline-block flex-shrink-0 px-6 py-3 mb-5 w-full text-sm font-bold text-center text-white no-underline bg-gray-900 rounded-full shadow-xl sm:w-auto hover:bg-gray-950">Download Wave V3</a>
+<div class="flex relative justify-start items-start">
+<div class="flex overflow-hidden relative justify-center items-center p-1 mb-5 rounded-full border border-gray-200 duration-300 ease-out group">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[250px] rounded-full group-hover:opacity-100 opacity-0 blur-sm duration-300 ease-out scale-100 h-[250px] -translate-y-1/2 origin-center">
+        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-400 via-teal-300 to-blue-600 rounded-full group-hover:animate-spin"></span>
+    </div>
+    
+    <a href="/wave/download" class="inline-block relative z-20 flex-shrink-0 px-6 py-3 w-full text-sm font-bold text-center text-white no-underline bg-gray-900 rounded-full shadow-xl sm:w-auto hover:bg-gray-950">Download Wave V3</a>
+</div>
+</div>
+
+
 
 After downloading, follow these steps to finish the installation:
 
@@ -30,10 +40,8 @@ After downloading, follow these steps to finish the installation:
 
 If receive an error when trying to run through the automated installer, you may need to run the following commands from your project folder:
 
-```bash
-cp .env.example .env
-composer install
-```
+<div class="p-5 font-mono text-sm bg-gray-800 rounded-xl leading-[24px] whitespace-break-spaces"><span class="text-[#62d6e8]">cp</span> <span class="text-[#f8e164]">.env.example</span> <span class="text-[#f8e164]">.env</span>&nbsp;
+<span class="text-[#62d6e8]">composer</span> <span class="text-[#f8e164]">install</span></div>
 
 Then, visit the project URL in the browser to finish the installation.
 
@@ -41,13 +49,13 @@ Then, visit the project URL in the browser to finish the installation.
 
 By default Wave uses an `SQLite` connection stored at `database/database.sqlite`. If you wish, you can change this connection from inside your `.env` file. As an example, this is how a MySQL connection will look: 
 
-```bash
+```ini
 CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=database-name
 DB_USERNAME=root
-DB_PASSWORD=
+DB_PASSWORD=''
 ```
 
 In most cases `SQLite` will work totally fine.

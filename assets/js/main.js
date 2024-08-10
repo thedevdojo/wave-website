@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function loadGsapAnimations(){
 
-    
+    FeatureScroller();
 
     if(document.getElementById('radical')){
         gsap.to("#radical", {
@@ -244,37 +244,44 @@ function domReadyLoop(){
                     // start the slide down
                     const tl = gsap.timeline();
 
-                    tl.set('.slideDown', { y: 0, yPercent: -100 })
+                    tl.set('.slideDown', { y: 0, yPercent: -100, position: 'fixed' })
                                     .to('.slideDown', { duration: 2, ease: 'power3.out', yPercent: 100, force3D: true});
+
+                    // setTimeout(function(){
+                    //     document.querySelector('.slideDown').remove();
+                    // }, 300);
                 }, 150);
             }       
         }, 500);
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+window.markdownTOCClickFunc = function(){
     const proseLinks = document.querySelectorAll('.prose ul li a');
+    console.log('prose');
+    console.log(proseLinks);
     proseLinks.forEach(link => {
         link.addEventListener('click', function(event) {
+            console.log('clicked');
             if(link.getAttribute('href').startsWith('#')) {
                 event.preventDefault();
                 renderLinkAsTOC(link);
             }
-            //console.log(`Link clicked: ${this.href}`);
-            // Add any additional functionality as needed
         });
     });
-});
+}
 
 
 document.addEventListener("DOMContentLoaded", function() {
     hljs.highlightAll();
+    markdownTOCClickFunc();
 });
 
 document.addEventListener('htmx:afterSwap', function(evt) {
     setTimeout(function(){
         domReadyLoop();
         hljs.highlightAll();
+        markdownTOCClickFunc();
         loadGsapAnimations();
         //createRadialBackgrounds();
         window.dispatchEvent(new CustomEvent('set-route', { detail: { route: evt.detail.pathInfo.requestPath } }));
@@ -285,6 +292,7 @@ document.addEventListener('htmx:afterSwap', function(evt) {
 document.addEventListener('htmx:afterSettle', function(evt) {
     setTimeout(function(){
         updateTOC();
+        markdownTOCClickFunc();
     }, 10);
 });
 
@@ -346,6 +354,12 @@ window.renderLinkAsTOC = function(link){
 
     if (targetElement) {
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        // Get the current URL without any hash
+        let currentURL = window.location.href.split('#')[0];
+        // Append the targetId to the URL
+        let newURL = currentURL + '#' + targetId;
+        // Update the URL
+        window.history.pushState({path:newURL},'',newURL);
         window.scrollTo({
             top: targetPosition - offset,
             behavior: 'smooth'
@@ -373,8 +387,7 @@ function setAllOthersToInactive(link){
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  
+window.FeatureScroller = function(){
     const marquee = document.getElementById('vertical-marquee');
     const itemsContainer = document.getElementById('marquee-container');
   
@@ -382,15 +395,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollHeight = itemsContainer.scrollHeight;
     const containerHeight = marquee.offsetHeight;
   
-    // Create the scroll trigger animation
-    gsap.to(itemsContainer, {
-      yPercent: -30 * (scrollHeight / containerHeight - 1),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: marquee,
-        start: 'top bottom',  // Start the animation when the top of the marquee hits the bottom of the viewport
-        end: 'bottom top',    // End the animation when the bottom of the marquee hits the top of the viewport
-        scrub: true           // Link the animation to the scroll position
-      }
-    });
-  });
+    if(itemsContainer){
+        // Create the scroll trigger animation
+        gsap.to(itemsContainer, {
+        yPercent: -30 * (scrollHeight / containerHeight - 1),
+        ease: 'none',
+        scrollTrigger: {
+            trigger: marquee,
+            start: 'top bottom',  // Start the animation when the top of the marquee hits the bottom of the viewport
+            end: 'bottom top',    // End the animation when the bottom of the marquee hits the top of the viewport
+            scrub: true           // Link the animation to the scroll position
+        }
+        });
+    }
+}

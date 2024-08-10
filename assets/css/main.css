@@ -96,3 +96,60 @@
   .features-icon{
     background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="16 130.29 54.4 168 144 80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="125.96 144 150.4 168 240 80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>');
   }
+
+
+/* https://cdn.devdojo.com/images/august2024/helm-birds-pattern.png
+https://cdn.devdojo.com/images/august2024/wave-wind-pattern.png
+https://cdn.devdojo.com/images/august2024/boat-star-pattern.png
+https://cdn.devdojo.com/images/august2024/anchor-pattern.png
+https://cdn.devdojo.com/images/august2024/helm-pattern.png
+https://cdn.devdojo.com/images/august2024/wavy-pattern.png
+https://cdn.devdojo.com/images/august2024/wavyer-pattern.png */
+
+.pattern-helm-birds{
+    background-image: url('https://cdn.devdojo.com/images/august2024/helm-birds-pattern.png');
+    background-repeat: repeat;
+    background-size: 120px auto; /* Adjust as needed */
+}
+
+.pattern-wave-wind{
+  background-image: url('https://cdn.devdojo.com/images/august2024/wave-wind-pattern.png');
+  background-repeat: repeat;
+  background-size: 10 0px auto; /* Adjust as needed */
+}
+
+.pattern-boat-star{
+  background-image: url('https://cdn.devdojo.com/images/august2024/boat-star-pattern.png');
+  background-repeat: repeat;
+  background-size: 100px auto; /* Adjust as needed */
+}
+
+.pattern-anchor{
+  background-image: url('https://cdn.devdojo.com/images/august2024/anchor-pattern.png');
+  background-repeat: repeat;
+  background-size: auto; /* Adjust as needed */
+}
+
+.pattern-helm{
+  background-image: url('https://cdn.devdojo.com/images/august2024/helm-pattern.png');
+  background-repeat: repeat;
+  background-size: 50px auto /* Adjust as needed */
+}
+
+.pattern-dots{
+  background-image: url('https://cdn.devdojo.com/assets/svg/dots.svg');
+  background-repeat: repeat;
+  background-size: 50px 50px; /* Adjust as needed */
+}
+
+.pattern-wavy{
+  background-image: url('https://cdn.devdojo.com/images/august2024/wavy-pattern.png');
+  background-repeat: repeat;
+  background-size: 60px 60px;
+}
+
+.pattern-wavyer{
+  background-image: url('https://cdn.devdojo.com/images/august2024/wavyer-pattern.png');
+  background-repeat: repeat;
+  background-size: 150px 150px; /* Adjust as needed */
+}

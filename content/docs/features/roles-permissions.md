@@ -1,10 +1,10 @@
 ---
-title: Roles and Permissions
+title: User Roles and Permissions
 description: Assign roles and Permissions to users in your application
-nextTitle: 'Live-Reloading'
-nextURL: '/docs/features/live-reloading'
-prevTitle: 'Collections'
-prevURL: '/docs/features/collections'
+prevTitle: 'Subscription Plans'
+prevURL: '/docs/features/subscription-plans'
+nextTitle: 'User Notifications'
+nextURL: '/docs/features/notifications'
 ---
 
 # Roles and Permissions

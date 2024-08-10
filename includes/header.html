@@ -103,7 +103,7 @@ x-init="
     }, 100);
 " 
 @close-mobile-menu.window="mobileMenu=false"
-class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-center border-b border-zinc-900/5 bg-opacity-90 bg-white backdrop-blur-3xl">
+class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-center border-b border-zinc-900/5 bg-opacity-80 bg-white backdrop-blur-3xl">
 
     <div id="nav-border" class="absolute bottom-0 left-0 w-full h-px opacity-0 duration-500 ease-out">
         <div class="relative w-full h-px bg-white opacity-20"></div>
@@ -123,7 +123,7 @@ class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-ce
                     :style="'width:' + markerPosition.width + 'px; height:' + markerPosition.height + 'px; top:' + markerPosition.top + 'px; left:' + markerPosition.left + 'px;'"
                     ></div>
                 <div id="nav-items" class="relative z-50 flex-col  items-center justify-center w-full h-auto px-1.5 py-[5px] text-xs font-semibold text-center text-gray-400 md:rounded-full md:w-auto md:h-10 md:flex-row md:items-center">
-                    <button hx-get="/" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" data-home @click="active='home'; fullWidth=false; scrollTop(); resetProgressWidth(); mobileMenu=false" @mouseenter="calculateMarkerPosition($el); hovered='home'" 
+                    <button hx-get="{ url('/?newwave=true') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" data-home @click="active='home'; fullWidth=false; scrollTop(); resetProgressWidth(); mobileMenu=false" @mouseenter="calculateMarkerPosition($el); hovered='home'" 
                         :class="{ 'text-gray-900' : hovered == 'home', 'text-gray-400': hovered != 'home' }"
                         class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-3 my-2 w-full h-full leading-tight text-center rounded-full transition-colors md:py-2 group md:my-0 md:w-auto md:text-center">
                         <span>Home</span>
@@ -131,7 +131,7 @@ class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-ce
                             :class="{ 'w-full left-0' : active=='home', 'w-0 left-1/2' : active!='home' }"    
                             class="absolute bottom-0 px-1.5 h-px duration-300 ease-out translate-y-1.5"><span class="block relative w-full h-px bg-gradient-to-r opacity-30 md:from-white/0 md:via-white md:to-white/0"></span></span>
                     </button> 
-                    <button hx-get="/templates" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="active='templates'; fullWidth=true; scrollTop(); resetProgressWidth(); route=$el.getAttribute('hx-get');  mobileMenu=false" data-templates @mouseenter="calculateMarkerPosition($el); hovered='templates'" 
+                    <button hx-get="{ url('/templates') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="active='templates'; fullWidth=true; scrollTop(); resetProgressWidth(); route=$el.getAttribute('hx-get');  mobileMenu=false" data-templates @mouseenter="calculateMarkerPosition($el); hovered='templates'" 
                         :class="{ 'text-gray-900' : hovered == 'templates', 'text-gray-400': hovered != 'templates' }"
                         class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-3 my-2 w-full h-full leading-tight text-center rounded-full transition-colors md:py-2 group md:my-0 md:w-auto md:text-center">
                         <span>Themes</span>
@@ -147,7 +147,7 @@ class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-ce
                             :class="{ 'w-full left-0' : active=='components', 'w-0 left-1/2' : active!='components' }"    
                             class="absolute bottom-0 px-1.5 h-px duration-300 ease-out translate-y-1.5"><span class="block relative w-full h-px bg-gradient-to-r opacity-30 md:from-white/0 md:via-white md:to-white/0"></span></span>
                     </button> 
-                    <button hx-get="/docs/getting-started" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="active='docs'; fullWidth=true; scrollTop(); resetProgressWidth(); route=$el.getAttribute('hx-get');  mobileMenu=false" data-docs @mouseenter="calculateMarkerPosition($el); hovered='docs'"
+                    <button hx-get="{ url('/docs/getting-started') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="active='docs'; fullWidth=true; scrollTop(); resetProgressWidth(); route=$el.getAttribute('hx-get');  mobileMenu=false" data-docs @mouseenter="calculateMarkerPosition($el); hovered='docs'"
                         :class="{ 'text-gray-900' : hovered == 'docs', 'text-gray-400': hovered != 'docs' }"
                         class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-3 my-2 w-full h-full leading-tight text-center rounded-full transition-colors md:py-2 group md:my-0 md:w-auto md:text-center">
                         <span>Documentation</span>
@@ -174,7 +174,19 @@ class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-ce
             </div>
 
             <div class="hidden lg:ml-8 lg:flex lg:items-center">
-                <a class="inline-flex justify-center px-3.5 py-2.5 ml-8 text-xs font-semibold text-white bg-gray-900 rounded-full shadow-sm group hover:bg-gray-800" href="/docs/install"><span>Start Building <span class="inline-block duration-300 ease-out group-hover:translate-x-0.5" aria-hidden="true">→</span></span></a>
+
+                <div class="flex overflow-hidden relative justify-center items-center p-1 rounded-full border border-gray-200 duration-300 ease-out group">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[150px] rounded-full group-hover:opacity-100 opacity-0 blur-sm duration-300 ease-out scale-100 h-[150px] -translate-y-1/2 origin-center">
+                        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-400 via-teal-300 to-blue-600 rounded-full group-hover:animate-spin"></span>
+                    </div>
+                    
+                    <a class="inline-flex z-10 justify-center px-3.5 py-2.5 text-xs font-semibold text-white bg-gray-900 rounded-full shadow-sm shadow-xl group hover:bg-black" href="/docs/install">
+                        <svg class="mr-1 w-4 h-4 duration-300 ease-out group-hover:-translate-x-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M208,216H48a8,8,0,0,1-8-8V72L56,40H200l16,32V208A8,8,0,0,1,208,216Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="40" y1="72" x2="216" y2="72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="104" x2="128" y2="184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="96 152 128 184 160 152" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg><span>Download</span>
+                    </a>
+                </div>
+
+                <!-- <a class="inline-flex justify-center px-3.5 py-2.5 ml-8 text-xs font-semibold text-white bg-gray-900 rounded-full shadow-sm group hover:bg-gray-800" href="/docs/install">
+                    <svg class="mr-1 w-4 h-4 duration-300 ease-out group-hover:-translate-x-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M208,216H48a8,8,0,0,1-8-8V72L56,40H200l16,32V208A8,8,0,0,1,208,216Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="40" y1="72" x2="216" y2="72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="104" x2="128" y2="184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="96 152 128 184 160 152" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg><span>Download</span></a> -->
             </div>
 
             <!-- <div  class="flex relative items-center space-x-3 font-medium leading-10 md:flex-grow-0 md:flex-shrink-0 md:mt-0 md:text-right lg:flex-grow-0 lg:flex-shrink-0">

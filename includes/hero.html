@@ -1,37 +1,56 @@
-<section id="hero-container" class="overflow-hidden relative z-20 w-full bg-white hero-section">
+<section id="hero-container" class="overflow-hidden relative z-20 w-full hero-section">
 
-  <!-- <img src="https://wave.test/wave/img/character.png" class="absolute -translate-y-full bottom-0 right-0 w-[400px] h-auto z-50"> -->
+  
 
-    <div class="overflow-hidden relative z-10 pt-8 w-full md:pt-20 lg:pt-0 lg:relative">
+  <div class="absolute inset-0 z-[11] w-full h-[500px] bg-gradient-to-t from-white via-white"></div>
+  <div class="absolute left-0 top-0 z-[11] w-1/2 h-[500px] bg-gradient-to-r from-white via-white"></div>
+  <div class="absolute right-0 top-0 z-[11] w-1/2 h-[500px] bg-gradient-to-l from-white via-white"></div>
+  <div class="absolute inset-0 z-10 w-full h-[500px] max-h-screen opacity-100 pattern-dots"></div>
+
+    <div class="overflow-hidden relative z-20 pt-8 w-full md:pt-20 lg:pt-0 lg:relative">
         <div class="hidden absolute top-0 left-0 pb-20 w-screen z-10 h-[800px] translate-y-20 pointer-events-none opacity-0 transform lg:pb-0 lg:h-[700px] lg:block">
             <svg xmlns="http://www.w3.org/2000/svg" class="object-cover absolute left-0 w-full h-full opacity-25 sm:opacity-100" viewBox="0 0 1440 749" height="749"><defs><linearGradient id="a" x1="100%" x2="9.488%" y1="37.276%" y2="37.276%"><stop offset="0%" stop-color="#5dcbfa"/><stop offset="100%" stop-color="#5dcbfa" stop-opacity="0"/></linearGradient><linearGradient id="c" x1="100%" x2="9.488%" y1="37.276%" y2="37.276%"><stop offset="0%" stop-color="#0069ff"/><stop offset="100%" stop-color="#0069ff" stop-opacity="0"/></linearGradient><linearGradient id="e" x1="9.488%" x2="100%" y1="37.276%" y2="37.276%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></linearGradient><filter id="b" width="147.3%" height="470.7%" x="-23.7%" y="-185.4%" filterUnits="objectBoundingBox"><feGaussianBlur in="SourceGraphic" stdDeviation="50"/></filter><filter id="d" width="147.3%" height="470.7%" x="-23.7%" y="-185.4%" filterUnits="objectBoundingBox"><feGaussianBlur in="SourceGraphic" stdDeviation="50"/></filter><filter id="f" width="147.3%" height="470.7%" x="-23.7%" y="-185.4%" filterUnits="objectBoundingBox"><feGaussianBlur in="SourceGraphic" stdDeviation="50"/></filter></defs><g fill="none" fill-rule="evenodd" opacity=".8"><path fill="url(#a)" d="M221.284 106.384 185.95 185.7l598.833 1.605 35.334-79.316z" filter="url(#b)" transform="rotate(-20 199.62 93.344)"/><path fill="url(#c)" d="m570.284 115.309-35.334 79.316 598.833 1.605 35.334-79.316z" filter="url(#d)" transform="rotate(-20 548.62 102.27)"/><path fill="url(#e)" d="m599.284 560.567-35.334 79.316 598.833 1.605 35.334-79.316z" filter="url(#f)" transform="rotate(-20 577.62 547.528)"/></g></svg>
         </div>
 
         <div id="container" class="flex relative z-20 flex-col items-center px-3 pb-28 mx-auto max-w-7xl h-auto md:pt-0 lg:flex-row lg:relative">
             <div class="px-6 pt-40 mx-auto max-w-7xl lg:px-8">
-                <div class="relative mx-auto max-w-3xl text-center">
-                  <h1 class="text-6xl font-bold text-gray-950 sm:text-7xl giarek">Think Wordpress or Shopify,<br> but for SaaS builders. </h1>
-                  <p class="mx-auto mt-5 max-w-lg text-lg leading-7 text-gray-600">Wave is the perfect boilerplate for launching a SaaS, AI tool, or web app and making your first dollars online quickly.</p>
+                <div class="relative z-20 mx-auto max-w-3xl text-center">
+                  <h1 class="text-5xl font-bold text-gray-950 sm:text-6xl giarek">Think Wordpress or Shopify,<br> but for SaaS builders. </h1>
+                  <p class="mx-auto mt-5 max-w-md text-base leading-7 text-gray-600">Wave is the perfect boilerplate for launching a SaaS, AI tool, or web app and making your first dollars online quickly.</p>
                   <div class="flex gap-x-6 justify-center items-center mt-6">
 
-                    <include src="elements/button.html"></include>
+                    <include src="elements/button.html"
+                      text="Start Building"
+                      link="/docs/install"></include>
                     <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
                   </div>
                   
                 </div>
-                <div class="flow-root relative mt-12 w-full sm:mt-20">
+                <div class="flow-root relative z-10 mt-12 w-full sm:mt-20">
+
+                  <div class="flex absolute inset-0 top-0 z-10 justify-center items-start mt-40 w-full h-screen opacity-10">
+
+                    <img src="https://cdn.devdojo.com/images/august2024/dot-wave.png" class="w-full h-auto" />
+                  </div>
+                  
+
                   <!-- <img src="https://wave.test/wave/img/character.png" class="absolute top-0 right-0 translate-x-full mr-20 translate-y-0 w-[400px] h-auto z-50"> -->
                     <div class="hidden absolute top-0 left-0 w-full z-10 h-[500px] -translate-y-2 pointer-events-none opacity-90 transform lg:pb-0 lg:block">
                         
                     </div>
-                  <div class="relative z-20 p-2 -m-2 rounded-xl ring-1 ring-inset bg-gray-900/5 ring-gray-900/5 lg:-m-2 lg:rounded-2xl lg:p-2">
-                    
+                  <div class="overflow-hidden relative z-20 p-1.5 -m-2 bg-transparent rounded-xl border ring-1 ring-inset shadow-inner border-dash ring-gray-200/70 group lg:-m-2 lg:rounded-2xl lg:p-2">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-full rounded-full opacity-100 blur-sm duration-300 ease-out h-full scale-[2.0] -translate-y-1/2 origin-center">
+                      <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-400 via-teal-300 to-blue-600 rounded-full animate-spin-slow"></span>
+                  </div>
+                    <div class="absolute inset-0 z-20 w-full h-full bg-gray-900 bg-opacity-5 backdrop-blur-lg duration-300 ease-out group-hover:bg-opacity-0"></div>
                     <!-- https://cdn.devdojo.com/images/july2024/customer-dashboard.png, https://cdn.devdojo.com/images/july2024/saas-pricing.png, https://cdn.devdojo.com/images/july2024/admin.png -->
-                    <img src="https://cdn.devdojo.com/images/july2024/hp-centered.jpeg" alt="App screenshot" class="w-full h-auto rounded-lg ring-1 shadow-2xl ring-gray-900/5">
+                    <img src="https://cdn.devdojo.com/images/july2024/hp-centered.jpeg" alt="App screenshot" class="relative z-20 w-full h-auto rounded-lg group-hover:rounded-[10px] ease-out duration-300 ring-1 shadow-xl ring-gray-200/70">
                   </div>
                 </div>
               </div>
         </div>
     </div>
     
+    <div class="absolute bottom-0 z-[11] w-screen h-[500px] bg-gradient-to-b from-white"></div>
+    <div class="absolute bottom-0 z-10 w-screen h-[500px] max-h-screen opacity-100 pattern-dots translate-y-px"></div>
 </section>
