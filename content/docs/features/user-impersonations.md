@@ -19,12 +19,12 @@ Impersonating a user will allow you to login to your application acting as a spe
 <a name="impersonate"></a>
 ## Impersonate a User
 
-To impersonate a user you can visit your users section in your application at `/admin/users`. Find the user you want to impersonate and click on the Impersonate button.
+To impersonate a user you can visit your users section inside your admin at `/admin/users`. Find the user you want to impersonate and click on the Impersonate button.
 
-![impersonate-1.png](https://cdn.devdojo.com/images/april2021/impersonate-1.png)
+<img src="https://cdn.devdojo.com/images/august2024/impersonate.png" class="w-full" />
 
-You will now see that you are logged in as that specific user. You can click the user menu dropdown and you'll see a new **Leave Impersonation** button to exit that user account and log back in as your original admin user.
+You will now see that you are logged in as that specific user. You can open the user menu and you'll see a new **Leave Impersonation** button to exit that user account and log back in as your original admin user.
 
-![impersonate-2.png](https://cdn.devdojo.com/images/april2021/impersonate-2.png)
+<img src="https://cdn.devdojo.com/images/august2024/impersonate-leave.png" class="w-full" />
 
-Impersonations... 🍰 Piece of cake, right?
+We are utilizing a popular <a href="https://github.com/404labfr/laravel-impersonate" target="_blank">Impersonation Package</a> under the hood. Be sure to check out this package readme to learn more or extend the impersonation functionality.

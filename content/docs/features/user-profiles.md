@@ -13,95 +13,114 @@ When building your SAAS application you may want your users to provide more info
 
 ---
 
-- [User Profile Page](#profile-page)
-- [User Profile Settings](#profile-settings)
-- [Custom Profile Fields](#custom-profile-fields)
-- [Profile Field Types](#profile-field-types)
+- [User Profiles](#user-profiles)
+  - [User Profile Page](#user-profile-page)
+  - [User Profile Settings](#user-profile-settings)
+  - [Custom Profile Fields](#custom-profile-fields)
+    - [Add Custom Profile Fields](#add-custom-profile-fields)
+    - [Get Profile Field Data](#get-profile-field-data)
+    - [Profile Field Types](#profile-field-types)
 
-<a name="profile-page"></a>
-### User Profile Page
+## User Profile Page
 
-Every user in your application will have a public profile page. The user will be able to visit `/@username` and view their profile. By default the profile page is public, which means anyone can visit that user profile.
+Every user in your application will have a public profile page. The user will be able to visit `/profile/username` and view their profile. By default the profile page is public, which means anyone can visit that user profile. The profile view will show the application layout (app.blade.php) if the user is authenticated or the marketing layout (marketing.blade.php) if the user is a guest.
 
-![admin-view](https://cdn.devdojo.com/images/april2021/admin-view.png)
+<img src="https://cdn.devdojo.com/images/august2024/profile-page-user.png" class="w-full rounded-md" />
 
 In some applications you may not have a need for a profile page. In that case, you can include the following route to your applications `routes/web.php`
 
 ```php
-Route::redirect('@{username}', '/');
+Route::redirect('profile/{username}', '/');
 ```
 
 This will disable user profiles and redirect any user profile page back to the homepage.
 
-> {warning} When disabling user profiles, the route must be placed after the `Wave::routes();` line.
+> {warning} When disabling user profiles, the route must be placed after the `Wave::routes();` line. You may also need to run php artisan route:clear to clear the routes.
 
 ---
 
-<a name="profile-settings"></a>
-### User Profile Settings
+## User Profile Settings
 
-When a user registers for an account they will be able to edit their profile information by clicking on the settings in their user drop down.
+When a user registers for an account they will be able to edit their profile information by clicking settings in their user menu.
 
 On the user profile page the user can update their avatar, name, and email address. You will also see one more field, called `about`, this is an example of a custom profile field. Let's learn more about custom profile fields below.
 
-![wave-profile.png](https://cdn.devdojo.com/images/april2021/wave-profile-2.png)
+<img src="https://cdn.devdojo.com/images/august2024/user-settings-page.png" class="w-full rounded-md" />
 
 ---
 
-<a name="custom-profile-fields"></a>
-### Custom Profile Fields
+## Custom Profile Fields
 
-Custom profile fields allow you to add new fields in your user settings page. In the current theme you'll see a custom field called **about**. The **about** text_area can be generated with the following code:
+In addition to a user name, email address and avatar you may also want to store more information about each user. You can easily do that with **Custom Profile Fields**. Let's learn more about them below.
 
-```php
-echo profile_field('text_area', 'about')
-```
+### Add Custom Profile Fields
 
-> {primary} This line of code can be found in each theme, which is located at: `resources/views/themes/{theme_name}/settings/partials/profile.blade.php`.
-
-The `profile_field($type, $key)` function takes 2 arguments. The **type** of field, and the **key**.
-
-We can then use the **key** to reference the value of the users custom profile value. For instance to display the user's **about** value we can do the following:
+You can easily add custom profile fields by adding them to `config/profiles.php`. If you look inside the current file in a new installation, you'll see that the contents looks like this:
 
 ```php
-auth()->user()->profile('about');
+<?php
+
+return [
+	'fields' => [
+		'about' => [
+			'label' => 'About',
+			'type' => 'Textarea',
+			'rules' => 'required'
+        ],
+	],
+];
 ```
 
----
+Adding a new profile field is as simple as adding another item in the **fields** array. The key should be unique, in this case it's the `about` key. But let's say that you wanted to create another field that's called `occupation` and it's a TextInput field. We could add that to the `fields` array, like so:
 
-The *about* field uses a *text_area* type to display a text area.  In the next part we will list the different types of profile fields you can display.
+```php
+<?php
 
-<a name="profile-field-types"></a>
+return [
+	'fields' => [
+		'about' => [
+			...
+        ],
+        'occupation' => [
+            'label' => 'What do you do for a living?',
+            'type' => 'TextInput',
+            'rules' => ''
+        ]
+	],
+];
+```
+
+Users can now save their profile with the updated fields and the data will be saved for any new data they enter. The profile data is stored inside of the **profile_key_value** table. Next, now that you can add new fields, you also need a way to retrieve the data from the custom fields.
+
+### Get Profile Field Data
+
+When you want to retrieve any profile information for a particular user, you can do so with the following method:
+
+```php
+auth()->user()->profile('occupation');
+```
+
+This will return a string value for the authenticated user. Inside of the `profile()` method, you pass the key of the field you want to retrieve. This could be **about**, **occupation**, or any other custom field type you've added.
+
 ### Profile Field Types
 
-- **checkbox** - display a form check box
-- **code_editor** - display a code editor (may require additional js libraries)
-- **color** - display a color picker
-- **date** - display a date picker (may require additional js libs)
-- **file** - display a file input
-- **hidden** - display a hidden input
-- **image** - display an image input
-- **markdown_editor** - display a markdown editor (more js required)
-- **multiple_images** - display multiple image input
-- **number** - display a number input
-- **password** - display a password input
-- **radio_btn** - display a radio button input
-- **rich_text_box** - display a rich text editor (requires tinymce js)
-- **select_dropdown** - display a select dropdown input
-- **text** - display a textbox input
-- **text_area** - display a text area input
+We are utilizing the <a href="https://filamentphp.com/docs/forms" target="_blank">Filament Form Builder</a> to handle the Custom Profile Fields functionality. This means that we could use any of the field types offered in the Form Builder:
 
-You can use any of the profile field types above in the **first argument** of the ```profile_field($type, $key)``` function, and use any **key** (string) as the **second argument**.
+  - <a href="https://filamentphp.com/docs/forms/fields/text-input" target="_blank">TextInput</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/select" target="_blank">Select</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/checkbox" target="_blank">Checkbox</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/toggle" target="_blank">Toggle</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/checkbox-list" target="_blank">CheckboxList</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/radio" target="_blank">Radio</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/date-time-picker" target="_blank">DateTimePicker</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/file-upload" target="_blank">FileUpload</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/rich-editor" target="_blank">RichEditor</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/markdown-editor" target="_blank">MarkdownEditor</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/tags-input" target="_blank">TagsInput</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/textarea" target="_blank">Textarea</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/color-picker" target="_blank">ColorPicker</a>
+  - <a href="https://filamentphp.com/docs/forms/fields/toggle-buttons" target="_blank">ToggleButtons</a>
 
-Then, you can reference the value by calling:
+You can even add a Filament plug-in and utilize that plugin custom Form Field. In this case you would need to specify the type as the full namespace to the Field. Example: `FilamentTiptapEditor\TiptapEditor`.
 
-```php
-$user = User::find(1);
-$user->profile($key);
-```
-
-Or you can retrieve the profile value from the authenticated user like so:
-
-```php
-auth()->user()->profile($key);
-```
+Be sure to check out the <a href="https://filamentphp.com/docs/forms" target="_blank">Filament Form builder</a> documentation to learn more about how you can utilize this to easily build forms in your application.

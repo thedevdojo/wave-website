@@ -21,15 +21,9 @@ Welcome to Wave, the **SaaS Starter Kit** that will help you ship your next idea
 
 - [Introduction](#introduction)
   - [Getting Started](#getting-started)
-  - [Key Features](#key-features)
-    - [Authentication](#authentication)
-    - [User Management](#user-management)
-    - [Billing](#billing)
-    - [Changelog](#changelog)
-    - [Blog](#blog)
-    - [API](#api)
-    - [Admin](#admin)
-    - [Themes](#themes)
+  - [About Wave](#about-wave)
+    - [Key Features](#key-features)
+    - [Under The Hood](#under-the-hood)
   - [Demo](#demo)
   - [Installation](#installation)
 
@@ -40,43 +34,35 @@ Welcome to Wave, the **SaaS Starter Kit** that will help you ship your next idea
 
 Building apps with Wave should be fun and exciting! It has a ton of features to save you hundreds of hours. Let's breifly cover some of the key features.
 
+## About Wave
+
 <a name="key-features"></a>
-## Key Features
+### Key Features
 
 Here's an overview of Wave's key features, which we'll explore in more detail later.
 
-<a name="authentication"></a>
-### Authentication
+**Authentication** - Wave ships with authentication allowing users to Login, Register, Verify Email, Password Reset/Confirmation, and enable Two-Factor authentication.
 
-Wave ships with authentication allowing users to Login, Register, Verify Email, Password Reset/Confirmation, and enable Two-Factor authentication.
+**User Management** - Users can have roles and permissions to access certain parts of your app. Wave also includes features for impersonation, user management, and user profiles.
 
-### User Management
-
-Users can have roles and permissions to access certain parts of your app. Wave also includes features for impersonation, user management, and user profiles.
-
-### Billing
+**Billing**
 
 You can easily integrate Stripe or Paddle into your application. Create subscription plans and associate them with user roles to control access to specific features.
 
-### Changelog
+**Changelog** - Creating a changelog is a great way to notify users about new features and fixes while keeping yourself accountable. Document your progress in the changelog.
 
-Creating a changelog is a great way to notify users about new features and fixes while keeping yourself accountable. Document your progress in the changelog.
+**Blog** - Write blog posts and attract free traffic from search engines. Share your knowledge about technology and tools as you build your SaaS.
 
-### Blog
+**API** - API tokens can be created for API access. These tokens are used to generate Bearer tokens for authenticating future API requests.
 
-Write blog posts and attract free traffic from search engines. Share your knowledge about technology and tools as you build your SaaS.
+**Admin** - Wave leverages FilamentPHP for admin CRUD functionality. You may also use the Table Builder, Form Builder, Notifications, and more within theme files.
 
-### API
+**Themes** - Customize your app's look and feel with Wave's theming system. Each theme in `resources/views/theme` includes its own assets and views.
 
-API tokens can be created for API access. These tokens are used to generate Bearer tokens for authenticating future API requests.
+### Under The Hood
 
-### Admin
+asdf
 
-Wave leverages FilamentPHP for admin CRUD functionality. You may also use the Table Builder, Form Builder, Notifications, and more within theme files.
-
-### Themes
-
-Customize your app's look and feel with Wave's theming system. Each theme in `resources/views/theme` includes its own assets and views.
 
 
 ## Demo

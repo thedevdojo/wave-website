@@ -6,7 +6,7 @@ import focus from '@alpinejs/focus'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
  
-window.TOCoffset = 150;
+window.TOCoffset = 140;
 
 gsap.registerPlugin(ScrollTrigger);
  
@@ -373,8 +373,8 @@ function isElementAtTopAndNotReachedNextSection(element) {
     const nextSection = document.querySelector('section + section');
 
     return (
-        rect.top <= TOCoffset &&
-        (!nextSection || rect.bottom < (nextSection.offsetTop +TOCoffset))
+        rect.top <= (TOCoffset+10) &&
+        (!nextSection || rect.bottom < (nextSection.offsetTop + (TOCoffset+10) ))
     );
 }
 
