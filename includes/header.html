@@ -45,9 +45,9 @@ x-init="
         active='docs';
     }
 
-    if(window.location.pathname.includes('templates')){
+    if(window.location.pathname.includes('themes')){
         fullWidth = true;
-        active='templates';
+        active='themes';
     }
 
     $watch('mobileMenu', function(value){
@@ -136,12 +136,12 @@ class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-ce
                             :class="{ 'w-full left-0' : active=='home', 'w-0 left-1/2' : active!='home' }"    
                             class="absolute bottom-0 px-1.5 h-px duration-300 ease-out translate-y-1.5"><span class="block relative w-full h-px bg-gradient-to-r opacity-30 md:from-white/0 md:via-white md:to-white/0"></span></span>
                     </button> 
-                    <button hx-get="{ url('/templates') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="active='templates'; fullWidth=true; scrollTop(); resetProgressWidth(); route=$el.getAttribute('hx-get');  mobileMenu=false" data-templates @mouseenter="calculateMarkerPosition($el); hovered='templates'" 
-                        :class="{ 'text-gray-900' : hovered == 'templates', 'text-gray-400': hovered != 'templates' }"
+                    <button hx-get="{ url('/themes') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="active='themes'; fullWidth=true; scrollTop(); resetProgressWidth(); route=$el.getAttribute('hx-get');  mobileMenu=false" data-themes @mouseenter="calculateMarkerPosition($el); hovered='themes'" 
+                        :class="{ 'text-gray-900' : hovered == 'themes', 'text-gray-400': hovered != 'themes' }"
                         class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-3 my-2 w-full h-full leading-tight text-center transition-colors md:rounded-full md:py-2 group md:my-0 md:w-auto md:text-center">
                         <span>Themes</span>
                         <span 
-                            :class="{ 'w-full left-0' : active=='templates', 'w-0 left-1/2' : active!='templates' }"    
+                            :class="{ 'w-full left-0' : active=='themes', 'w-0 left-1/2' : active!='themes' }"    
                             class="absolute bottom-0 px-1.5 h-px duration-300 ease-out translate-y-1.5"><span class="block relative w-full h-px bg-gradient-to-r opacity-30 md:from-white/0 md:via-white md:to-white/0"></span></span>
                     </button> 
                     <button href="/components" @mouseenter="calculateMarkerPosition($el); hovered='components'" 

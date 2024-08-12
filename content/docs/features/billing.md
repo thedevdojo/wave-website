@@ -12,22 +12,42 @@ prevURL: '/docs/features/collections'
 Wave integrates seamlessly with <a href="https://stripe.com" target="_blank" class="underline">Stripe</a> or <a href="https://paddle.com" target="_blank" class="underline">Paddle</a> in order to accept payments in your app. In this section you will learn how to configure and setup billing in your application.
 
 - [Billing](#billing)
+  - [Selecting Your Payment Provider](#selecting-your-payment-provider)
   - [Stripe](#stripe)
     - [Add Stripe API Credentials](#add-stripe-api-credentials)
     - [Add Stripe Webhook Secret](#add-stripe-webhook-secret)
+    - [Webhook Warning](#webhook-warning)
     - [Testing Sripe Payments and Events](#testing-sripe-payments-and-events)
     - [Stripe Customer Portal](#stripe-customer-portal)
   - [Paddle](#paddle)
-    - [Add Paddle API Credentials](#add-paddle-api-credentials)
-  - [Default payment link](#default-payment-link)
-  - [Webhooks](#webhooks)
-      - [Ready to go Live?](#ready-to-go-live)
-    - [Test Billing Process](#test-billing-process)
+    - [Paddle Environment](#paddle-environment)
+    - [Paddle API Credentials](#paddle-api-credentials)
+    - [Paddle Webhooks](#paddle-webhooks)
+    - [Paddle Payment link](#paddle-payment-link)
+  - [Test Billing Process](#test-billing-process)
+
+## Selecting Your Payment Provider
+
+You may choose whichever payment provider fits your needs. To change the payment provider you want to use, you can change the `BILLING_PROVIDER` value inside your application `.env` file. You can set this to **stripe** or **paddle**. This config is stored inside the `config/wave.php` file.
+
+```php
+<?php
+
+return [
+
+	...
+	'billing_provider' => env('BILLING_PROVIDER', 'stripe'),
+	...
+
+];
+```
+
+Ok, now that you've selected the payment provider, lets dig in a little deeper into each one to learn how to get it setup.
 
 <a name="stripe"></a>
 ## Stripe
 
-Stripe is an online payment platform that enables your application to receive payments from customers. Wave utilizes <a href="https://docs.stripe.com/payments/checkout" target="_blank">Stripe Checkout</a>, which is the simplest implementation of accepting payments. In order to get setup you'll need the following credentials.
+Wave utilizes <a href="https://docs.stripe.com/payments/checkout" target="_blank">Stripe Checkout</a>, which is the simplest implementation of accepting payments. In order to get setup you'll need the following credentials.
 
 - Stripe Publishable Key
 - Stripe Secret Key
@@ -66,6 +86,18 @@ The **Webhook Secret** key allows stripe to talk to your application and receive
 STRIPE_WEBHOOK_SECRET=whsec_75...
 ```
 
+### Webhook Warning
+
+If your webhook is not setup correctly, it may look like the user purchases and their account never upgrades. Here is a workflow overview of how it works from when the user clicks the **Subscribe to Plan** button.
+
+<img src="https://cdn.devdojo.com/images/august2024/stripe-webhook-workflow-new.png" class="relative w-full rounded-md border border-gray-200" />
+
+As you can see that the webhook gets sent at the same time as a successful payment. So, if the webhook is not setup correctly the user will be redirected to the success page, but their account will not actually be upgraded.
+
+As long as the webhook is setup correctly, the functionality will happen simultaneously, so everything will function correctly. This is probably a good thing to know in case you are having trouble debugging the situation where an account never gets upgraded after a successful purchase.
+
+We may change the way that this works down the road, but for now it's good to know about how this functions.
+
 <a name="testing-stripe-payments-events"></a>
 ### Testing Sripe Payments and Events
 
@@ -102,63 +134,76 @@ Here you can customize all the aspects of the customer portal.
 <a name="paddle"></a>
 ## Paddle
 
-<a name="paddle-api-credentials"></a>
-### Add Paddle API Credentials
+Paddle also offers a very simple <a href="https://developer.paddle.com/concepts/sell/self-serve-checkout" target="_blank">Checkout integration</a>. This is the integration that we'll be using. In order to setup this implementation we'll need 4 different keys.
 
-Inside of your Paddle Dashboard you'll see a button under the **Developer Tools** menu, called **Authentication**, click on that button to get your API Authentication Credentials.
+1. Paddle Vendor ID
+2. Paddle API Key
+3. Paddle Public Secret
+4. Paddle Webhook Secret
 
-![paddle-authentication.png](https://imgur.com/xdDuVKn.png)
+### Paddle Environment
 
-Along with the **API Auth Code**, you'll also need to get your **Client Side Token**.
-
-On this page you'll find your **Seller ID** and your **API Auth Code**. These are the credentials that you will need to add to your `.env` file for `PADDLE_VENDOR_ID`, `PADDLE_API_KEY` and `PADDLE_CLIENT_SIDE_TOKEN`:
+When you are implementing your Paddle integration you will want to test the payment process using <a href="https://sandbox-vendors.paddle.com/" target="_blank" class="font-bold">Sandbox Mode</a>. To do this, you need to specify the `PADDLE_ENV` value inside your `.env` file:
 
 ```
-PADDLE_VENDOR_ID=9999
-PADDLE_API_KEY=YOUR_REALLY_API_KEY_HERE
-PADDLE_CLIENT_SIDE_TOKEN=YOUR_CLIENT_SIDE_TOKEN
 PADDLE_ENV=sandbox
 ```
 
-After adding these credentials, your application has been successfully configured with Paddle.
+When, you're ready to put your application in production you will change the `PADDLE_ENV` to `production`. Next, we need to add our API credentials.
 
-## Default payment link
+### Paddle API Credentials
 
-Wave uses the default Paddle payment link to handle the payment process. You have to set up the default payment link in your Paddle account. To do this, go to your Paddle dashboard and click on **Checkout Settings** scroll down to **Payment Links**.
+Inside of your Paddle Dashboard you'll see a button under the **Developer Tools** menu, called **Authentication**, click on that button to get your API Authentication Credentials.
+
+<img src="https://cdn.devdojo.com/images/august2024/paddle-api-keys.png" class="w-full rounded-md" />
+
+From this page, you can get your **Vendor ID (seller ID)**, **API Key**, and **Client-side Token**. To get the API Key and Public key, you'll need to **+ Generate** a new key if you do not have one. Then, click the *Show Key* button in the menu to the right. Paste the key values into your application `.env` file:
+
+```
+PADDLE_VENDOR_ID=9999
+PADDLE_API_KEY=...
+PADDLE_CLIENT_SIDE_TOKEN=...
+```
+
+Next, we need to setup our webhook.
+
+### Paddle Webhooks
+
+Paddle webhooks are used to send events to your application. These events include a user subscription being created, cancelled, updated, or a payment has failed. In order for your app to handle these events correctly we have to setup a webhook. To do this, go to your Paddle dashboard and click on **Developer Tools** -> **Notifications**.
+
+<img src="https://cdn.devdojo.com/images/august2024/paddle-webhook.png" class="w-full" />
+
+From the slide over menu, you will need to add your application URL and the path `webhook/paddle`. If you are in Sandbox mode, to test this out you may need to Publicly Share your local site and update that public URL inside the field.
+
+You will also need to check all the events that we want to send to our application.
+
+<img src="https://cdn.devdojo.com/images/august2024/paddle-events.png" class="w-full" />
+
+Make sure to select the `subscription.cancelled`, `subscription.created`, `subscription.updated`, and `transaction.payment_failed`. Those are the events that we handle on Waves end.
+
+Finally, we need to set our payment link.
+
+### Paddle Payment link
+
+Paddle needs to know your default payment link. This is users will be redirected when they cancel or make upates on Paddles end. To update this payment link, from the left menu under **Checkout**, click the **Checkout Settings** button and then scroll down to **Payment Links**.
 
 The default payment link should be set to `http://yourdomain.com/settings/subscription`.
 
-![](https://imgur.com/zboWobt.png)
+<img src="https://cdn.devdojo.com/images/august2024/payment-link.png" class="w-full" />
 
-## Webhooks
+## Test Billing Process
 
-Wave uses Paddle webhooks to handle the payment process. You have to set up the webhooks in your Paddle account. To do this, go to your Paddle dashboard and click on **Developer Tools** -> **Notifications**.
-
-![](https://imgur.com/QqJTggu.png)
-
-Make sure to select the `subscription.cancelled` event so that Wave can handle the subscription cancellation process in case a user cancels their subscription or their payment fails.
-
-> **Note**: Wave currently only supports the `subscription.cancelled` event. More events will be supported in the future.
-
-#### Ready to go Live?
-
-When you are ready to go live and take live payments you'll want to change the `PADDLE_ENV` from `sandbox` to `live`, and you'll be ready to accept live payments 💵
-
-<a name="test-billing"></a>
-### Test Billing Process
-
-Before you can test out the full billing process, you will need to add a few [Subscription Plans](/docs/features/subscription-plans).
-
-**Notice**: If you are using a Sandbox account, you will need to test your app from a `http://localhost` URL. The best way to do this is to utilize the laravel **Artisan Serve** command, or you can use [Laravel Sail](https://www.youtube.com/watch?v=WGhiY5xamms) docker image to serve up your app from a localhost URL.
-
-After adding subscription plans and configuring your application with your Paddle API keys, you will now be able to test out the billing process using the following credentials:
+You can test out the Stripe or Paddle implementation using the following credentials:
 
 ```
 Credit Card: 4242 4242 4242 4242
 Expiration: Any Future Date
-CVC: Any 3 digit code
+CVC: Any three digit code
 ```
 
----
+More information below about Test Credit Cards for each provider:
 
-After adding your Paddle API credentials, you'll need to configure your app with a few [Subscription Plans](/docs/features/subscription-plans) in order to test out the whole process. Let's move on to the [next step](/docs/features/subscription-plans) where you will learn how to do this.
+ - <a href="https://docs.stripe.com/testing#cards" target="_blank">Stipe Test Cards</a>
+ - <a href="https://developer.paddle.com/concepts/payment-methods/credit-debit-card#test-payment-method" target="_blank">Paddle Test Cards</a>
+
+Before we can fully test out your integration, you will need to add a few <a href="{ url('/docs/features/subscription-plans') }">Subscription Plans</a>. We'll cover that next.

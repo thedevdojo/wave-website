@@ -1,0 +1,59 @@
+<layout title="Static Starter Template" src="main.html">
+
+    <div x-data class="px-6 pt-12 pb-20 mx-auto max-w-7xl xl:px-8">
+
+        <div class="flex flex-col pt-16 pb-10 text-left text-white">
+            <h1 class="text-3xl font-bold sm:text-4xl text-gray-950 md:text-5xl giarek">Themes</h1>
+                  <p class="mt-5 max-w-full text-xs text-gray-600 md:leading-7 md:text-sm md:text-base">Each theme is designed to be easily customizable, allowing you to tailor your application's appearance to your brand's unique style.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 justify-center items-center w-full h-auto sm:grid-cols-2 lg:grid-cols-3 md:gap-10">
+
+            <ForEach collection="themes" as="theme">
+                <div x-data @click="window.dispatchEvent(new CustomEvent('show-template-preview', { detail : { url: '{theme.url}' }})); window.dispatchEvent(new CustomEvent('set-active-template', { detail: { slug: '{theme.slug}' }}));"
+                    class="flex overflow-hidden w-full rounded-md border opacity-95 transition-all duration-75 ease-out cursor-pointer border-neutral-200 sm:rounded-xl sm:shadow-sm group hover:opacity-100">
+                    <div class="flex flex-col">
+                        <div class="overflow-hidden relative">
+                            <img src="{theme.cover}" class="w-full relative z-10 group-hover:scale-[1.02] transition-all ease-out duration-300 overflow-hidden h-auto">
+                            
+                        </div>
+                        <div class="relative">
+                            <div class="hidden relative bottom-0 left-0 z-20 px-5 py-2 w-full leading-none bg-white bg-opacity-90 border-t border-b border-neutral-800">
+                                <code class="font-mono text-xs font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-green-400 to-pink-400">
+                                    <span>static new project --{theme.slug}</span>
+                                </code>
+                            </div>
+                            <div class="flex items-center p-5 w-full">
+                                
+                                <div class="flex relative flex-col justify-start items-start space-y-2 h-auto">
+                                    <h3 class="flex relative items-center -mt-px text-lg font-semibold leading-none text-gray-800 group-hover:text-gray-900">
+                                        <span>{theme.name}</span>
+                                        <svg class="ml-1 w-2.5 h-2.5 transition-all duration-200 ease-in-out transform -rotate-45 -translate-x-1 stroke-current group-hover:translate-x-0" viewBox="0 0 13 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="svg" transform="translate(0.666667, 2.333333)" stroke="currentColor" stroke-width="2.4"><g><polyline class="opacity-0 transition-all duration-200 ease-out delay-0 group-hover:opacity-100" points="5.33333333 0 10.8333333 5.5 5.33333333 11"></polyline><line class="opacity-0 transition-all duration-200 ease-out transform -translate-x-1 group-hover:translate-x-0 group-hover:opacity-100 group-hover:ml-0" x1="10.8333333" y1="5.5" x2="0.833333333" y2="5.16666667"></line></g></g></g></svg>
+                                    </h3>
+                                    <p class="text-sm text-black/60 group-hover:text-black/80">{theme.description}</p>
+                                </div>
+                            </div>
+                           
+                            
+                            <div class="flex justify-center p-3 bg-gray-50 border-t border-gray-200">
+                                <If condition="theme.slug != 'anchor'">
+                                    <include src="elements/button.html"
+                                        text="Download Theme"
+                                        link="https://github.com/thedevdojo/wave"></include>
+                                </If>
+                                <If condition="theme.slug == 'anchor'">
+                                    Default Theme Available in Wave
+                                </If>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </ForEach>
+        </div>
+
+        <include src="template-previews.html"></include>
+
+    </div>
+
+</layout>
