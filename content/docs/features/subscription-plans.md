@@ -8,98 +8,98 @@ nextURL: '/docs/features/roles-permissions'
 ---
 
 # Subscription Plans
-Billing users for a subscription plan is pretty straight forward. Every Plan **hasOne** Role, so when a user subscribes to a plan they will inherit the permissions associated with that user role.
 
-The Plan you create in Wave will be associated with a plan you create on Paddle.
+Subscription plans are an important part of many SaaS applications. With subscription plans, you can offer your customers different levels of service, each with its own set of features, access, and pricing. Offering subscription plans in your SaaS allows you to build a revenue model that appeals to a broad audience.
+
+Let's cover how to utilize subscription plans in Wave.
 
 - [Subscription Plans](#subscription-plans)
     - [Current Plans](#current-plans)
     - [Deleting Plans](#deleting-plans)
     - [Creating Plans](#creating-plans)
-    - [Creating Plans in Paddle](#creating-plans-in-paddle)
+  - [Getting Your Price ID from Stripe](#getting-your-price-id-from-stripe)
+  - [Getting Your Price ID from Paddle](#getting-your-price-id-from-paddle)
 
 ---
 
-<a name="current-plans"></a>
+
+When a user purchases a subscription, they are subscribing to a specific plan. Each plan is linked to a role, so when a user subscribes, they automatically receive the permissions associated with that role.
+
+You may add, edit, or delete any of the current plans that are available by default.
+
 ### Current Plans
 
-When you install Wave you will see there are 3 default plans:
+When you install Wave you will see there are three default plans:
 
 1. Basic
 2. Premium
 3. Pro
 
-You can delete these plans and create your own if you would like or you can edit the current plans.
+You can feel free to edit or delete any of these plans.
 
-<a name="delete-plans"></a>
 ### Deleting Plans
 
-In order to show you how to create a new plan, we will delete the existing **Basic** plan. To delete plans you can visit `/admin/plans` and click Delete:
+To delete plans you can visit `/admin/plans` and click Delete:
 
-![plans-1.png](https://cdn.devdojo.com/images/april2021/plans-1.png)
+<img src="https://cdn.devdojo.com/images/august2024/plans.png" class="w-full h-auto" />
 
 Since our plan is associated with a role, we will also delete the associated role at `/admin/roles`
 
-![plans-roles.png](https://cdn.devdojo.com/images/april2021/plans-roles.png)
+<img src="https://cdn.devdojo.com/images/august2024/roles.png" class="w-full h-auto" />
 
 We will cover more about User Roles in the next section.
 
-<a name="create-plans"></a>
 ### Creating Plans
 
-Now, let’s create a new plan called *basic*. But before I create a new plan I will first create a new role that I want to assign to this plan. My new role will be called *starter* as well, but you can give the role any name you would like. To create a new role click on the `Add New` button.
+Let’s create a new plan called *starter*. Before doing so, I’ll first create a new role, which will be assigned to users when they subscribe to this plan. The role will also be named **starter**, but you can choose any name you would like. To create a new role, click on the **New role** button.
 
-![plans-roles-add.png](https://cdn.devdojo.com/images/april2021/plans-roles-add.png)
+<img src="https://cdn.devdojo.com/images/august2024/new-role.png" class="w-full" />
 
-Then we can create our new role called **basic**
+On this page you can add a new role named **starter**, with the guard as **web**, and a simple description.
 
-![plans-add-new-role.png](https://cdn.devdojo.com/images/april2021/plans-add-new-role.png)
+<img src="https://cdn.devdojo.com/images/august2024/create-role.png" class="w-full" />
 
-Notice on this page you can specify permissions for this role. We will talk more about this in the next section. For now, you can choose to check a few of them, or leave them all unchecked. Below is a screenshot of what I have checked in this example:
+Now that the role is created we can create a new plan. 
 
-![](/wave/img/docs/1.0/wave-role-permissions.png)
+<img src="https://cdn.devdojo.com/images/august2024/plan-new.png" class="w-full" />
 
-Now that the role is created we can create a new plan and associate it with a role:
+> It's best to keep the names of the **plans** and the **roles** lowercase. This way when you reference it in code, you can keep it consistent. 
 
-![wave-add-plan.png](https://cdn.devdojo.com/images/april2021/wave-add-plan.png)
+Next, you can specify if this plan has a **Monthly**, **Yearly**, or **Lifetime** plan by adding the price (in dollars) and the Price ID. We'll cover how to get the Price ID from Stripe or Paddle later. For now, you can leave this blank.
 
-> Notice the **Plan ID** when creating your plan. This Plan ID is an ID we need to create in Paddle. We'll do this in the next step.
+<img src="https://cdn.devdojo.com/images/august2024/plan-pricing.png" class="w-full" />
 
-Fill out the rest of the info on the plan and click `Save` to create your new plan.
+Next, you will associate the `starter` role with this new plan and click **Create**.
 
-<a name="create-plans-paddle"></a>
-### Creating Plans in Paddle
+<img src="https://cdn.devdojo.com/images/august2024/associate-starter-role.png" class="w-full" />
 
-To create a new plan in Paddle, login to your dashboard and click **Catalog**->**Products**. Click on the **New Product** button at the top right to create a new plan.
+That's it. You've now created a custom Plan with an associated Role.
 
-![paddle-plans-01.png](https://imgur.com/PL8mO1n.png)
+## Getting Your Price ID from Stripe
 
-You'll see a pop-up that will ask for the plan name and a description. Fill out the info for your plan.
+From your Stripe dashboard click on the **Product catalog** menu item on the left. From here you can create a new product. Inside this product, you'll want to create a new price for this product/plan. You can define the Monthly, Yearly, or Lifetime price.
 
-![paddle-plans-02.png](https://imgur.com/J4fKEYe.png)
+<img src="https://cdn.devdojo.com/images/august2024/stripe-price-id.png" class="w-full" />
 
-Click the **Save Plan** button on the top right to save your new plan.
+When you click on a specific price, you will see the **Price Id**. This is the ID that you will copy and paste into the Wave admin. It will be added to the **PriceID** field for each Plan.
 
-After creating your new plan, you'll need to create a new subscription as part of the plan. Click on the **New Price** button to create a new subscription.
+<img src="https://cdn.devdojo.com/images/august2024/stripe-product-catalog.png" class="w-full" />
 
-![](https://imgur.com/f2ropW0.png)
+You can organize your plans in Stripe in two ways.
 
-Fill out the info for your subscription, make sure to select **Recurring** for the billing type and click the **Save** button on the top right to save your new subscription.
+1. Create a multiple products for each plan, where each one has the monthly, yearly, lifetime price inside the product.
+2. Create a single product and add all the prices inside that product
 
-![](https://imgur.com/SQPN1YB.png)
+Either way will work, ist just depends on how you want to organize your products/plans.
 
-Next, get the subscription ID for your new subscription. It starts with `pri_` and is located under the **Subscription ID** column.
+## Getting Your Price ID from Paddle
 
-![](https://imgur.com/fRxW2yF.png)
+Next, if you are using Paddle, you will want to create a new Product in your Catalog and add a Price for each plan.
 
-Make sure to copy this ID as you will need it to associate the plan with the subscription in Wave.
+<img src="https://cdn.devdojo.com/images/august2024/paddle-price-id.png" class="w-full" />
 
-Note that you should not use the `Product ID` for the plan, but the `Subscription ID` for the subscription.
-
-Next, go back to your Wave dashboard and click on the plan you created. You will see a field called **Plan ID**. Paste the subscription ID you copied from Paddle into this field and click **Save**.
-
-After adding all your plans, we're ready to [test out the billing process](/docs/features/billing#test-billing).
+You'll see the price ID next to each of the prices `pre_0...`. This is the ID that you will copy and paste into the Wave admin. It should be added to the **PriceID** field for the specific Plan.
 
 ---
 
-Next, we'll talk about User Roles. Remember every Plan is associated with a User Role, and this is how we will determine what a user has access to in your application.
+Next, we'll talk about User Roles and Permissions in a little more depth. Remember every Plan is associated with a User Role, and this is how we will determine what a user has access to in your application.
