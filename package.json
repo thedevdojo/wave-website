@@ -5,6 +5,7 @@
     "author": "Your Name",
     "license": "ISC",
     "dependencies": {
+        "@alpinejs/collapse": "^3.14.1",
         "@alpinejs/focus": "^3.13.0",
         "@alpinejs/morph": "^3.13.0",
         "@tailwindcss/typography": "^0.5.10",

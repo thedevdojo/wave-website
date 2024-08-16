@@ -5,19 +5,19 @@
         <div 
             id="docs-sidebar"
             :class="{ 'translate-x-0  bg-white/90 md:bg-transparent': leftSidebar, 'md:-translate-x-0 -translate-x-full': !leftSidebar }"
-            class="fixed  flex-shrink-0 z-[101] md:left-auto left-0 top-[45px] md:transition-none ease-out duration-300 text-white md:-ml-0.5 h-full w-56 border-r border-gray-100" x-cloak>
+            class="fixed md:sticky  flex-shrink-0 z-[101] md:left-auto left-0 top-[45px] md:transition-none ease-out duration-300 text-white md:-ml-0.5 h-full w-56 border-r border-gray-100" x-cloak>
             
             
-            <div class="overflow-scroll px-5 py-5 pr-5 h-screen md:py-24 md:pl-0.5 no-scrollbar">
+            <div class="overflow-scroll px-5 pt-24 pr-5 pb-5 h-full min-h-screen md:pl-0.5 no-scrollbar">
                 <include src="search.html"></include>
                 <include src="docs-sidebar.html"></include>
             </div>
         </div>
         <div x-show="leftSidebar" @click="leftSidebar=false" class="fixed inset-0 z-20 w-screen h-screen bg-white bg-opacity-[95%]"></div>
 
-        <div id="docs-content" class="flex items-start pb-10 md:ml-[250px]">
+        <div id="docs-content" class="flex items-start pb-10 md:ml-5">
             {static_content_element}
-            <div class="pt-24 mx-auto mt-1.5 mr-0 max-w-4xl md:pr-5 lg:mr-[212px] lg:pr-0">
+            <div class="pt-24 mx-auto mt-1.5 mr-0 max-w-4xl md:pr-5 lg:mr-5 lg:pr-0">
 
             
                 <article class="w-full max-w-full text-gray-500 prose-sm prose lg:prose-md">

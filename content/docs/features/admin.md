@@ -9,77 +9,117 @@ nextURL: '/docs/features/themes'
 
 # Admin
 
-Wave has been built using the Voyager Admin, which is an all-in-one admin interface for Laravel. This means that you can leverage all the powers of Wave with the power of Voyager as well.
-
-> If you have not had a chance to check out the documentation be sure to head over to <a href="https://voyager-docs.devdojo.com" target="_blank">voyager-docs.devdojo.com</a> to learn more.
+The Wave admin is built using <a href="https://filamentphp.com/" target="_blank">FilamentPHP</a>. We have utilized the <a href="https://filamentphp.com/docs/panels" target="_blank">Panel Builder</a> to create a simple and intutive admin interface for you to easily manage your application content, users, and more.
 
 - [Admin](#admin)
     - [Admin Interface](#admin-interface)
-    - [Admin Dashboard Sections](#admin-dashboard-sections)
+    - [Dashboard Analytics](#dashboard-analytics)
+  - [Filament Admin](#filament-admin)
+    - [Filament Customer Panel](#filament-customer-panel)
+    - [Filament Table Builder](#filament-table-builder)
+    - [Filament Form Builder](#filament-form-builder)
+  - [Digging Deeper](#digging-deeper)
 
 ---
 
-<a name="admin-interface"></a>
 ### Admin Interface
 
-You may have noticed the UI for the Wave admin may look a little different than the default Voyager theme.
+You can visit the admin interface by navigating to `/admin` and you will see the admin interface similar to the image below.
 
-![admin](https://cdn.devdojo.com/images/april2021/admin.png)
+<img src="https://cdn.devdojo.com/images/august2024/admin.png" alt="Admin Interface" class="w-full" />
 
-The different UI will have no effect on the Voyager functionality. Everything that you enjoy with Voyager will be the same with the Wave admin.
+You can collapse or uncollapse the sidebar, by clicking on the sidebar button.
 
-Next, let’s briefly go over each section of the Voyager admin.
+<img src="https://cdn.devdojo.com/images/august2024/admin-sidebar-toggle.png" alt="Admin Sidebar Toggle" class="w-full" />
 
-<a name="admin-dashboard-sections"></a>
-### Admin Dashboard Sections
+You'll see that you can administer many parts of your application such as the Users, Roles, Permissions, Plans, Posts, Media, Pages, Categories, Changelogs, Themes, and Settings.
 
-Inside of your admin dashboard there are 12 top-level sections which include:
+### Dashboard Analytics
 
-1. Dashboard Home
-2. Plans
-3. Roles
-4. Users
-5. Media
-6. Posts
-7. Pages
-8. Categories
-9. Announcements
-10. Tools
-11. Settings
-12. Themes
+We are using the <a href="https://filamentphp.com/plugins/bezhansalleh-google-analytics" target="_blank">Filament Google Analytics Plugin</a>, which under the hood uses the <a href="https://github.com/spatie/laravel-analytics" target="_blank">Spatie Laravel Analytics</a> package.
 
-**Dashboard Home**
-The Dashboard homepage is where you will land when you first login to the admin dashboard. You can view statistics on site traffic, users, posts, and many other content on your site.
+This is great because you can easily add your Google Analytics API keys and you'll see live analytics of visitors and users directly from the admin dashboard.
 
-**Plans**
-In this section of the admin you can Add, Edit, Delete subscription plans associated with your Software as a Service.
+Inside of your `.env` file you will need to add your `ANALYTICS_PROPERTY_ID`, like so:
 
-**Roles**
-In this section you can Add, Edit, Delete user roles and permissions in your application. A specific role will then be associated with a Subscription Plan above.
+```bash
+ANALYTICS_PROPERTY_ID=XXXXXXXXX
+```
 
-**Users**
-You can view all the users of your application here. You can also Edit, Add, or Delete users of your application.
+You will also need to add your Google Analytics **Service Account Credentials**. This will be a JSON file that you download from your Google Console and place it located at `storage/app/analytics/servive-account-credentials.json`. Here are detailed instructions here [https://github.com/spatie/laravel-analytics](https://github.com/spatie/laravel-analytics#how-to-obtain-the-credentials-to-communicate-with-google-analytics) on how to obtain those credentials.
 
-**Media**
-This is your Media Manager where you can view all the media in your application. You can also Upload, Rename, and Delete current media.
+After you've correclty added your Google Analytics keys you'll be able to view real-time analytics from your Admin Dashboard.
 
-**Posts**
-This is where you can write blog posts related to your Software as a Service. you can also Edit or Delete current posts in your application.
+<img src="https://cdn.devdojo.com/images/august2024/admin-analytics.png" class="w-full" />
 
-**Pages**
-You can add new pages to your application and link to them in the front-end. These pages might be an About page, Policy page, or any other page you need to add to your application.
+## Filament Admin
 
-**Categories**
-You can add, edit, or delete post categories in this section. After creating a new category you can then categorize any post with this specific category in your application.
+Filament offers so many great features that make building CRUD systems as simple as possible. You will want to <a href="https://filamentphp.com/docs" target="_blank">refer to their documentation</a> as much as possible when you want to modify your Admin Panel for your application.
 
-**Announcements**
-In the announcements section you can add new announcements to be shown to your users. User will see the latest popup announcement when they visit your application so they can stay updated with the latest features or news related to your SAAS.
+### Filament Customer Panel
 
-**Tools**
-The tools section has a variety of tools that you can use to manage your SAAS including a Menu Builder, Bread Builder, and Database Structure.
+You may use the Filment Panel Builder to create a Customer Panel that users may access in order to gain access to features, or you can build your own application dashboard from your theme `dashboard/index.blade.php` file.
 
-**Settings**
-In this section of you admin you can modify site-wide settings for your application including Authentication and Billing settings.
+It might make more sense to build your own application dashboard from the theme files because it will give you more flexibility and it will allow you to customize the look, feel, and functionality. This will help ensure that your customer dashboard is unique and perfectly aligned with your vision.
 
-**Themes**
-In this section you can view the current themes in your application, activate/deactivate themes, and edit theme settings.
+### Filament Table Builder
+
+The Filament Table Builder is an excellent component that will allow you and your customers to display and filter data. You can utilize this component directly from inside any of your theme files. You can reference how we use the table builder directly from the `resources/themes/{theme}/pages/settings/api.blade.php`. Inside this file we utilize the Table builder to display all the API keys for each user. The `table()` method is responsible for defining the schema of this table.
+
+```php
+public function table(Table $table): Table
+{
+    return $table->query(Wave\ApiKey::query()->where('user_id', auth()->user()->id))
+        ->columns([
+            TextColumn::make('name'),
+            TextColumn::make('created_at')->label('Created'),
+        ])
+        ->actions([
+            ViewAction::make()
+                ->slideOver()
+                ->modalWidth('md')
+                ->form([
+                    TextInput::make('name'),
+                    TextInput::make('key')
+                    // ...
+                ]),
+            EditAction::make()
+                ->slideOver()
+                ->modalWidth('md')
+                ->form([
+                    TextInput::make('name')
+                        ->required()
+                        ->maxLength(255),
+                    // ...
+                ]),
+            DeleteAction::make(),
+    ]);
+}
+```
+
+Then, inside the view you can simply add `{{ $this->table }}` and the table will be displayed.
+
+The table builder is very powerful and can easily be added to any of your Folio Volt pages inside of your theme.
+
+### Filament Form Builder
+
+You may also use the Filament Form Builder to create forms inside of your application. The form builder also works with any theme view file. You can also see an example of the form builder from the `resources/themes/{theme}/pages/settings/api.blade.php` file. The form is defined in the `form()` method, like so:
+
+```php
+public function form(Form $form): Form
+{
+    return $form
+        ->schema([
+            TextInput::make('key')
+                ->label('Create a new API Key')
+                ->required()
+        ])
+        ->statePath('data');
+}
+```
+
+Then, you may output that form by simply outputting ```$this->form`` inside your view.
+
+## Digging Deeper
+
+As always, if you want to dig deeper into the Admin functionality and learning more about Filament be sure to head to <a href="https://filamentphp.com/docs" target="_blank">their documentation</a> and read up on how to use all the different components.

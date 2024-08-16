@@ -30,6 +30,9 @@
             this.markerPosition.left = left;
         }
     },
+    markerPositionOriginalPosition(){
+        this.calculateMarkerPosition(document.querySelector('[data-' + this.active +']'));
+    },
     resetProgressWidth(){
         const targetElement = document.getElementById('nav-border-animated');
         targetElement.style.width = `0%`;
@@ -128,17 +131,17 @@ class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-ce
                     :style="'width:' + markerPosition.width + 'px; height:' + markerPosition.height + 'px; top:' + markerPosition.top + 'px; left:' + markerPosition.left + 'px;'"
                     ></div>
                 <div id="nav-items" class="relative z-50 flex-col  items-center justify-center w-full h-auto md:px-1.5 py-[5px] md:border-t-0 md:border-b-0 border-t border-b text-xs font-semibold text-center text-gray-400 md:rounded-full md:w-auto md:h-10 md:flex-row md:items-center">
-                    <button hx-get="{ url('/?newwave=true') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" data-home @click="active='home'; fullWidth=false; scrollTop(); resetProgressWidth(); mobileMenu=false" @mouseenter="calculateMarkerPosition($el); hovered='home'" 
-                        :class="{ 'text-gray-900' : hovered == 'home', 'text-gray-400': hovered != 'home' }"
-                        class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-3 my-2 w-full h-full leading-tight text-center transition-colors md:rounded-full md:py-2 group md:my-0 md:w-auto md:text-center">
+                    <button hx-get="{ url('/?newwave=true') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" data-home @click="active='home'; fullWidth=false; scrollTop(); resetProgressWidth(); mobileMenu=false" @mouseenter="calculateMarkerPosition($el); hovered='home'" @mouseleave="markerPositionOriginalPosition()" 
+                        :class="{ 'text-gray-900' : active == 'home', 'text-gray-400': active != 'home' }"
+                        class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-3 my-2 w-full h-full leading-tight text-center transition-colors hover:text-gray-900 md:rounded-full md:py-2 group md:my-0 md:w-auto md:text-center">
                         <span>Home</span>
                         <span 
                             :class="{ 'w-full left-0' : active=='home', 'w-0 left-1/2' : active!='home' }"    
                             class="absolute bottom-0 px-1.5 h-px duration-300 ease-out translate-y-1.5"><span class="block relative w-full h-px bg-gradient-to-r opacity-30 md:from-white/0 md:via-white md:to-white/0"></span></span>
                     </button> 
-                    <button hx-get="{ url('/themes') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="active='themes'; fullWidth=true; scrollTop(); resetProgressWidth(); route=$el.getAttribute('hx-get');  mobileMenu=false" data-themes @mouseenter="calculateMarkerPosition($el); hovered='themes'" 
-                        :class="{ 'text-gray-900' : hovered == 'themes', 'text-gray-400': hovered != 'themes' }"
-                        class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-3 my-2 w-full h-full leading-tight text-center transition-colors md:rounded-full md:py-2 group md:my-0 md:w-auto md:text-center">
+                    <button hx-get="{ url('/themes') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="active='themes'; fullWidth=true; scrollTop(); resetProgressWidth(); route=$el.getAttribute('hx-get');  mobileMenu=false" data-themes @mouseenter="calculateMarkerPosition($el); hovered='themes'" @mouseleave="markerPositionOriginalPosition()" 
+                        :class="{ 'text-gray-900' : active == 'themes', 'text-gray-400': active != 'themes' }"
+                        class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-3 my-2 w-full h-full leading-tight text-center transition-colors hover:text-gray-900 md:rounded-full md:py-2 group md:my-0 md:w-auto md:text-center">
                         <span>Themes</span>
                         <span 
                             :class="{ 'w-full left-0' : active=='themes', 'w-0 left-1/2' : active!='themes' }"    
@@ -152,9 +155,9 @@ class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-ce
                             :class="{ 'w-full left-0' : active=='components', 'w-0 left-1/2' : active!='components' }"    
                             class="absolute bottom-0 px-1.5 h-px duration-300 ease-out translate-y-1.5"><span class="block relative w-full h-px bg-gradient-to-r opacity-30 md:from-white/0 md:via-white md:to-white/0"></span></span>
                     </button> 
-                    <button hx-get="{ url('/docs/getting-started') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="active='docs'; fullWidth=true; scrollTop(); resetProgressWidth(); route=$el.getAttribute('hx-get');  mobileMenu=false" data-docs @mouseenter="calculateMarkerPosition($el); hovered='docs'"
-                        :class="{ 'text-gray-900' : hovered == 'docs', 'text-gray-400': hovered != 'docs' }"
-                        class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-3 my-2 w-full h-full leading-tight text-center transition-colors md:rounded-full md:py-2 group md:my-0 md:w-auto md:text-center">
+                    <button hx-get="{ url('/docs/getting-started') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="active='docs'; fullWidth=true; scrollTop(); resetProgressWidth(); route=$el.getAttribute('hx-get');  mobileMenu=false" data-docs @mouseenter="calculateMarkerPosition($el); hovered='docs'" @mouseleave="markerPositionOriginalPosition()" 
+                        :class="{ 'text-gray-900' : active == 'docs', 'text-gray-400': active != 'docs' }"
+                        class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-3 my-2 w-full h-full leading-tight text-center transition-colors hover:text-gray-900 md:rounded-full md:py-2 group md:my-0 md:w-auto md:text-center">
                         <span>Documentation</span>
                         <span 
                             :class="{ 'w-full left-0' : active=='docs', 'w-0 left-1/2' : active!='docs' }"    

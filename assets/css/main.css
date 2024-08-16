@@ -153,3 +153,7 @@ https://cdn.devdojo.com/images/august2024/wavyer-pattern.png */
   background-repeat: repeat;
   background-size: 150px 150px; /* Adjust as needed */
 }
+
+.docs table thead tr th{
+  text-align: left;
+}

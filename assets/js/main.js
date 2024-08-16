@@ -3,6 +3,7 @@
 import Alpine from 'alpinejs'
 import morph from '@alpinejs/morph'
 import focus from '@alpinejs/focus'
+import collapse from '@alpinejs/collapse'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
  
@@ -13,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 window.Alpine = Alpine
 Alpine.plugin(morph)
 Alpine.plugin(focus)
+Alpine.plugin(collapse)
 
 Alpine.start()
 domReadyLoop();
@@ -294,6 +296,7 @@ document.addEventListener('htmx:afterSettle', function(evt) {
         updateTOC();
         markdownTOCClickFunc();
         window.dispatchEvent(new CustomEvent('ajax-loaded'));
+        window.dispatchEvent(new CustomEvent('url-updated'));
     }, 10);
 });
 

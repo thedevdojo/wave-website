@@ -14,65 +14,61 @@ Wave comes with an out-of-the-box API, which will allow you to provide an API to
 In this section we will go into more depth on how you can use the Wave API.
 
 - [API](#api)
-    - [Access Data from the API](#access-data-from-the-api)
-    - [Get Access Token from an API Key](#get-access-token-from-an-api-key)
-  - [Get Access Token from Login](#get-access-token-from-login)
-    - [Request Data with an Access Token](#request-data-with-an-access-token)
-    - [Testing Your API](#testing-your-api)
-    - [Registering via the API](#registering-via-the-api)
+    - [User API Keys](#user-api-keys)
+  - [Access Tokens](#access-tokens)
+    - [Get Access Token from API Key](#get-access-token-from-api-key)
+    - [Get Access Token from Login](#get-access-token-from-login)
+    - [Request Data From an Access Token](#request-data-from-an-access-token)
+  - [Testing Your API](#testing-your-api)
+  - [Registering via the API](#registering-via-the-api)
+  - [JWT VS Sanctum](#jwt-vs-sanctum)
 
 ---
 
-<a name="access-data"></a>
-### Access Data from the API
+### User API Keys
 
-In order to access data from the API a user or an application will need to pass an **Access Token** to the API. This access token will determine what kind of data can be accessed or returned.
+Any user may create an API key by visiting the API settings page at: `/settings/api`, then to create a new API key, enter a name in the textbox and click on the `Create New Key` button.
 
-There are 2 ways to get an Access Token:
+<img src="https://cdn.devdojo.com/images/august2024/create-new-key.png" alt="Create New Key" class="w-full" />
 
-1. You can request an **Access Token** from an API key.
-2. You can request an **Access Token** with an email and password.
+After creating your new API key you will see it in the list of *Current API Keys*. You'll be able to see the Name and the Date Created. In this table you may also view, edit, or delete any key. Click the `View` button.
 
-<a name="access-token-from-api-key"></a>
-### Get Access Token from an API Key
-
-To create an API key you can visit your API settings page at: `/settings/api`, then to create a new API key, enter a name in the textbox and click on the `Create New Key` button.
-
-![api screenshot 1](https://cdn.devdojo.com/images/april2021/api-1.png)
-
-After creating your new API key you will see it in the list of *Current API Keys*. You'll be able to see the Name, Date Created, and the Last Used. There are also 3 actions you can do with this new API Key. To view the current API Key. Click on the `View` button:
-
-![api screenshot 2](https://cdn.devdojo.com/images/april2021/api-2.png)
+<img src="https://cdn.devdojo.com/images/august2024/view-button.png" alt="View Button" class="w-full" />
 
 And you will see the current API key where you can copy and paste it to be used.
 
-![api screenshot 3](https://cdn.devdojo.com/images/april2021/api-3.png)
+<img src="https://cdn.devdojo.com/images/august2024/copy-api-key.png" alt="Copy API Key" class="w-full" />
 
-Next, you can click on the `Edit` button:
+Next, when you click on the edit button, you will be able to edit the current API key name.
 
-![api screenshot 4](https://cdn.devdojo.com/images/april2021/api-4.png)
-
-Where you will be able to edit the current API key name.
-
-![api screenshot 5](https://cdn.devdojo.com/images/april2021/api-5.png)
+<img src="https://cdn.devdojo.com/images/august2024/edit-api-key.png" alt="Edit API Key" class="w-full" />
 
 Lastly, if you click on the delete button:
 
-![api screenshot 6](https://cdn.devdojo.com/images/april2021/api-6.png)
+<img src="https://cdn.devdojo.com/images/august2024/delete-button.png" alt="Delete Button" class="w-full" />
 
 You will be able to delete the current API key.
 
-![api screenshot 7](https://cdn.devdojo.com/images/april2021/api-7.png)
+<img src="https://cdn.devdojo.com/images/august2024/delete-confirm.png" alt="Delete Confirm" class="w-full" />
 
-Next, let's move on to learning how you can use this API key to request an **Access Token** from the API. After we recieve the **Access Token** we can then use that to retrieve data from our application.
+## Access Tokens
 
-To request an **Access Token** we can submit a POST request to:
+In order to get data from your API, you need an **Access Token**. You can get this access token in two ways:
+
+1. User API key
+2. User Email/password
+
+When unencrypted, this access token will be associated with a user in your application. That is how you determine what kind of data is accessible.
+
+### Get Access Token from API Key
+
+To get an **Access Token** using an API Key, you can submit a POST request to:
 
 ```php
 /api/token?key=API_KEY_HERE
 ```
 
-And you will get a response that looks similar to the following:
+And this will get a response that looks similar to the following:
 
 ```json
 {
@@ -80,10 +76,9 @@ And you will get a response that looks similar to the following:
 }
 ```
 
-This is the **Access Token** we will use to retrieve data in our application. We'll show you how to use this Access Token in the next few steps.
+This is the **Access Token** we will use to retrieve data from your application.
 
-<a name="acess-token-from-login"></a>
-## Get Access Token from Login
+### Get Access Token from Login
 
 To get an **Access Token** from a User Login you can do a POST request to:
 
@@ -101,52 +96,44 @@ And you will get a similar response to the response above:
 }
 ```
 
-You'll see that this response includes 2 more fields the **token_type** and the **expires_in**. When your application detects the access token has expired it will need request a new access token with the following API request:
+You'll see that this response includes 2 more fields the `token_type` and the `expires_in`. When your app detects the access token has expired it needs to request a new access token via the following request:
 
 | METHOD | URI | Bearer TOKEN |
-|:-|:-|:-|
+| ------ | --- | ____________ |
 | POST | `/api/refresh` | Bearer: eyJ0e... |
 
 And you will recieve a new **Access Token** for your application to be used. This expiration and refresh tokens are common for keeping your API secure.
 
-<a name="request-data-from-token"></a>
-### Request Data with an Access Token
+### Request Data From an Access Token
 
-Now, that you have an Access Token you can request data from the application using that token. Based on the permission of the current user they will be able to **B**rowse, **R**ead, **E**dit, **A**dd, and **D**elete any content in your application.
+You are responsible for the data you want your users to access via the API. You can simply check which user is making this API request and detect if they have the correct roles/permissions, or you can also try some of these popular API packages.
 
-Take the blog **posts** for instance, a user can retrieve data using the following restful routes:
+- <a href="https://filamentphp.com/plugins/rupadana-api-service" class="underline" target="_blank">Filament API Service</a>
+- <a href="https://github.com/tailflow/laravel-orion" class="underline" target="_blank">Laravel Orion Rest API</a>
+- <a href="https://restify.binarcode.com/" class="underline" target="_blank">Restify</a>
+- <a href="https://laravelapitoolkit.com/" class="underline" target="_blank">Laravle API Toolkit</a>
 
-| TYPE | METHOD | URI | Bearer TOKEN |
-|:-|:-|:-|:-|
-| JSON | GET (Browse) |  `/api/posts` | Bearer: eyJ0e... |
-| JSON | GET (Read) |  `/api/posts/{id}` | Bearer: eyJ0e... |
-| JSON | PUT (Edit) |  `/api/posts/{id}` | Bearer: eyJ0e... |
-| JSON | POST (Add) |  `/api/posts` | Bearer: eyJ0e... |
-| JSON | DELETE (Delete) |  `/api/posts` | Bearer: eyJ0e... |
+The packages listed above offer a simple way to create a REST API from your current Laravel application. It is entirely up to you how you want to handle your REST API in your application.
 
-In the PUT and POST methods above you can pass JSON data to Edit or Add content.
+## Testing Your API
 
-<a name="testing-api"></a>
-### Testing Your API
+You can test out your application by using a third-party tool called <a href="https://insomnia.rest/" target="_blank">Insomnia</a>, this is a free app that you can download and view all the response from your API endpoints.
 
-You can test out your application by using a third-party tool called <a href="https://insomnia.rest/" target="_blank">Insomnia</a>, this is a free app that you can download and you can view all the endpoints on the left and the API data on the right.
+<img src="https://cdn.devdojo.com/images/august2024/insomnia.png" class="w-full" alt="Insomnia Screenshot" />
 
-![api screenshot 8](https://cdn.devdojo.com/images/april2021/api-8.png)
+In order to download the End Points for the Wave application you can find this file located here: [https://github.com/thedevdojo/laravel-wave-api-endpoints](https://github.com/thedevdojo/laravel-wave-api-endpoints). You will want to make sure that you use the **wave-3-api-endpoints.json**. You will also want to checkout the additional instructions in the **ReadmeV3.md**.
 
-In order to download the End Points for the Wave application you can find this file located here: [https://github.com/thedevdojo/laravel-wave-api-endpoints](https://github.com/thedevdojo/laravel-wave-api-endpoints), this page also shows instructions on how to import the current endpoints.
+After you have imported the API endpoints, you may also wish to change the BASE_URL variable in the application. We use `https://wave.test` for testing, but your local URL may be different. To do this, click on the `base_url` icon at the beginning of any endpoint.
 
-After you have imported the API endpoints, you may also wish to change the BASE_URL variable in the application. We use `https://wave.test` for testing, but your local URL may be different. To do this, you'll need to click on **Development->Manage Environments**
-
-![api screenshot 9](https://cdn.devdojo.com/images/april2021/api-9.png)
+<img src="https://cdn.devdojo.com/images/august2024/click_base_url.png" class="w-full" alt="Base URL button" />
 
 Then, you'll need to change the `base_url` value to your application URL.
 
-![api screenshot 10](https://cdn.devdojo.com/images/april2021/api-10.png)
+<img src="https://cdn.devdojo.com/images/august2024/base_url_change.png" class="w-full" alt="Base URL change" />
 
 And, now you're ready to test out your API.
 
-<a name="registering-via-api"></a>
-### Registering via the API
+## Registering via the API
 
 If you are creating an API, you may also wish to allow your users to register. This is simple as well. You can perform a POST request to:
 
@@ -155,3 +142,10 @@ If you are creating an API, you may also wish to allow your users to register. T
 ```
 
 And a new user will be registered and given an Access Token to access data via your API.
+
+
+## JWT VS Sanctum
+
+The current API that Wave ships with is a stateless JWT API. This means that when a request is made to the API, it does not store a state for the current user. Each request is validated. Sanctum allows API access via a simple access token and does not have functionality for logging a user in or registering. When a user authentocates via Sanctum the server stores an authenticated user in the sessions (which makes it a stateful authentication).
+
+We may wish to include Sanctum in your project and it will work alongside the current JWT implementation.
