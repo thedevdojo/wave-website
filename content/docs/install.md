@@ -9,7 +9,7 @@ nextURL: '/docs/local-dev'
 
 # Installing Wave
 
-To install Wave you will need a local PHP development environment setup on your machine. The easiest way to do this is to use <a href="https://herd.laravel.com" target="_blank">Laravel Herd</a>. Once your local environment is set up, we can move on to the next step and download Wave.
+To install Wave you will need a local PHP development environment setup on your machine. The easiest way to do this is by downloading and installing <a href="https://herd.laravel.com" target="_blank">Laravel Herd</a>. After you have done that, we can move on to the next step and download Wave.
 
 ## Download Wave
 
