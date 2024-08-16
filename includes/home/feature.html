@@ -1,24 +1,26 @@
 <div class="relative">
-    <div class="flex lg:mx-auto lg:max-w-6xl lg:px-8 lg:gap-24">
-        <div class="px-4 mx-auto w-1/3 max-w-xl sm:px-6 lg:max-w-none lg:mx-0 lg:px-0">
+    <div class="flex flex-col lg:flex-row lg:mx-auto lg:max-w-6xl lg:px-8 lg:gap-24">
+        <div class="px-6 mx-auto w-full max-w-2xl lg:w-1/3 lg:max-w-none lg:mx-0 lg:px-0">
             
             <div class="flex relative flex-col justify-center items-start mt-6 h-full">
                 
-                <h2 class="inline-flex relative items-center text-3xl font-extrabold text-gray-900 giarek lg:text-4xl">
+                <h2 class="inline-flex relative items-center text-2xl font-extrabold text-gray-900 md:text-3xl giarek lg:text-4xl">
                     <span class="{icon_class}"></span>
                     <span class="ml-1.5">{title}</span>
                 </h2>
                 <p class="my-4 text-sm text-gray-500">
                     {description}
                 </p>
-                <include src="elements/button.html"
+                <div class="hidden relative md:block">
+                    <include src="elements/button.html"
                       text="{link_text}"
                       link="{link_href}"></include>
+                </div>
             </div>
         </div>
-        <div class="relative mt-12 w-1/2 sm:mt-16 lg:mt-0">
-            <div class="relative h-[580px] w-auto">
-                <img class="relative w-auto h-full rounded-xl ring-1 ring-black ring-opacity-5 shadow-xl lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="{image}" alt="Authentication Screenshot">
+        <div class="relative pl-5 mt-4 w-full md:mt-12 lg:pl-0 lg:w-1/2 lg:mt-0">
+            <div class="relative h-auto lg:h-[580px] w-auto">
+                <img class="relative w-auto h-full rounded-l-xl ring-1 ring-black ring-opacity-5 shadow-xl lg:rounded-xl lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="{image}" alt="Authentication Screenshot">
             </div>
         </div>
     </div>

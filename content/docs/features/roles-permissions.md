@@ -11,9 +11,19 @@ nextURL: '/docs/features/notifications'
 
 Roles and Permissions allow you to manage who can access different parts of your web application.
 
-- [Roles](#roles)
-- [Permissions](#permissions)
-- [Digging Deeper](#digging-deeper)
+- [Roles and Permissions](#roles-and-permissions)
+  - [Roles](#roles)
+    - [Creating Roles](#creating-roles)
+    - [Assigning Roles](#assigning-roles)
+    - [Getting users with role](#getting-users-with-role)
+    - [Checking if a user has role](#checking-if-a-user-has-role)
+  - [Permissions](#permissions)
+    - [Creating Permissions](#creating-permissions)
+    - [Revoking Permissions](#revoking-permissions)
+    - [Checking Permissions](#checking-permissions)
+  - [Digging Deeper](#digging-deeper)
+
+---
 
 ## Roles
 
@@ -136,8 +146,34 @@ This means that all users of that role will all have that permission removed. Yo
 
 ### Checking Permissions
 
-add checking permission docs
+When you want to check if a user has a permission, you can do so like the following:
+
+```php
+auth()->user()->hasPermissionTo('edit articles');
+```
+
+This will check if the user has permission to **edit articles** either through their role or a direct permission. If you wanted to check for a few permissions, you can do something like this:
+
+```php
+auth()->user()->hasAnyPermission(['edit articles', 'publish articles', 'unpublish articles']);
+```
+
+If you are using blade files, you can use the following blade directives:
+
+```php
+@can('edit articles')
+  //
+@endcan
+```
+
+or use the `can()` method from the user object like this:
+
+```php
+@if(auth()->user()->can('edit articles') && $some_other_condition)
+  //
+@endif
+```
 
 ## Digging Deeper
 
-Wave utilizes the popular <a href="https://github.com/spatie/laravel-permission" target="_blank" class="underline">Spatie Permissions Package</a> to handle the inner-workings of the **Roles** and **Permissions** functionality. You may refer to <a href="https://spatie.be/docs/laravel-permission" target="_blank" class="underline">this documentation</a> to learn how roles/permissions work in more depth.
+Make sure to checkout the <a href="https://github.com/spatie/laravel-permission" target="_blank" class="underline">Spatie Permissions Package</a> to learn more about **Roles** and **Permissions** functionality. This is the package that Wave uses under the hood to handle Roles/Permissions.

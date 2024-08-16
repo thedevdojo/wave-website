@@ -15,6 +15,8 @@ Wave leverages the default <a href="https://laravel.com/docs/notifications" targ
   - [When to use Notifications](#when-to-use-notifications)
   - [Creating Notifications](#creating-notifications)
   - [Viewing Notifications](#viewing-notifications)
+  - [Getting the Notification Count](#getting-the-notification-count)
+  - [Digging Deeper](#digging-deeper)
 
 ---
 
@@ -36,13 +38,15 @@ We have built the Wave notifications on top of the default Laravel notifications
 
 > If you haven't checked out the Laravel notifications documentation, head on over to the official documentation at <a href="https://laravel.com/docs/notifications" target="_blank">laravel.com/docs/notifications</a>
 
-We can create a new notification by running the following artisan command:
+To create a new notification, you can run the following artisan command:
 
 ```php
 php artisan make:notification TestNotification
 ```
 
-You will see a new file at: `/app/Notifications/TestNotification`. Scroll down to where you see:
+This will create a new file located at: `/app/Notifications/TestNotification`. This TestNotification should already be created inside every new Wave application. Here's the breakdown of what we've changed.
+
+The via() method has been changed from:
 
 ```php
 public function via($notifiable)
@@ -51,7 +55,7 @@ public function via($notifiable)
 }
 ```
 
-and change this to:
+to:
 
 ```php
 public function via($notifiable)
@@ -60,7 +64,7 @@ public function via($notifiable)
 }
 ```
 
-Then scroll down to where you see:
+And we've also modified this `toArray()` method:
 
 ```php
 public function toArray($notifiable)
@@ -71,14 +75,14 @@ public function toArray($notifiable)
 }
 ```
 
-And replace it with:
+to be:
 
 ```php
 public function toArray($notifiable)
 {
      return [
         'icon' => '/storage/users/default.png',
-        'body' => 'This is an example notification, you would want to update the link below to redirect the user to the correct place',
+        'body' => 'This is an example, when the user clicks this notification it will go to the link.',
         'link' => '/dashboard',
          'user' => [
              'name' => 'John Doe'
@@ -87,22 +91,11 @@ public function toArray($notifiable)
 }
 ```
 
-The minimum attributes are the `icon`, `body`, and `link` attribute. For instance, you could also return something like this:
+You will want to update these methods when you create your own custom Notification. You can change any of hte attributes in the array, you will just need to update the variables that are referenced in the `pages/notifications/index.blade.php` view file.
 
-```php
-public function toArray($notifiable)
-{
-    return [
-        'icon' => '/storage/users/default.png',
-        'body' => 'This is an example notification that will send the user to Google',
-        'link' => 'https://google.com'
-    ];
-}
-```
+--
 
-You can change those attributes in the array message to any values, you will just need to update the variables that are displayed in the `pages/notifications/index.blade.php` view file.
-
-Next, let's create a few notifications. We can do this by using the `tinker` command:
+Now, let's create a few notifications. We can do this by using the `tinker` command:
 
 ```php
 php artisan tinker
@@ -114,17 +107,30 @@ Inside of the tinker command you will want to run the following command a few ti
 App\Models\User::find(1)->notify(new App\Notifications\TestNotification);
 ```
 
-After you have run that command, let's move on to learning how the user can view those notifications:
+Swap out the `find(1)` with the **ID** of any user. After you have run that command, let's move on to learning how the user can view those notifications.
 
-<a name="viewing-notifications"></a>
 ## Viewing Notifications
 
-Login to the application with the admin user and visit any page in your application. You'll notice a bell icon on the top right with a number indicating how many unread notifications you have.
+When a user is logged in, they will be able to visit the `/notifications` route and they will see a list of notifications.
 
-![Notification Bell](https://cdn.devdojo.com/images/april2021/notifications-bell.png)
+<img src="https://cdn.devdojo.com/images/august2024/notifications.png" class="w-full" />
 
-When you hover over the bell icon you will see a nice dropdown displaying the current user notifications.
+If a user does not have any notifications they will see a simple empty state message:
 
-![Notification Dropdown](https://cdn.devdojo.com/images/april2021/notifications-dropdown.png)
+<img src="https://cdn.devdojo.com/images/august2024/notifications-empty.png" class="w-full" />
 
-The user can additionally, click on the `View All Notifications` button at the bottom of the dropdown and they will be taken to their notifications page where they can view all their notifications.
+You can customize all of these views from inside your theme pages folder.
+
+
+## Getting the Notification Count
+
+To get the current notification count for any user, you can use the following code:
+
+```php
+auth()->user()->unreadNotifications->count()
+```
+
+## Digging Deeper
+
+Be sure to check out <a href="https://laravel.com/docs/notifications" target="_blank">the Laravel Notifications documentation</a> to learn more.
+

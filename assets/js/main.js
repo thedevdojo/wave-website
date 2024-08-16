@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loadGsapAnimations();
     //createRadialBackgrounds();
     updateTOC();
-    window.dispatchEvent(new CustomEvent('set-route', { detail: { route: window.location.pathname } }));
+    window.dispatchEvent(new CustomEvent('set-route', { detail: { route: window.location.href } }));
 });
 
 function loadGsapAnimations(){
@@ -392,11 +392,11 @@ window.FeatureScroller = function(){
     const marquee = document.getElementById('vertical-marquee');
     const itemsContainer = document.getElementById('marquee-container');
   
-    // Calculate the height of the content and the container
-    const scrollHeight = itemsContainer.scrollHeight;
-    const containerHeight = marquee.offsetHeight;
+    if(marquee && itemsContainer){
+        // Calculate the height of the content and the container
+        const scrollHeight = itemsContainer.scrollHeight;
+        const containerHeight = marquee.offsetHeight;
   
-    if(itemsContainer){
         // Create the scroll trigger animation
         gsap.to(itemsContainer, {
         yPercent: -30 * (scrollHeight / containerHeight - 1),

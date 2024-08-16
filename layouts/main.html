@@ -185,7 +185,7 @@
     </div>
 
     <div class="flex cursor-pointer w-full fixed top-0 z-[199] group text-white bg-gray-900 overflow-hidden">
-      <div  id="top-bar" class="flex justify-between items-center px-10 mx-auto w-full max-w-7xl h-10 duration-300 ease-out md:px-8" x-cloak>
+      <div  id="top-bar" class="flex justify-between items-center px-6 mx-auto w-full max-w-7xl h-10 duration-300 ease-out md:px-8" x-cloak>
           <a href="https://devdojo.com" class="flex relative items-center pl-6 h-full font-semibold text-gray-100 group-hover:text-white group-hover:opacity-100 lg:w-auto lg:items-center lg:justify-center">
               <span class="overflow-hidden absolute left-0 ml-0.5 w-4 h-4 transition duration-300 transform -rotate-180 ease group-hover:rotate-0 group-hover:translate-x-0 group-hover:w-4">
                   <svg  class="w-4 h-4"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 101" fill="none"><path fill="currentColor" d="m93.178 50.665-32.715-50h35.29l34.003 50-34.002 50h-35.29l32.714-50Zm-92.992 50 32.715-50L.186.665h35.29l34.003 50-34.002 50H.187Z"/></svg>
@@ -315,12 +315,11 @@
                 if(!value){
                   url = 'about:blank';
                 }
-            })
+            });
         "
         @show-template-preview.window="showTemplatePreview(event.detail.url);" 
         @set-active-template.window="setActiveTemplate(event.detail.slug);"
         @close-left-sidebar.window="leftSidebar = false"
-        x-init="route=window.location.pathname" 
         @set-route.window="route=event.detail.route"
         data-docsurl="{ url('/docs') }" 
         @ajax-loaded.window="ajaxLoaded()"

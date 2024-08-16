@@ -31,7 +31,7 @@
                         <button hx-get="{ url('{frontmatter.prevURL}') }" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
                             class="flex items-center p-4 w-full rounded-md border shadow-sm ease-linear md:w-1/2 duration-50 border-neutral-100 hover:bg-black hover:border-black text-neutral-600 group hover:text-white">
                             <svg class="mr-4 ml-1.5 w-6 h-6 duration-300 ease-out group-hover:-translate-x-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="none"><path d="M3.75 12h16.5m-16.5 0l6.5 6.25M3.75 12l6.5-6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
-                            <div class="flex-col justify-center items-start hflex">
+                            <div class="flex flex-col justify-center items-start">
                                 <small>Back</small>
                                 <p class="hidden text-xl md:block group-hover:text-white">{frontmatter.prevTitle}</p>
                             </div>

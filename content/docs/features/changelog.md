@@ -9,36 +9,36 @@ nextURL: '/docs/features/blog'
 
 # Changelog
 
-As you continue to improve your SAAS app you’re going to need a quick and easy way to communicate with your users. Announcements are perfect for letting your users know about bug fixes or special promotions.
+As you continue to enhance your SAAS application, keeping users informed about updates, bug fixes, and new features is essential. The Changelog feature provides a streamlined way to communicate these changes directly to your users.
 
 - [Changelog](#changelog)
-    - [Creating an Announcement](#creating-an-announcement)
-    - [Viewing an Announcement](#viewing-an-announcement)
+    - [Creating a Changelog Entry](#creating-a-changelog-entry)
+    - [Viewing Changelog Updates](#viewing-changelog-updates)
 
 ---
 
-<a name="create-announcement"></a>
-### Creating an Announcement
+<a name="create-changelog-entry"></a>
+### Creating a Changelog Entry
 
-You can create a new announcement by visiting the admin announcements section at `/admin/announcements`. If you have past announcement you’ll see them listed out. Then to create a new announcement you’ll want to click on Add New button.
+You can create a new changelog entry by navigating to the admin changelog section at `/admin/changelog`. If you have existing entries, they’ll be listed here. To create a new entry, click the "New changelog" button.
 
-![announcements 1](https://cdn.devdojo.com/images/april2021/announcements-1.png)
+<img src="https://cdn.devdojo.com/images/august2024/create-changelog.png" alt="Create Changelog" class="w-full" />
 
-Then, simply add the content of your new announcement.
+Then, simply add the details of your new changelog entry, including a concise title and a description of the changes.
 
-![announcements 2](https://cdn.devdojo.com/images/april2021/announcements-2.png)
+<img src="https://cdn.devdojo.com/images/august2024/new-changelog.png" alt="New Changelog" class="w-full" />
 
-And now your users will see your latest announcement the next time they visit your application.
+Now your users will be informed of the latest updates the next time they access your application.
 
-<a name="view-announcement"></a>
-### Viewing an Announcement
+<a name="view-changelog-updates"></a>
+### Viewing Changelog Updates
 
-Every user in your application will see the latest announcement when they visit your application. The announcements will look as follows:
+When a user visits the changelog in your application. They will see the latest changelog entry, which looks as follows:
 
-![announcements 3](https://cdn.devdojo.com/images/april2021/announcements-3.png)
+<img src="https://cdn.devdojo.com/images/august2024/view-changelog.png" alt="View Changelog" class="w-full" />
 
-The title and description will be displayed in the popup announcement. When the user clicks the announcement they will be taken to the announcement page where they can view the full content of the announcement.
+The changelog popup will also be displayed everywhere in your application. When the user clicks on the entry, they will be redirected to the changelog page where they can read the full details.
 
-![announcements 4](https://cdn.devdojo.com/images/april2021/announcements-4.png)
+<img src="https://cdn.devdojo.com/images/august2024/view-changelog-popup.png" alt="View Changelog Popup" class="w-full" />
 
-After the user clicks or closes the announcement they will no longer see that particular announcement.
+After the user clicks on or dismisses the changelog update, they will no longer see that particular update unless revisited.
