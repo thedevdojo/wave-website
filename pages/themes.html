@@ -10,7 +10,7 @@
         <div class="grid grid-cols-1 gap-6 justify-center items-center w-full h-auto sm:grid-cols-2 lg:grid-cols-3 md:gap-10">
 
             <ForEach collection="themes" as="theme">
-                <div x-data @click="window.dispatchEvent(new CustomEvent('show-template-preview', { detail : { url: '{theme.url}' }})); window.dispatchEvent(new CustomEvent('set-active-template', { detail: { slug: '{theme.slug}' }}));"
+                <div x-data @click="window.open('{theme.download}', '_blank')"
                     class="flex overflow-hidden w-full rounded-md border opacity-95 transition-all duration-75 ease-out cursor-pointer border-neutral-200 sm:rounded-xl sm:shadow-sm group hover:opacity-100">
                     <div class="flex flex-col">
                         <div class="overflow-hidden relative">
@@ -37,9 +37,9 @@
                             
                             <div class="flex justify-center p-3 bg-gray-50 border-t border-gray-200">
                                 <If condition="theme.slug != 'anchor'">
-                                    <include src="elements/button.html"
-                                        text="Download Theme"
-                                        link="https://github.com/thedevdojo/wave"></include>
+                                    <button class="inline-flex z-10 justify-center px-3.5 py-2.5 w-full text-sm font-semibold text-white bg-gray-900 rounded-lg shadow-lg group hover:bg-black">
+                                        <span>Download {theme.name} Theme</span>
+                                    </button>
                                 </If>
                                 <If condition="theme.slug == 'anchor'">
                                     Default Theme Available in Wave

@@ -2,6 +2,7 @@
     {
         "name" : "Anchor",
         "cover" : "https://cdn.devdojo.com/images/august2024/theme-anchor.jpeg",
+        "download" : "",
         "slug" : "anchor",
         "description": "Anchor is the default theme available. This theme is clean with a sidebar app layout design.",
         "repo" : "https://github.com/thedevdojo/wave"
@@ -9,6 +10,7 @@
     {
         "name" : "Blank",
         "cover" : "https://cdn.devdojo.com/images/august2024/theme-blank.jpeg",
+        "download" : "https://github.com/thedevdojo/blank/archive/refs/heads/main.zip",
         "slug" : "blank",
         "description": "This is a minimal blank theme that can be used to easily modify. It also contains a sidebar app layout.",
         "repo" : "https://github.com/thedevdojo/wave"
@@ -16,6 +18,7 @@
     {
         "name" : "Cove",
         "cover" : "https://cdn.devdojo.com/images/august2024/theme-cove.jpeg",
+        "download" : "https://github.com/thedevdojo/cove/archive/refs/heads/main.zip",
         "slug" : "cove",
         "description": "This blue colored theme is a good template for showcasing your SaaS. Top bar app layout",
         "repo" : "https://github.com/thedevdojo/wave"
