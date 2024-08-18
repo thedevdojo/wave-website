@@ -115,7 +115,7 @@ class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-ce
     <div id="nav-container" class="relative z-40 px-6 mx-auto w-full max-w-7xl leading-10 text-center duration-300 ease-out md:px-8">
         <div class="box-border flex flex-wrap justify-between items-center text-neutral-900">
             
-                <button x-on:click="sidebarOpenClick()" class="flex flex-shrink-0 justify-center items-center mr-1 w-9 h-9 text-gray-700 rounded-md -translate-x-1.5 hover:bg-gray-100 hover:text-gray-900 md:hidden">
+                <button x-on:click="sidebarOpenClick()" class="flex flex-shrink-0 justify-center items-center mr-1 w-9 h-9 text-gray-900 rounded-md -translate-x-1.5 hover:bg-gray-100 hover:text-gray-900 md:hidden">
                     <svg x-show="docsAvailable" class="w-[25px] h-[25px] fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor"><path d="M2.74902 6.75C2.74902 5.09315 4.09217 3.75 5.74902 3.75H18.2507C19.9075 3.75 21.2507 5.09315 21.2507 6.75V17.25C21.2507 18.9069 19.9075 20.25 18.2507 20.25H5.74902C4.09217 20.25 2.74902 18.9069 2.74902 17.25V6.75Z" stroke="%23a9a9af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10.25 3.75V20.25" stroke="%23a9a9af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.75 7.75L7.25 7.75" stroke="%23a9a9af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.75 11L7.25 11" stroke="%23a9a9af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.75 14.25L7.25 14.25" stroke="%23a9a9af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
                     <svg x-show="!docsAvailable" class="w-[25px] h-[25px]" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256"><path d="M184,112a8,8,0,0,1-8,8H112a8,8,0,0,1,0-16h64A8,8,0,0,1,184,112Zm-8,24H112a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16Zm48-88V208a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32H208A16,16,0,0,1,224,48ZM48,208H72V48H48Zm160,0V48H88V208H208Z"></path></svg>
                 </button>
@@ -124,13 +124,13 @@ class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-ce
                 </div>
             <div 
                 :class="{ mobileMenu : 'flex z-[99] flex-col', 'md:flex hidden' : !mobileMenu }"
-                class="absolute z-50 flex-col items-center justify-center w-full h-auto text-xs font-semibold text-center text-gray-400 -translate-x-1/2 translate-y-[154px] md:translate-y-0 md:rounded-full md:w-auto md:h-10 left-1/2 md:flex-row md:items-center" x-cloak
+                class="absolute z-50 flex-col items-center justify-center w-full h-auto text-xs font-semibold text-center text-gray-400 -translate-x-1/2 translate-y-[174px] md:translate-y-0 md:rounded-full md:w-auto md:h-10 left-1/2 md:flex-row md:items-center" x-cloak
             >
                 <div class="absolute top-0 right-0 w-full h-full bg-white bg-opacity-100 md:bg-gray-600 md:bg-opacity-5 md:rounded-full"></div>
                 <div id="marker" class="hidden absolute top-0 left-0 z-20 w-auto h-auto bg-white shadow-sm backdrop-blur-lg duration-300 ease-out md:block md:rounded-full" 
                     :style="'width:' + markerPosition.width + 'px; height:' + markerPosition.height + 'px; top:' + markerPosition.top + 'px; left:' + markerPosition.left + 'px;'"
                     ></div>
-                <div id="nav-items" class="relative z-50 flex-col  items-center justify-center w-full h-auto md:px-1.5 py-[5px] md:border-t-0 md:border-b-0 border-t border-b text-xs font-semibold text-center text-gray-400 md:rounded-full md:w-auto md:h-10 md:flex-row md:items-center">
+                <div id="nav-items" class="relative z-50 flex-col  items-center justify-center w-full h-auto md:px-1.5 py-[5px] md:border-t-0 md:border-b-0 border-t border-b text-xl md:text-xs font-semibold text-center text-gray-400 md:rounded-full md:w-auto md:h-10 md:flex-row md:items-center">
                     <button hx-get="{ url('/?newwave=true') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" data-home @click="active='home'; fullWidth=false; scrollTop(); resetProgressWidth(); mobileMenu=false" @mouseenter="calculateMarkerPosition($el); hovered='home'" @mouseleave="markerPositionOriginalPosition()" 
                         :class="{ 'text-gray-900' : active == 'home', 'text-gray-400': active != 'home' }"
                         class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-3 my-2 w-full h-full leading-tight text-center transition-colors hover:text-gray-900 md:rounded-full md:py-2 group md:my-0 md:w-auto md:text-center">
@@ -163,7 +163,7 @@ class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-ce
                             :class="{ 'w-full left-0' : active=='docs', 'w-0 left-1/2' : active!='docs' }"    
                             class="absolute bottom-0 px-1.5 h-px duration-300 ease-out translate-y-1.5"><span class="block relative w-full h-px bg-gradient-to-r opacity-30 md:from-white/0 md:via-white md:to-white/0"></span></span>
                     </button>
-                    <a href="https://devdojo.com" target="_blank"
+                    <a href="https://github.com/thedevdojo/wave" target="_blank"
                         class="inline-flex relative flex-shrink-0 justify-center items-center px-3 py-5 w-full h-full leading-tight text-center text-gray-500 transition-colors md:rounded-full group hover:text-gray-700 md:py-2 md:w-auto md:text-center">
                         <span class="absolute inset-0 shadow-sm scale-100 md:bg-gray-50 md:rounded-full group-hover:bg-white"></span>
                         <span class="flex relative z-10 items-center pl-4 duration-300 ease-out group-hover:pr-4">
@@ -199,11 +199,7 @@ class="box-border fixed z-[102] flex items-center w-full h-20 leading-10 text-ce
 
             <div  class="flex relative items-center space-x-3 font-medium leading-10 md:hidden md:flex-grow-0 md:flex-shrink-0 md:mt-0 md:text-right lg:flex-grow-0 lg:flex-shrink-0">
                 <button @click="mobileMenu=!mobileMenu; $el.classList.add('scale-90'); setTimeout(function(){ $el.classList.remove('scale-90') }, 100)" class="block p-2 h-full duration-100 ease-out group md:hidden">
-                    <div :class="{ '' : !mobileMenu, 'rotate-[0deg] scale-90 -translate-y-px origin-center' : mobileMenu }" class="flex flex-col justify-around items-end w-4 h-4 transition-all duration-300 linear">
-                        <div :class="{ 'w-full group-hover:w-2/3 -translate-x-px' : !mobileMenu, 'rotate-[45deg] w-full translate-y-1.5' : mobileMenu }" class="h-[2px] flex-shrink-0 rounded-full transition-all linear duration-200 bg-gray-900"></div>
-                        <div :class="{ 'opacity-100 w-1/2 group-hover:w-full -translate-x-px' : !mobileMenu, 'opacity-0' : mobileMenu }" class="h-[2px] flex-shrink-0 rounded-full transition-all linear duration-200 bg-gray-900 opacity-100"></div>
-                        <div :class="{ 'group-hover:w-1/2 w-2/3 -translate-x-px' : !mobileMenu, '-rotate-[45deg] w-full -translate-y-[5px]' : mobileMenu }" class="h-[2px] flex-shrink-0 rounded-full transition-all linear duration-200 bg-gray-900"></div>
-                        </div>
+                    <svg class="w-7 h-7 duration-200 ease-out rotate-90" :class="{ 'rotate-0' : mobileMenu }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="16"/><circle cx="128" cy="128" r="12"/><circle cx="172" cy="128" r="12"/><circle cx="84" cy="128" r="12"/></svg>
                 </button>
                 <a href="https://devdojo.com" target="_blank" class="hidden group md:block">
                     <svg class="w-6 h-6 text-white duration-300 ease-out fill-current group-hover:-rotate-12" viewBox="0 0 170 112" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M115.139 0c15.138 0 29.329 6.537 38.876 17.89 9.977 11.783 13.847 27.092 11.095 43.004-2.15 12.127-8.257 23.824-17.288 32.855-9.031 9.117-20.642 15.223-32.683 17.288-3.01.516-6.02.774-8.945.774h-89.44c-13.623 0-20.306-10.218-14.853-22.707l22.155-50.658a17.51 17.51 0 0 1 16.05-10.493h75.119c6.881 0 13.245 2.838 17.546 7.912 4.558 5.419 6.278 12.558 4.988 20.212-2.322 13.418-13.933 25.2-27.006 27.35-1.462.259-2.925.431-4.387.431l-63.993.055c-3.613.004-6.036-3.709-4.58-7.015l12.315-27.96h15.224l-7.298 16.786c-.861 1.981.59 4.196 2.751 4.196l46.768.005c6.451 0 14.88-7.827 16.428-15.998 1.462-7.74-3.269-11.955-8.687-11.955H40.157a3.425 3.425 0 0 0-3.148 2.064L15.95 92.28c-1.154 2.643.783 5.6 3.666 5.6l86.751-.002c2.236 0 4.473-.258 6.623-.602 18.922-3.182 35.177-19.438 38.532-38.703 2.064-11.784-.774-22.965-7.999-31.565-6.881-8.171-17.202-12.902-28.211-12.902h-32.4a3.445 3.445 0 0 0-3.156 2.073l-2.115 4.894H62.415l4.567-10.484A17.52 17.52 0 0 1 83.006.068L115.14 0Z" class=""></path></svg>

@@ -50,7 +50,7 @@ Here's an overview of Wave's key features, which we'll explore in more detail la
 
 - **Admin** - Wave leverages FilamentPHP for admin CRUD functionality. You may also use the Table Builder, Form Builder, Notifications, and more within theme files.
 
-- **Themes** - Customize your app's look and feel with Wave's theming system. Each theme in `resources/views/theme` includes its own assets and views.
+- **Themes** - Customize your app's look and feel with Wave's theming system. Each theme in `resources/themes` includes its own assets and views.
 
 ### Under The Hood
 
