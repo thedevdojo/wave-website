@@ -2,7 +2,7 @@
     {
         "name" : "Anchor",
         "cover" : "https://cdn.devdojo.com/images/august2024/theme-anchor.jpeg",
-        "download" : "",
+        "download" : "https://github.com/thedevdojo/wave/tree/main/resources/themes/anchor",
         "slug" : "anchor",
         "description": "Anchor is the default theme available. This theme is clean with a sidebar app layout design.",
         "repo" : "https://github.com/thedevdojo/wave"
