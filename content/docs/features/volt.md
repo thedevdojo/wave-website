@@ -1,5 +1,5 @@
 ---
-title: Vole Pages
+title: Volt Pages
 description: Learn how to use volt pages in your themes
 prevTitle: 'Themes'
 prevURL: '/docs/features/themes'
@@ -9,7 +9,7 @@ nextURL: null
 
 # Volt Pages
 
-When you create/install a new theme, the `pages` directory. Let's discuss more about how this works below:
+When you create or install a new theme, the `pages` directory inside that theme folder will automatically be mapped to a route. Let's dive into how this works below:
 
 - [Volt Pages](#volt-pages)
     - [Pages Directory and Folio](#pages-directory-and-folio)
@@ -18,7 +18,9 @@ When you create/install a new theme, the `pages` directory. Let's discuss more a
 
 ### Pages Directory and Folio
 
-We are utilizing <a href="https://laravel.com/docs/folio" target="_blank">Laravel Folio</a> to make it easy to create new routes and pages in your app. When you add a new file to the `pages` directory. For example, if we add a file called `about.blade.php` our application will now have a new route at `/about` which is mapped to that file. Here is a list of how files can map to URL's.
+We are utilizing <a href="https://laravel.com/docs/folio" target="_blank">Laravel Folio</a> to make it easy to create new routes and pages in your app.
+
+As an example, if have a file at `resources/themes/anchor/pages/about.blade.php`, your application will generate a new route at `/about`, which is mapped to that file. Below is a list of how files can map to URLs.
 
 | **File**                         | **Route**                   |
 |----------------------------------|-----------------------------|
@@ -26,7 +28,6 @@ We are utilizing <a href="https://laravel.com/docs/folio" target="_blank">Larave
 | `pages/about.blade.php`          | `/about`                    |
 | `pages/about/index.blade.php`    | `/about`                    |
 | `pages/blog/index.blade.php`     | `/blog`                     |
-| `pages/blog/show.blade.php`      | `/blog/show`                |
 | `pages/blog/[post].blade.php`    | `/blog/{post}` (Dynamic)    |
 | `pages/contact.blade.php`        | `/contact`                  |
 | `pages/services/web.blade.php`   | `/services/web`             |

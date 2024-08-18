@@ -20,23 +20,18 @@ Welcome to Wave, the **SaaS Starter Kit** that will help you ship your next idea
 </div>
 
 - [Introduction](#introduction)
-  - [Getting Started](#getting-started)
   - [About Wave](#about-wave)
     - [Key Features](#key-features)
     - [Under The Hood](#under-the-hood)
   - [Demo](#demo)
   - [Installation](#installation)
 
-<a name="getting-started"></a>
-## Getting Started
+## About Wave
 
 **Wave** is built on top of the popular <a href="https://laravel.com" target="_blank">Laravel Framework</a>. It's not necessary that you know Laravel; however, a basic understanding of the framework will definitely help.
 
 Building apps with Wave should be fun and exciting! It has a ton of features to save you hundreds of hours. Let's breifly cover some of the key features.
 
-## About Wave
-
-<a name="key-features"></a>
 ### Key Features
 
 Here's an overview of Wave's key features, which we'll explore in more detail later.

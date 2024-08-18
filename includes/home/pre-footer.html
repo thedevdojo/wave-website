@@ -1,21 +1,14 @@
-<div hx-get="/docs/getting-started" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="document.getElementById('header').dispatchEvent(new CustomEvent('set-page-active', { detail: { active: 'docs' }})); document.getElementById('header').dispatchEvent(new CustomEvent('set-page-full-width', { detail: {}})); route=$el.getAttribute('hx-get')" data-docs class="flex overflow-hidden relative flex-col-reverse justify-between items-center px-6 py-8 w-full bg-black border-t cursor-pointer group md:mt-16 border-neutral-700 radial-background md:px-8 md:flex-row">
-    <div class="flex flex-col justify-between items-start mx-auto space-y-5 w-full max-w-7xl md:items-center md:px-8 md:space-y-0 md:flex-row">
-        <div class="flex relative items-center space-x-3 w-full md:pr-16 md:w-auto">
-            <div class="flex relative items-center space-x-2 text-2xl">
-                <span>📖</span>
-                <p class="inline-block relative font-semibold text-transparent opacity-100">
-                    
-                    <span class="relative z-20 text-gray-200 group-hover:text-white giarek">Learn More</span>
-                </p>
-                <p class="text-sm opacity-70 translate-y-0.5 group-hover:opacity-90 text-white/80">Learn more about Wave by checking out the official documentation.</p>
-            </div>
-            
-        </div>
-        <div class="relative flex-shrink-0 w-auto">
-            <button hx-get="/docs/getting-started" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="document.getElementById('header').dispatchEvent(new CustomEvent('set-page-active', { detail: { active: 'docs' }})); document.getElementById('header').dispatchEvent(new CustomEvent('set-page-full-width', { detail: {}})); route=$el.getAttribute('hx-get')" data-docs="" class="inline-block relative px-4 py-2 w-full text-xs font-medium text-center text-black bg-white rounded-full ring-1 group ring-white/20 md:w-auto">
-                <span>View the Documentation</span>
-                <span class="text-[#e66735] group-hover:translate-x-1 inline-block ml-0.5 ease-out duration-300">→</span>
-            </button>
-        </div>
+<div class="px-4 pb-10 mx-auto w-full max-w-xl md:pb-32 sm:px-6 lg:max-w-none lg:mx-0 lg:px-0">
+    <div class="flex flex-col justify-center items-start pr-3 mt-12 h-full sm:items-center md:mt-6">
+        <h2 class="inline-flex relative items-center text-3xl font-extrabold text-gray-900 giarek lg:text-5xl">
+            <span class="{icon_class}"></span>
+            <span class="ml-1.5">Ready to Start Building?</span>
+        </h2>
+        <p class="my-4 max-w-3xl text-base text-left text-gray-500 sm:text-center">
+            When you’re ready to embark on your SaaS journey, click the Start Building button below. You'll be guided through the simple steps to effortlessly install Wave, getting you up and running in no time.
+        </p>
+        <include src="elements/button.html"
+            text="Start Building"
+            link="{ url('/docs') }"></include>
     </div>
 </div>

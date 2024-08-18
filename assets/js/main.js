@@ -30,15 +30,15 @@ function loadGsapAnimations(){
 
     FeatureScroller();
 
-    if(document.getElementById('radical')){
-        gsap.to("#radical", {
+    if(document.getElementById('cool-tech')){
+        gsap.to("#cool-tech", {
             scrollTrigger: {
                 trigger: "#features-header",
                 start: "top 80%",
                 end: "bottom 50%",
                 scrub: true
             },
-            x: -50,
+            x: -20,
             opacity: 1
         });
     }
@@ -84,17 +84,31 @@ function loadGsapAnimations(){
         });
     }
 
-    if(document.getElementById('tailwind-code-box')){
-        gsap.to("#tailwind-code-box", {
+    if(document.getElementById('laravel-website')){
+        gsap.to("#laravel-website", {
             scrollTrigger: {
-                trigger: "#tailwind-section",
+                trigger: "#laravel-section",
                 start: "top bottom",
                 end: "bottom 50%",
                 scrub: true,
                 debug: true
             },
             scale: 1,
-            y: 0
+            y: -20
+        });
+    }
+
+    if(document.getElementById('livewire-website')){
+        gsap.to("#livewire-website", {
+            scrollTrigger: {
+                trigger: "#livewire-section",
+                start: "top bottom",
+                end: "bottom 50%",
+                scrub: true,
+                debug: true
+            },
+            scale: 1,
+            y: -20
         });
     }
 
