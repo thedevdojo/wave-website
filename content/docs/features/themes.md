@@ -13,6 +13,7 @@ Wave allows you to customize the look and feel of your application through a fle
 
 - [Themes](#themes)
   - [Theme Views](#theme-views)
+  - [Theme Pages](#theme-pages)
   - [Theme Assets](#theme-assets)
     - [Compiling Assets \& HMR](#compiling-assets--hmr)
     - [Building Assets](#building-assets)
@@ -37,6 +38,32 @@ return view('theme::home');
 ```
 
 That will return the view located at `resources/themes/anchor/home.blade.php`. 
+
+## Theme Pages
+
+Each theme will have their own `pages` directory that are mapped to a specific route. We'll cover Volt pages in the next section a little more; however, it's probably important to know all the different pages that are provided with each theme.
+
+In addition to all the authentication routes, you will also find the following pages included in each theme.
+
+- **Homepage** - (pages/index.blade.php)
+- **Dashboard** - (pages/dashboard/index.blade.php)
+- **Pricing** - (pages/pricing/index.blade.php)
+- **Profile** - (pages/profile/[username.blade.php])
+- **Settings**
+    - **Profile Settings** - (pages/settings/profile.blade.php)
+    - **Security Settings** - (pages/settings/security.blade.php)
+    - **API keys** - (pages/settings/api.blade.php)
+    - **Subscription** - (pages/settings/subscription.blade.php)
+    - **Invoices** - (pages/settings/invoices.blade.php)
+- **Subscription Welcome** - (pages/subscription/welcome.blade.php)
+- **Notifications** - (pages/notification/index.blade.php)
+- **Blog**
+    - **Blog Home/List** - (pages/blog/index.blade.php)
+    - **Blog Categories** - (pages/blog/.Wave.Category-slug/index.blad.php)
+    - **Blog Post** - (pages/blog/.Wave.Category-slug/[.Wave.Post-slug].blade.php)
+- **Changelog**
+    - **Changelog Home** - (pages/changelog/index.blade.php)
+    - **Changelog Item/Entry** - (pages/changelog/[.Wave.Changelog].blade.php)
 
 ## Theme Assets
 
@@ -112,7 +139,7 @@ Now that you have the theme installed, you'll need to head to the admin to activ
 
 To activate a Theme you can simply click the Activate button for the current theme you would like to activate, and that will be the current active theme.
 
-> Important: After activating a theme you will need to make sure that you stop your asset watcher `npm run dev` and re-run it after the new theme has been activated. This is because we need the asset watcher to look in the correct directory.
+> After activating a theme you may need to make sure that you stop your asset watcher `npm run dev` and re-run it after the new theme has been activated.
 
 ## Digging Deeper
 

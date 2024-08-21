@@ -1,10 +1,10 @@
 ---
 title: About Guides
 description: Learn how you can host your website and make it live for the world to see.
-nextTitle: 'Folder Structure'
-nextURL: '/docs/guides/folder-structure'
-prevTitle: 'Github Action'
-prevURL: '/docs/features/github-action' 
+nextTitle: 'Creating Themes'
+nextURL: '/docs/guides/creating-themes'
+prevTitle: 'Prompts'
+prevURL: '/docs/prompts/create-a-role' 
 ---
 
 
