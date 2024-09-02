@@ -427,3 +427,32 @@ window.FeatureScroller = function(){
         });
     }
 }
+
+
+// Initial setup
+let scrollRotationAngle = 0; // Initial rotation angle based on scroll
+let hoverRotationAngle = 0;  // Initial additional rotation angle on hover
+
+// Scroll Event
+document.addEventListener('scroll', function() {
+  const rotatingElement = document.getElementById('rotating-logo-icon');
+  const rotatingElementMobile = document.getElementById('logo-icon-mobile');
+  const scrollPosition = window.scrollY;
+  scrollRotationAngle = scrollPosition / 5; // Adjust the division factor to control speed
+  rotatingElement.style.transform = `rotate(${scrollRotationAngle + hoverRotationAngle}deg)`;
+  rotatingElementMobile.style.transform = `rotate(${scrollRotationAngle + hoverRotationAngle}deg)`;
+});
+
+// Hover Events
+const rotatingElement = document.getElementById('rotating-logo-icon');
+const logoDesktop = document.getElementById('logo-desktop');
+logoDesktop.addEventListener('mouseenter', function() {
+  hoverRotationAngle += 45; // Increase the rotation by 45 degrees on hover
+  rotatingElement.style.transform = `rotate(${scrollRotationAngle + hoverRotationAngle}deg)`;
+});
+
+logoDesktop.addEventListener('mouseleave', function() {
+  // Optional: Reset hover rotation if you want it to rotate back to the scroll position
+  hoverRotationAngle -= 45; // Comment this line if you want the rotation to accumulate
+  rotatingElement.style.transform = `rotate(${scrollRotationAngle + hoverRotationAngle}deg)`;
+});
