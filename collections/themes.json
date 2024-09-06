@@ -34,5 +34,23 @@
         "description": "A clean and modern theme with a beautiful horizontal menu dashboard.",
         "repo" : "https://github.com/thedevdojo/wave",
         "access" : "pro"
+    },
+    {
+        "name" : "Example",
+        "cover" : "https://raw.githubusercontent.com/thedevdojo/example/main/theme.jpg",
+        "download" : "https://github.com/thedevdojo/example/archive/refs/heads/main.zip",
+        "slug" : "example",
+        "description": "This is a simple starting point example theme.",
+        "repo" : "https://github.com/thedevdojo/wave",
+        "access" : "free"
+    },
+    {
+        "name" : "Fusion",
+        "cover" : "https://cdn.devdojo.com/images/september2024/fusion-cover.jpeg",
+        "download" : "/wave/download/fusion",
+        "slug" : "fusion",
+        "description": "A modern and minimal dark theme for wave.",
+        "repo" : "https://github.com/thedevdojo/wave",
+        "access" : "pro"
     }
 ]

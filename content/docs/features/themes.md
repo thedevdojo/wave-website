@@ -48,7 +48,7 @@ In addition to all the authentication routes, you will also find the following p
 - **Homepage** - (pages/index.blade.php)
 - **Dashboard** - (pages/dashboard/index.blade.php)
 - **Pricing** - (pages/pricing/index.blade.php)
-- **Profile** - (pages/profile/[username.blade.php])
+- **Profile** - (pages/profile/[username].blade.php)
 - **Settings**
     - **Profile Settings** - (pages/settings/profile.blade.php)
     - **Security Settings** - (pages/settings/security.blade.php)
@@ -143,6 +143,6 @@ To activate a Theme you can simply click the Activate button for the current the
 
 ## Digging Deeper
 
-Visit the Creating Themes guide to learn more about how simple it can be to create your own theme. Additionally if you want to source dive you can check out the DevDojo Themes package here.
+Visit the <a href="{ url('/docs/guides/creating-themes') }">Creating Themes guide</a> to learn more about how simple it can be to create your own theme. Additionally if you want to source dive you can check out the DevDojo Themes package here.
 
 Next, we'll talk about Volt pages. Because as you can see that each theme also has a `pages` directory. Any file that you place in that directory will automatically be mapped to a route. Let's talk more about that next.

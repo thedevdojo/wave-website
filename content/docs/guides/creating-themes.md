@@ -9,7 +9,7 @@ prevURL: '/docs/guides/about'
 
 # Creating Themes
 
-It will probably be beneficial to learn how to create a simple theme for Wave, so that's what we'll cover in this quick guide.
+In this guide, we'll cover the basics of creating a simple theme for Wave.
 
 - [Creating Themes](#creating-themes)
     - [The Simplest Theme](#the-simplest-theme)
@@ -20,7 +20,7 @@ It will probably be beneficial to learn how to create a simple theme for Wave, s
 
 ### The Simplest Theme
 
-Creating your own theme is as easy as creating a new folder inside of `resources/themes`. The name of this folder should be the name of your theme in all lowercase letters (Example: `resources/views/example`). Next, we need to add a `theme.json` inside of the theme folder with the following contents:
+Creating a theme is as simple as creating a new folder inside `resources/themes`. The folder name should be in lowercase (e.g., `resources/views/example`). Next, add a `theme.json` file inside the folder with the following contents:
 
 ```json
 {
@@ -29,18 +29,18 @@ Creating your own theme is as easy as creating a new folder inside of `resources
 }
 ```
 
-In this *.json* file you will specify the `name` of the theme and the `version`. 
+In this *theme.json* file, specify the `name` of the theme and the `version`. 
 
-That's it! You should now see this theme inside of the admin; however, you will see a broken image because you haven't added an image yet. That is why the recommended minimum for any theme is:
+That’s it! You should now see this theme in the admin panel; however, you will see a broken image because you haven’t added a screenshot yet. That is why the recommended minimum for any theme is:
 
 1. theme.json - (containing information about the theme)
 2. theme.jpg - (containing a screenshot/cover of the theme)
 
-That's really all that's needed to create a theme; however, you will get an error when you try and visit the homepage and other areas of the application because you haven't created those views yet.
+While this is enough to create a theme, visiting the homepage or other sections will trigger errors because the necessary views haven’t been created yet.
 
 ### Add a homepage view
 
-Because each theme utilizes **Folio/Volt pages**, we can simply create a new **pages** folder with an **index.blade.php** file. (Example: `resources/themes/example/pages/index.blade.php).
+Since each theme uses **Folio/Volt pages**, you can create a **pages** folder and add an **index.blade.php** file. (ex: `resources/themes/example/pages/index.blade.php).
 
 ```html
 <!DOCTYPE html>
@@ -51,7 +51,7 @@ Because each theme utilizes **Folio/Volt pages**, we can simply create a new **p
     <title>Example Theme</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex justify-center items-center w-screen h-screen">
+<body class="flex items-center justify-center w-screen h-screen">
     <div class="relative text-center">
         <h1 class="mb-3 text-4xl font-light">Example Theme</h1>
         <p>This is a simple example of a blank theme. <a href="https://devdojo.com/wave/docs" target="_blank" class="underline">Click here to view the docs</a></p>
@@ -60,22 +60,22 @@ Because each theme utilizes **Folio/Volt pages**, we can simply create a new **p
 </html>
 ```
 
-Add that HTML to your **index.blade.php** file and you will now be able to visit the homepage of your application and see this view.
+Once added, you’ll be able to visit your homepage and see this view.
 
-You can do the same for the dashboard by creating a file at `resources/themes/example/pages/dashboard/index.blade.php` and you will now be able to visit your application `/dashboard` route.
+Similarly, for the dashboard, create a file at resources/themes/example/pages/dashboard/index.blade.php, allowing access to the /dashboard route.
 
-As you can see you can do this with any other pages in your application, it might be good to look at one of the current themes to see all the pages that are created.
+You can follow this process for any other pages in your application. It’s a good idea to check an existing theme to see all the pages it includes.
 
 ### Creating Your Assets
 
-You probably do not want to load the Tailwind CSS Cdn link, like we've showed in the example HTML file. Instead, you'll probably want to create your own `app.css` and `app.js` this way you can use the **vite** asset builder to compile your assets. Create the two following files:
+Instead of loading the Tailwind CSS CDN as shown in the example, you'll likely want to create your own `app.css` and `app.js` files to manage assets using vite. To do this, create the following files:
 
 1. resources/themes/example/assets/css/app.css
 2. resources/themes/example/assets/js/app.js
 
-> You will want to swap out `example` with the name of your folder.
+> Replace example with your folder’s actual name.
 
-Next, add the following contents to your `app.css`
+Next, add the following to `app.css`
 
 ```css
 @tailwind base;
@@ -83,15 +83,15 @@ Next, add the following contents to your `app.css`
 @tailwind utilities;
 ```
 
-You can also add any javascript that you want to your `app.js`. Remember you do not need to include Alpine or Livewire javascript from this file because they will automatically be injected since we are using the latest version of Livewire.
+Feel free to add any JavaScript to your `app.js`. You don’t need to include Alpine.js or Livewire’s JavaScript here—they will be automatically injected as we use the latest version of Livewire.
 
-Next, we want to reference our `app.css` and our `app.js` from our application, so inside the head of your layout or the `pages/index.blade.php`, we can add the following:
+Next, reference your `app.css` and `app.js` files in the <head> section of your layout:
 
 ```
 @vite(['resources/themes/anchor/assets/css/app.css', 'resources/themes/anchor/assets/js/app.js'])
 ```
 
-You will also want to add the **filament** and the **livewire** styles. Be sure to include those before the **@vite** helper:
+You should also include **filament** and **livewire** styles before the **@vite** helper:
 
 ```
 @filamentStyles
@@ -99,9 +99,9 @@ You will also want to add the **filament** and the **livewire** styles. Be sure 
 @vite(['resources/themes/example/assets/css/app.css', 'resources/themes/example/assets/js/app.js'])
 ```
 
-> Important: Make sure to add the filament and livewire styles before your vite helper. Adding them after may result in some mis-aligned styles.
+> Important: Ensure you add Filament and Livewire styles before the Vite helper. Adding them afterward may result in misaligned styles.
 
-The final result should look something like this:
+The final structure should look like this:
 
 ```html
 <!DOCTYPE html>
@@ -114,7 +114,7 @@ The final result should look something like this:
     @livewireStyles
     @vite(['resources/themes/example/assets/css/app.css', 'resources/themes/example/assets/js/app.js'])
 </head>
-<body class="flex justify-center items-center w-screen h-screen">
+<body class="flex items-center justify-center w-screen h-screen">
     <div class="relative text-center">
         <h1 class="mb-3 text-4xl font-light">Example Theme</h1>
         <p>This is a simple example of a blank theme. <a href="https://devdojo.com/wave/docs" target="_blank" class="underline">Click here to view the docs</a></p>
@@ -123,10 +123,18 @@ The final result should look something like this:
 </html>
 ```
 
-Now, you'll be able to run `npm run dev` and your theme will be hot-reloading 🔥
+Run `npm run dev` to enable hot reloading. 🔥
 
-When you're ready to compile your assets for production you can run `npm run build` and the correct theme assets will be minified and saved to your public directory.
+When you’re ready for production, run `npm run build` to compile and minify your assets for the public directory.
 
 ### Example Theme
+
+We've also created an <a href="https://github.com/thedevdojo/example" target="_blank">Example Theme</a> that you may want to use as a starting point when creating your own theme. This theme includes all the essential pages, layouts, and partials you need to create and implement your own custom theme for your SaaS.
+
+You can find the example theme at <a href="https://github.com/thedevdojo/example" target="_blank">https://github.com/thedevdojo/example</a>
+
+If you want to learn more about themes we also have a guide on the <a href="{ url('/docs/guides/theme-structure') }">Structure of a Wave Theme</a>, that will teach you how each theme is structured.
+
+This theme includes all the necessary pages, layouts, and  for all the routes in Wave, so you won’t encounter any missing view errors while navigating through the application. You can download the Example theme from this GitHub repository and customize it to fit your needs.
 
 If you want to reference this example theme that we've created in this example to use it as a starting point for your theme, you can find the <a href="https://github.com/thedevdojo/example" target="_blank">Example Theme here</a>.
