@@ -43,6 +43,32 @@ function loadGsapAnimations(){
         });
     }
 
+    if(document.getElementById('open-source')){
+        gsap.to("#open-source", {
+            scrollTrigger: {
+                trigger: "#open-source-section",
+                start: "top 80%",
+                end: "bottom 50%",
+                scrub: true
+            },
+            x: -350,
+            opacity: 1
+        });
+    }
+
+    if(document.getElementById('open-source-02')){
+        gsap.to("#open-source-02", {
+            scrollTrigger: {
+                trigger: "#open-source-section",
+                start: "top 80%",
+                end: "bottom 50%",
+                scrub: true
+            },
+            x: 0,
+            opacity: 1
+        });
+    }
+
     if(document.getElementById('how-to-use-it')){
         gsap.to("#how-to-use-it", {
             scrollTrigger: {
