@@ -20,6 +20,7 @@ Alpine.start()
 domReadyLoop();
 
 document.addEventListener("DOMContentLoaded", function() {
+    loadAlgoliaSearch();
     loadGsapAnimations();
     //createRadialBackgrounds();
     updateTOC();
@@ -334,6 +335,7 @@ document.addEventListener('htmx:afterSwap', function(evt) {
 document.addEventListener('htmx:afterSettle', function(evt) {
     setTimeout(function(){
         updateTOC();
+        loadAlgoliaSearch();
         markdownTOCClickFunc();
         window.dispatchEvent(new CustomEvent('ajax-loaded'));
         window.dispatchEvent(new CustomEvent('url-updated'));
@@ -452,4 +454,14 @@ window.FeatureScroller = function(){
         }
         });
     }
+}
+
+window.loadAlgoliaSearch = function(){
+    docsearch({
+        appId: "HUQM2LPAGR",
+        apiKey: "7921d15428a7d8ebe16a4f79c77f8acd",
+        indexName: "devdojo",
+        container: "#search-docs",
+        debug: false 
+      });
 }

@@ -1,40 +1,45 @@
-<section id="features" class="overflow-hidden pt-10 bg-white sm:py-16 md:py-20 lg:pt-24 lg:pb-28">
+<section id="features" class="pt-10 overflow-hidden bg-white sm:py-16 md:py-20 lg:pt-24 lg:pb-28">
     <div class="h-[300px] absolute w-full top-0 z-10 left-0 bg-gradient-to-b from-gray-50 to-white hidden"></div>
     <div id="features-content" class="relative z-20 divide-y divide-gray-200 md:divide-y-0">
 
         <div class="relative mx-auto max-w-7xl md:px-8">
 
-            <div id="features-header" class="px-6 mx-auto max-w-7xl lg:px-8">
-                <h2 class="mb-7 text-3xl font-bold tracking-tight text-left sm:tracking-normal sm:text-4xl sm:text-center giarek text-gray-950 md:text-5xl">Powering the Propellers</h2>
-                <p class="mx-auto mt-4 max-w-2xl text-sm text-left text-gray-600 sm:text-center sm:text-xl sm:mt-5">Wave is built with the most modern tech, propelling your project forward at full speed. Check out what's powering the engine.</p>
+            <div id="features-header" class="relative w-full">
+                <include 
+                    src="elements/heading.html" 
+                    title="Powering the Propellers" 
+                    description="Wave is built with leading technologies that are designed for maximum productivity, propelling your project forward. Check out what’s powering the engine."
+                ></include>
             </div>
 
-            <div class="flex relative flex-col-reverse items-start mt-8 md:rounded-2xl md:flex-row md:mt-16 lg:mt-20">
+            <div class="relative flex flex-col-reverse items-start mt-8 md:rounded-2xl md:flex-row md:mt-16 lg:mt-20">
                 <div id="cool-tech" class="absolute pointer-events-none lg:block hidden left-0 z-20 w-auto h-16 md:h-28 translate-x-[160px] opacity-0 -mt-10 ml-4 md:-mt-28 top-0 ">
                     <img src="{ url('/assets/images/cool-tech.webp') }" class="w-auto h-full" />
                 </div>
 
-                <div class="absolute inset-0 w-full h-full bg-white opacity-100 duration-300 ease-out pointer-events-none md:rounded-2xl group-hover:opacity-0"></div>
+                <div class="absolute inset-0 w-full h-full duration-300 ease-out bg-white opacity-100 pointer-events-none md:rounded-2xl group-hover:opacity-0"></div>
                 <div id="laravel-section" class="w-full bg-white md:rounded-2xl">
                     <div class="relative flex flex-col items-start w-full md:px-8   overflow-hidden ring-1 ring-white/[15%] radial-background bg-gray-100 px-10 py-10 lg:px-12 lg:py-16  xl:px-16 xl:py-24 md:flex-row md:rounded-2xl">
-                        <div class="flex flex-col flex-auto justify-start items-start w-full">
-                            <h3 class="inline-flex relative items-center text-2xl font-extrabold text-gray-900 md:text-3xl giarek lg:text-4xl">
+                        <div class="flex flex-col items-start justify-start flex-auto w-full">
+                            <h3 class="relative inline-flex items-center text-2xl font-extrabold text-gray-900 md:text-3xl giarek lg:text-4xl">
                                 <img src="https://cdn.devdojo.com/images/august2024/laravel.png" class="w-10 h-10" />
                                 <span class="ml-2.5">Built with Laravel</span>
                             </h3>
-                            <p class="my-7 text-sm text-gray-500">
+                            <p class="text-sm text-gray-500 my-7">
                                 Laravel's powerful features and elegant syntax make it the ideal choice for anyone looking to build a scalable and feature-rich SaaS app.
                             </p>
                             <div class="w-auto">
-                                <include src="elements/button.html" text="Learn About Laravel" link="https://laravel.com"></include>
+                                <a href="https://laravel.com" target="_blank" class="flex items-center px-5 py-2 text-sm font-medium text-white bg-gray-900 rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 focus:ring-offset-gray-100">
+                                    <span>Learn about Laravel</span>
+                                </a>
                             </div>
 
                         </div>
-                        <div class="flex-none mt-10 mb-0 w-full md:w-1/2 xl:ml-8 xl:w-8/12 md:mt-0">
+                        <div class="flex-none w-full mt-10 mb-0 md:w-1/2 xl:ml-8 xl:w-8/12 md:mt-0">
                             <div id="laravel-website" class="w-full translate-y-20 md:max-w-3xl md:absolute md:pl-8">
-                                <div class="overflow-hidden relative rounded-lg border md:-translate-y-5 border-black/5">
-                                    <div class="flex items-center pl-3 w-full h-7 bg-gray-200 border duration-300 ease-out group border-white/20">
-                                        <div class="flex space-x-1 opacity-100 duration-300 ease-out">
+                                <div class="relative overflow-hidden border rounded-lg md:-translate-y-5 border-black/5">
+                                    <div class="flex items-center w-full pl-3 duration-300 ease-out bg-gray-200 border h-7 group border-white/20">
+                                        <div class="flex space-x-1 duration-300 ease-out opacity-100">
                                             <div class="w-2 h-2 bg-red-400 rounded-full"></div>
                                             <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
                                             <div class="w-2 h-2 bg-green-400 rounded-full"></div>
@@ -49,44 +54,48 @@
             </div>
         </div>
 
-        <section id="page-section" class="flex relative flex-col items-stretch mx-auto max-w-7xl divide-y divide-gray-200 md:mt-10 md:divide-y-0 md:space-y-10 md:px-8 lg:space-y-0 lg:space-x-10 lg:flex-row">
+        <section id="page-section" class="relative flex flex-col items-stretch mx-auto divide-y divide-gray-200 max-w-7xl md:mt-10 md:divide-y-0 md:space-y-10 md:px-8 lg:space-y-0 lg:space-x-10 lg:flex-row">
 
-            <div class="flex relative flex-col-reverse items-start w-full lg:w-1/2 h-100 lg:flex-row">
-                <div class="absolute inset-0 w-full h-full bg-white opacity-100 duration-300 ease-out pointer-events-none md:rounded-2xl group-hover:opacity-0"></div>
+            <div class="relative flex flex-col-reverse items-start w-full lg:w-1/2 h-100 lg:flex-row">
+                <div class="absolute inset-0 w-full h-full duration-300 ease-out bg-white opacity-100 pointer-events-none md:rounded-2xl group-hover:opacity-0"></div>
                 <div class="relative w-full h-full bg-gray-100 md:rounded-2xl">
 
-                    <div class="flex relative flex-col items-start w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl border border-gray-100">
+                    <div class="relative flex flex-col items-start w-full h-full border border-gray-100 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl">
 
-                        <div class="flex z-20 flex-col flex-auto justify-start items-start px-10 py-10 w-full lg:px-12 lg:py-16 xl:px-16 xl:py-24">
-                            <h3 class="inline-flex relative items-center text-2xl font-extrabold text-gray-900 md:text-3xl giarek lg:text-4xl">
+                        <div class="z-20 flex flex-col items-start justify-start flex-auto w-full px-10 py-10 lg:px-12 lg:py-16 xl:px-16 xl:py-24">
+                            <h3 class="relative inline-flex items-center text-2xl font-extrabold text-gray-900 md:text-3xl giarek lg:text-4xl">
                                 <img src="{ url('/assets/images/tailwind-logo.svg') }" class="w-10 h-10" />
                                 <span class="ml-2.5">Styled with Tailwind</span>
                             </h3>
-                            <p class="my-7 text-sm text-gray-500">
+                            <p class="text-sm text-gray-500 my-7">
                                 With its utility-first design and incredible flexibility, Tailwind CSS is the best choice for anyone building responsive and customizable designs.
                             </p>
                             <div class="w-auto">
-                                <include src="elements/button.html" text="Learn About Tailwind" link="{ url('/docs') }"></include>
+                                <a href="https://tailwindcss.com" target="_blank" class="flex items-center px-5 py-2 text-sm font-medium text-white bg-gray-900 rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 focus:ring-offset-gray-100">
+                                    <span>Learn about Tailwind</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="flex relative flex-col-reverse w-full md:rounded-2xl lg:w-1/2 h-100 lg:flex-row">
-                <div class="absolute inset-0 w-full h-full bg-white opacity-100 duration-300 ease-out pointer-events-none md:rounded-2xl group-hover:opacity-0"></div>
+            <div class="relative flex flex-col-reverse w-full md:rounded-2xl lg:w-1/2 h-100 lg:flex-row">
+                <div class="absolute inset-0 w-full h-full duration-300 ease-out bg-white opacity-100 pointer-events-none md:rounded-2xl group-hover:opacity-0"></div>
                 <div id="layout-section" class="w-full h-full md:rounded-2xl">
-                    <div class="flex relative flex-col items-start w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-100 md:rounded-2xl">
-                        <div class="flex flex-col flex-auto justify-start items-start px-10 py-10 w-full lg:px-12 lg:py-16 xl:px-16 xl:py-24">
-                            <h3 class="inline-flex relative items-center text-2xl font-extrabold text-gray-900 md:text-3xl giarek lg:text-4xl">
+                    <div class="relative flex flex-col items-start w-full h-full border border-gray-100 bg-gradient-to-br from-gray-50 to-gray-100 md:rounded-2xl">
+                        <div class="flex flex-col items-start justify-start flex-auto w-full px-10 py-10 lg:px-12 lg:py-16 xl:px-16 xl:py-24">
+                            <h3 class="relative inline-flex items-center text-2xl font-extrabold text-gray-900 md:text-3xl giarek lg:text-4xl">
                                 <img src="{ url('/assets/images/alpine.svg') }" class="w-14 h-14" />
                                 <span class="ml-2.5">Interactive with Alpine</span>
                             </h3>
-                            <p class="my-7 text-sm text-gray-500">
+                            <p class="text-sm text-gray-500 my-7">
                                 Alpine's simplicity allows you to easily sprinkle dynamic interactivity into your HTML, making it a perfect fit for anyone building a SaaS.
                             </p>
                             <div class="w-auto">
-                                <include src="elements/button.html" text="View Documentation" link="{ url('/docs') }"></include>
+                                <a href="https://alpinejs.dev" target="_blank" class="flex items-center px-5 py-2 text-sm font-medium text-white bg-gray-900 rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 focus:ring-offset-gray-100">
+                                    <span>Learn about Alpine</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -97,16 +106,16 @@
 
         <section class="relative mx-auto max-w-7xl md:px-8">
 
-            <div class="flex relative flex-row items-start md:rounded-2xl xl:flex-row-reverse md:mt-10">
+            <div class="relative flex flex-row items-start md:rounded-2xl xl:flex-row-reverse md:mt-10">
 
-                <div class="absolute inset-0 w-full h-full bg-white opacity-100 duration-300 ease-out pointer-events-none md:rounded-2xl group-hover:opacity-0"></div>
+                <div class="absolute inset-0 w-full h-full duration-300 ease-out bg-white opacity-100 pointer-events-none md:rounded-2xl group-hover:opacity-0"></div>
                 <div id="livewire-section" class="w-full bg-white md:rounded-2xl">
                     <div class="relative flex flex-col-reverse items-start w-full px-8 overflow-hidden ring-1 ring-white/[15%] radial-background bg-gray-100 px-10 py-10 lg:px-12 lg:py-16  xl:px-16 xl:py-24 md:flex-row-reverse xl:flex-row sm:rounded-2xl">
-                        <div class="flex-none mt-10 mb-0 w-full md:w-1/2 xl:ml-8 xl:w-8/12 md:mt-0">
+                        <div class="flex-none w-full mt-10 mb-0 md:w-1/2 xl:ml-8 xl:w-8/12 md:mt-0">
                             <div id="livewire-website" class="w-full translate-y-20 md:max-w-3xl md:absolute md:pl-8 xl:pl-0">
-                                <div class="overflow-hidden relative rounded-lg border xl:max-w-2xl xl:-translate-x-20 md:-translate-y-5 border-black/5">
-                                    <div class="flex items-center pl-3 w-full h-7 bg-gray-200 border duration-300 ease-out group border-white/20">
-                                        <div class="flex space-x-1 opacity-100 duration-300 ease-out">
+                                <div class="relative overflow-hidden border rounded-lg xl:max-w-2xl xl:-translate-x-20 md:-translate-y-5 border-black/5">
+                                    <div class="flex items-center w-full pl-3 duration-300 ease-out bg-gray-200 border h-7 group border-white/20">
+                                        <div class="flex space-x-1 duration-300 ease-out opacity-100">
                                             <div class="w-2 h-2 bg-red-400 rounded-full"></div>
                                             <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
                                             <div class="w-2 h-2 bg-green-400 rounded-full"></div>
@@ -116,11 +125,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="relative flex-none mt-10 mb-0 w-7/12 md:mt-0">
+                        <!-- <div class="relative flex-none w-7/12 mt-10 mb-0 md:mt-0">
                             <div id="livewire-website" class="w-full max-w-3xl -translate-x-10 translate-y-20 md:absolute md:pr-10">
-                                <div class="overflow-hidden relative rounded-lg border md:-translate-y-12 border-black/5">
-                                    <div class="flex items-center pl-3 w-full h-7 bg-gray-200 border duration-300 ease-out group border-white/20">
-                                        <div class="flex space-x-1 opacity-100 duration-300 ease-out">
+                                <div class="relative overflow-hidden border rounded-lg md:-translate-y-12 border-black/5">
+                                    <div class="flex items-center w-full pl-3 duration-300 ease-out bg-gray-200 border h-7 group border-white/20">
+                                        <div class="flex space-x-1 duration-300 ease-out opacity-100">
                                             <div class="w-2 h-2 bg-red-400 rounded-full"></div>
                                             <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
                                             <div class="w-2 h-2 bg-green-400 rounded-full"></div>
@@ -130,16 +139,18 @@
                                 </div>
                             </div>
                         </div> -->
-                        <div class="flex flex-col flex-auto justify-start items-start w-full md:5/12 xl:flex-shrink-0 xl:max-w-sm xl:-translate-x-20">
-                            <h3 class="inline-flex relative items-center text-2xl font-extrabold text-gray-900 md:text-3xl giarek lg:text-4xl">
+                        <div class="flex flex-col items-start justify-start flex-auto w-full md:5/12 xl:flex-shrink-0 xl:max-w-sm xl:-translate-x-20">
+                            <h3 class="relative inline-flex items-center text-2xl font-extrabold text-gray-900 md:text-3xl giarek lg:text-4xl">
                                 <img src="{ url('/assets/images/livewire.png') }" class="w-10 h-10" />
                                 <span class="ml-2.5">Perfected with Livewire</span>
                             </h3>
-                            <p class="my-7 text-sm text-gray-500">
+                            <p class="text-sm text-gray-500 my-7">
                                 Pairing Livewire with Laravel lets your front-end and back-end communicate effortlessly, making it easy to build interactive, real-time applications.
                             </p>
                             <div class="w-auto">
-                                <include src="elements/button.html" text="Learn About Laravel" link="https://laravel.com"></include>
+                                <a href="https://livewire.laravel.com" target="_blank" class="flex items-center px-5 py-2 text-sm font-medium text-white bg-gray-900 rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 focus:ring-offset-gray-100">
+                                    <span>Learn about Livewire</span>
+                                </a>
                             </div>
 
                         </div>

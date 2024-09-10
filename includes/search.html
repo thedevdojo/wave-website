@@ -2,25 +2,25 @@
     commandOpen: false,
 }"
 x-init="
-    $watch('commandOpen', function(value){
-        if(value === true){
-            document.body.classList.add('overflow-hidden');
-            $nextTick(() => { window.dispatchEvent(new CustomEvent('command-input-focus', {})); });
-        }else{
-            document.body.classList.remove('overflow-hidden');
-        }
-    })
+    // $watch('commandOpen', function(value){
+    //     if(value === true){
+    //         document.body.classList.add('overflow-hidden');
+    //         $nextTick(() => { window.dispatchEvent(new CustomEvent('command-input-focus', {})); });
+    //     }else{
+    //         document.body.classList.remove('overflow-hidden');
+    //     }
+    // })
 
     window.addEventListener('keydown', function(event){
         if (event.keyCode === 75 && event.metaKey) {
-            commandOpen = true;
+            document.querySelector('.DocSearch').click();
         }
     })
 "
 @keydown.escape.window="commandOpen = false"
 @close-search.window="commandOpen = false"
 class="relative z-50 w-auto h-auto">
-<button @click="commandOpen=true" class="flex flex-shrink-0 gap-x-1.5 justify-start items-center px-2.5 py-2 mb-5 w-full text-sm font-medium text-gray-800 bg-white rounded-md ring-1 ring-inset ring-gray-200 focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 hover:bg-gray-100 disabled:bg-gray-100 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-primary-400" type="button">
+<button @click="document.querySelector('.DocSearch').click();" class="flex flex-shrink-0 gap-x-1.5 justify-start items-center px-2.5 py-2 mb-5 w-full text-sm font-medium text-gray-800 bg-white rounded-md ring-1 ring-inset ring-gray-200 focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 hover:bg-gray-100 disabled:bg-gray-100 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-primary-400" type="button">
     <svg class="flex-shrink-0 w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>  
     Search 
     <div class="hidden gap-0.5 ml-auto lg:inline-flex">
@@ -28,6 +28,7 @@ class="relative z-50 w-auto h-auto">
         <kbd class="inline-flex items-center justify-center text-gray-900 h-5 min-w-[20px] text-[11px] px-1 rounded font-medium font-sans bg-white ring-1 ring-neutral-300 ring-inset">K</kbd>
     </div>
 </button>
+<div id="search-docs" class="hidden"></div>
 <template x-teleport="body">
 
     <div x-show="commandOpen" class="fixed top-0 left-0 z-[205] flex items-center justify-center w-screen h-screen" x-cloak>
@@ -242,17 +243,17 @@ class="relative z-50 w-auto h-auto">
             @keydown.enter="commandItemSelected=commandItemActive;"
             @command-input-focus.window="$refs.commandInput.focus();"
             class="flex min-h-[370px] justify-center w-full max-w-xl items-start relative" x-cloak>
-            <div class="box-border flex overflow-hidden flex-col w-full h-full bg-white bg-opacity-90 rounded-md shadow-md drop-shadow-md backdrop-blur-sm">
+            <div class="box-border flex flex-col w-full h-full overflow-hidden bg-white rounded-md shadow-md bg-opacity-90 drop-shadow-md backdrop-blur-sm">
                 <div class="flex items-center px-3 border-b border-neutral-800">
-                    <svg class="mr-0 w-4 h-4 text-neutral-400 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
-                    <input type="text" x-ref="commandInput" x-model="commandSearch" class="flex px-2 py-3 w-full h-11 text-sm text-white bg-transparent rounded-md border-0 outline-none focus:outline-none focus:ring-0 focus:border-0 placeholder:text-neutral-400 disabled:cursor-not-allowed disabled:opacity-50" placeholder="Type a command or search..." autocomplete="off" autocorrect="off" spellcheck="false">
+                    <svg class="w-4 h-4 mr-0 text-neutral-400 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
+                    <input type="text" x-ref="commandInput" x-model="commandSearch" class="flex w-full px-2 py-3 text-sm text-white bg-transparent border-0 rounded-md outline-none h-11 focus:outline-none focus:ring-0 focus:border-0 placeholder:text-neutral-400 disabled:cursor-not-allowed disabled:opacity-50" placeholder="Type a command or search..." autocomplete="off" autocorrect="off" spellcheck="false">
                 </div>
                 <div x-ref="commandItemsList" class="max-h-[320px] overflow-y-auto overflow-x-hidden">
                     <template x-for="(item, index) in commandItemsFiltered" :key="'item-' + index">
         
                         <div class="pb-1 space-y-1">
                             <template x-if="commandShowCategory(item, index)">
-                                <div class="overflow-hidden px-1 text-gray-700">
+                                <div class="px-1 overflow-hidden text-gray-700">
                                     <div class="px-2 py-1 my-1 text-xs font-medium text-neutral-500" x-text="commandCategoryCapitalize(item.category)"></div>
                                 </div>
                             </template>
