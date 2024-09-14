@@ -327,6 +327,9 @@ document.addEventListener('htmx:afterSwap', function(evt) {
         markdownTOCClickFunc();
         loadGsapAnimations();
         //createRadialBackgrounds();
+        setTimeout(function(){
+            window.dispatchEvent(new CustomEvent('ajax-loaded'));
+        }, 10);
         window.dispatchEvent(new CustomEvent('set-route', { detail: { route: evt.detail.pathInfo.requestPath } }));
 //        updateTOC();
     }, 10);
