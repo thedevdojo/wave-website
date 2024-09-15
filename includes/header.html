@@ -78,21 +78,11 @@ x-init="
 
         if(window.scrollY > 10) {
             scrolled = true;
-            if(document.getElementById('left-sidebar') && document.getElementById('toc-sidebar')){
-                document.getElementById('left-sidebar').classList.remove('pt-24');
-                document.getElementById('left-sidebar').classList.add('pt-20');
-                document.getElementById('toc-sidebar').classList.remove('pt-20');
-                document.getElementById('toc-sidebar').classList.add('pt-16');
-            }
+            
             // document.getElementById('site-content').style.marginTop = '-10px';
         } else {
             scrolled = false;
-            if(document.getElementById('left-sidebar') && document.getElementById('toc-sidebar')){
-                document.getElementById('left-sidebar').classList.add('pt-24');
-                document.getElementById('left-sidebar').classList.remove('pt-20');
-                document.getElementById('toc-sidebar').classList.add('pt-20');
-                document.getElementById('toc-sidebar').classList.remove('pt-16');
-            }
+            
         }
 
         if(window.scrollY > 100) {
@@ -126,8 +116,8 @@ x-init="
     }, 100);
 " 
 @close-mobile-menu.window="mobileMenu=false"
-:class="{ 'h-16 md:h-20' : !scrolled, 'h-14 md:h-[70px] border-b border-zinc-900/5 dark:border-white/15' : scrolled }"
-class="box-border fixed z-[102] flex ease-out duration-200 items-center w-full leading-10 text-center bg-opacity-95 bg-white dark:bg-neutral-950 backdrop-blur-lg">
+:class="{ 'h-16 md:h-20 border-transparent' : !scrolled, 'h-14 md:h-[70px]  border-neutral-600/10 dark:border-neutral-300/10' : scrolled }"
+class="box-border sticky z-[102] flex top-0 ease-out duration-200 border-b items-center w-full leading-10 text-center bg-opacity-95 bg-white dark:bg-neutral-950 backdrop-blur-lg">
 
     <div id="nav-border" class="absolute bottom-0 left-0 w-full h-px duration-500 ease-out opacity-0">
         <div class="relative w-full h-px bg-white dark:bg-neutral-950 opacity-20"></div>
@@ -203,14 +193,14 @@ class="box-border fixed z-[102] flex ease-out duration-200 items-center w-full l
             
 
             <div class="hidden lg:ml-8 md:flex lg:items-center">
-                <button onclick="document.querySelector('.DocSearch').click();" class="p-2 mr-1 rounded-full group hover:bg-gray-200">
-                    <svg class="w-5 h-5 fill-current text-neutral-500 group-hover:text-neutral-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><circle cx="112" cy="112" r="80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M168.57 168.57 224 224"/></svg>
+                <button onclick="document.querySelector('.DocSearch').click();" class="p-2 mr-1 rounded-full group hover:bg-gray-200 dark:hover:bg-neutral-700">
+                    <svg class="w-5 h-5 fill-current text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><circle cx="112" cy="112" r="80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M168.57 168.57 224 224"/></svg>
                 </button>
-                <div :class="{ 'scale-100': !scrolled, 'scale-[0.98]' : scrolled }" class="relative flex items-center justify-center p-1 overflow-hidden duration-300 ease-out border border-gray-200 rounded-full group">
+                <div :class="{ 'scale-100': !scrolled, 'scale-[0.98]' : scrolled }" class="relative flex items-center justify-center p-1 overflow-hidden duration-300 ease-out border rounded-full border-neutral-200 dark:border-neutral-800 group">
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[150px] rounded-full group-hover:opacity-100 opacity-0 blur-sm duration-300 ease-out scale-100 h-[150px] -translate-y-1/2 origin-center">
                         <span class="absolute inset-0 w-full h-full rounded-full bg-gradient-to-r from-indigo-500 via-teal-300 to-blue-500 group-hover:animate-spin-slow"></span>
                     </div>
-                    <a class="inline-flex z-10 justify-center px-3.5 py-2.5 text-xs font-semibold text-white bg-gray-900 rounded-full shadow-sm shadow-xl group hover:bg-black" href="/wave/download">
+                    <a class="inline-flex z-10 justify-center px-3.5 py-2.5 text-xs font-semibold text-white bg-neutral-900 dark:text-neutral-900 dark:bg-neutral-100 dark:hover:bg-white rounded-full shadow-sm shadow-xl group hover:bg-black" href="/wave/download">
                         <svg class="mr-1 w-4 h-4 duration-300 ease-out group-hover:-translate-x-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M208,216H48a8,8,0,0,1-8-8V72L56,40H200l16,32V208A8,8,0,0,1,208,216Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="40" y1="72" x2="216" y2="72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="104" x2="128" y2="184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="96 152 128 184 160 152" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
                         <span>Download</span>
                     </a>

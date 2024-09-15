@@ -2,14 +2,14 @@
     <div class="flex flex-col lg:flex-row-reverse lg:mx-auto lg:max-w-6xl lg:px-8 lg:gap-16">
         <div class="w-full max-w-2xl px-6 mx-auto lg:w-1/3 lg:max-w-none lg:mx-0 lg:px-0">
             <div class="flex flex-col items-start justify-center h-full pr-3 mt-6">
-                <h2 class="relative inline-flex items-center text-2xl font-extrabold text-gray-900 md:text-3xl giarek lg:text-4xl">
+                <h2 class="relative inline-flex items-center text-2xl font-extrabold text-gray-900 dark:text-neutral-100 md:text-3xl giarek lg:text-4xl">
                     <span class="ml-1.5">{title}</span>
                 </h2>
-                <p class="my-4 text-sm text-gray-500">
+                <p class="my-4 text-sm text-gray-500 dark:text-neutral-400">
                     {description}
                 </p>
                 <div class="relative hidden my-2 md:block">
-                    <a href="{link_href}" class="flex items-center px-5 py-2 text-sm font-medium text-white bg-gray-900 rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 focus:ring-offset-gray-100">
+                    <a href="{link_href}" class="flex items-center px-5 py-2 text-sm font-medium text-white bg-gray-900 rounded-full dark:text-neutral-900 dark:bg-neutral-100 focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 focus:ring-offset-gray-100">
                         <span>{link_text}</span>
                     </a>
                 </div>
@@ -17,7 +17,8 @@
         </div>
         <div class="relative w-full pr-5 mt-4 md:mt-12 lg:pr-0 lg:w-1/2 lg:mt-0">
             <div class="relative h-auto lg:h-[580px] w-auto flex flex-col jusitfy-end items-end">
-                <img class="relative w-auto h-auto shadow-xl rounded-r-xl ring-1 ring-black ring-opacity-5 lg:rounded-xl lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="{image}" alt="Authentication Screenshot">
+                <img class="relative block w-auto h-auto shadow-xl rounded-r-xl ring-1 dark:hidden ring-black ring-opacity-5 lg:rounded-xl lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="{image}" alt="Authentication Screenshot">
+                <img class="relative hidden w-auto h-auto shadow-xl rounded-r-xl ring-1 dark:block ring-black ring-opacity-5 lg:rounded-xl lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="{dark_image}" alt="Authentication Screenshot">
             </div>
         </div>
     </div>

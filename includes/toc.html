@@ -1,12 +1,12 @@
-<div id="toc-sidebar" class="sticky z-20 top-[60px] ease-out duration-300 bottom-0 right-0 w-56 flex-shrink-0 pt-20 pb-20 overflow-y-auto lg:block hidden">
+<div id="toc-sidebar" class="sticky z-20 top-[70px] ease-out duration-300 bottom-0 right-0 w-56 flex-shrink-0 pt-2.5 pb-20 overflow-y-auto lg:block hidden">
     <div class="hidden px-5 rounded-lg lg:block">
-        <h5 class="mb-4 text-sm font-semibold leading-6 text-gray-900">On this page</h5>
+        <h5 class="mb-4 text-sm font-semibold leading-6 text-gray-900 dark:text-neutral-100">On this page</h5>
         <ul id="table-of-contents"  x-data="{ toc: null }"
             @set-toc.window="toc = $event.detail.toc; setTimeout(function(){ renderTocFunctionality(); }, 10);"
-            class="text-sm leading-6 toc text-slate-400">
+            class="text-sm leading-6 toc text-slate-400 dark:text-neutral-400">
             <template x-for="tocItem in toc">
                 <li :class="{ 'ml-0': tocItem.lvl === 2, 'ml-3.5': tocItem.lvl === 3 }">
-                    <a :href="'#' + tocItem.slug" class="block py-1 hover:text-black [.active_&]:text-black" x-text="tocItem.content"></a>
+                    <a :href="'#' + tocItem.slug" class="block py-1 hover:text-black dark:hover:text-neutral-100 dark:[.active_&]:text-white [.active_&]:text-black" x-text="tocItem.content"></a>
                 </li>
             </template>
         </ul>

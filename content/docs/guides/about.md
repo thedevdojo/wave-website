@@ -8,7 +8,7 @@ prevURL: '/docs/prompts/create-a-role'
 ---
 
 
-<div class="flex items-stretch p-5 mb-12 border border-gray-200 rounded-md md:mb5">
+<div class="flex items-stretch p-5 mb-12 border border-gray-200 rounded-md dark:border-neutral-700 md:mb5">
    <img class="hidden w-auto h-12 my-0 mr-5 md:h-20 md:block" src="https://cdn.devdojo.com/images/august2024/user-guide.png" />
    <div class="flex flex-col items-start justify-center h-100">
       <h1 class="mb-0 text-base md:text-3xl">Wave Guides</h1>

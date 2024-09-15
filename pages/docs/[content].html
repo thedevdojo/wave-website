@@ -5,31 +5,31 @@
         <div 
             id="docs-sidebar"
             :class="{ 'translate-x-0  bg-white/90 md:bg-transparent': leftSidebar, 'md:-translate-x-0 -translate-x-full': !leftSidebar }"
-            class="fixed md:sticky  flex-shrink-0 z-[101] md:left-auto left-0 top-[45px] md:transition-none ease-out duration-300 text-white md:-ml-0.5 h-full w-56" x-cloak>
+            class="fixed md:sticky  flex-shrink-0 z-[101] md:left-auto left-0 top-[70px] md:transition-none ease-out duration-300 text-white md:-ml-0.5 h-full w-56" x-cloak>
             
             
-            <div id="left-sidebar" class="overflow-scroll ease-out duration-300 px-5 pt-24 pr-5 pb-16 h-full min-h-screen sm:h-screen md:pl-0.5 no-scrollbar">
+            <div id="left-sidebar" class="overflow-scroll ease-out duration-300 px-5 pt-4 pr-5 pb-16 h-full min-h-screen sm:h-screen md:pl-0.5 no-scrollbar">
                 <include src="search.html"></include>
                 <include src="docs-sidebar.html"></include>
             </div>
         </div>
         <div x-show="leftSidebar" @click="leftSidebar=false" class="fixed inset-0 z-20 w-screen h-screen bg-white bg-opacity-[95%]"></div>
 
-        <div id="docs-content" class="flex items-start pb-10 md:ml-5">
+        <div id="docs-content" class="flex items-start pt-2 pb-10 md:ml-5">
             {static_content_element}
-            <div class="pt-24 mx-auto mt-1.5 mr-0 max-w-4xl md:pr-5 lg:mr-5 lg:pr-0">
+            <div class="mx-auto mt-1.5 mr-0 max-w-4xl md:pr-5 lg:mr-5 lg:pr-0">
 
             
-                <article class="w-full max-w-full prose-sm prose text-gray-500 lg:prose-md">
+                <article class="w-full max-w-full prose-sm prose text-gray-500 dark:text-neutral-300 lg:prose-md dark:prose-invert">
                     {content}
                 </article>
 
-                <div class="w-full h-px mt-8 bg-gradient-to-r from-gray-50 via-gray-200 to-gray-50"></div>
+                <div class="w-full h-px mt-8 bg-gradient-to-r from-gray-50 via-gray-200 to-gray-50 dark:from-neutral-950 dark:via-neutral-800 dark:to-neutral-950"></div>
 
                 <div class="flex flex-row items-stretch justify-between gap-5 my-8">
                     <If condition="frontmatter.prevURL != 'undefined' && frontmatter.prevURL != null">
                         <button hx-get="{ url('{frontmatter.prevURL}') }" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
-                            class="flex items-center w-full p-4 ease-linear border rounded-md shadow-sm md:w-1/2 duration-50 border-neutral-100 hover:bg-black hover:border-black text-neutral-600 group hover:text-white">
+                            class="flex items-center w-full p-4 ease-linear border rounded-md shadow-sm md:w-1/2 duration-50 border-neutral-100 dark:border-transparent hover:bg-black hover:border-black text-neutral-600 dark:text-neutral-400 group hover:text-white">
                             <svg class="mr-4 ml-1.5 w-6 h-6 duration-300 ease-out group-hover:-translate-x-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="none"><path d="M3.75 12h16.5m-16.5 0l6.5 6.25M3.75 12l6.5-6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
                             <div class="flex flex-col items-start justify-center">
                                 <small>Back</small>
@@ -39,14 +39,14 @@
                     </If>
 
                     <If condition="frontmatter.prevURL == 'undefined' || frontmatter.prevURL == null || frontmatter.prevURL == ''">
-                        <div class="items-center justify-center hidden w-full py-8 text-sm ease-linear border rounded-md opacity-50 bg-gray-50 md:flex md:w-1/2 duration-50 border-neutral-200 text-neutral-400 group">
+                        <div class="items-center justify-center hidden w-full py-8 text-sm ease-linear border rounded-md opacity-50 bg-gray-50 dark:bg-neutral-800 md:flex md:w-1/2 duration-50 border-neutral-200 dark:border-neutral-800 text-neutral-400 group">
                             No Previous Section
                         </div>
                     </If>
 
                     <If condition="frontmatter.nextURL != null">
                         <button hx-get="{ url('{frontmatter.nextURL}') }" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
-                            class="flex items-center justify-end w-full p-4 ease-linear border rounded-md shadow-sm border-neutral-100 md:w-1/2 duration-50 hover:bg-black hover:border-black text-neutral-600 group hover:text-white">
+                            class="flex items-center justify-end w-full p-4 ease-linear border rounded-md shadow-sm border-neutral-100 dark:border-transparent md:w-1/2 duration-50 hover:bg-black hover:border-black text-neutral-600 dark:text-neutral-400 group hover:text-white">
                             <div class="flex flex-col items-end justify-center">
                                 <small>Next Page</small>
                                 <p class="hidden text-xl md:block group-hover:text-white">{frontmatter.nextTitle}</p>
@@ -56,7 +56,7 @@
                     </If>
 
                     <If condition="frontmatter.nextURL == 'undefined' || frontmatter.nextURL == null || frontmatter.nextURL == ''">
-                        <div class="items-center justify-center hidden w-full py-8 text-sm ease-linear border rounded-md opacity-50 bg-gray-50 md:flex md:w-1/2 duration-50 border-neutral-200 text-neutral-400 group">
+                        <div class="items-center justify-center hidden w-full py-8 text-sm ease-linear border rounded-md opacity-50 bg-gray-50 dark:bg-neutral-800 dark:border-neutral-800 md:flex md:w-1/2 duration-50 border-neutral-200 text-neutral-400 group">
                             No Next Section
                         </div>
                     </If>

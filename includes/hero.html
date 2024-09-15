@@ -9,23 +9,23 @@
       
 
         <div id="container" class="relative z-20 flex flex-col items-center h-auto pb-10 mx-auto max-w-7xl sm:pb-16 md:pb-20 lg:pb-28 md:px-3 md:pt-0 lg:flex-row lg:relative">
-            <div class="px-6 pt-20 mx-auto max-w-7xl lg:pt-40 lg:px-8">
+            <div class="px-6 pt-20 mx-auto max-w-7xl lg:pt-24 lg:px-8">
                 <div class="relative z-20 max-w-5xl mx-auto text-center">
-                  <h1 class="max-w-full mx-auto text-4xl font-bold tracking-tight text-balance sm:text-wrap sm:text-pretty sm:tracking-normal sm:text-6xl text-gray-950 dark:text-white md:text-7xl lg:text-8xl giarek">The Fastest Way to Ship<br> Your SaaS Product.</h1>
+                  <h1 class="max-w-full mx-auto text-4xl font-bold tracking-tight text-balance sm:text-wrap sm:text-pretty sm:tracking-normal sm:text-6xl text-gray-950 dark:text-white md:text-7xl lg:text-8xl giarek">The Fastest Way to Ship<br> Your SaaS Product</h1>
                   <!-- <h1 class="max-w-2xl mx-auto text-3xl font-bold sm:text-5xl text-gray-950 md:text-7xl giarek">Start Shipping your SaaS in Days, Not Months.</h1> -->
-                  <p class="max-w-full mx-auto mt-4 text-sm text-center text-gray-600 sm:mt-5 md:leading-9 sm:max-w-3xl md:text-xl">Wave is the perfect boilerplate for launching a SaaS <span class="hidden sm:inline">without breaking a sweat.</span> <br>Start building <span class="hidden sm:hidden">today</span> and <span class="hidden sm:hidden">start</span> earning your first dollars online quickly.</p>
+                  <p class="max-w-full mx-auto mt-4 text-sm text-center text-neutral-600 dark:text-neutral-400 sm:mt-5 md:leading-9 sm:max-w-3xl md:text-xl">Wave is the perfect way to launch a SaaS <span class="hidden sm:inline">without breaking a sweat.</span> <br>Start building <span class="hidden sm:hidden">today</span> and <span class="hidden sm:hidden">start</span> earning your first dollars online quickly.</p>
                   <div class="flex items-center justify-center mt-5 gap-x-2 sm:mt-6">
 
                     <include src="elements/button.html"
                       text="Start Building"
                       link="{ url('/docs/install') }"></include>
 
-                      <div class="relative items-center justify-center hidden w-full p-1 overflow-hidden duration-300 ease-out border border-gray-200 rounded-xl sm:flex sm:rounded-full sm:w-auto group">
+                      <div class="relative items-center justify-center hidden w-full p-1 overflow-hidden duration-300 ease-out border border-gray-200 dark:border-neutral-800 rounded-xl sm:flex sm:rounded-full sm:w-auto group">
                         <div class="absolute top-1/2 left-1/2 w-full -translate-x-1/2 sm:w-[200px] rounded-xl sm:rounded-full sm:block hidden group-hover:opacity-100 opacity-0 blur-sm duration-300 ease-out scale-100 h-[200px] -translate-y-1/2 origin-center">
                             <span class="absolute inset-0 w-full h-full rounded-full bg-gradient-to-r from-indigo-500 via-teal-300 to-blue-500 group-hover:animate-spin-slow"></span>
                         </div>
                         
-                        <a href="{ url('/docs/getting-started') }" class="block relative z-20 px-3.5 py-2.5 text-xs font-semibold text-gray-700 bg-white rounded-full border border-gray-100 shadow lg:text-sm lg:px-5 lg:py-3 group-hover:bg-white group-hover:text-gray-900">
+                        <a href="{ url('/docs/getting-started') }" class="block relative z-20 px-3.5 py-2.5 text-xs font-semibold text-gray-700 bg-white dark:bg-neutral-800 rounded-full dark:text-neutral-100 border border-gray-100 dark:border-neutral-800 shadow lg:text-sm lg:px-5 lg:py-3 group-hover:bg-white dark:group-hover:bg-black dark:group-hover:text-white group-hover:text-gray-900">
                             <span>View the docs</span>
                             <span aria-hidden="true">→</span>
                         </a>
@@ -37,14 +37,16 @@
                 </div>
                 
                 <div class="relative z-10 flow-root w-full mt-8 sm:mt-12 md:mt-20">
-                  <div class="overflow-hidden border-4 border-gray-900 shadow-xl rounded-xl">
+                  <div class="overflow-hidden border-4 border-gray-900 shadow-xl dark:border-neutral-200 rounded-xl">
                       <!-- https://cdn.devdojo.com/images/july2024/customer-dashboard.png, https://cdn.devdojo.com/images/july2024/saas-pricing.png, https://cdn.devdojo.com/images/july2024/admin.png -->
-                      <img src="https://cdn.devdojo.com/images/july2024/hp-centered.jpeg" alt="App screenshot" class="w-full">
+                      <img src="https://cdn.devdojo.com/images/july2024/hp-centered.jpeg" alt="App screenshot" class="block w-full dark:hidden">
+                      <img src="https://cdn.devdojo.com/images/september2024/hp-dark.jpeg" alt="App screenshot" class="hidden w-full dark:block">
+                      
                   </div>
               </div>
         </div>
     </div>
     
-    <div class="absolute bottom-0 z-[11] w-screen h-[500px] bg-gradient-to-b from-white"></div>
+    <div class="absolute bottom-0 z-[11] w-screen h-[500px] bg-gradient-to-b from-white dark:from-neutral-950"></div>
     <div class="absolute bottom-0 z-10 w-screen h-[500px] max-h-screen opacity-100 pattern-dots translate-y-px"></div>
 </section>

@@ -31,19 +31,6 @@ function loadGsapAnimations(){
 
     FeatureScroller();
 
-    if(document.getElementById('cool-tech')){
-        gsap.to("#cool-tech", {
-            scrollTrigger: {
-                trigger: "#features-header",
-                start: "top 80%",
-                end: "bottom 50%",
-                scrub: true
-            },
-            x: -20,
-            opacity: 1
-        });
-    }
-
     if(document.getElementById('open-source')){
         gsap.to("#open-source", {
             scrollTrigger: {
