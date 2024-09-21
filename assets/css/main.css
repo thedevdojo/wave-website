@@ -153,6 +153,12 @@ https://cdn.devdojo.com/images/august2024/wavyer-pattern.png */
   background-size: 50px 50px; /* Adjust as needed */
 }
 
+.dark .pattern-dots{
+  background-image: url('https://cdn.devdojo.com/assets/svg/dots-dark-gray.svg');
+  background-repeat: repeat;
+  background-size: 50px 50px; /* Adjust as needed */
+}
+
 .pattern-wavy{
   background-image: url('https://cdn.devdojo.com/images/august2024/wavy-pattern.png');
   background-repeat: repeat;
