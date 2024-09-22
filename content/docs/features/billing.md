@@ -90,7 +90,7 @@ STRIPE_WEBHOOK_SECRET=whsec_75...
 
 If your webhook is not setup correctly, it may look like the user purchases and their account never upgrades. Here is a workflow overview of how it works from when the user clicks the **Subscribe to Plan** button.
 
-<img src="https://cdn.devdojo.com/images/august2024/stripe-webhook-workflow-new.png" class="relative w-full rounded-md border border-gray-200" />
+<img src="https://cdn.devdojo.com/images/august2024/stripe-webhook-workflow-new.png" class="relative w-full border rounded-md border-neutral-200" />
 
 As you can see that the webhook gets sent at the same time as a successful payment. So, if the webhook is not setup correctly the user will be redirected to the success page, but their account will not actually be upgraded.
 

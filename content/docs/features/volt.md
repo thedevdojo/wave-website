@@ -91,26 +91,26 @@ Here's a simple version `todos` Volt single-file component:
 
 <x-layouts.marketing>
     @volt('todos')
-        <div class="flex justify-center items-center px-16 py-20 w-full h-full text-gray-300 bg-gray-100">
+        <div class="flex items-center justify-center w-full h-full px-16 py-20 text-neutral-300 bg-neutral-100">
             <div class="p-10 bg-white rounded">
-                <h2 class="text-base font-semibold leading-7 text-gray-900">My Todo</h2>
-                <p class="mt-1 text-sm leading-6 text-gray-500">You have {{ $this->remaining }} things on your todo list.</p>
+                <h2 class="text-base font-semibold leading-7 text-neutral-900">My Todo</h2>
+                <p class="mt-1 text-sm leading-6 text-neutral-500">You have {{ $this->remaining }} things on your todo list.</p>
 
                 <div class="mt-4 space-y-3">
                     @foreach($todos as $todo)
-                    <div class="flex relative items-start">
+                    <div class="relative flex items-start">
                         <div class="flex items-center h-6">
-                            <input id="todo-{{ $loop->index }}" wire:model.live="todos.{{ $loop->index }}.completed" type="checkbox" value="1" class="w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-600">
+                            <input id="todo-{{ $loop->index }}" wire:model.live="todos.{{ $loop->index }}.completed" type="checkbox" value="1" class="w-4 h-4 text-indigo-600 rounded border-neutral-300 focus:ring-indigo-600">
                         </div>
                         <div class="ml-3 text-sm leading-6">
-                            <label for="todo-{{ $loop->index }}" class="font-medium text-gray-900">{{ $todo['todo'] }}</label>
+                            <label for="todo-{{ $loop->index }}" class="font-medium text-neutral-900">{{ $todo['todo'] }}</label>
                         </div>
                     </div>
                     @endforeach
                 </div>
 
                 <form wire:submit="add" class="mt-6">
-                    <input type="text" wire:model="todo" placeholder="My new todo..." class="block py-1.5 w-full text-gray-900 rounded-md border-0 ring-1 ring-inset ring-gray-300 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <input type="text" wire:model="todo" placeholder="My new todo..." class="block py-1.5 w-full text-neutral-900 rounded-md border-0 ring-1 ring-inset ring-neutral-300 shadow-sm placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </form>
             </div>
         </div>

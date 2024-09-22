@@ -15,7 +15,7 @@ Wave leverages all the latest technologies of a Laravel 11 application. This inc
 
 From your project folder, run the following command:
 
-<div class="p-5 font-mono whitespace-break-spaces bg-gray-800 text-sm rounded-xl border border-white/[8%]"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">install</span></div>
+<div class="p-5 font-mono whitespace-break-spaces bg-neutral-800 text-sm rounded-xl border border-white/[8%]"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">install</span></div>
 
 This will install all the dependencies that are definied inside of the package.json file which include Tailwind, Alpine, and Vite.
 
@@ -23,7 +23,7 @@ This will install all the dependencies that are definied inside of the package.j
 
 After you've installed the node dependencies, you'll then need to run:
 
-<div class="p-5 font-mono text-sm bg-gray-800 rounded-xl whitespace-break-spaces"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">run</span> <span class="text-[#f8e164]">dev</span></div>
+<div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl whitespace-break-spaces"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">run</span> <span class="text-[#f8e164]">dev</span></div>
 
 This will start your assets watcher which checks for changes made to your codebase and hot-reloads the current page you are viewing. It will also check all the tailwind CSS classes that need to be used in your project and inject them into your page.
 
@@ -31,7 +31,7 @@ This will start your assets watcher which checks for changes made to your codeba
 
 When you are ready to build your assets and push your code to production you will want to run:
 
-<div class="p-5 font-mono text-sm bg-gray-800 rounded-xl whitespace-break-spaces"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">run</span> <span class="text-[#f8e164]">build</span></div>
+<div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl whitespace-break-spaces"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">run</span> <span class="text-[#f8e164]">build</span></div>
 
 This will compile all your assets and save them to a minified file, making your application run quicker and better optimized for SEO.
 

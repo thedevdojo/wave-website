@@ -115,6 +115,6 @@ You can also give your users the option of enabling Two-Factor auth to gaurantee
 
 Setting up Social Authentication is very simple thanks to the Auth Package. From inside the `/auth/setup/providers` you can toggle the social networks you want to enable.
 
-<img src="https://cdn.devdojo.com/images/august2024/social-providers-screen.jpeg" class="w-full rounded-md border border-gray-200" />
+<img src="https://cdn.devdojo.com/images/august2024/social-providers-screen.jpeg" class="w-full border rounded-md border-neutral-200" />
 
 You will also need to add the social network API keys in order to successfully enable the provider. <a href="https://devdojo.com/auth/docs/config/social-providers/" target="_blank">Learn more about that here</a>.

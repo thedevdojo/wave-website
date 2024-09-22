@@ -26,7 +26,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: #000;
+      background-color: #0a0a0a;
       z-index: 9998;
     }
     
@@ -47,7 +47,7 @@
         background-color: #ffffff;
       }
       &::after {
-        background-color: #000000;
+        background-color: #0a0a0a;
       }
     }
   }
@@ -171,6 +171,16 @@ https://cdn.devdojo.com/images/august2024/wavyer-pattern.png */
   background-size: 150px 150px; /* Adjust as needed */
 }
 
+.dark  .pattern-anchors{
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%23cccccc' fill-opacity='0.4' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.pattern-anchors{
+  background-color: #0a0a0a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%23cccccc' fill-opacity='0.4' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
+}
+
 .docs table thead tr th{
   text-align: left;
 }
@@ -210,4 +220,49 @@ https://cdn.devdojo.com/images/august2024/wavyer-pattern.png */
   --docsearch-hit-background: #f5f5f5;
   --docsearch-hit-shadow: none;
   --docsearch-container-background:rgba(0,0,0,0.8);
+}
+
+
+
+
+.wrapper {
+  position: relative;
+}
+
+.marquee {
+  animation: marquee 5s linear infinite;
+}
+
+.marquee2 {
+  animation: marquee2 5s linear infinite;
+  position: absolute;
+  top: 0;
+}
+
+ul.marquee, ul.marquee2 {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.marquee li, ul.marquee2 li {
+  margin: 8px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }

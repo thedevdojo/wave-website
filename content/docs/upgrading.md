@@ -33,11 +33,11 @@ Download a copy of the latest version. In the root folder you should see another
 
 You will then need to re-autoload your dependencies by running:
 
-<div class="p-5 font-mono whitespace-break-spaces bg-gray-800 text-sm rounded-xl border border-white/[8%]"><span class="text-[#62d6e8]">composer</span> <span class="text-[#f8e164]">dump-autoload</span></div>
+<div class="p-5 font-mono whitespace-break-spaces bg-neutral-800 text-sm rounded-xl border border-white/[8%]"><span class="text-[#62d6e8]">composer</span> <span class="text-[#f8e164]">dump-autoload</span></div>
 
 You may also need to clear the cache by running:
 
-<div class="p-5 font-mono whitespace-break-spaces bg-gray-800 text-sm rounded-xl border border-white/[8%]"><span class="text-[#62d6e8]">php</span> <span class="text-[#f8e164]">artisan cache:clear</span></div>
+<div class="p-5 font-mono whitespace-break-spaces bg-neutral-800 text-sm rounded-xl border border-white/[8%]"><span class="text-[#62d6e8]">php</span> <span class="text-[#f8e164]">artisan cache:clear</span></div>
 
 And you should be updated to the latest version :)
 
