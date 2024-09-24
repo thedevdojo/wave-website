@@ -21,7 +21,7 @@ To download a fresh copy of Wave, click the download button below.<span class="h
         <span class="absolute inset-0 w-full h-full rounded-full bg-gradient-to-r from-indigo-500 via-teal-300 to-blue-500 group-hover:animate-spin-slow"></span>
     </div>
     
-    <a href="/wave/download" class="relative z-20 flex-shrink-0 inline-block w-full px-6 py-3 text-sm font-bold text-center text-white no-underline rounded-full shadow-xl bg-neutral-900 dark:text-neutral-900 dark:bg-neutral-100 dark:hover:bg-white sm:w-auto hover:bg-neutral-950">Download Wave V3</a>
+    <a href="/wave/download" class="relative flex-shrink-0 inline-block w-full px-6 py-3 text-sm font-bold text-center text-white no-underline rounded-full shadow-xl bg-neutral-900 dark:text-neutral-900 dark:bg-neutral-100 dark:hover:bg-white sm:w-auto hover:bg-neutral-950">Download Wave V3</a>
 </div>
 </div>
 

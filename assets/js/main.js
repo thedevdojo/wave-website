@@ -7,7 +7,7 @@ import collapse from '@alpinejs/collapse'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
  
-window.TOCoffset = 140;
+window.TOCoffset = 100;
 
 gsap.registerPlugin(ScrollTrigger);
  
