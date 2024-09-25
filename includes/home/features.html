@@ -10,7 +10,7 @@
 
         <!-- Carousel -->
         <div class="max-w-xl px-4 mx-auto mt-10 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-24 lg:max-w-7xl md:px-6 lg:px-10">
-            <div class="space-y-8 lg:flex lg:space-y-0 lg:space-x-5 xl:space-x-8" x-data="{ tab: '1' }">
+            <div class="space-y-4 sm:space-y-8 lg:flex lg:space-y-0 lg:space-x-5 xl:space-x-8" x-data="{ tab: '1' }">
             
                 <!-- Content -->
                 <div class="lg:max-w-none lg:min-w-[524px]">
@@ -20,48 +20,48 @@
                         <p class="text-lg text-neutral-500">Wave provides you with all the essential features found in many popular SaaS platforms. Now, you can quickly transform your idea into a profitable SaaS product.</p>
                     </div>
                     <!-- Tabs buttons -->
-                    <div class="space-y-6">
+                    <div class="flex space-x-2 sm:space-y-6 sm:space-x-0 sm:block">
                         <button
                             :class="tab !== '1' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex items-start w-full px-6 py-5 text-left duration-200 ease-out border rounded-2xl group"
+                            class="flex flex-col items-center w-full px-6 py-5 space-y-2 text-left duration-200 ease-out border rounded-xl sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
                             @click.prevent="tab = '1'"
                         >
-                            <svg :class="tab !== '1' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="140" r="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="160" x2="128" y2="184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="40" y="88" width="176" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M88,88V56a40,40,0,0,1,80,0V88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <svg :class="tab !== '1' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="140" r="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="160" x2="128" y2="184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="40" y="88" width="176" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M88,88V56a40,40,0,0,1,80,0V88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
                             <div :class="tab !== '1' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" >
-                                <div class="mb-0 text-lg font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200">Authentication</div>
+                                <div class="mb-0 text-sm font-medium sm:text-lg sm:font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200">Auth<span class="hidden sm:inline">entication</span></div>
                                 <div class="hidden text-neutral-500 md:block">Visitors can register for an account, existing users can login. Fully customize your authentication screens.</div>
                             </div>
                         </button>
                         <button
                             :class="tab !== '2' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex items-start w-full px-6 py-5 text-left duration-200 ease-out border rounded-2xl group"
+                            class="flex flex-col items-center w-full px-6 py-5 space-y-2 text-left duration-200 ease-out border sm:space-y-0 sm:items-start sm:flex-row rounded-xl sm:rounded-2xl group"
                             @click.prevent="tab = '2'"
                         >
-                            <svg :class="tab !== '2' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 128V32M211.14 80 44.86 176"/></svg>
+                            <svg :class="tab !== '2' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 128V32M211.14 80 44.86 176"/></svg>
                             <div :class="tab !== '2' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'">
-                                <div class="mb-0 text-lg font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200">User Dashboard</div>
+                                <div class="mb-0 text-sm font-medium sm:text-lg sm:font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200"><span class="hidden sm:inline">User </span>Dashboard</div>
                                 <div class="hidden text-neutral-500 md:block">The user dashboard is where your customers will land when they login. Easily customize it to fit your brand.</div>
                             </div>
                         </button>
                         <button
                             :class="tab !== '3' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex items-start w-full px-6 py-5 text-left duration-200 ease-out border rounded-2xl group"
+                            class="flex flex-col items-center w-full px-6 py-5 space-y-2 text-left duration-200 ease-out border sm:space-y-0 sm:items-start sm:flex-row rounded-xl sm:rounded-2xl group"
                             @click.prevent="tab = '3'"
                         >
-                            <svg :class="tab !== '3' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><rect x="32" y="80" width="160" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M64,80V56a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8V168a8,8,0,0,1-8,8H192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="32" y1="112" x2="192" y2="112" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <svg :class="tab !== '3' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><rect x="32" y="80" width="160" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M64,80V56a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8V168a8,8,0,0,1-8,8H192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="32" y1="112" x2="192" y2="112" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
                             <div :class="tab !== '3' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'">
-                                <div class="mb-0 text-lg font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200">Marketing Pages</div>
+                                <div class="mb-0 text-sm font-medium sm:text-lg sm:font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200"><span class="hidden sm:inline">Marketing</span> Pages</div>
                                 <div class="hidden text-neutral-500 md:block">Each theme includes beautifully designed marketing pages such as home, pricing, blog, and more.</div>
                             </div>
                         </button>
                         <button
                             :class="tab !== '4' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex items-start w-full px-6 py-5 text-left duration-200 ease-out border rounded-2xl group"
+                            class="flex flex-col items-center w-full px-6 py-5 space-y-2 text-left duration-200 ease-out border sm:space-y-0 sm:items-start sm:flex-row rounded-xl sm:rounded-2xl group"
                             @click.prevent="tab = '4'"
                         >
-                            <svg :class="tab !== '4' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 96v40M88 120l40 16M104 168l24-32M152 168l-24-32M168 120l-40 16M216 112V56a8 8 0 0 0-8-8H48a8 8 0 0 0-8 8v56c0 96 88 120 88 120s88-24 88-120Z"/></svg>
+                            <svg :class="tab !== '4' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 96v40M88 120l40 16M104 168l24-32M152 168l-24-32M168 120l-40 16M216 112V56a8 8 0 0 0-8-8H48a8 8 0 0 0-8 8v56c0 96 88 120 88 120s88-24 88-120Z"/></svg>
                             <div :class="tab !== '4' ? 'opacity-80 hover:opacity-100' : 'opacity-100'">
-                                <div class="mb-0 text-lg font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200">Admin Panel</div>
+                                <div class="mb-0 text-sm font-medium sm:text-lg sm:font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200">Admin<span class="hidden sm:inline"> Panel</span></div>
                                 <div class="hidden text-neutral-500 md:block">Wave uses <a href="https://filamentphp.com" target="_blank" class="underline hover:text-neutral-900" onclick="event.stopImmediatePropagation()">Filament</a> as the admin panel, allowing you to utilize the <a href="https://filamentphp.com/docs/tables/installation" target="_blank" class="underline hover:text-neutral-900" onclick="event.stopImmediatePropagation()">table</a> and <a href="https://filamentphp.com/docs/forms/installation" target="_blank" class="underline hover:text-neutral-900" onclick="event.stopImmediatePropagation()">form builder</a> on any page.</div>
                             </div>
                         </button>
@@ -200,11 +200,11 @@
                 </div>
             </div>
 
-            <div class="flex flex-col items-center justify-center mt-16 space-y-3">
+            <div class="flex flex-col items-center justify-center px-4 mt-16 space-y-3 sm:px-0">
                 <p class="hidden text-xs text-neutral-500">
                     For a full list of all of Waves features, click the button below.
                 </p>
-                <a href="https://laravel.com" target="_blank" class="flex items-center px-5 py-2 text-sm font-medium text-white rounded-full bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:ring-offset-neutral-100">
+                <a href="{url('/docs/getting-started#key-features')}" target="_blank" class="flex items-center justify-center w-full px-5 py-2 text-sm font-medium text-center text-white rounded-full sm:w-auto bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:ring-offset-neutral-100">
                     <span>View All Features</span>
                 </a>
             </div>
