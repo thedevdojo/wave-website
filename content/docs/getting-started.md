@@ -58,7 +58,7 @@ Along with Wave being built with the Laravel Framework, there are also a good am
 
 **Technologies**
 
-- <a href="https://livewire.laravel.com" target="_blank" class="font-bold">Livewire</a> - Wave uses Livewire in each theme and many other areas.It makes building interactive applications so fun and easy.
+- <a href="https://livewire.laravel.com" target="_blank" class="font-bold">Livewire</a> - Wave uses Livewire in each theme and many other areas. It makes building interactive applications fun and easy.
 - <a href="https://filamentphp.com" target="_blank" class="font-bold">FilamentPHP</a> - Filament is used for the main Admin section for Wave. Along with Filament panels, you can also take advantage of the Filament Table Builder, Form Builder, and Notifications inside your theme files.
 - <a href="https://tailwidcss.com" target="_blank" class="font-bold">Tailwind CSS</a> - Tailwind makes it easy and simple to stylize your application.
 - <a href="https://alpinejs.dev" target="_blank" class="font-bold">Alpine</a> - Easily add in sprinkles of Javascript functionality with Alpine. Pairs perfectly with Livewire.
