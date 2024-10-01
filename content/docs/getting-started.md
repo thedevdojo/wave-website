@@ -1,6 +1,6 @@
 ---
-title: Getting Started with Static
-description: This is the introduction and getting started seciton of the Static documentation.
+title: Getting Started with Wave
+description: This is the introduction and getting started seciton for the Wave Docs
 slug: 'getting-started'
 prevTitle: null
 prevURL: null
@@ -30,7 +30,7 @@ Welcome to Wave, the **SaaS Starter Kit** that will help you ship your next idea
 
 **Wave** is built on top of the popular <a href="https://laravel.com" target="_blank">Laravel Framework</a>. It's not necessary that you know Laravel; however, a basic understanding of the framework will definitely help.
 
-Building apps with Wave should be fun and exciting! It has a ton of features to save you hundreds of hours. Let's breifly cover some of the key features.
+Wave has been built with the intention of helping anyone build their next great idea at no cost. Wave provides features found in many popular SaaS platforms, which will save you hundreds of hours.
 
 ### Key Features
 
@@ -54,7 +54,7 @@ Here's an overview of Wave's key features, which we'll explore in more detail la
 
 ### Under The Hood
 
-Along with Wave being built with the Laravel Framework, there are also a good amount of other technologies under the hood. Below is a list of them.
+Wave has been built with the <a href="https://laravel.com" target="_blank">Laravel Framework</a>, alongside are many other popular technologies powering the propellers and steering the ship.
 
 **Technologies**
 
@@ -71,11 +71,11 @@ Along with Wave being built with the Laravel Framework, there are also a good am
 - <a href="https://github.com/404labfr/laravel-impersonate" target="_blank" class="font-bold">Impersonation Package</a>
 - <a href="https://spatie.be/docs/laravel-permission" target="_blank" class="font-bold">Spatie Roles (Permissions) Package</a>
 - <a href="https://laravel.com/docs/folio" target="_blank" class="font-bold">Laravel Folio</a> - Inside of each theme folder, you can include a `pages` directory and these will utilize Folio and be mapped to a route.
-- <a href="https://livewire.laravel.com/docs/volt" target="_blank" class="font-bold">Laravel Volt</a> - Many folio pages in Wave utilize Wave for creating single-file volt functionality.
+- <a href="https://livewire.laravel.com/docs/volt" target="_blank" class="font-bold">Laravel Volt</a> - Many folio pages utilize Volt for creating single-file functionality.
 
 ## Demo
 
-<a href="https://devdojo.com/wave" target="_blank">View the demo here</a>. The demo utilizes the sandbox billing features, allowing you to test the process. For a complete experience, install a local copy.
+<a href="https://wave.devdojo.com" target="_blank">View the demo here</a>. The demo utilizes the sandbox billing features, allowing you to test the process. For a complete experience, <a href="{ url('/docs/install') }">install a local copy</a>.
 
 ## Installation
 
