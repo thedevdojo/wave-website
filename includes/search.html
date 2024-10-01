@@ -14,13 +14,14 @@ x-init="
     window.addEventListener('keydown', function(event){
         if (event.keyCode === 75 && event.metaKey) {
             document.querySelector('.DocSearch').click();
+            searchOpen=true;
         }
     })
 "
 @keydown.escape.window="commandOpen = false"
 @close-search.window="commandOpen = false"
 class="relative z-50 hidden w-auto h-auto md:block">
-<button @click="document.querySelector('.DocSearch').click();" class="flex flex-shrink-0 gap-x-1.5 justify-start items-center px-2.5 py-2 mb-5 w-full text-sm font-medium text-neutral-800 dark:text-neutral-100 bg-white rounded-md ring-1 ring-inset ring-neutral-200 dark:ring-neutral-800 dark:bg-neutral-950 focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 hover:bg-neutral-100 dark:hover:bg-neutral-900 disabled:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-primary-400" type="button">
+<button @click="document.querySelector('.DocSearch').click(); searchOpen=true;" class="flex flex-shrink-0 gap-x-1.5 justify-start items-center px-2.5 py-2 mb-5 w-full text-sm font-medium text-neutral-800 dark:text-neutral-100 bg-white rounded-md ring-1 ring-inset ring-neutral-200 dark:ring-neutral-800 dark:bg-neutral-950 focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 hover:bg-neutral-100 dark:hover:bg-neutral-900 disabled:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-primary-400" type="button">
     <svg class="flex-shrink-0 w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>  
     Search 
     <div class="hidden gap-0.5 ml-auto lg:inline-flex">

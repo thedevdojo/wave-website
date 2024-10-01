@@ -235,6 +235,7 @@
           desktop: true,
           templateURL: 'about:blank',
           iframeURL: 'about:blank',
+          searchOpen: false,
           changeTheme: function(slug, url){
             this.ifreamReady=false;
             window.dispatchEvent(new CustomEvent('change-template', { detail : { slug: slug }}));

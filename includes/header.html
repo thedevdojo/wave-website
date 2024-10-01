@@ -191,8 +191,8 @@ class="box-border sticky z-[102] flex top-0 ease-out duration-200 border-b items
 
             
 
-            <div class="hidden lg:ml-8 md:flex lg:items-center">
-                <button onclick="document.querySelector('.DocSearch').click();" class="p-2 mr-1 rounded-full group hover:bg-neutral-200 dark:hover:bg-neutral-700">
+            <div class="hidden lg:ml-8 md:flex md:items-center">
+                <button onclick="document.querySelector('.DocSearch').click(); searchOpen=true;" class="items-center justify-center flex-shrink-0 hidden mr-1 rounded-full md:flex w-9 h-9 group hover:bg-neutral-200 dark:hover:bg-neutral-700">
                     <svg class="w-5 h-5 fill-current text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><circle cx="112" cy="112" r="80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M168.57 168.57 224 224"/></svg>
                 </button>
                 <div :class="{ 'scale-100': !scrolled, 'scale-[0.98]' : scrolled }" class="relative flex items-center justify-center p-1 overflow-hidden duration-300 ease-out border rounded-full border-neutral-200 dark:border-neutral-800 group">
@@ -209,7 +209,7 @@ class="box-border sticky z-[102] flex top-0 ease-out duration-200 border-b items
 
             <!-- Mobile Buton -->
             <div  class="relative flex items-center space-x-3 font-medium leading-10 md:hidden md:flex-grow-0 md:flex-shrink-0 md:mt-0 md:text-right lg:flex-grow-0 lg:flex-shrink-0">
-                <button @click="document.querySelector('.DocSearch').click();" class="block h-full p-2 duration-100 ease-out group md:hidden dark:text-neutral-100 dark:hover:text-white">
+                <button @click="document.querySelector('.DocSearch').click(); searchOpen=true;" class="block h-full p-2 duration-100 ease-out group md:hidden dark:text-neutral-100 dark:hover:text-white">
                     <svg class="w-6 h-6 duration-200 ease-out fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><circle cx="112" cy="112" r="80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M168.57 168.57 224 224"/></svg>
                 </button>
             </div>

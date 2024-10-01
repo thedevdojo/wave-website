@@ -222,6 +222,16 @@ https://cdn.devdojo.com/images/august2024/wavyer-pattern.png */
   --docsearch-container-background:rgba(0,0,0,0.8);
 }
 
+@media (max-width: 768px) {
+  .DocSearch-Modal {
+    position:fixed;
+    top:0px; 
+    left:0px;
+    width:100vw;
+    height:100vh;
+  }
+}
+
 
 
 
