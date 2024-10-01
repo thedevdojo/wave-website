@@ -1,8 +1,8 @@
 ---
 title: API
 description: Learn how to use the API
-prevTitle: 'Blog'
-prevURL: '/docs/features/blog'
+prevTitle: 'Pages'
+prevURL: '/docs/features/pages'
 nextTitle: 'Admin'
 nextURL: '/docs/features/admin'
 ---
