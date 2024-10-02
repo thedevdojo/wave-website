@@ -1,0 +1,179 @@
+<layout src="plain.html">
+    <main x-data="{ themeOpen: false, menuOpen: false, theme: 'anchor', themeImage: 'anchor' }" class="flex flex-col items-stretch justify-center w-screen h-screen bg-gray-100">
+        
+        <div 
+            x-show="themeOpen || menuOpen"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="fixed inset-0 z-20 bg-black/20" x-cloak></div>
+
+        <div x-on:mouseleave="themeOpen=false; menuOpen=false;" class="relative">
+            <div 
+                x-show="themeOpen"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="-translate-y-full"
+                x-transition:enter-end="translate-y-0"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="translate-y-0"
+                x-transition:leave-end="-translate-y-full"
+                class="fixed z-40 top-0 h-[300px] pt-11 bg-gray-950 w-screen" x-cloak>
+                <div x-show="themeOpen" 
+                    x-transition:enter="transition ease-out delay-200 duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    class="relative w-full h-full duration-300 ease-out pl-[52px]">
+                    <div class="absolute top-0 left-0 flex flex-col -ml-[9px] font-semibold text-white rotate-90 translate-y-6 opacity-20">
+                        THEMES
+                    </div>
+
+                    <ul x-on:mouseleave="themeImage=theme" class="space-y-1 text-base font-medium pl-[58px] text-zinc-400">
+                        <li x-show="themeOpen" 
+                            x-transition:enter="transition ease-out delay-300 duration-300"
+                            x-transition:enter-start="opacity-0 -translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            class="relative flex items-center group">
+                            <span x-show="theme=='anchor'" class="absolute w-1.5 h-1.5 -translate-x-3.5 bg-white rounded-full"></span>
+                            <button x-on:click="theme='anchor'" x-on:mouseenter="themeImage='anchor'" :class="{ 'text-white' : theme=='anchor', 'hover:text-white' : theme!='anchor' }" class="duration-300 ease-out">Anchor</button>
+                        </li>
+                        <li x-show="themeOpen" 
+                            x-transition:enter="transition ease-out delay-[350ms] duration-300"
+                            x-transition:enter-start="opacity-0 -translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            class="relative flex items-center group">
+                            <span x-show="theme=='blank'" class="absolute w-1.5 h-1.5 -translate-x-3.5 bg-white rounded-full"></span>
+                            <button x-on:click="theme='blank'" x-on:mouseenter="themeImage='blank'" :class="{ 'text-white' : theme=='blank', 'hover:text-white' : theme!='blank' }" class="duration-300 ease-out">Blank</button>
+                        </li>
+                        <li x-show="themeOpen" 
+                            x-transition:enter="transition ease-out delay-[400ms] duration-300"
+                            x-transition:enter-start="opacity-0 -translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            class="relative flex items-center group">
+                            <span x-show="theme=='cove'" class="absolute w-1.5 h-1.5 -translate-x-3.5 bg-white rounded-full"></span>
+                            <button x-on:click="theme='cove'" x-on:mouseenter="themeImage='cove'" :class="{ 'text-white' : theme=='cove', 'hover:text-white' : theme!='cove' }" class="duration-300 ease-out">Cove</button>
+                        </li>
+                        <li x-show="themeOpen" 
+                            x-transition:enter="transition ease-out delay-[450ms] duration-300"
+                            x-transition:enter-start="opacity-0 -translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            class="relative flex items-center group">
+                            <span x-show="theme=='drift'" class="absolute w-1.5 h-1.5 -translate-x-3.5 bg-white rounded-full"></span>
+                            <button x-on:click="theme='drift'" x-on:mouseenter="themeImage='drift'" :class="{ 'text-white' : theme=='drift', 'hover:text-white' : theme!='drift' }" class="duration-300 ease-out">Drift</button>
+                        </li>
+                        <li x-show="themeOpen" 
+                            x-transition:enter="transition ease-out delay-500 duration-300"
+                            x-transition:enter-start="opacity-0 -translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            class="relative flex items-center group">
+                            <span x-show="theme=='fusion'" class="absolute w-1.5 h-1.5 -translate-x-3.5 bg-white rounded-full"></span>
+                            <button x-on:click="theme='fusion'" x-on:mouseenter="themeImage='fusion'" :class="{ 'text-white' : theme=='fusion', 'hover:text-white' : theme!='fusion' }" class="duration-300 ease-out">Fusion</button>
+                        </li>
+                    </ul>
+
+                    <div x-show="themeOpen"
+                        x-transition:enter="transition ease-out delay-500 duration-500"
+                        x-transition:enter-start="opacity-0"
+                        x-transition:enter-end="opacity-100"
+                        class="fixed overflow-hidden w-[380px] top-0 h-full translate-x-32 ml-1.5 translate-y-12 rounded-md">
+                        <img x-show="themeImage=='anchor'" x-transition.opacity
+                            src="https://cdn.devdojo.com/images/august2024/wave-anchor-theme.jpeg" class="absolute inset-0 object-cover w-full h-auto rounded-md" />
+                        <img x-show="themeImage=='blank'" x-transition.opacity
+                            src="https://cdn.devdojo.com/images/august2024/blank.jpeg" class="absolute inset-0 object-cover w-full h-auto rounded-md" />
+                        <img x-show="themeImage=='cove'" x-transition.opacity
+                            src="https://cdn.devdojo.com/images/august2024/cove-cover.jpeg" class="absolute inset-0 object-cover w-full h-auto rounded-md" />
+                        <img x-show="themeImage=='drift'" x-transition.opacity
+                            src="https://cdn.devdojo.com/images/september2024/drift-theme.jpeg" class="absolute inset-0 object-cover w-full h-auto rounded-md" />
+                        <img x-show="themeImage=='fusion'" x-transition.opacity
+                            src="https://cdn.devdojo.com/images/september2024/fusion-cover.jpeg" class="absolute inset-0 object-cover w-full h-auto rounded-md" />
+                    </div>
+
+                </div>
+            </div>
+
+            <div 
+                x-show="menuOpen"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="-translate-y-full"
+                x-transition:enter-end="translate-y-0"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="translate-y-0"
+                x-transition:leave-end="-translate-y-full"
+                class="fixed top-0 z-40 w-screen h-auto pb-5 pt-11 bg-gradient-to-b from-gray-950 to-gray-900" x-cloak>
+                <div x-show="menuOpen" 
+                    x-transition:enter="transition ease-out delay-200 duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    class="relative w-full h-full duration-300 ease-out pl-[52px]">
+                    <div class="absolute top-0 left-0 flex flex-col font-semibold text-white rotate-90 translate-y-4 opacity-20">
+                        MENU
+                    </div>
+                    <ul class="space-y-1 text-[13px] font-medium text-zinc-400">
+                        <li x-show="menuOpen" 
+                            x-transition:enter="transition ease-out delay-300 duration-300"
+                            x-transition:enter-start="opacity-0 -translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                        ><a href="{ url('/') }" class="duration-300 ease-out hover:text-white">Home</a></li>
+                        <li x-show="menuOpen" 
+                            x-transition:enter="transition ease-out delay-[350ms] duration-300"
+                            x-transition:enter-start="opacity-0 -translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                        ><a href="{ url('/docs') }" class="duration-300 ease-out hover:text-white">Docs</a></li>
+                        <li x-show="menuOpen" 
+                            x-transition:enter="transition ease-out delay-[400ms] duration-300"
+                            x-transition:enter-start="opacity-0 -translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                        ><a href="{ url('/themes') }" class="duration-300 ease-out hover:text-white">Themes</a></li>
+                        <li x-show="menuOpen" 
+                            x-transition:enter="transition ease-out delay-[450ms] duration-300"
+                            x-transition:enter-start="opacity-0 -translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                        ><a href="https://github.com/thedevdojo/wave" target="_blank" class="duration-300 ease-out hover:text-white">Github</a></li>
+                        <li x-show="menuOpen" 
+                            x-transition:enter="transition ease-out delay-500 duration-300"
+                            x-transition:enter-start="opacity-0 -translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                        ><a href="/wave/download" class="duration-300 ease-out hover:text-white">Download</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        <header class="relative z-50 flex w-screen h-11 bg-gradient-to-b from-gray-900 to-gray-950">
+            <div class="flex items-center justify-start flex-1 h-full text-xs">
+            <a href="#" x-on:mouseenter="themeOpen=false; menuOpen=false;" class="flex items-center w-auto h-full pl-3 pr-1 -translate-y-px group">
+                <svg class="text-white h-3.5 w-auto opacity-100 group-hover:opacity-100 ease-out duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185 114" fill="none"><path fill="currentColor" d="M125.577 53.84 92.33 0 59.084 53.833 0 22.158l30.919 91.373h122.829l30.919-91.373-59.09 31.682Zm-33.24-23.07L111.3 61.49l-18.963 10.17-18.97-10.17 18.97-30.719ZM50.575 67.618l-11.71 18.964L28.43 55.741l22.145 11.877Zm.633 29.749 13.643-22.1 10.377 5.567 17.102 9.168 17.108-9.168 10.378-5.567 13.642 22.1h-82.25Zm94.593-10.779-11.716-18.97 22.158-11.877-10.442 30.847Z"></path><path fill="currentColor" d="m51.208 97.367 13.643-22.1 27.48 14.735.002-.001V71.657L73.366 61.49l18.967-30.714V.005L92.33 0 59.084 53.833 0 22.158l30.919 91.373h61.414V97.367H51.208ZM38.865 86.582 28.43 55.741l22.145 11.877-11.71 18.964Z"></path></svg>
+            </a>
+            <button @mouseenter="menuOpen=true; themeOpen=false" class="h-full px-3.5 text-white flex items-center">
+                <span>Menu</span>
+                </button>
+            <button @mouseenter="themeOpen=true; menuOpen=false" class="flex items-center h-full px-3 text-[11px] text-white">
+                <span>Themes</span>
+                <!-- <svg class="w-3 h-3 ml-1 text-white translate-y-px fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path d="M215.39 92.94A8 8 0 0 0 208 88H48a8 8 0 0 0-5.66 13.66l80 80a8 8 0 0 0 11.32 0l80-80a8 8 0 0 0 1.73-8.72Z"/></svg> -->
+            </button>
+            
+                <div x-on:mouseenter="themeOpen=false" class="flex-1 w-full h-full bg-transparent"></div>
+            
+                
+                
+            </div>
+            <div class="flex items-center justify-end flex-1 h-full text-xs font-medium text-white">
+                <span class="px-2 mr-1.5 py-0.5 rounded-full text-[10px] font-medium bg-gray-800 border border-gray-600 text-gray-100">Wave Demo v3.0.1</span>
+                
+                <button class="h-full px-1.5 opacity-90 hover:opacity-100 flex items-center">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.2501 4.75H7.74927C5.54013 4.75 3.74927 6.54086 3.74927 8.75V16.25C3.74927 18.4591 5.54013 20.25 7.74927 20.25H15.2508C17.4599 20.25 19.2508 18.4591 19.2508 16.25V14M20.25 3.74951V9.24951M20.25 3.74951L14.7496 3.75M20.25 3.74951L9.75 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="flex items-center justify-center flex-shrink-0 h-full pr-2 w-9 opacity-90 hover:opacity-100">
+                    <svg class="w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18" fill="none"><path fill="#fff" d="m1.022 14.248 7.244-12.5c.77-1.33 2.692-1.331 3.463-.001l7.248 12.5c.773 1.334-.19 3.004-1.731 3.004H2.754c-1.542 0-2.504-1.67-1.732-3.003Z"/></svg>
+                </button>
+            </div>
+        </header>
+    </div>
+            <iframe src="https://wave.devdojo.com" border="0" class="relative z-10 flex-1 w-screen bg-white h-100"></iframe>
+
+            <!-- <iframe src="https://wave.test" border="0" class="relative z-10 flex-1 w-screen bg-white h-100"></iframe> -->
+            
+        
+    </div>
+</layout>
