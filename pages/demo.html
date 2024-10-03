@@ -4,6 +4,7 @@
             iframe_src = demo_url + '?theme=' + theme;
             $watch('theme', function(value){
                 iframe_src = demo_url + '?theme=' + theme;
+                themeOpen=false;
             });
         "
         class="flex flex-col items-stretch justify-center w-screen h-screen bg-neutral-100">
