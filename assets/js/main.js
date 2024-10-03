@@ -266,8 +266,6 @@ function domReadyLoop(){
                 document.getElementById('loader').classList.add('opacity-0');
                 setTimeout(function(){
                     document.getElementById('loader').remove();
-
-                    
                 }, 300);
 
                 setTimeout(function(){
@@ -276,6 +274,10 @@ function domReadyLoop(){
 
                     tl.set('.slideDown', { y: 0, yPercent: -100, position: 'fixed' })
                                     .to('.slideDown', { duration: 2, ease: 'power3.out', yPercent: 100, force3D: true});
+
+                    setTimeout(function(){
+                        document.querySelector('.slideDown').remove();
+                    }, 2000);
 
                     // setTimeout(function(){
                     //     document.querySelector('.slideDown').remove();

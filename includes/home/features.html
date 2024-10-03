@@ -23,7 +23,7 @@
                     <div class="flex space-x-2 sm:space-y-6 sm:space-x-0 sm:block">
                         <button
                             :class="tab !== '1' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex flex-col items-center w-full px-6 py-5 space-y-2 text-left duration-200 ease-out border rounded-xl sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
+                            class="flex flex-col items-center flex-1 w-full py-5 space-y-2 text-left duration-200 ease-out border rounded-lg sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
                             @click.prevent="tab = '1'"
                         >
                             <svg :class="tab !== '1' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="140" r="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="160" x2="128" y2="184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="40" y="88" width="176" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M88,88V56a40,40,0,0,1,80,0V88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
@@ -34,7 +34,7 @@
                         </button>
                         <button
                             :class="tab !== '2' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex flex-col items-center w-full px-6 py-5 space-y-2 text-left duration-200 ease-out border sm:space-y-0 sm:items-start sm:flex-row rounded-xl sm:rounded-2xl group"
+                            class="flex flex-col items-center flex-1 w-full py-5 space-y-2 text-left duration-200 ease-out border rounded-lg sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
                             @click.prevent="tab = '2'"
                         >
                             <svg :class="tab !== '2' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 128V32M211.14 80 44.86 176"/></svg>
@@ -45,7 +45,7 @@
                         </button>
                         <button
                             :class="tab !== '3' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex flex-col items-center w-full px-6 py-5 space-y-2 text-left duration-200 ease-out border sm:space-y-0 sm:items-start sm:flex-row rounded-xl sm:rounded-2xl group"
+                            class="flex flex-col items-center flex-1 w-full py-5 space-y-2 text-left duration-200 ease-out border rounded-lg sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
                             @click.prevent="tab = '3'"
                         >
                             <svg :class="tab !== '3' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><rect x="32" y="80" width="160" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M64,80V56a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8V168a8,8,0,0,1-8,8H192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="32" y1="112" x2="192" y2="112" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
@@ -56,7 +56,7 @@
                         </button>
                         <button
                             :class="tab !== '4' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex flex-col items-center w-full px-6 py-5 space-y-2 text-left duration-200 ease-out border sm:space-y-0 sm:items-start sm:flex-row rounded-xl sm:rounded-2xl group"
+                            class="flex flex-col items-center flex-1 w-full py-5 space-y-2 text-left duration-200 ease-out border rounded-lg sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
                             @click.prevent="tab = '4'"
                         >
                             <svg :class="tab !== '4' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 96v40M88 120l40 16M104 168l24-32M152 168l-24-32M168 120l-40 16M216 112V56a8 8 0 0 0-8-8H48a8 8 0 0 0-8 8v56c0 96 88 120 88 120s88-24 88-120Z"/></svg>
@@ -84,8 +84,8 @@
                         >
                             <div class="relative flex flex-col items-stretch justify-stretch">
                                 <div class="absolute top-0 right-0 z-20 hidden w-64 h-full bg-gradient-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
-                                <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/auth.jpg') }" alt="Authentication Image" />
-                                <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/auth.jpg') }" alt="Authentication Image" />
+                                <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-lg sm:rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/auth.jpg') }" alt="Authentication Image" />
+                                <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-lg sm:rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/auth.jpg') }" alt="Authentication Image" />
                             </div>
                         </div>
                         <!-- Item 2 -->
@@ -101,8 +101,8 @@
                         >
                             <div>
                                 <div class="absolute top-0 right-0 z-20 hidden w-64 h-full bg-gradient-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
-                                <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/dashboard.jpg') }" alt="User Dashboard Image" />
-                                <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/dashboard.jpg') }" alt="User Dashboard Image" />
+                                <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-lg sm:rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/dashboard.jpg') }" alt="User Dashboard Image" />
+                                <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-lg sm:rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/dashboard.jpg') }" alt="User Dashboard Image" />
                             </div>
                         </div>
                         <!-- Item 3 -->
@@ -118,8 +118,8 @@
                         >
                             <div>
                                 <div class="absolute top-0 right-0 z-20 hidden w-64 h-full bg-gradient-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
-                                <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/home.jpg') }" alt="Marketing Pages Image" />
-                                <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/home.jpg') }" alt="Marketing Pages Image" />
+                                <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-lg sm:rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/home.jpg') }" alt="Marketing Pages Image" />
+                                <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-lg sm:rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/home.jpg') }" alt="Marketing Pages Image" />
                             </div>
                         </div>
                         <!-- Item 4 -->
@@ -135,8 +135,8 @@
                         >
                             <div>
                                 <div class="absolute top-0 right-0 z-20 hidden w-64 h-full bg-gradient-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
-                                <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/admin.jpg') }" alt="Admin Image" />
-                                <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/admin.jpg') }" alt="Admin Image" />
+                                <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-lg sm:rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/admin.jpg') }" alt="Admin Image" />
+                                <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-lg sm:rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/admin.jpg') }" alt="Admin Image" />
                             </div>
                         </div>
                     </div>
@@ -200,11 +200,11 @@
                 </div>
             </div>
 
-            <div class="flex flex-col items-center justify-center px-4 mt-16 space-y-3 sm:px-0">
+            <div class="flex flex-col items-center justify-center px-4 mt-5 space-y-3 sm:mt-16 sm:px-0">
                 <p class="hidden text-xs text-neutral-500">
                     For a full list of all of Waves features, click the button below.
                 </p>
-                <a href="{url('/docs/getting-started#key-features')}" target="_blank" class="flex items-center justify-center w-full px-5 py-2 text-sm font-medium text-center text-white rounded-full sm:w-auto bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:ring-offset-neutral-100">
+                <a href="{url('/docs/getting-started#key-features')}" target="_blank" class="flex items-center justify-center w-full px-5 py-2 text-sm font-medium text-center text-white rounded-lg sm:rounded-full sm:w-auto bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:ring-offset-neutral-100">
                     <span>View All Features</span>
                 </a>
             </div>
