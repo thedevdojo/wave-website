@@ -1,10 +1,13 @@
 <layout src="plain.html">
-    <main x-data="{ themeOpen: false, menuOpen: false, theme: 'anchor', themeImage: 'anchor', iframe_src: 'about:blank', demo_url: 'https://wavev3.devdojo.com' }"
+    <main x-data="{ themeOpen: false, menuOpen: false, theme: 'anchor', themeImage: 'anchor', themeLoading:false, iframe_src: 'about:blank', demo_url: 'https://wavev3.devdojo.com' }"
         x-init="
             iframe_src = demo_url + '?theme=' + theme;
             $watch('theme', function(value){
                 iframe_src = demo_url + '?theme=' + theme;
                 themeOpen=false;
+                setTimeout(function(){
+                    themeLoading=false;
+                }, 1500);
             });
         "
         class="flex flex-col items-stretch justify-center w-screen h-screen bg-neutral-100">
@@ -18,6 +21,18 @@
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
             class="fixed inset-0 z-20 bg-black/20" x-cloak></div>
+
+        <div 
+            x-show="themeLoading"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="fixed inset-0 z-20 flex items-center justify-center w-screen h-screen bg-neutral-950" x-cloak>
+            <svg class="w-5 h-5 mr-3 -ml-1 text-white opacity-60 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+        </div>
 
         <div x-on:mouseleave="themeOpen=false; menuOpen=false;" class="relative">
             <div 
@@ -45,7 +60,7 @@
                             x-transition:enter-end="opacity-100 translate-y-0"
                             class="relative flex items-center group">
                             <span x-show="theme=='anchor'" class="absolute w-1.5 h-1.5 -translate-x-3.5 bg-white rounded-full"></span>
-                            <button x-on:click="theme='anchor'" x-on:mouseenter="themeImage='anchor'" :class="{ 'text-white' : theme=='anchor', 'hover:text-white' : theme!='anchor' }" class="duration-300 ease-out">Anchor</button>
+                            <button x-on:click="theme='anchor'; themeLoading=true;" x-on:mouseenter="themeImage='anchor'" :class="{ 'text-white' : theme=='anchor', 'hover:text-white' : theme!='anchor' }" class="duration-300 ease-out">Anchor</button>
                         </li>
                         <li x-show="themeOpen" 
                             x-transition:enter="transition ease-out delay-[350ms] duration-300"
@@ -53,7 +68,7 @@
                             x-transition:enter-end="opacity-100 translate-y-0"
                             class="relative flex items-center group">
                             <span x-show="theme=='blank'" class="absolute w-1.5 h-1.5 -translate-x-3.5 bg-white rounded-full"></span>
-                            <button x-on:click="theme='blank'" x-on:mouseenter="themeImage='blank'" :class="{ 'text-white' : theme=='blank', 'hover:text-white' : theme!='blank' }" class="duration-300 ease-out">Blank</button>
+                            <button x-on:click="theme='blank'; themeLoading=true;" x-on:mouseenter="themeImage='blank'" :class="{ 'text-white' : theme=='blank', 'hover:text-white' : theme!='blank' }" class="duration-300 ease-out">Blank</button>
                         </li>
                         <li x-show="themeOpen" 
                             x-transition:enter="transition ease-out delay-[400ms] duration-300"
@@ -61,7 +76,7 @@
                             x-transition:enter-end="opacity-100 translate-y-0"
                             class="relative flex items-center group">
                             <span x-show="theme=='cove'" class="absolute w-1.5 h-1.5 -translate-x-3.5 bg-white rounded-full"></span>
-                            <button x-on:click="theme='cove'" x-on:mouseenter="themeImage='cove'" :class="{ 'text-white' : theme=='cove', 'hover:text-white' : theme!='cove' }" class="duration-300 ease-out">Cove</button>
+                            <button x-on:click="theme='cove'; themeLoading=true;" x-on:mouseenter="themeImage='cove'" :class="{ 'text-white' : theme=='cove', 'hover:text-white' : theme!='cove' }" class="duration-300 ease-out">Cove</button>
                         </li>
                         <li x-show="themeOpen" 
                             x-transition:enter="transition ease-out delay-[450ms] duration-300"
@@ -69,7 +84,7 @@
                             x-transition:enter-end="opacity-100 translate-y-0"
                             class="relative flex items-center group">
                             <span x-show="theme=='drift'" class="absolute w-1.5 h-1.5 -translate-x-3.5 bg-white rounded-full"></span>
-                            <button x-on:click="theme='drift'" x-on:mouseenter="themeImage='drift'" :class="{ 'text-white' : theme=='drift', 'hover:text-white' : theme!='drift' }" class="duration-300 ease-out">Drift</button>
+                            <button x-on:click="theme='drift'; themeLoading=true;" x-on:mouseenter="themeImage='drift'" :class="{ 'text-white' : theme=='drift', 'hover:text-white' : theme!='drift' }" class="duration-300 ease-out">Drift</button>
                         </li>
                         <li x-show="themeOpen" 
                             x-transition:enter="transition ease-out delay-500 duration-300"
@@ -77,7 +92,7 @@
                             x-transition:enter-end="opacity-100 translate-y-0"
                             class="relative flex items-center group">
                             <span x-show="theme=='fusion'" class="absolute w-1.5 h-1.5 -translate-x-3.5 bg-white rounded-full"></span>
-                            <button x-on:click="theme='fusion'" x-on:mouseenter="themeImage='fusion'" :class="{ 'text-white' : theme=='fusion', 'hover:text-white' : theme!='fusion' }" class="duration-300 ease-out">Fusion</button>
+                            <button x-on:click="theme='fusion'; themeLoading=true;" x-on:mouseenter="themeImage='fusion'" :class="{ 'text-white' : theme=='fusion', 'hover:text-white' : theme!='fusion' }" class="duration-300 ease-out">Fusion</button>
                         </li>
                     </ul>
 
