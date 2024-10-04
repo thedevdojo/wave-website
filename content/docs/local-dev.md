@@ -9,7 +9,7 @@ nextURL: '/docs/upgrading'
 
 # Local Development
 
-Wave leverages all the latest technologies of a Laravel 11 application. This includes running <a href="https://vitejs.dev/" target="_blank">Vite</a> for compiling your local assets. Let's learn more about the commands you need to run to compile your assets and get hot reloading working.
+Wave utilizes the <a href="https://laravel.com/docs/vite" target="_blank">Laravel Vite plugin</a> for compiling assets and enabling hot-reloading. Let's set it up below.
 
 ## Install Node Dependencies
 
@@ -17,7 +17,7 @@ From your project folder, run the following command:
 
 <div class="p-5 font-mono whitespace-break-spaces bg-neutral-800 text-sm rounded-xl border border-white/[8%]"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">install</span></div>
 
-This will install all the dependencies that are definied inside of the package.json file which include Tailwind, Alpine, and Vite.
+This will install many dependencies including <a href="https://tailwindcss.com" target="_blank">Tailwind</a>, <a href="https://alpinejs.dev" target="_blank">Alpine</a>, and <a href="https://vite.dev" target="_blank">Vite</a>.
 
 ## Start your Asset Watcher
 
@@ -25,7 +25,7 @@ After you've installed the node dependencies, you'll then need to run:
 
 <div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl whitespace-break-spaces"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">run</span> <span class="text-[#f8e164]">dev</span></div>
 
-This will start your assets watcher which checks for changes made to your codebase and hot-reloads the current page you are viewing. It will also check all the tailwind CSS classes that need to be used in your project and inject them into your page.
+This will start your asset watcher, which listens for any changes made to your codebase. When a change is detected, it refreshes the current page and dynamically injects the necessary Tailwind CSS classes.
 
 ## Building Assets for Production
 
@@ -33,9 +33,9 @@ When you are ready to build your assets and push your code to production you wil
 
 <div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl whitespace-break-spaces"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">run</span> <span class="text-[#f8e164]">build</span></div>
 
-This will compile all your assets and save them to a minified file, making your application run quicker and better optimized for SEO.
+This will compile and minify all your assets, resulting in a faster application and an improved experience.
 
 ## Themes
 
-Wave has the concept of **Themes** which means you can change the way your application looks by changing your theme. When you start your asset watcher or build your assets it will watch and build the assets for the current active theme. We'll cover this in more detail in the themes section 😉
+Wave supports **Themes**, allowing you to change the appearance of your application simply by switching themes. When you start your asset watcher or build your assets, it will automatically handle the assets for the currently active theme. We'll explore this further in the themes section.
 

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Wave Demo</title>
     <style>[x-cloak] { display: none; }</style>
-
     <link rel="icon" type="image/png" href="{ url('assets/images/favicon.png') }">
     <link rel="icon" type="image/png" href="{ url('assets/images/favicon-light.png') }" media="(prefers-color-scheme: dark)">
 
@@ -14,7 +13,7 @@
     {tailwindcss}
 
 </head>
-<body class="w-screen h-screen" x-data="{ themeLoading:false, iframe_src: 'about:blank', demo_url: 'https://wavev3.devdojo.com', headerBarClasses: 'px-0' }">
+<body class="w-screen overflow-hidden h-dvh" x-data="{ themeLoading:false, iframe_src: 'about:blank', demo_url: 'https://wavev3.devdojo.com', headerBarClasses: 'px-0' }">
     {slot}
 </body>
 </html>

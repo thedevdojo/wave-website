@@ -17,7 +17,7 @@ To download a fresh copy of Wave, click the download button below.<span class="h
 
 <div class="relative flex items-start justify-start w-full sm:w-auto">
 <div class="relative flex items-center justify-center w-full p-1 mb-5 overflow-hidden duration-300 ease-out border rounded-lg sm:w-auto sm:rounded-full border-neutral-200 dark:border-neutral-800 group">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[250px] rounded-lg sm:rounded-full group-hover:opacity-100 opacity-0 blur-sm duration-300 ease-out scale-100 h-[250px] -translate-y-1/2 origin-center">
+    <div class="absolute sm:block hidden top-1/2 left-1/2 -translate-x-1/2 w-[250px] rounded-lg sm:rounded-full group-hover:opacity-100 opacity-0 blur-sm duration-300 ease-out scale-100 h-[250px] -translate-y-1/2 origin-center">
         <span class="absolute inset-0 w-full h-full rounded-lg sm:rounded-full bg-gradient-to-r from-indigo-500 via-teal-300 to-blue-500 group-hover:animate-spin-slow"></span>
     </div>
     
@@ -25,25 +25,45 @@ To download a fresh copy of Wave, click the download button below.<span class="h
 </div>
 </div>
 
+## Automated Installation
 
-
-After downloading, follow these steps to finish the installation:
+After downloading, you can follow these steps to finish the installation via the automated installer:
 
 1. Unzip the downloaded file.
 2. Rename the unzipped folder to any name you prefer.
 3. Move the renamed folder to one of your <a href="https://herd.laravel.com/docs/1/getting-started/sites" target="_blank">site directories</a>. For example, you can move it to `~/Herd`.
 4. Open your browser and visit `foldername.test` to start the installation process. Remember to replace `foldername` with the actual name of the folder.
 
-> 🎉 That’s it! Wave is now installed. If you encounter any errors during the automated installer, continue reading; otherwise, skip to the **Database** section
+> That's it! Wave is now installed. If you encounter any errors during the automated installer, you may follow the  steps to manually install below; otherwise, move on to the Database section.
 
----
+## Manual Installation
 
-If receive an error when trying to run through the automated installer, you may need to run the following commands from your project folder:
+If receive an error during the automated installer or you just prefer manual install steps, continue reading.
 
-<div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl leading-[24px] whitespace-break-spaces"><span class="text-[#62d6e8]">cp</span> <span class="text-[#f8e164]">.env.example</span> <span class="text-[#f8e164]">.env</span>&nbsp;
-<span class="text-[#62d6e8]">composer</span> <span class="text-[#f8e164]">install</span></div>
+Download Wave and unzip the file. Next, move the folder to your sites folder, and follow these steps:
 
-Then, visit the project URL in the browser to finish the installation.
+### 1. Copy .env.example file
+
+From inside the project folder, run the following command:
+
+<div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl leading-[24px] whitespace-break-spaces"><span class="text-[#62d6e8]">cp</span> <span class="text-[#f8e164]">.env.example</span> <span class="text-[#f8e164]">.env</span></div>
+
+### 2. Install Composer Dependencies
+
+Next, we need to install the composer dependencies:
+
+<div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl leading-[24px] whitespace-break-spaces"><span class="text-[#62d6e8]">composer</span> <span class="text-[#f8e164]">install</span></div>
+
+### 3. Database Migrations and Seed
+
+Next, we need to migrate and seed the database:
+
+```
+php artisan migrate
+php artisan db:seed
+```
+
+> Wave has now been installed. Raise the anchor, man the helm, and prepare for the voyage ahead!
 
 ## Database
 

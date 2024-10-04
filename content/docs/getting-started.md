@@ -68,14 +68,14 @@ Wave has been built with the <a href="https://laravel.com" target="_blank">Larav
 
 - <a href="https://devdojo.com/auth" target="_blank" class="font-bold">DevDojo Auth</a> - We use the DevDojo Auth which gives you a full authenticaiton system in your app.
 - <a href="https://github.com/thedevdojo/themes" target="_blank" class="font-bold">DevDojo Themes</a> - The themes functionality for Wave is extracted into it's own theme package.
-- <a href="https://github.com/404labfr/laravel-impersonate" target="_blank" class="font-bold">Impersonation Package</a>
-- <a href="https://spatie.be/docs/laravel-permission" target="_blank" class="font-bold">Spatie Roles (Permissions) Package</a>
+- <a href="https://github.com/404labfr/laravel-impersonate" target="_blank" class="font-bold">Impersonation Package</a> - This package allows you to authenticate with, or impersonate, any user in your app.
+- <a href="https://spatie.be/docs/laravel-permission" target="_blank" class="font-bold">Spatie Roles (Permissions) Package</a> - Wave utilizes the Spatie Permissions package to manage roles/permissions.
 - <a href="https://laravel.com/docs/folio" target="_blank" class="font-bold">Laravel Folio</a> - Inside of each theme folder, you can include a `pages` directory and these will utilize Folio and be mapped to a route.
 - <a href="https://livewire.laravel.com/docs/volt" target="_blank" class="font-bold">Laravel Volt</a> - Many folio pages utilize Volt for creating single-file functionality.
 
 ## Demo
 
-<a href="https://wave.devdojo.com" target="_blank">View the demo here</a>. The demo utilizes the sandbox billing features, allowing you to test the process. For a complete experience, <a href="{ url('/docs/install') }">install a local copy</a>.
+<a href="{ url('/demo') }" target="_blank">View the demo here</a>. The demo utilizes the sandbox billing features, allowing you to test the process. For a complete experience, <a href="{ url('/docs/install') }">install a local copy</a>.
 
 ## Installation
 
