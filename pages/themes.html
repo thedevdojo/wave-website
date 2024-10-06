@@ -11,21 +11,21 @@
             <div class="grid items-center justify-center w-full h-auto grid-cols-1 gap-6 mx-auto max-w-7xl sm:grid-cols-2 lg:grid-cols-3 md:gap-10">
                 
                 <ForEach collection="themes" as="theme">
-                    <div x-data @click="window.open('{theme.download}', '_blank')"
-                        class="flex w-full overflow-hidden transition-all duration-75 ease-out border rounded-md cursor-pointer opacity-95 border-neutral-200/80 dark:border-neutral-800 sm:rounded-xl sm:shadow-sm group hover:opacity-100">
+                    <div x-data
+                        class="flex w-full overflow-hidden transition-all duration-75 ease-out border rounded-md opacity-95 border-neutral-200/80 dark:border-neutral-800 sm:rounded-xl sm:shadow-sm hover:opacity-100">
                         <div class="flex flex-col">
-                            <div class="relative overflow-hidden">
-                                <img src="{theme.cover}" class="w-full relative z-10 group-hover:scale-[1.02] transition-all ease-out duration-300 overflow-hidden h-auto">
-                                <If condition="theme.access == 'pro'">
-                                    <span class="inline-flex absolute top-0 right-0 mr-2 mt-2 z-20 items-center gap-x-1.5 py-0.5 bg-blue-600 text-xs/5 text-white font-medium px-2 rounded-md">
-                                        <svg class="w-3 h-3 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg>
-                                        <span>Pro</span>
-                                    </span>
-                                </If>
-                            </div>
-                            <div class="relative">
+                            <div @click="window.open('{theme.preview}', '_blank')" class="relative w-full cursor-pointer group">
+                                <div class="relative overflow-hidden">
+                                    <img src="{theme.cover}" class="w-full relative z-10 group-hover:scale-[1.02] transition-all ease-out duration-300 overflow-hidden h-auto">
+                                    <If condition="theme.access == 'pro'">
+                                        <span class="inline-flex absolute top-0 right-0 mr-2 mt-2 z-20 items-center gap-x-1.5 py-0.5 bg-blue-600 text-xs/5 text-white font-medium px-2 rounded-md">
+                                            <svg class="w-3 h-3 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg>
+                                            <span>Pro</span>
+                                        </span>
+                                    </If>
+                                </div>
                                 <div class="flex items-center w-full p-5">
-                                    
+                                        
                                     <div class="relative flex flex-col items-start justify-start h-auto space-y-2">
                                         <h3 class="relative flex items-center -mt-px text-lg font-semibold leading-none text-neutral-800 dark:text-neutral-200 dark:group-hover:text-neutral-100 group-hover:text-neutral-900">
                                             <span>{theme.name}</span>
@@ -34,19 +34,33 @@
                                         <p class="text-sm text-black/60 dark:text-white/60 dark:group-hover:text-white/80 group-hover:text-black/80">{theme.description}</p>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="relative">
                             
                                 
-                                <div class="flex justify-center p-3 border-t border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800">
-                                    <If condition="theme.slug != 'anchor'">
-                                        <button class="inline-flex z-10 justify-center px-3.5 py-2.5 w-full text-sm font-semibold text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:bg-white rounded-lg shadow-lg group hover:bg-black">
-                                            <span>Download {theme.name} Theme</span>
-                                        </button>
-                                    </If>
-                                    <If condition="theme.slug == 'anchor'">
-                                        <div class="px-3.5 py-2.5 w-full text-sm font-semibold text-center bg-white dark:bg-neutral-900 rounded-lg border dark:text-neutral-400 border-neutral-300 dark:border-neutral-700 border-dashed">
-                                            Default Theme Available in Wave
-                                        </div>
-                                    </If>
+                                <div class="flex justify-center px-2.5 py-2 border-t border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800">
+                                    <div class="relative flex items-center w-full space-x-2">
+                                        <If condition="theme.slug != 'anchor'">
+                                            <button @click="window.open('{theme.download}', '_blank')" class="z-10 inline-flex justify-center items-center space-x-1.5 w-full px-3 py-2 text-sm font-semibold text-white rounded-md shadow-lg group bg-neutral-900 hover:bg-black">
+                                                <span>Download</span>
+                                            </button>
+                                        </If>
+                                        <If condition="theme.slug == 'anchor'">
+                                            <div class="flex items-center justify-center w-full px-3 py-2 text-sm font-semibold text-center bg-white border border-dashed rounded-md dark:bg-neutral-900 dark:text-neutral-400 border-neutral-300 dark:border-neutral-700">
+                                                <span>Default Theme</span>
+                                            </div>
+                                        </If>
+                                        <If condition="theme.slug != 'example'">
+                                            <button @click="window.open('{theme.preview}', '_blank')" class="flex items-center justify-center w-full group px-3 py-2 border border-neutral-200/60 space-x-1.5 text-sm font-medium text-center duration-300 ease-out rounded-md bg-white text-neutral-800">
+                                                <span class="duration-300 ease-out">Preview</span>
+                                            </button>
+                                        </If>
+                                        <If condition="theme.slug == 'example'">
+                                            <div class="flex items-center justify-center w-full group cursor-not-allowed px-3 py-2 border border-neutral-200/60 space-x-1.5 text-sm font-medium text-center duration-300 ease-out rounded-md bg-neutral-100 text-neutral-800">
+                                                <span class="duration-300 ease-out">No Preview</span>
+                                            </div>
+                                        </If>
+                                    </div>
                                 </div>
                                 
                             </div>

@@ -1,18 +1,4 @@
-<header
-    x-data="{ themeOpen: false, menuOpen: false, theme: 'anchor', themeImage: 'anchor', collapsed: false, isTouchDevice: false }" 
-    x-init="
-        iframe_src = demo_url + '?theme=' + theme;
-        $watch('theme', function(value){
-            iframe_src = demo_url + '?theme=' + theme;
-            themeOpen=false;
-            setTimeout(function(){
-                themeLoading=false;
-            }, 1500);
-        });
-
-        isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    "
-    class="relative z-[999999] ease-out duration-300" :class="{ '-mt-11' : collapsed }">
+<header class="relative z-[999999] ease-out duration-300" :class="{ '-mt-11' : collapsed }">
 
     <div x-show="themeOpen || menuOpen" x-on:click="menuOpen=false; themeOpen=false;" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 z-20 bg-black/20 backdrop-blur" x-cloak></div>
 
