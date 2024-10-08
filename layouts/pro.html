@@ -9,11 +9,44 @@
     <link rel="icon" type="image/png" href="{ url('assets/images/favicon.png') }">
     <link rel="icon" type="image/png" href="{ url('assets/images/favicon-light.png') }" media="(prefers-color-scheme: dark)">
 
+    <script>
+        window.authGuest = function(){
+            document.getElementById('banner-link-login').classList.remove('hidden');
+            document.getElementById('banner').classList.remove('opacity-0');
+            document.getElementById('banner').style.background = '#4e46dd';
+            document.getElementById('upgrade-notice').classList.remove('hidden');
+        }
+
+        window.authYearly = function(){
+            document.getElementById('banner-message-access').classList.remove('hidden');
+            document.getElementById('banner').classList.remove('opacity-0');
+            document.getElementById('banner').style.background = '#4ca154';
+        }
+
+        window.authMonthly = function(){
+            document.getElementById('banner').classList.remove('bg-indigo-600');
+            document.getElementById('banner').classList.add('bg-yellow-600');
+            document.getElementById('banner-message-monthly').classList.remove('hidden');
+            document.getElementById('banner').classList.remove('opacity-0');
+            document.getElementById('banner').style.background = '#e9a23b';
+            document.getElementById('upgrade-notice').classList.remove('hidden');
+        }
+
+        window.authUser = function(){
+            document.getElementById('banner-link-upgrade').classList.remove('hidden');
+            document.getElementById('banner').classList.remove('opacity-0');
+            document.getElementById('banner').style.background = '#4e46dd';
+            document.getElementById('upgrade-notice').classList.remove('hidden');
+        }
+    </script>
+
     <script src="//unpkg.com/alpinejs" defer></script>
     {tailwindcss}
 
 </head>
 <body class="flex items-center justify-center w-full min-h-dvh">
     {slot}
+
+    <iframe class="hidden w-0 h-0 opacity-0" style="visibility: hidden; opacity:0; position: fixed; width:0px; height:0px; bottom:0px; right:0px;" src="/wave/iframe"></iframe>
 </body>
 </html>
