@@ -3,8 +3,8 @@ title: Volt Pages
 description: Learn how to use volt pages in your themes
 prevTitle: 'Themes'
 prevURL: '/docs/features/themes'
-nextTitle: null
-nextURL: null
+nextTitle: 'Plugins'
+nextURL: '/docs/features/plugins'
 ---
 
 # Volt Pages
