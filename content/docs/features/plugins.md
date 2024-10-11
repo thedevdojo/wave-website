@@ -19,15 +19,15 @@ Wave offers a simple way to include additional funcitonality in your app with pl
 
 ### Installing Plugins
 
-To install a Wave plugin you'll need to move the plugin folder to the `resources/plugins` folder. For example, if you are installing the `discussions` plugin, you would move that folder to `resources/plugins/discussions`. After moving the plugin folder, you can then visit the admin plugin section at `/admin/plugins`.
+To install a Wave plugin, place the plugin folder inside the `resources/plugins` directory. For example, if you’re installing the **discussions** plugin, move its folder to `resources/plugins/discussions`. Once the folder is in place, navigate to the admin plugin section at /admin/plugins.
 
-Here you'll see a list of available plugins. To activate a plugin, simply click the `Activate` button under the plugin you wish to activate.
+here, you’ll see a list of available plugins. To activate one, simply click the **Activate** button under the plugin you would like to install.
 
 <img src="https://cdn.devdojo.com/images/october2024/install-plugin.jpeg" class="w-full rounded-md" />
 
 ### How Plugins Work
 
-Plugins are located in the `resources/plugins` folder. Inside this folder, you’ll also find an `installed.json` file, this keeps track of the installed plugins. It contains an array of plugin names. For instance, if the `discussions` plugin is installed, the `installed.json` file would look like this:
+Plugins are stored in the `resources/plugins` directory. Within this folder, you'll also find an installed.json file, this keeps track of the installed plugins. It contains an array of plugin names. For instance, if the `discussions` plugin is installed, the `installed.json` file would look like this:
 
 ```json
 [
@@ -35,13 +35,9 @@ Plugins are located in the `resources/plugins` folder. Inside this folder, you�
 ]
 ```
 
-At the core of each plugin is the main plugin class (e.g., `example\ExamplePlugin.php`), which acts as the entry point for each plugin. 
-
-> The Wave plugin system closely mimics the behavior of a Laravel package. The main Plug-in class extends the Laravel ServiceProvider class.
-
 #### The Plugin Class
 
-The `ExamplePlugin.php` file allows plugin developers to utilize the `boot` and `register` methods to add functionality to their application.
+At the core of each plugin is the main plugin class (e.g., `example\ExamplePlugin.php`), which acts as the entry point for each plugin. The `ExamplePlugin.php` file allows plugin developers to utilize the `boot` and `register` methods to add functionality to their application.
 
 1. **Boot Method** The `boot()` method is where you add the main logic for your plug-in. Include any functionality you'd like to enhance your application with, such as loading components, views, or routes.​
 
@@ -64,7 +60,7 @@ public function boot()
 
 > The `boot` method is called during the application startup process; however, you may need to register services or configs before the app is fully booted, in that case you'll use the `register` method.
 
-1. **Register Method** The `register` method is used to register services and/or include utilities. It runs before all other plugins have executed their boot functionality. Ideal for setting up anything your app will need.
+2. **Register Method** The `register` method is used to register services and/or include utilities. It runs before all other plugins have executed their boot functionality. Ideal for setting up anything your app will need.
 
 ```php
 public function register()
@@ -78,6 +74,8 @@ public function register()
     });
 }
 ```
+
+> The Wave plugin system closely mimics the behavior of a Laravel package. The main Plug-in class extends the Laravel ServiceProvider class.
 
 #### Autoloading
 
