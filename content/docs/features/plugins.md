@@ -11,20 +11,23 @@ nextURL: null
 
 Wave offers a simple way to include additional funcitonality in your app with plug-ins.
 - [Plug-ins](#plug-ins)
-    - [Plug-in Location](#plug-in-location)
-    - [Installed Plug-ins](#installed-plug-ins)
+    - [Installing Plugins](#installing-plugins)
     - [How Plugins Work](#how-plugins-work)
-      - [The Plugin Service Provider](#the-plugin-service-provider)
+      - [The Plugin Class](#the-plugin-class)
       - [Autoloading](#autoloading)
       - [Plugin Loading Process](#plugin-loading-process)
 
-### Plug-in Location
+### Installing Plugins
 
-Plug-ins will be located in the `resources/plugins` folder. Say that we had a plugin called `discussions`, this plugin source would live inside of the `resources/plugins/resources` folder. You'll also see inside of the plugins folder there is an `installed.json` file. This is the file that will contain the installed components. More about this below.
+To install a Wave plugin you'll need to move the plugin folder to the `resources/plugins` folder. For example, if you are installing the `discussions` plugin, you would move that folder to `resources/plugins/discussions`. After moving the plugin folder, you can then visit the admin plugin section at `/admin/plugins`.
 
-### Installed Plug-ins
+Here you'll see a list of available plugins. To activate a plugin, simply click the `Activate` button under the plugin you wish to activate.
 
-You can find all the installed plugins located inside the `resources/plugins/installed.json` file. This will contain an array of installed plugin names. Example, if we had installed the `discussions` package, the contents of the `installed.json` file would look like: 
+<img src="https://cdn.devdojo.com/images/october2024/install-plugin.jpeg" class="w-full rounded-md" />
+
+### How Plugins Work
+
+Plugins are located in the `resources/plugins` folder. Inside this folder, you’ll also find an `installed.json` file, this keeps track of the installed plugins. It contains an array of plugin names. For instance, if the `discussions` plugin is installed, the `installed.json` file would look like this:
 
 ```json
 [
@@ -32,42 +35,55 @@ You can find all the installed plugins located inside the `resources/plugins/ins
 ]
 ```
 
-### How Plugins Work
+At the core of each plugin is the main plugin class (e.g., `example\ExamplePlugin.php`), which acts as the entry point for each plugin. 
 
-The Wave plugin system is designed to be intuitive for Laravel developers, as it closely mimics the behavior of Laravel service providers. At the core of each plugin is the main plugin file (e.g., `ExamplePlugin.php`), which acts as the entry point and service provider for the plugin.
+> The Wave plugin system closely mimics the behavior of a Laravel package. The main Plug-in class extends the Laravel ServiceProvider class.
 
-#### The Plugin Service Provider
+#### The Plugin Class
 
-The `ExamplePlugin.php` file extends the `Wave\Plugins\Plugin` class, which in turn extends Laravel's `Illuminate\Support\ServiceProvider`. This structure allows plugin developers to utilize the familiar `register` and `boot` methods to add functionality to their plugins.
+The `ExamplePlugin.php` file allows plugin developers to utilize the `boot` and `register` methods to add functionality to their application.
 
-1. **Register Method**: 
-   The `register` method is used to bind things into the service container. This is where you should register services, configuration, and other bindings.
+1. **Boot Method** The `boot()` method is where you add the main logic for your plug-in. Include any functionality you'd like to enhance your application with, such as loading components, views, or routes.​
 
-   ```php
-   public function register()
-   {
-       $this->loadViewsFrom(__DIR__ . '/resources/views', 'example');
-       $this->mergeConfigFrom(__DIR__ . '/config/example.php', 'example');
-   }
-   ```
+```php
+public function boot()
+{
+    // Load views for the ExamplePlugin
+    $this->loadViewsFrom(__DIR__ . '/resources/views', 'example');
 
-2. **Boot Method**: 
-   The `boot` method is called after all services have been registered. It's used for any actions that depend on other services being available.
+    // Load migrations for the ExamplePlugin
+    $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
-   ```php
-   public function boot()
-   {
-       $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
-       $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
-       // Publish assets, config files, etc.
-   }
-   ```
+    // Load routes for the ExamplePlugin
+    $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+
+    // Register a Livewire component for the ExamplePlugin
+    Livewire::component('example-component', \App\Plugins\ExamplePlugin\Components\ExampleComponent::class);
+}
+```
+
+> The `boot` method is called during the application startup process; however, you may need to register services or configs before the app is fully booted, in that case you'll use the `register` method.
+
+1. **Register Method** The `register` method is used to register services and/or include utilities. It runs before all other plugins have executed their boot functionality. Ideal for setting up anything your app will need.
+
+```php
+public function register()
+{
+    // Bind an interface to a concrete implementation
+    $this->app->bind('App\Contracts\SomeServiceInterface', 'App\Services\SomeService');
+
+    // Register a singleton service
+    $this->app->singleton('SomeUtility', function ($app) {
+        return new \App\Utilities\SomeUtility();
+    });
+}
+```
 
 #### Autoloading
 
 All classes and files inside the `src` folder of the plugin are autoloaded. This means you can easily organize your plugin's code into models, controllers, and other class types without worrying about manually including files.
 
-The autoloading is handled by the plugin system's custom autoloader, which follows PSR-4 standards. For example, a class located at `src/Models/Example.php` would be autoloaded with the namespace `Wave\Plugins\Example\Models\Example`.
+The autoloading is handled by the plugin system's custom autoloader, which follows PSR-4 standards. For example, a class located at `plugins/example/src/Models/Post.php` would be autoloaded with the namespace `Wave\Plugins\Example\Models\Post`.
 
 #### Plugin Loading Process
 

@@ -153,6 +153,14 @@ class="box-border sticky z-[102] flex top-0 ease-out duration-200 border-b items
                             :class="{ 'w-full left-0' : active=='themes', 'w-0 left-1/2' : active!='themes' }"    
                             class="absolute bottom-0 px-1.5 h-px duration-300 ease-out translate-y-1.5"><span class="relative block w-full h-px bg-gradient-to-r opacity-30 md:from-white/0 md:via-white md:to-white/0"></span></span>
                     </button> 
+                    <button hx-get="{ url('/plugins') }" hx-target="#site-content" hx-select="#site-content" hx-ext="alpine-morph" hx-swap="morph" hx-push-url="true" @click="active='plugins'; fullWidth=true; scrollTop(); resetProgressWidth(); route=$el.getAttribute('hx-get');  mobileMenu=false" data-plugins @mouseenter="calculateMarkerPosition($el); hovered='plugins'" @mouseleave="markerPositionOriginalPosition()" 
+                        :class="{ 'text-neutral-900 dark:text-white' : active == 'plugins', 'text-neutral-400 dark:text-neutral-400': active != 'plugins' }"
+                        class="relative inline-flex items-center justify-center flex-shrink-0 w-full h-full px-3 py-3 my-2 leading-tight text-center transition-colors hover:text-neutral-900 dark:hover:text-white md:rounded-full md:py-2 group md:my-0 md:w-auto md:text-center">
+                        <span>Plugins</span>
+                        <span 
+                            :class="{ 'w-full left-0' : active=='themes', 'w-0 left-1/2' : active!='themes' }"    
+                            class="absolute bottom-0 px-1.5 h-px duration-300 ease-out translate-y-1.5"><span class="relative block w-full h-px bg-gradient-to-r opacity-30 md:from-white/0 md:via-white md:to-white/0"></span></span>
+                    </button> 
                     <button href="/components" @mouseenter="calculateMarkerPosition($el); hovered='components'" 
                         :class="{ 'text-white' : active == 'components', 'text-white/80': active != 'components' }"
                         class="relative inline-flex items-center justify-center flex-shrink-0 hidden w-full h-full px-3 py-3 my-2 leading-tight text-center transition-colors md:rounded-full md:py-2 group md:my-0 md:w-auto md:text-center">
@@ -170,7 +178,7 @@ class="box-border sticky z-[102] flex top-0 ease-out duration-200 border-b items
                             class="absolute bottom-0 px-1.5 h-px duration-300 ease-out translate-y-1.5"><span class="relative block w-full h-px bg-gradient-to-r opacity-30 md:from-white/0 md:via-white md:to-white/0"></span></span>
                     </button>
                     <a href="https://github.com/thedevdojo/wave" target="_blank"
-                        class="relative inline-flex items-center justify-center flex-shrink-0 w-full h-full px-3 py-5 leading-tight text-center transition-colors text-neutral-500 dark:text-neutral-300 dark:hover:text-neutral-100 md:rounded-full group hover:text-neutral-700 md:py-2 md:w-auto md:text-center">
+                        class="relative items-center justify-center flex-shrink-0 hidden w-full h-full px-3 py-5 leading-tight text-center transition-colors lg:inline-flex text-neutral-500 dark:text-neutral-300 dark:hover:text-neutral-100 md:rounded-full group hover:text-neutral-700 md:py-2 md:w-auto md:text-center">
                         <span class="absolute inset-0 scale-100 shadow-sm md:bg-neutral-50 dark:md:bg-neutral-800 md:rounded-full group-hover:bg-white group-hover:dark:bg-neutral-700/50"></span>
                         <span class="relative z-10 flex items-center pl-4 duration-300 ease-out group-hover:pr-4">
                             <svg class="absolute left-0 w-4 h-4 -translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none"><path fill="currentColor" fill-rule="evenodd" d="M24.02 0C10.738 0 0 10.817 0 24.198 0 34.895 6.88 43.95 16.424 47.154c1.193.241 1.63-.52 1.63-1.161 0-.561-.039-2.484-.039-4.488-6.682 1.443-8.073-2.884-8.073-2.884-1.074-2.805-2.665-3.525-2.665-3.525-2.187-1.483.16-1.483.16-1.483 2.425.16 3.698 2.484 3.698 2.484 2.147 3.686 5.607 2.644 7 2.003.198-1.562.834-2.644 1.51-3.245-5.329-.56-10.936-2.644-10.936-11.939 0-2.644.954-4.807 2.466-6.49-.239-.6-1.074-3.085.239-6.41 0 0 2.028-.641 6.6 2.484 1.959-.53 3.978-.8 6.006-.802 2.028 0 4.095.281 6.005.802 4.573-3.125 6.601-2.484 6.601-2.484 1.313 3.325.477 5.81.239 6.41 1.55 1.683 2.465 3.846 2.465 6.49 0 9.295-5.607 11.338-10.976 11.94.876.76 1.63 2.202 1.63 4.486 0 3.245-.039 5.85-.039 6.65 0 .642.438 1.403 1.63 1.163C41.12 43.949 48 34.895 48 24.198 48.04 10.817 37.262 0 24.02 0Z" clip-rule="evenodd"></path></svg>

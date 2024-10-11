@@ -1,0 +1,11 @@
+[
+    {
+        "name" : "Discussions",
+        "cover" : "https://cdn.devdojo.com/images/october2024/discussions-cover-img.jpeg",
+        "download" : "/wave/download/plugin/discussions",
+        "slug" : "discussions",
+        "description": "A forum discussion for your application. Plug and play with your current theme.",
+        "repo" : "https://github.com/thedevdojo/discussions",
+        "access" : "pro"
+    }
+]
