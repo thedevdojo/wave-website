@@ -7,5 +7,14 @@
         "description": "A forum discussion for your application. Plug and play with your current theme.",
         "repo" : "https://github.com/thedevdojo/discussions",
         "access" : "pro"
+    },
+    {
+        "name" : "Example",
+        "cover" : "https://cdn.devdojo.com/images/october2024/plugin.jpeg",
+        "download" : "https://github.com/thedevdojo/example-plugin/archive/refs/heads/main.zip",
+        "slug" : "example",
+        "description": "A simple plug-in example. A starter for your next Wave plugin.",
+        "repo" : "https://github.com/thedevdojo/example-plugin",
+        "access" : "free"
     }
 ]
