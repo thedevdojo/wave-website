@@ -158,7 +158,7 @@ class="box-border sticky z-[102] flex top-0 ease-out duration-200 border-b items
                         class="relative inline-flex items-center justify-center flex-shrink-0 w-full h-full px-3 py-3 my-2 leading-tight text-center transition-colors hover:text-neutral-900 dark:hover:text-white md:rounded-full md:py-2 group md:my-0 md:w-auto md:text-center">
                         <span>Plugins</span>
                         <span 
-                            :class="{ 'w-full left-0' : active=='themes', 'w-0 left-1/2' : active!='themes' }"    
+                            :class="{ 'w-full left-0' : active=='plugins', 'w-0 left-1/2' : active!='plugins' }"    
                             class="absolute bottom-0 px-1.5 h-px duration-300 ease-out translate-y-1.5"><span class="relative block w-full h-px bg-gradient-to-r opacity-30 md:from-white/0 md:via-white md:to-white/0"></span></span>
                     </button> 
                     <button href="/components" @mouseenter="calculateMarkerPosition($el); hovered='components'" 
@@ -188,12 +188,8 @@ class="box-border sticky z-[102] flex top-0 ease-out duration-200 border-b items
                               </svg>
                         </span>
                     </a>
-
                 </div>
-                
             </div>
-
-            
 
             <div class="hidden lg:ml-8 md:flex md:items-center">
                 <button onclick="document.querySelector('.DocSearch').click(); searchOpen=true;" class="items-center justify-center flex-shrink-0 hidden mr-1 rounded-full md:flex w-9 h-9 group hover:bg-neutral-200 dark:hover:bg-neutral-700">
