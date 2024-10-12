@@ -1,5 +1,14 @@
 [
     {
+        "name" : "Admin Bar",
+        "cover" : "https://cdn.devdojo.com/images/october2024/admin-bar.jpeg",
+        "download" : "https://github.com/thedevdojo/admin-bar/archive/refs/heads/main.zip",
+        "slug" : "admin-bar",
+        "description": "A simple admin bar with quick links and references.",
+        "repo" : "https://github.com/thedevdojo/admin-bar",
+        "access" : "free"
+    },
+    {
         "name" : "Discussions",
         "cover" : "https://cdn.devdojo.com/images/october2024/discussions-cover-img.jpeg",
         "download" : "/wave/download/plugin/discussions",
