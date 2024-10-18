@@ -1,10 +1,10 @@
 ---
 title: Billing
 description: Implement Billing and Payments into your app
-nextTitle: 'Live-Reloading'
-nextURL: '/docs/features/live-reloading'
-prevTitle: 'Collections'
-prevURL: '/docs/features/collections'
+prevTitle: 'User Impersonations'
+prevURL: '/docs/features/user-impersonations'
+nextTitle: 'Subscription Plans'
+nextURL: '/docs/features/subscription-plans'
 ---
 
 # Billing

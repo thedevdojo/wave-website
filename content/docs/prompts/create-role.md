@@ -3,8 +3,8 @@ title: Create a Role
 description: Learn how you can host your website and make it live for the world to see.
 prevTitle: 'Create a User'
 prevURL: '/docs/prompts/create-user' 
-nextTitle: 'About Guides'
-nextURL: '/docs/guides/about'
+nextTitle: 'Create a Plugin'
+nextURL: '/docs/prompts/create-plugin'
 ---
 
 ## Create a Role

@@ -3,8 +3,8 @@ title: Local Development
 description: Learn about the steps you need to perform local development on your app
 prevTitle: 'Installation'
 prevURL: '/docs/install'
-nextTitle: 'Upgrading'
-nextURL: '/docs/upgrading'
+nextTitle: 'Customizations'
+nextURL: '/docs/customizations'
 ---
 
 # Local Development

@@ -1,8 +1,8 @@
 ---
 title: Authentication
 description: Learn how the authentication works with-in Wave
-prevTitle: 'Local Development'
-prevURL: '/docs/local-dev'
+prevTitle: 'Upgrading'
+prevURL: '/docs/upgrading'
 nextTitle: 'User Profiles'
 nextURL: '/docs/features/user-profiles'
 ---

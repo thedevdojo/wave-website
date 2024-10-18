@@ -18,7 +18,7 @@
 
                     <div class="flex flex-row items-stretch justify-between gap-5 my-8">
                         <If condition="frontmatter.prevURL != 'undefined' && frontmatter.prevURL != null">
-                            <button hx-get="{ url('{frontmatter.prevURL}') }" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
+                            <button hx-get="{ url('{frontmatter.prevURL}') }" @keyup.left.window="$el.click()" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
                                 class="flex items-center w-full p-4 ease-linear border rounded-md shadow-sm md:w-1/2 duration-50 border-neutral-100 dark:border-transparent hover:bg-black hover:border-black text-neutral-600 dark:text-neutral-400 group hover:text-white">
                                 <svg class="mr-4 ml-1.5 w-6 h-6 duration-300 ease-out group-hover:-translate-x-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="none"><path d="M3.75 12h16.5m-16.5 0l6.5 6.25M3.75 12l6.5-6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
                                 <div class="flex flex-col items-start justify-center">
@@ -35,7 +35,7 @@
                         </If>
 
                         <If condition="frontmatter.nextURL != null">
-                            <button hx-get="{ url('{frontmatter.nextURL}') }" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
+                            <button hx-get="{ url('{frontmatter.nextURL}') }" @keyup.right.window="$el.click()" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
                                 class="flex items-center justify-end w-full p-4 ease-linear border rounded-md shadow-sm border-neutral-100 dark:border-transparent md:w-1/2 duration-50 hover:bg-black hover:border-black text-neutral-600 dark:text-neutral-400 group hover:text-white">
                                 <div class="flex flex-col items-end justify-center">
                                     <small>Next Page</small>
@@ -61,4 +61,5 @@
     </div>
     
     <include src="separator-anchor.html"></include>
+    <include src="keys.html"></include>
 </layout>

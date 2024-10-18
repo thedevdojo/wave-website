@@ -1,10 +1,10 @@
 ---
 title: Creating Themes
 description: Learn how you can host your website and make it live for the world to see.
-nextTitle: ''
-nextURL: null
-prevTitle: 'About Guides'
-prevURL: '/docs/guides/about' 
+prevTitle: 'Global Helpers'
+prevURL: '/docs/concepts/global-helpers'
+nextTitle: 'Volt Pages'
+nextURL: '/docs/concepts/volt'
 ---
 
 # Creating Themes

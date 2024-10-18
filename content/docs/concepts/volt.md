@@ -1,10 +1,10 @@
 ---
 title: Volt Pages
 description: Learn how to use volt pages in your themes
-prevTitle: 'Themes'
-prevURL: '/docs/features/themes'
-nextTitle: 'Plugins'
-nextURL: '/docs/features/plugins'
+prevTitle: 'Creating Themes'
+prevURL: '/docs/concepts/creating-themes'
+nextTitle: 'Create a User'
+nextURL: '/docs/prompts/create-user'
 ---
 
 # Volt Pages

@@ -25,9 +25,11 @@ To download a fresh copy of Wave, click the download button below.<span class="h
 </div>
 </div>
 
-## Automated Installation
+After downloading Wave, you have two installation options. If you’re using Herd, select the **Automated Installer**. Otherwise, proceed with the **Manual Installation**.
 
-After downloading, you can follow these steps to finish the installation via the automated installer:
+## Automated Installation with Herd
+
+If you are using <a href="https://herd.laravel.com" target="_blank">Herd</a> to host your sites locally, you can follow these steps to finish the installation via the automated installer:
 
 1. Unzip the downloaded file.
 2. Rename the unzipped folder to any name you prefer.
@@ -38,7 +40,7 @@ After downloading, you can follow these steps to finish the installation via the
 
 ## Manual Installation
 
-If receive an error during the automated installer or you just prefer manual install steps, continue reading.
+If you are hosting your Laravel projects locally with someting other than Hered, or if receive an error during the automated installer, you may want to manually install Wave. To do so, continue reading.
 
 Download Wave and unzip the file. Next, move the folder to your sites folder, and follow these steps:
 
@@ -58,10 +60,8 @@ Next, we need to install the composer dependencies:
 
 Next, we need to migrate and seed the database:
 
-```
-php artisan migrate
-php artisan db:seed
-```
+
+<div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl leading-[24px] whitespace-break-spaces"><span class="text-[#62d6e8]">php</span> <span class="text-[#f8e164]">artisan</span> <span class="text-[#f8e164]">migrate</span><br><span class="text-[#62d6e8]">php</span> <span class="text-[#f8e164]">artisan</span> <span class="text-[#f8e164]">db:seed</span></div>
 
 > Wave has now been installed. Raise the anchor, man the helm, and prepare for the voyage ahead!
 

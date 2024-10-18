@@ -2,7 +2,7 @@
 title: Create a User
 description: Learn how you can host your website and make it live for the world to see.
 prevTitle: 'Volt Pages'
-prevURL: '/docs/features/volt' 
+prevURL: '/docs/concepts/volt' 
 nextTitle: 'Create a Role'
 nextURL: '/docs/prompts/create-role' 
 ---

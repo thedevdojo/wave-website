@@ -14,7 +14,7 @@ Subscription plans are an important part of many SaaS applications. With subscri
 Let's cover how to utilize subscription plans in Wave.
 
 - [Subscription Plans](#subscription-plans)
-    - [Current Planss](#current-planss)
+    - [Current Plans](#current-plans)
     - [Deleting Plans](#deleting-plans)
     - [Creating Plans](#creating-plans)
   - [Getting Your Price ID from Stripe](#getting-your-price-id-from-stripe)
@@ -27,7 +27,7 @@ When a user purchases a subscription, they are subscribing to a specific plan. E
 
 You may add, edit, or delete any of the current plans that are available by default.
 
-### Current Planss
+### Current Plans
 
 When you install Wave you will see there are three default plans:
 

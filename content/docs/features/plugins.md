@@ -1,10 +1,10 @@
 ---
 title: Plugins
 description: Learn about Wave Plugins
-prevTitle: 'Volt'
+prevTitle: 'Themes'
 prevURL: '/docs/features/themes'
-nextTitle: null
-nextURL: null
+nextTitle: 'Blade Directives'
+nextURL: '/docs/concepts/blade-directives'
 ---
 
 # Plug-ins

@@ -3,8 +3,8 @@ title: Blog
 description: Learn how to use the blog
 prevTitle: 'Changelog'
 prevURL: '/docs/features/changelog'
-nextTitle: 'API'
-nextURL: '/docs/features/api'
+nextTitle: 'Pages'
+nextURL: '/docs/features/pages'
 ---
 
 # Blog
