@@ -1,25 +1,25 @@
 ---
-title: Functionality
-description: This is a common question that we get with newcomers
+title: Your Functionality
+description: Where should you add your own logic and functionality within Wave?
 prevTitle: 'Local Development'
 prevURL: '/docs/local-dev'
 nextTitle: 'Upgrading'
 nextURL: '/docs/upgrading'
 ---
 
-# Adding Functionality
+# Your Functionality
 
-If this is your first time using Wave, you may be asking yourself, where do I add my own custom functionality.
+If this is your first time using Wave, you may be asking yourself, "Where do I add my own logic and functionality". The Answer to that is pretty simple. Anywhere you want, with some considerations.
 
-## Add Logic Anywhere
+## Common Practice
 
-This is a typical Laravel application. You can add functionality anywhere you'd like—or in all the familiar places like controllers, models, services, and more. There’s no wrong way to add logic to your application. If it works and you’re happy with the functionality, feel free to keep building however you see fit. You will want to structure your code in a way that keeps everything organized and maintainable for your specific use-case.
+Wave is a typical Laravel application, which means you can add functionality in all the familiar places like controllers, models, services, and more. There’s no wrong way to add logic to your application. If it works and you’re happy with it, feel free to keep building however you see fit. You will most-likely want to structure your code in a way that keeps everything organized and maintainable. With that said, we do have a mild recommendation that might help.
 
 ## Recommended Approach
 
-Because Wave utilizes Livewire Volt single-file pages, we recommend this structure for adding new functionality. Single-file Livewire Volt pages help streamline your code organization and make future upgrades to Wave more manageable. While this approach simplifies development, you’re completely free to choose how to structure your application based on your preferences and project needs.
+Because Wave utilizes Livewire Volt single-file pages, we recommend that you continue to use Single-file Volt pages for adding new functionality. Using Single-file Livewire Volt pages will help keep your code organized and make future upgrades more manageable. While this approach simplifies development, you’re completely free to choose how to structure your application based on your preferences and project needs.
 
-If you choose to follow the recommended approach and build your functionality using Volt pages, it can still be beneficial to abstract any complex logic out of the single-file Volt page itself. When the logic becomes lengthy, consider moving it to a service class or controller to keep your code clean and maintainable. This allows you to simplify your Volt page, making it more focused on the user interface while keeping business logic organized and easier to test or extend in the future.
+If you choose to follow the recommended approach and build your functionality using Volt pages, it can still be beneficial to abstract any complex logic out of the single-file Volt page itself. When the logic becomes lengthy, consider moving it to a service class or controller to keep your code clean and maintainable. This allows you to simplify your Volt page, making it easier to locate and modify functionality.
 
 ## Recommended Example
 
