@@ -1,10 +1,10 @@
 ---
 title: About Guides
 description: Learn how you can host your website and make it live for the world to see.
-nextTitle: 'Creating Themes'
-nextURL: '/docs/guides/creating-themes'
-prevTitle: 'Prompts'
-prevURL: '/docs/prompts/create-a-role' 
+prevTitle: 'Create a Plugin'
+prevURL: '/docs/prompts/create-plugin'
+nextTitle: 'Using Filament with Volt'
+nextURL: '/docs/guides/using-filament-with-volt' 
 ---
 
 
@@ -24,8 +24,7 @@ We will be adding more guides in the future, so be sure to check back on this pa
 
 ## Current Guides
 
- - <a href="{ url('/docs/guides/creating-themes') }">Creating Themes</a>
- - <a href="{ url('/docs/guides/theme-structure') }">Theme Structure</a>
+ - <a href="{ url('/docs/guides/using-filament-with-volt') }">Using Filament With Volt</a>
 
 ## What's Next?
 

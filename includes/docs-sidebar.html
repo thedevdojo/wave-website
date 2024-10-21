@@ -278,6 +278,42 @@
         @url-updated.window="unCollapseBasedOnURL()"
         class="relative">
         <div x-on:click="collapsed=!collapsed" :class="{ 'bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-white': !collapsed, 'hover:bg-neutral-100 text-neutral-800 dark:hover:bg-neutral-900 dark:hover:text-white dark:text-neutral-400' : collapsed }" class="flex justify-between items-center px-2.5 py-1.5 text-sm font-medium rounded-lg cursor-pointer select-none">
+            <span class="truncate">Guides</span>
+            <svg :class="{ '-rotate-180 text-neutral-800 dark:text-neutral-100' : !collapsed, 'text-neutral-500 dark:text-neutral-400 dark:hover:text-black' : collapsed }" class="w-3.5 h-3.5 duration-300 ease-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="208 96 128 176 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
+        </div>
+        <nav x-show="!collapsed" class="relative px-1 py-2.5 space-y-0.5" x-collapse x-cloak>
+            <button id="deploying-your-site-docs" hx-get="{ url('/docs/guides/about') }" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="docSidebarClick($el)"
+                :class="{ 'text-white before:bg-neutral-800 dark:before:bg-neutral-100 dark:text-neutral-900' : route.includes($el.getAttribute('hx-get')), 'text-neutral-500 dark:text-neutral-400 dark:hover:text-black hover:text-black hover:before:bg-neutral-200' : route != $el.getAttribute('hx-get') }"
+                class="relative flex items-center w-full gap-2 px-3 py-2 text-xs font-medium rounded-md text-neutral-500 group focus:outline-none focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-1 focus-visible:before:ring-primary-400 before:absolute before:inset-px before:rounded-md disabled:cursor-not-allowed disabled:opacity-75 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-400 hover:text-black hover:before:bg-neutral-200">
+                <svg class="z-20 flex-shrink-0 w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" opacity="0.2"/><circle cx="128" cy="180" r="12"/><path d="M128,144v-8c17.67,0,32-12.54,32-28s-14.33-28-32-28S96,92.54,96,108v4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                <span class="relative truncate">About</span>
+            </button>
+            <button id="using-filament-with-volt-docs" hx-get="{ url('/docs/guides/using-filament-with-volt') }" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="docSidebarClick($el)"
+                :class="{ 'text-white before:bg-neutral-800 dark:before:bg-neutral-100 dark:text-neutral-900' : route.includes($el.getAttribute('hx-get')), 'text-neutral-500 dark:text-neutral-400 dark:hover:text-black hover:text-black hover:before:bg-neutral-200' : route != $el.getAttribute('hx-get') }"
+                class="relative flex items-center w-full gap-2 px-3 py-2 text-xs font-medium rounded-md text-neutral-500 group focus:outline-none focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-1 focus-visible:before:ring-primary-400 before:absolute before:inset-px before:rounded-md disabled:cursor-not-allowed disabled:opacity-75 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-400 hover:text-black hover:before:bg-neutral-200">
+                <svg class="z-20 flex-shrink-0 w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M165.36,123.05C192.36,99.43,224,64.81,224,32,191.19,32,156.57,63.64,133,90.64A84.39,84.39,0,0,1,165.36,123.05Z" opacity="0.2"/><path d="M16,216H92a52,52,0,1,0-52-52C40,200,16,216,16,216Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M112.41,116.16C131.6,90.29,179.46,32,224,32c0,44.54-58.29,92.4-84.16,111.59" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M133,90.64a84.39,84.39,0,0,1,32.41,32.41" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                <span class="relative truncate">Using Filament with Volt</span>
+            </button>
+        </nav> 
+    </div>
+    <div x-data="{ 
+            collapsed: true,
+            unCollapseBasedOnURL(){
+                let buttons = $el.querySelectorAll('nav button');
+                let that = this;
+                buttons.forEach(button => {
+                    if (window.location.href.includes(button.getAttribute('hx-get'))) {
+                        that.collapsed = false;
+                    }
+                });
+            }
+        }"
+        x-init="
+            unCollapseBasedOnURL();
+        "
+        @url-updated.window="unCollapseBasedOnURL()"
+        class="relative">
+        <div x-on:click="collapsed=!collapsed" :class="{ 'bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-white': !collapsed, 'hover:bg-neutral-100 text-neutral-800 dark:hover:bg-neutral-900 dark:hover:text-white dark:text-neutral-400' : collapsed }" class="flex justify-between items-center px-2.5 py-1.5 text-sm font-medium rounded-lg cursor-pointer select-none">
             <span class="truncate">Resources</span>
             <svg :class="{ '-rotate-180 text-neutral-800 dark:text-neutral-100' : !collapsed, 'text-neutral-500 dark:text-neutral-400 dark:hover:text-black' : collapsed }" class="w-3.5 h-3.5 duration-300 ease-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="208 96 128 176 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
         </div>

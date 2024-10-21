@@ -3,8 +3,8 @@ title: Customizations
 description: Learn how to add some basic customizations to your application
 prevTitle: 'Local Development'
 prevURL: '/docs/local-dev'
-nextTitle: 'Upgrading'
-nextURL: '/docs/upgrading'
+nextTitle: 'Your Functionality'
+nextURL: '/docs/your-functionality'
 ---
 
 # Customizations

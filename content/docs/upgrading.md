@@ -1,8 +1,8 @@
 ---
 title: Upgrading Wave
 description: Learn how to upgrade Wave
-prevTitle: 'Customizations'
-prevURL: '/docs/customizations'
+prevTitle: 'Your Functionality'
+prevURL: '/docs/your-functionality'
 nextTitle: 'Authentication'
 nextURL: '/docs/features/auth'
 ---
