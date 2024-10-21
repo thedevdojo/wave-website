@@ -45,11 +45,11 @@
                 <svg class="z-20 flex-shrink-0 w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M104 126.94a64 64 0 0 1 80-90.29L144 80l5.66 26.34L176 112l43.35-40a64 64 0 0 1-90.29 80L73 217a24 24 0 0 1-34-34Z"/></svg>
                 <span class="relative truncate">Customizations</span>
             </button>
-            <button id="functionality-docs" hx-get="{ url('/docs/functionality') }" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="docSidebarClick($el)"
+            <button id="functionality-docs" hx-get="{ url('/docs/your-functionality') }" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="docSidebarClick($el)"
                 :class="{ 'text-white before:bg-neutral-800 dark:before:bg-neutral-100 dark:text-neutral-900' : route.includes($el.getAttribute('hx-get')), 'text-neutral-500 dark:text-neutral-400 dark:hover:text-black hover:text-black hover:before:bg-neutral-200' : route != $el.getAttribute('hx-get') }"
                 class="relative flex items-center w-full gap-2 px-3 py-2 text-xs font-medium rounded-md group focus:outline-none focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-1 focus-visible:before:ring-primary-400 before:absolute before:inset-px before:rounded-md disabled:cursor-not-allowed disabled:opacity-75 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-400">
                 <svg class="z-20 flex-shrink-0 w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path d="m192 168 48-40-48-40H64l-48 40 48 40h128z" opacity=".2"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m64 88-48 40 48 40M192 88l48 40-48 40M160 40 96 216"/></svg>
-                <span class="relative truncate">Functionality</span>
+                <span class="relative truncate">Your Functionality</span>
             </button>
             <button id="upgrading-docs" hx-get="{ url('/docs/upgrading') }" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="docSidebarClick($el)"
                 :class="{ 'text-white before:bg-neutral-800 dark:before:bg-neutral-100 dark:text-neutral-900' : route.includes($el.getAttribute('hx-get')), 'text-neutral-500 dark:text-neutral-400 dark:hover:text-black hover:text-black hover:before:bg-neutral-200' : route != $el.getAttribute('hx-get') }"
