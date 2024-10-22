@@ -61,7 +61,7 @@ To change the favicon for your application you will want to replace the followin
 
 You will also want to add a `favicon.ico` to the `/public` directory to support older browsers.
 
-> Try to make sure that your favicon pngs are at least 180x180px. If you want to customize how these favicons are loaded you can modify the component located at `resources/views/components/favicon.blade.php
+> Try to make sure that your favicon pngs are at least 180x180px. If you want to customize how these favicons are loaded you can modify the component located at `resources/views/components/favicon.blade.php`
 
 ## Change the Default Color
 

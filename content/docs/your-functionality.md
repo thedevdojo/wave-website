@@ -135,7 +135,7 @@ Next, let's create the **volt page** to list our projects. Add the following fil
     @volt('projects')
         <x-app.container>
         
-            <div class="flex items-center mb-5 justify-between">
+            <div class="flex items-center justify-between mb-5">
                 <x-app.heading
                         title="Projects"
                         description="Check out your projects below"
@@ -145,30 +145,30 @@ Next, let's create the **volt page** to list our projects. Add the following fil
             </div>
             
             @if($projects->isEmpty())
-                <div class="w-full p-20 rounded-xl text-center bg-gray-100">
+                <div class="w-full p-20 text-center bg-gray-100 rounded-xl">
                     <p class="text-gray-500">You don't have any projects yet.</p>
                 </div>
             @else
-                <div class="overflow-x-auto rounded-lg border">
+                <div class="overflow-x-auto border rounded-lg">
                     <table class="min-w-full bg-white">
-                        <thead class="bg-gray-100 text-sm">
+                        <thead class="text-sm bg-gray-100">
                             <tr>
-                                <th class="py-2 px-4 text-left">Name</th>
-                                <th class="py-2 px-4 text-left">Description</th>
-                                <th class="py-2 px-4 text-left">Start Date</th>
-                                <th class="py-2 px-4 text-left">End Date</th>
-                                <th class="py-2 px-4 text-left">Actions</th>
+                                <th class="px-4 py-2 text-left">Name</th>
+                                <th class="px-4 py-2 text-left">Description</th>
+                                <th class="px-4 py-2 text-left">Start Date</th>
+                                <th class="px-4 py-2 text-left">End Date</th>
+                                <th class="px-4 py-2 text-left">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($projects as $project)
                                 <tr>
-                                    <td class="py-2 px-4">{{ $project->name }}</td>
-                                    <td class="py-2 px-4">{{ Str::limit($project->description, 50) }}</td>
-                                    <td class="py-2 px-4">{{ $project->start_date ? $project->start_date->format('Y-m-d') : 'N/A' }}</td>
-                                    <td class="py-2 px-4">{{ $project->end_date ? $project->end_date->format('Y-m-d') : 'N/A' }}</td>
-                                    <td class="py-2 px-4">
-                                        <a href="/project/edit/{{ $project->id }}" class="text-blue-500 hover:underline mr-2">Edit</a>
+                                    <td class="px-4 py-2">{{ $project->name }}</td>
+                                    <td class="px-4 py-2">{{ Str::limit($project->description, 50) }}</td>
+                                    <td class="px-4 py-2">{{ $project->start_date ? $project->start_date->format('Y-m-d') : 'N/A' }}</td>
+                                    <td class="px-4 py-2">{{ $project->end_date ? $project->end_date->format('Y-m-d') : 'N/A' }}</td>
+                                    <td class="px-4 py-2">
+                                        <a href="/project/edit/{{ $project->id }}" class="mr-2 text-blue-500 hover:underline">Edit</a>
                                         <button wire:click="deleteProject({{ $project->id }})" class="text-red-500 hover:underline">Delete</button>
                                     </td>
                                 </tr>
@@ -254,26 +254,26 @@ This page will output all the projects that belong to this specific user, but ri
             
             <form wire:submit="save" class="space-y-4">
                 <div>
-                    <label for="description" class="block text-sm mb-2 font-medium text-gray-700">Project name</label>
-                    <input type="text" id="name" wire:model="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    @error('name') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                    <label for="description" class="block mb-2 text-sm font-medium text-gray-700">Project name</label>
+                    <input type="text" id="name" wire:model="name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    @error('name') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                 </div>
                 <div>
-                    <label for="description" class="block text-sm mb-2 font-medium text-gray-700">Description</label>
-                    <textarea id="description" wire:model="description" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
-                    @error('description') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
-                </div>
-
-                <div>
-                    <label for="start_date" class="block text-sm mb-2 font-medium text-gray-700">Start Date</label>
-                    <input type="date" id="start_date" wire:model="start_date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    @error('start_date') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                    <label for="description" class="block mb-2 text-sm font-medium text-gray-700">Description</label>
+                    <textarea id="description" wire:model="description" rows="3" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+                    @error('description') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
-                    <label for="end_date" class="block text-sm mb-2 font-medium text-gray-700">End Date</label>
-                    <input type="date" id="end_date" wire:model="end_date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    @error('end_date') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                    <label for="start_date" class="block mb-2 text-sm font-medium text-gray-700">Start Date</label>
+                    <input type="date" id="start_date" wire:model="start_date" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    @error('start_date') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
+                </div>
+
+                <div>
+                    <label for="end_date" class="block mb-2 text-sm font-medium text-gray-700">End Date</label>
+                    <input type="date" id="end_date" wire:model="end_date" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    @error('end_date') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
