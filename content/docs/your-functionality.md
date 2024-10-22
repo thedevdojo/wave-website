@@ -299,4 +299,4 @@ This is just an example of how you can add custom logic for your application. Bu
 
 ## Using FilamentPHP
 
-FilamentPHP is used for the Admin section of Wave; however, it also provides a collection of components that we can utilize to make building our application even easier. This includes the Table Builder and the Form Builder. If you want to see how we can use the Table and Form Builder using this same Project Example, be sure to visit the <a href="{ url('/docs') }">Using Filament With Volt Guide</a>.
+FilamentPHP is used for the Admin section of Wave; however, it can also be used for much more. In addition to an <a href="https://filamentphp.com/docs/panels/installation" target="_blank">Admin Panel</a> builder Filament also provides a collection of very useful components, such as the <a href="https://filamentphp.com/docs/tables/installation" target="_blank">Table Builder</a> and the <a href="https://filamentphp.com/docs/forms/installation" target="_blank">Form Builder</a>. Visit the <a href="{ url('/docs') }">Using Filament With Volt Guide</a> to learn how to utilze them in your app.
