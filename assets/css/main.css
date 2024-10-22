@@ -276,3 +276,7 @@ ul.marquee li, ul.marquee2 li {
     transform: translateX(0%);
   }
 }
+
+article > * {
+  overflow-wrap:anywhere;
+}
