@@ -34,44 +34,46 @@ Wave has been built with the intention of helping anyone build their next great 
 
 ### Key Features
 
-Here's an overview of Wave's key features, which we'll explore in more detail later.
+Below is a list of Waves key features. Click a feature to learn more.
 
- - **Authentication** - Wave ships with authentication allowing users to Login, Register, Verify Email, Password Reset/Confirmation, and enable Two-Factor authentication.
-
- - **User Management** - Users can have roles and permissions to access certain parts of your app. Wave also includes features for impersonation, user management, and user profiles.
-
- - **Billing** - You can easily integrate Stripe or Paddle into your application. Create subscription plans and associate them with user roles to control access to specific features.
-
- - **Changelog** - Creating a changelog is a great way to notify users about new features and fixes while keeping yourself accountable. Document your progress in the changelog.
-
-- **Blog** - Write blog posts and attract free traffic from search engines. Share your knowledge about technology and tools as you build your SaaS.
-
-- **API** - API tokens can be created for API access. These tokens are used to generate Bearer tokens for authenticating future API requests.
-
-- **Admin** - Wave leverages FilamentPHP for admin CRUD functionality. You may also use the Table Builder, Form Builder, Notifications, and more within theme files.
-
-- **Themes** - Customize your app's look and feel with Wave's theming system. Each theme in `resources/themes` includes its own assets and views.
+ - <a href="{ url('/docs/features/auth') }">**Authentication**</a>
+ - <a href="{ url('/docs/features/user-profiles') }">**User Profiles**</a>
+ - <a href="{ url('/docs/features/user-impersonations') }">**User Impersonations**</a>
+ - <a href="{ url('/docs/features/billing') }">**Billing**</a>
+ - <a href="{ url('/docs/features/subscription-plans') }">**Subscription Plans**</a>
+ - <a href="{ url('/docs/features/roles-permissions') }">**Roles and Permissions**</a>
+ - <a href="{ url('/docs/features/notifications') }">**User Notifications**</a>
+ - <a href="{ url('/docs/features/changelog') }">**Changelog**</a>
+ - <a href="{ url('/docs/features/blog') }">**Blog**</a>
+ - <a href="{ url('/docs/features/pages') }">**Pages**</a>
+ - <a href="{ url('/docs/features/api') }">**API**</a>
+ - <a href="{ url('/docs/features/admin') }">**Admin**</a>
+ - <a href="{ url('/docs/features/themes') }">**Themes**</a>
+ - <a href="{ url('/docs/features/plugins') }">**Plug-ins**</a>
 
 ### Under The Hood
 
-Wave has been built with the <a href="https://laravel.com" target="_blank">Laravel Framework</a>, alongside are many other popular technologies powering the propellers and steering the ship.
+Below is a list of technologies that are being used to power the propellers and steer the ship.
 
-**Technologies**
+**Technologies Used**
 
-- <a href="https://livewire.laravel.com" target="_blank" class="font-bold">Livewire</a> - Wave uses Livewire in each theme and many other areas. It makes building interactive applications fun and easy.
-- <a href="https://filamentphp.com" target="_blank" class="font-bold">FilamentPHP</a> - Filament is used for the main Admin section for Wave. Along with Filament panels, you can also take advantage of the Filament Table Builder, Form Builder, and Notifications inside your theme files.
-- <a href="https://tailwidcss.com" target="_blank" class="font-bold">Tailwind CSS</a> - Tailwind makes it easy and simple to stylize your application.
-- <a href="https://alpinejs.dev" target="_blank" class="font-bold">Alpine</a> - Easily add in sprinkles of Javascript functionality with Alpine. Pairs perfectly with Livewire.
-- <a href="https://vitejs.dev/" target="_blank" class="font-bold">Vite</a> - We utilize the default Laravel Vite functionality to run and build assets for each theme. 
+- <a href="https://laravel.com" target="_blank" class="font-bold">Laravel</a>
+- <a href="https://livewire.laravel.com" target="_blank" class="font-bold">Livewire</a>
+- <a href="https://tailwidcss.com" target="_blank" class="font-bold">Tailwind CSS</a>
+- <a href="https://alpinejs.dev" target="_blank" class="font-bold">Alpine</a>
+- <a href="https://vitejs.dev/" target="_blank" class="font-bold">Vite</a>
 
-**Packages**
+Along with many technologies, Wave also utilizes a handful of packages.
 
-- <a href="https://devdojo.com/auth" target="_blank" class="font-bold">DevDojo Auth</a> - We use the DevDojo Auth which gives you a full authenticaiton system in your app.
-- <a href="https://github.com/thedevdojo/themes" target="_blank" class="font-bold">DevDojo Themes</a> - The themes functionality for Wave is extracted into it's own theme package.
-- <a href="https://github.com/404labfr/laravel-impersonate" target="_blank" class="font-bold">Impersonation Package</a> - This package allows you to authenticate with, or impersonate, any user in your app.
-- <a href="https://spatie.be/docs/laravel-permission" target="_blank" class="font-bold">Spatie Roles (Permissions) Package</a> - Wave utilizes the Spatie Permissions package to manage roles/permissions.
-- <a href="https://laravel.com/docs/folio" target="_blank" class="font-bold">Laravel Folio</a> - Inside of each theme folder, you can include a `pages` directory and these will utilize Folio and be mapped to a route.
-- <a href="https://livewire.laravel.com/docs/volt" target="_blank" class="font-bold">Laravel Volt</a> - Many folio pages utilize Volt for creating single-file functionality.
+**Packages Used**
+
+- <a href="https://filamentphp.com" target="_blank" class="font-bold">FilamentPHP</a>
+- <a href="https://devdojo.com/auth" target="_blank" class="font-bold">DevDojo Auth</a>
+- <a href="https://github.com/thedevdojo/themes" target="_blank" class="font-bold">DevDojo Themes</a>
+- <a href="https://github.com/404labfr/laravel-impersonate" target="_blank" class="font-bold">Impersonation Package</a>
+- <a href="https://spatie.be/docs/laravel-permission" target="_blank" class="font-bold">Spatie Roles (Permissions) Package</a>
+- <a href="https://laravel.com/docs/folio" target="_blank" class="font-bold">Laravel Folio</a>
+- <a href="https://livewire.laravel.com/docs/volt" target="_blank" class="font-bold">Laravel Volt</a>
 
 ## Demo
 
