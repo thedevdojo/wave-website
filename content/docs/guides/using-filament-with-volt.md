@@ -9,7 +9,7 @@ nextURL: null
 
 # Using Filament with Volt
 
-Using Filament with Wave and Volt can make your life a lot easier. In this guide we will use the example from the <a href="{ url('/docs/your-functionality' )}">Your Functionality</a> section and show you how to implement the same functionality using the <a href="https://filamentphp.com/docs/tables/installation" target="_blank">Table Builder</a> and the <a href="https://filamentphp.com/docs/forms/installation" target="_blank">Form Builder</a>.
+Using Filament within Wave will speed-up your productivity. In this guide we'll use the example from the <a href="{ url('/docs/your-functionality' )}">Your Functionality</a> section to implement the same functionality using the <a href="https://filamentphp.com/docs/tables/installation" target="_blank">Table Builder</a> and the <a href="https://filamentphp.com/docs/forms/installation" target="_blank">Form Builder</a>.
 
 - [Using Filament with Volt](#using-filament-with-volt)
   - [Using the Table Builder](#using-the-table-builder)
@@ -17,11 +17,11 @@ Using Filament with Wave and Volt can make your life a lot easier. In this guide
   - [Combining the Table and Form Builder](#combining-the-table-and-form-builder)
 
 
-We will assume that you've already added the **database migration** and the **model** for the `projects` table in <a href="{ url('/docs/your-functionality' )}">this section</a>. Be sure to finish that section before continuing with this guide.
+We will assume that you've already added the **database migration** and the **model** for the `projects` table in <a href="{ url('/docs/your-functionality' )}">this section</a>. Be sure to finish the <a href="{ url('/docs/your-functionality' )}">Your Functionality</a> section before continuing with this guide.
 
 ## Using the Table Builder
 
-Looking at the **volt project page** that we created inside the theme page directory at `pages/projects/index.blade.php` we can utilize the Table builder to easily display our projects in a nice table view:
+Inside of our `pages/projects/index.blade.php` page, we listed out a table view of projects owned by the user. To make things simpler, we can utilize the <a href="https://filamentphp.com/docs/tables/installation" target="_blank">Table Builder</a> to display our projects like so:
 
 **resources/themes/{theme}/pages/projects/index.blade.php**
 
@@ -76,11 +76,7 @@ Looking at the **volt project page** that we created inside the theme page direc
     @volt('projects')
         <x-app.container>
             <div class="flex items-center mb-5 justify-between">
-                <x-app.heading
-                        title="Projects"
-                        description="Check out your projects below"
-                        :border="false"
-                    />
+                <x-app.heading title="Projects" description="Check out your projects below" :border="false" />
                 <x-button tag="a" href="/projects/create">New Project</x-button>
             </div>
             <div class="overflow-x-auto rounded-lg border">
@@ -91,15 +87,15 @@ Looking at the **volt project page** that we created inside the theme page direc
 </x-layouts.app>
 ```
 
-This code will generate a table that is sortable and searchable. See screenshot below of what this code will create.
+This code will generate a sortable and searchable table of user projects. Screenshot below.
 
 <img src="https://cdn.devdojo.com/images/october2024/projects-table.png" class="w-full" alt="filament table">
 
-Next, let's see what it would take to implement the project creation in the `projects/create.blade.php` file:
+Next, let's use the **Form Builder** to simplify the process of creating a new project.
 
 ## Using the Form Builder
 
-We can easily utilize the Filament Form builder to simplify the creation of our projects. Here's what the code looks like for our `projects/create.blade.php` file:
+We can utilize the <a href="https://filamentphp.com/docs/forms/installation" target="_blank">Form Builder</a> to make creating new projects easier. Here’s an example of what the code might look like in our `projects/create.blade.php` file:
 
 **resources/themes/{theme}/pages/projects/create.blade.php**
 
@@ -168,13 +164,8 @@ We can easily utilize the Filament Form builder to simplify the creation of our 
     @volt('projects.create')
         <x-app.container class="max-w-xl">
             <div class="flex items-center mb-5 justify-between">
-                <x-app.heading
-                    title="Create Project"
-                    description="Fill out the form below to create a new project"
-                    :border="false"
-                />
+                <x-app.heading title="Create Project" description="Fill out the form below to create a new project" :border="false" />
             </div>
-
             <form wire:submit="create" class="space-y-6">
                 {{ $this->form }}
                 <div class="flex justify-end gap-x-3">
@@ -193,41 +184,31 @@ Navigating to `app_url.test/projects/create` will allow us to create a new proje
 
 <img src="https://cdn.devdojo.com/images/october2024/projects-form.png" class="w-full rounded" alt="create project with filament form builder">
 
-Utilizing the FilamentPHP form and table builder we can simplify the process even more by combining the table and form builder into a single Volt Page. Let's take a look at that below.
+Utilizing the FilamentPHP form and table builder we can simplify the process even more by combining the table and form builder into a single <a href="https://livewire.laravel.com/docs/volt" target="_blank">Volt Page</a>. Let's take a look at that below.
 
 ## Combining the Table and Form Builder
 
-We can simplify the process of viewing, creating, editing, and deleting our projects by creating a single Volt Page that will handle all these operations for us. We can combine the **table** and **form** builder, like so:
+We can simplify the process of viewing, creating, editing, and deleting our projects by creating a single Volt Page that will handle all these operations for us. We can do this by utilizing the **table** and **form** builder together:
 
 **resources/themes/{theme}/pages/projects/index.blade.php**
 
 ```php
 <?php
-    use Filament\Forms\Components\TextInput;
-    use Filament\Forms\Components\TextArea;
-    use Filament\Forms\Components\DatePicker;
-    use Livewire\Volt\Component;
-    use function Laravel\Folio\{middleware, name};
-    use Filament\Forms\Concerns\InteractsWithForms;
-    use Filament\Forms\Contracts\HasForms;
-    use Filament\Forms\Form;
+    use App\Models\Project;
+    use Filament\Forms\{Form, Concerns\InteractsWithForms, Contracts\HasForms};
+    use Filament\Forms\Components\{TextArea, TextInput, DatePicker};
     use Filament\Notifications\Notification;
     use Filament\Tables;
-    use Filament\Tables\Table;
-    use Filament\Tables\Actions\Action;
-    use App\Models\Project;
-    use Filament\Tables\Columns\TextColumn;
-    use Filament\Tables\Actions\DeleteAction;
-    use Filament\Tables\Actions\EditAction;
-    use Filament\Tables\Actions\CreateAction;
-    use Filament\Tables\Actions\ViewAction;
+    use Filament\Tables\{Table, Concerns\InteractsWithTable, Contracts\HasTable, Actions\Action, Actions\CreateAction, Actions\DeleteAction, Actions\EditAction, Actions\ViewAction, Columns\TextColumn};
+    use Livewire\Volt\Component;
+    use function Laravel\Folio\{middleware, name};
 
 	middleware('auth');
     name('projects');
 
     new class extends Component implements HasForms, Tables\Contracts\HasTable
 	{
-        use InteractsWithForms, Tables\Concerns\InteractsWithTable;
+        use InteractsWithForms, InteractsWithTable;
 
         public ?array $data = [];
 
@@ -328,10 +309,9 @@ We can simplify the process of viewing, creating, editing, and deleting our proj
         public function create(): void
         {
             $data = $this->form->getState();
-            
             $project = auth()->user()->projects()->create($data);
-            
             $this->form->fill();
+            $this->dispatch('close-modal', id: 'create-project');
 
             Notification::make()
                 ->success()
@@ -344,13 +324,8 @@ We can simplify the process of viewing, creating, editing, and deleting our proj
 <x-layouts.app>
     @volt('projects')
         <x-app.container class="max-w-5xl">
-        
             <div class="flex items-center mb-5 justify-between">
-                <x-app.heading
-                        title="Projects"
-                        description="Check out your projects below"
-                        :border="false"
-                    />
+                <x-app.heading title="Projects" description="Check out your projects below" :border="false"/>
                 <x-modal id="create-project" width="md" :slide-over="true">
                     <x-slot name="trigger">
                         <x-button>New Project</x-button>
@@ -358,12 +333,10 @@ We can simplify the process of viewing, creating, editing, and deleting our proj
                     <x-slot name="header">
                         <h2 class="text-lg font-medium">Create Project</h2>
                     </x-slot>
-
                     <form wire:submit="create" class="space-y-6">
                         {{ $this->form }}
-
                         <div class="mt-6 flex justify-end">
-                            <x-button type="submit">
+                            <x-button type="submit" wire:target="create">
                                 Create Project
                             </x-button>
                         </div>
@@ -388,7 +361,7 @@ As you can see, when you click on the `edit` button next to a project a slide-ov
 
 You can also click the **New Project** button and you'll see a slide-over open allowing you to create a new project.
 
-<img src="https://cdn.devdojo.com/images/october2024/projects-create.png" class="w-full rounded" alt="Projects Create">
+<img src="https://cdn.devdojo.com/images/october2024/projects-create1.png" class="w-full rounded" alt="Projects Create">
 
 Combining the Table and the Form builder in the same page will make it easer to add functionality to our application.
 

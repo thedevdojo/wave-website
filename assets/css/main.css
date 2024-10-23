@@ -280,3 +280,76 @@ ul.marquee li, ul.marquee2 li {
 article > * {
   overflow-wrap:anywhere;
 }
+
+body {
+  overflow: overlay;
+}
+
+.main-custom-scrollbar::-webkit-scrollbar {
+  /* Customize the scrollbar width */
+  width: 5px;
+
+}
+
+.main-custom-scrollbar::-webkit-scrollbar-track {
+  /* Customize the scrollbar track */
+  background: transparent;
+}
+
+.main-custom-scrollbar::-webkit-scrollbar-thumb {
+  /* Customize the scrollbar thumb */
+  background: #000000;
+    border-radius: 0px;
+}
+
+.main-custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #111111;
+}
+
+.dark .main-custom-scrollbar::-webkit-scrollbar-thumb {
+  /* Customize the scrollbar thumb */
+  background: #ffffff;
+    border-radius: 0px;
+}
+
+.dark .main-custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #eeeeee;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  /* Customize the scrollbar width */
+  width: 5px;
+}
+
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  /* Customize the scrollbar track */
+  background: #fcfcfd;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  /* Customize the scrollbar thumb */
+  background: #eaeaea;
+    border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #cacaca;
+}
+
+.dark{
+  .custom-scrollbar::-webkit-scrollbar-track {
+    /* Customize the scrollbar track */
+    background: #090909;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    /* Customize the scrollbar thumb */
+    background: #292929;
+      border-radius: 5px;
+  }
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #494949;
+}
