@@ -49,11 +49,14 @@ It’s not mandatory for the user **Role** to have the same name as the **Plan**
 
 You can easily create a role inside of your application from adding it in the admin. Alternatively, you may also create the new permission via code, like so:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 use Spatie\Permission\Models\Role;
 
 $role = Role::create(['name' => 'writer']);
 ```
+</div>
 
 This will create a new role named **writer**. 
 
@@ -61,10 +64,13 @@ This will create a new role named **writer**.
 
 You can then assign this role to any user, like so:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 auth()->user()->syncRoles([]);
 auth()->user()->assignRole('writer');
 ```
+</div>
 
 Above, we are making sure that we remove all roles `syncRoles([])` and then assign the role of **writer**. You may decide to allow users to have multiple roles, which in that case you don't need syncRoles.
 
@@ -72,9 +78,12 @@ Above, we are making sure that we remove all roles `syncRoles([])` and then assi
 
 If you want to retrieve a list of all the users who have the **writer** role, you could do so like the following:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 $users = User::role('writer')->get();
 ```
+</div>
 
 This will return a collection of all users with the **writer** role.
 
@@ -82,11 +91,16 @@ This will return a collection of all users with the **writer** role.
 
 If you want to check that a user has a specific role, you can do so like the following:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 auth()->user()->hasRole('writer');
 ```
+</div>
 
 Or directly from a blade view you can use this blade directive
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```php
 @role('writer')
@@ -95,6 +109,7 @@ Or directly from a blade view you can use this blade directive
     I am not a writer...
 @endrole
 ```
+</div>
 
 Next, if we wanted to be more granular with which users have access to specific features, we could use permissions.
 
@@ -106,31 +121,42 @@ You can create permissions and assign them to users or you can assign them to ro
 
 You can create a permission from the Admin panel, or you may also wish to do this in code:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 use Spatie\Permission\Models\Permission;
 
 $permission = Permission::create(['name' => 'edit articles']);
 ```
+</div>
 
 Then, you can assign assign a permission to any role:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```php
 use Spatie\Permission\Models\Role;
 
 $role = Role::where('name', 'writer')->first();
 ```
+</div>
 
 You may also assign a permission specifically to a user:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```php
 auth()->user()->givePermissionTo('edit articles');
 ```
+</div>
 
 These are referred to as direct permissions. Make sure that you are careful with adding permissions to roles and specifically to users. It can get a little complex if you don't keep it organized. It might be best to only assign permissions to roles. 
 
 ### Revoking Permissions
 
 The reason that it's better to only assign permissions to roles is that you can easily revoke a permission from a role, like so:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```php
 use Spatie\Permission\Models\Role;
@@ -141,6 +167,7 @@ $permission = Permission::were('name', 'edit articles')->first();
 
 $role->revokePermissionTo($permission);
 ```
+</div>
 
 This means that all users of that role will all have that permission removed. You may also revokePermissions from a user.
 
@@ -148,31 +175,43 @@ This means that all users of that role will all have that permission removed. Yo
 
 When you want to check if a user has a permission, you can do so like the following:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 auth()->user()->hasPermissionTo('edit articles');
 ```
+</div>
 
 This will check if the user has permission to **edit articles** either through their role or a direct permission. If you wanted to check for a few permissions, you can do something like this:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```php
 auth()->user()->hasAnyPermission(['edit articles', 'publish articles', 'unpublish articles']);
 ```
+</div>
 
 If you are using blade files, you can use the following blade directives:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```php
 @can('edit articles')
   //
 @endcan
 ```
+</div>
 
 or use the `can()` method from the user object like this:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```php
 @if(auth()->user()->can('edit articles') && $some_other_condition)
   //
 @endif
 ```
+</div>
 
 ## Digging Deeper
 

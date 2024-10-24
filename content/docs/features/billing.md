@@ -30,6 +30,8 @@ Wave integrates seamlessly with <a href="https://stripe.com" target="_blank" cla
 
 You may choose whichever payment provider fits your needs. To change the payment provider you want to use, you can change the `BILLING_PROVIDER` value inside your application `.env` file. You can set this to **stripe** or **paddle**. This config is stored inside the `config/wave.php` file.
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="config/wave.php"></include>
+
 ```php
 <?php
 
@@ -41,6 +43,7 @@ return [
 
 ];
 ```
+</div>
 
 Ok, now that you've selected the payment provider, lets dig in a little deeper into each one to learn how to get it setup.
 
@@ -63,10 +66,13 @@ To get the **Publishable Key** and **Secret Key**, follow these steps:
 3. From the dropdown menu, select **Api Keys**.
 4. You will see your **Publishable key** and **Secret key**. Copy these values and place them in your application *.env* file:
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file=".env"></include>
+
 ```bash
 STRIPE_PUBLISHABLE_KEY=pk_test_51...
 STRIPE_SECRET_KEY=sk_test_51...
 ```
+</div>
 
 <a name="api-credentials"></a>
 ### Add Stripe Webhook Secret
@@ -82,9 +88,12 @@ The **Webhook Secret** key allows stripe to talk to your application and receive
 7. Optionally, add a description and click the **Create destination** button.
 8. On this page you will see a **Signing secret** key inside the **Destination Details** section. Copy this value and add it to your application *.env* file:
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file=".env"></include>
+
 ```bash
 STRIPE_WEBHOOK_SECRET=whsec_75...
 ```
+</div>
 
 ### Webhook Warning
 
@@ -109,9 +118,12 @@ Next, if you want to easily test out events on your local machine you can <a hre
 
 After setting up the Stripe CLI, you will run the following command:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```bash
 stripe listen --forward-to https://wave.test/webhook/stripe
 ```
+</div>
 
 In this example, you need to swap out `https://wave.test` with your local URL. After running this command, you'll get a message that says something like **Your webhook signing secret is whsec_75...**, this is the new *STRIPE_WEBHOOK_SECRET* you will need to add to your `.env` file.
 
@@ -145,9 +157,12 @@ Paddle also offers a very simple <a href="https://developer.paddle.com/concepts/
 
 When you are implementing your Paddle integration you will want to test the payment process using <a href="https://sandbox-vendors.paddle.com/" target="_blank" class="font-bold">Sandbox Mode</a>. To do this, you need to specify the `PADDLE_ENV` value inside your `.env` file:
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file=".env"></include>
+
 ```
 PADDLE_ENV=sandbox
 ```
+</div>
 
 When, you're ready to put your application in production you will change the `PADDLE_ENV` to `production`. Next, we need to add our API credentials.
 
@@ -159,11 +174,14 @@ Inside of your Paddle Dashboard you'll see a button under the **Developer Tools*
 
 From this page, you can get your **Vendor ID (seller ID)**, **API Key**, and **Client-side Token**. To get the API Key and Public key, you'll need to **+ Generate** a new key if you do not have one. Then, click the *Show Key* button in the menu to the right. Paste the key values into your application `.env` file:
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file=".env"></include>
+
 ```
 PADDLE_VENDOR_ID=9999
 PADDLE_API_KEY=...
 PADDLE_CLIENT_SIDE_TOKEN=...
 ```
+</div>
 
 Next, we need to setup our webhook.
 
@@ -195,11 +213,7 @@ The default payment link should be set to `http://yourdomain.com/settings/subscr
 
 You can test out the Stripe or Paddle implementation using the following credentials:
 
-```
-Credit Card: 4242 4242 4242 4242
-Expiration: Any Future Date
-CVC: Any three digit code
-```
+<include src="docs/credit-card-details.html"></include>
 
 More information below about Test Credit Cards for each provider:
 

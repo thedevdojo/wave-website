@@ -40,13 +40,18 @@ We have built the Wave notifications on top of the default Laravel notifications
 
 To create a new notification, you can run the following artisan command:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 php artisan make:notification TestNotification
 ```
+</div>
 
-This will create a new file located at: `/app/Notifications/TestNotification`. This TestNotification should already be created inside every new Wave application. Here's the breakdown of what we've changed.
+This will create a new file located at: `app/Notifications/TestNotification`. This TestNotification should already be created inside every new Wave application. Here's the breakdown of what we've changed.
 
 The via() method has been changed from:
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="app/Notifications/TestNotification.php"></include>
 
 ```php
 public function via($notifiable)
@@ -54,8 +59,11 @@ public function via($notifiable)
     return ['mail'];
 }
 ```
+</div>
 
 to:
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="app/Notifications/TestNotification.php"></include>
 
 ```php
 public function via($notifiable)
@@ -63,8 +71,11 @@ public function via($notifiable)
     return ['database'];
 }
 ```
+</div>
 
 And we've also modified this `toArray()` method:
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="app/Notifications/TestNotification.php"></include>
 
 ```php
 public function toArray($notifiable)
@@ -74,8 +85,11 @@ public function toArray($notifiable)
     ];
 }
 ```
+</div>
 
 to be:
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="app/Notifications/TestNotification.php"></include>
 
 ```php
 public function toArray($notifiable)
@@ -90,6 +104,7 @@ public function toArray($notifiable)
     ];
 }
 ```
+</div>
 
 You will want to update these methods when you create your own custom Notification. You can change any of hte attributes in the array, you will just need to update the variables that are referenced in the `pages/notifications/index.blade.php` view file.
 
@@ -97,15 +112,21 @@ You will want to update these methods when you create your own custom Notificati
 
 Now, let's create a few notifications. We can do this by using the `tinker` command:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 php artisan tinker
 ```
+</div>
 
 Inside of the tinker command you will want to run the following command a few times:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```php
 App\Models\User::find(1)->notify(new App\Notifications\TestNotification);
 ```
+</div>
 
 Swap out the `find(1)` with the **ID** of any user. After you have run that command, let's move on to learning how the user can view those notifications.
 
@@ -126,9 +147,12 @@ You can customize all of these views from inside your theme pages folder.
 
 To get the current notification count for any user, you can use the following code:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 auth()->user()->unreadNotifications->count()
 ```
+</div>
 
 ## Digging Deeper
 

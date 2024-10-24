@@ -81,8 +81,7 @@ php artisan db:seed
 
 By default Wave uses an `SQLite` connection stored at `database/database.sqlite`. If you wish, you can change this connection from inside your `.env` file. As an example, this is how a MySQL connection will look: 
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<include src="docs/filename.html" file=".env"></include>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file=".env"></include>
 
 ```ini
 CONNECTION=mysql

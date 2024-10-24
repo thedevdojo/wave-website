@@ -27,15 +27,18 @@ Every user in your application will have a public profile page. The user will be
 
 <img src="https://cdn.devdojo.com/images/august2024/profile-page-user.png" class="w-full rounded-md" />
 
-In some applications you may not have a need for a profile page. In that case, you can include the following route to your applications `routes/web.php`
+In some applications you may not have a need for a profile page. In that case, you can include the following route:
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="routes/web.php"></include>
 
 ```php
 Route::redirect('profile/{username}', '/');
 ```
+</div>
 
 This will disable user profiles and redirect any user profile page back to the homepage.
 
-> {warning} When disabling user profiles, the route must be placed after the `Wave::routes();` line. You may also need to run php artisan route:clear to clear the routes.
+<include src="docs/alerts/warning.html" text="When disabling user profiles, the route must be placed after the Wave::routes(); line. You may also need to run php artisan route:clear to clear the routes."></include>
 
 ---
 
@@ -57,6 +60,8 @@ In addition to a user name, email address and avatar you may also want to store 
 
 You can easily add custom profile fields by adding them to `config/profiles.php`. If you look inside the current file in a new installation, you'll see that the contents looks like this:
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="config/profiles.php"></include>
+
 ```php
 <?php
 
@@ -70,8 +75,11 @@ return [
 	],
 ];
 ```
+</div>
 
 Adding a new profile field is as simple as adding another item in the **fields** array. The key should be unique, in this case it's the `about` key. But let's say that you wanted to create another field that's called `occupation` and it's a TextInput field. We could add that to the `fields` array, like so:
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="config/profiles.php"></include>
 
 ```php
 <?php
@@ -89,6 +97,7 @@ return [
 	],
 ];
 ```
+</div>
 
 Users can now save their profile with the updated fields and the data will be saved for any new data they enter. The profile data is stored inside of the **profile_key_value** table. Next, now that you can add new fields, you also need a way to retrieve the data from the custom fields.
 
@@ -96,9 +105,12 @@ Users can now save their profile with the updated fields and the data will be sa
 
 When you want to retrieve any profile information for a particular user, you can do so with the following method:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 auth()->user()->profile('occupation');
 ```
+</div>
 
 This will return a string value for the authenticated user. Inside of the `profile()` method, you pass the key of the field you want to retrieve. This could be **about**, **occupation**, or any other custom field type you've added.
 

@@ -64,17 +64,23 @@ When unencrypted, this access token will be associated with a user in your appli
 
 To get an **Access Token** using an API Key, you can submit a POST request to:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 /api/token?key=API_KEY_HERE
 ```
+</div>
 
 And this will get a response that looks similar to the following:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC93YXZlLnRlc3RcL2FwaVwvdG9rZW4iLCJpYXQiOjE1Mzk4MDg4OTUsImV4cCI6MTUzOTgxMjQ5NSwibmJmIjoxNTM5ODA4ODk1LCJqdGkiOiJRdTViYnhwdlBkNE9tT3ZZIiwic3ViIjoyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.AJNTXTlnI74ZyPw2rqvEaI7P5YPaLnZNWcCBBmRX0W0"
 }
 ```
+</div>
 
 This is the **Access Token** we will use to retrieve data from your application.
 
@@ -82,11 +88,16 @@ This is the **Access Token** we will use to retrieve data from your application.
 
 To get an **Access Token** from a User Login you can do a POST request to:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 /api/login?email=admin@admin.com&password=password
 ```
+</div>
 
 And you will get a similar response to the response above:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```json
 {
@@ -95,6 +106,7 @@ And you will get a similar response to the response above:
     "expires_in": 60
 }
 ```
+</div>
 
 You'll see that this response includes 2 more fields the `token_type` and the `expires_in`. When your app detects the access token has expired it needs to request a new access token via the following request:
 
@@ -137,9 +149,12 @@ And, now you're ready to test out your API.
 
 If you are creating an API, you may also wish to allow your users to register. This is simple as well. You can perform a POST request to:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 /api/register?name=John Doe&username=jdoe&email=jdoe@gmail.com&password=pass
 ```
+</div>
 
 And a new user will be registered and given an Access Token to access data via your API.
 

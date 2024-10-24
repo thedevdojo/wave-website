@@ -203,8 +203,7 @@ Visit your application URL at `app_url.test/projects` and you will see a screen 
 
 This page will output all the projects that belong to this specific user, but right now there are no projects. But, we can easily add a **create project volt page** to allow us to create projects. Create another file inside the `projects` folder called `create.blade.php`, with the following contents:
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/create.blade.php"></include>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/create.blade.php"></include>
 
 ```php
 <?php

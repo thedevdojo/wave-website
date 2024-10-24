@@ -28,9 +28,11 @@ There are two files that you will want to change to add your own custom logo. Th
 
 In each of these files, you will see an SVG, similar to the following:
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/views/components/logo.blade.php"></include>
 ```
 <svg {{ $attributes->merge(['class' => 'text-gray-900 dark:text-white']) }} xmlns="..."></svg>
 ```
+</div>
 
  - **logo.blade.php** - In this file you will want to add your full logo. This typically includes your logo icon with the name of your SaaS next to the logo.
 
@@ -40,15 +42,19 @@ In each of these files, you will want to replace the contents with your own **sv
 
 **Be sure to include the `$attributes` tag in your image or your SVG**
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html"></include>
 ```
 {{ $attributes->merge(['class' => 'text-gray-900 dark:text-white']) }}
 ```
+</div>
 
 This will gaurantee that when the logo is used in your view files that it will forward any classes, like so:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html"></include>
 ```
 <x-logo class="h-8" />
 ```
+</div>
 
 In this case it will also pass the `h-8` class to the component.
 
@@ -67,9 +73,11 @@ You will also want to add a `favicon.ico` to the `/public` directory to support 
 
 Inside of your `config/wave.php` you'll see a value called **primary_color**, like so:
 
-```
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="config/wave.php"></include>
+```php
 'primary_color' => '#000000',
 ```
+</div>
 
 Change this to any HEX color value and that will be the primary color used for buttons, input focus, and more.
 

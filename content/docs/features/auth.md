@@ -58,6 +58,8 @@ Otherwise, you may offer your users a Free minified version of your SaaS and enc
 
 If you wish to add some additional functionality when a user registers, you may add this to your `App\Models\User` model inside of the `boot()` method. As you can see we've already added some functionality to dynamically create a username from an email and assign the user with the default user role upon registration.
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="App/Models/User.php"></include>
+
 ```php
 protected static function boot()
 {
@@ -87,6 +89,7 @@ protected static function boot()
     });
 }
 ```
+</div>
 
 You may modify this functionality as needed or add more functionality to it.
 

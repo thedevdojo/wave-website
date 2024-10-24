@@ -33,11 +33,23 @@ Download a copy of the latest version. In the root folder you should see another
 
 Next, you will need to re-autoload your dependencies by running:
 
-<div class="p-5 font-mono text-sm bg-gray-800 opacity-[95%] hover:opacity-100 dark:bg-neutral-900 dark:border dark:border-neutral-800 rounded-lg leading-[24px] whitespace-break-spaces"><span class="text-[#62d6e8]">composer</span> <span class="text-[#f8e164]">dump-autoload</span></div>
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
+```bash
+composer dump-autoload
+```
+
+</div>
 
 You may also need to clear the cache by running:
 
-<div class="p-5 font-mono text-sm bg-gray-800 opacity-[95%] hover:opacity-100 dark:bg-neutral-900 dark:border dark:border-neutral-800 rounded-lg leading-[24px] whitespace-break-spaces"><span class="text-[#62d6e8]">php</span> <span class="text-[#f8e164]">artisan cache:clear</span></div>
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
+```bash
+php artisan cache:clear
+```
+
+</div>
 
 And you should be updated to the latest version :)
 

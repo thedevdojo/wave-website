@@ -42,9 +42,12 @@ This is great because you can easily add your Google Analytics API keys and you'
 
 Inside of your `.env` file you will need to add your `ANALYTICS_PROPERTY_ID`, like so:
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file=".env"></include>
+
 ```bash
 ANALYTICS_PROPERTY_ID=XXXXXXXXX
 ```
+</div>
 
 You will also need to add your Google Analytics **Service Account Credentials**. This will be a JSON file that you download from your Google Console and place it located at `storage/app/analytics/servive-account-credentials.json`. Here are detailed instructions here [https://github.com/spatie/laravel-analytics](https://github.com/spatie/laravel-analytics#how-to-obtain-the-credentials-to-communicate-with-google-analytics) on how to obtain those credentials.
 
@@ -65,6 +68,8 @@ It might make more sense to build your own application dashboard from the theme 
 ### Filament Table Builder
 
 The Filament Table Builder is an excellent component that will allow you and your customers to display and filter data. You can utilize this component directly from inside any of your theme files. You can reference how we use the table builder directly from the `resources/themes/{theme}/pages/settings/api.blade.php`. Inside this file we utilize the Table builder to display all the API keys for each user. The `table()` method is responsible for defining the schema of this table.
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/{theme}/pages/settings/api.blade.php"></include>
 
 ```php
 public function table(Table $table): Table
@@ -96,6 +101,7 @@ public function table(Table $table): Table
     ]);
 }
 ```
+</div>
 
 Then, inside the view you can simply add `{{ $this->table }}` and the table will be displayed.
 
@@ -104,6 +110,8 @@ The table builder is very powerful and can easily be added to any of your Folio 
 ### Filament Form Builder
 
 You may also use the Filament Form Builder to create forms inside of your application. The form builder also works with any theme view file. You can also see an example of the form builder from the `resources/themes/{theme}/pages/settings/api.blade.php` file. The form is defined in the `form()` method, like so:
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/{theme}/pages/settings/api.blade.php"></include>
 
 ```php
 public function form(Form $form): Form
@@ -117,6 +125,7 @@ public function form(Form $form): Form
         ->statePath('data');
 }
 ```
+</div>
 
 Then, you may output that form by simply outputting ```$this->form`` inside your view.
 
