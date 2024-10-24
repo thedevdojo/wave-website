@@ -369,6 +369,12 @@ body {
   right: -7px;
   transition: transform 200ms ease-out;
 }
+@media (max-width: 640px) {
+.hljs-copy-container{
+  display:none;
+}
+}
+
 .hljs-copy-button {
   position: relative;
   width: 30px;

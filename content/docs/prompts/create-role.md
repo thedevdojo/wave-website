@@ -13,9 +13,12 @@ The `app:create-role` command allows you to create a new role with optional perm
 
 ### Command Signature
 
-```
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
+```bash
 php artisan app:create-role
 ```
+</div>
 
 ### Usage
 
@@ -30,9 +33,13 @@ When you run the command, it will prompt you for the following information:
 
 1. Run the command in your terminal:
 
-   ```
-   php artisan app:create-role
-   ```
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
+```bash
+php artisan app:create-role
+```
+
+</div>
 
 2. Enter the requested information when prompted:
    - Role name
@@ -69,15 +76,21 @@ If you choose to assign permissions:
 
 Upon successful role creation, the command will output a message like this:
 
-```
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
+```shell
 Role '[Role Name]' created successfully.
 ```
+</div>
 
 If permissions are assigned, an additional message will be displayed:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```
 Permissions assigned successfully.
 ```
+</div>
 
 ### Error Handling
 

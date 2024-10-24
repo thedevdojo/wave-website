@@ -23,8 +23,7 @@ We will assume that you've already added the **database migration** and the **mo
 
 Inside of our `pages/projects/index.blade.php` page, we listed out a table view of projects owned by the user. To make things simpler, we can utilize the <a href="https://filamentphp.com/docs/tables/installation" target="_blank">Table Builder</a> to display our projects like so:
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/index.blade.php"></include>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/index.blade.php"></include>
 
 ```php
 <?php
@@ -99,8 +98,7 @@ Next, let's use the **Form Builder** to simplify the process of creating a new p
 
 We can utilize the <a href="https://filamentphp.com/docs/forms/installation" target="_blank">Form Builder</a> to make creating new projects easier. Here’s an example of what the code might look like in our `projects/create.blade.php` file:
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/create.blade.php"></include>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/create.blade.php"></include>
 
 ```php
 <?php
@@ -194,8 +192,7 @@ Utilizing the FilamentPHP form and table builder we can simplify the process eve
 
 We can simplify the process of viewing, creating, editing, and deleting our projects by creating a single Volt Page that will handle all these operations for us. We can do this by utilizing the **table** and **form** builder together:
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/index.blade.php"></include>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/index.blade.php"></include>
 
 ```php
 <?php

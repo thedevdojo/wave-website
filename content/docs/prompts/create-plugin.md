@@ -11,16 +11,22 @@ nextURL: '/docs/guides/about'
 
 The `plugin:create` command will create a starting point for you to start building out your own plugin. When you run this command you'll need to specify the name of your plugin, so if you wanted to create a plugin called `hello`, you would run the following command:
 
-```shell
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
+```bash
 php artisan plugin:create hello
 ```
+</div>
 
 You will get a prompt that asks you to enter the description of your plugin:
 
-```bash
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
+```shell
 Provide a short description for your plugin:
  > A simple hello world plugin example
 ```
+</div>
 
 After adding a simple description, your new plugin will be created at `resources/plugins/hello`
 
@@ -48,6 +54,8 @@ If you would like to rename a plug-in, you'll need to change the folder name and
 
 Next, you'll need to change the `public $name` inside of the **GoodbyePlugin.php**. You may also want to change the `$description` in that file as well:
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/plugins/goodbye/GoodbyePlugin.php"></include>
+
 ```php
 <?php
 
@@ -61,6 +69,7 @@ class GoodbyePlugin extends Plugin
 
 ...
 ```
+</div>
 
 ## Sharing Plugins
 

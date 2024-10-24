@@ -42,6 +42,8 @@ We are utilizing Laravel Livewire in every theme. This means that you can add Vo
 
 Here's a simple version `todos` Volt single-file component:
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/views/themes/{theme}/pages/todos.blade.php"></include>
+
 ```php
 <?php
 
@@ -117,6 +119,7 @@ Here's a simple version `todos` Volt single-file component:
     @endvolt
 </x-layouts.marketing>
 ```
+</div>
 
 If you add this file to `resources/themes/anchor/todos.blade.php` you'll be able to visit the todos page at your app URL `/todos`, and see a page that looks like this:
 

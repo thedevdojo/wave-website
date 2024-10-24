@@ -13,9 +13,12 @@ The `app:create-user` command allows you to create a new user with role assignme
 
 ### Command Signature
 
-```
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
+```bash
 php artisan app:create-user
 ```
+</div>
 
 ### Usage
 
@@ -32,9 +35,12 @@ After providing this information, the command will validate the input. If valida
 
 1. Run the command in your terminal:
 
-   ```
-   php artisan app:create-user
-   ```
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
+```bash
+php artisan app:create-user
+```
+</div>
 
 2. Enter the requested information when prompted:
    - Name
@@ -65,9 +71,12 @@ The command fetches all available roles from the database and allows you to choo
 
 Upon successful user creation and role assignment, the command will output a message like this:
 
-```
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
+```shell
 User created successfully with role: [Selected Role Name]
 ```
+</div>
 
 ### Error Handling
 

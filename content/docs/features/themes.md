@@ -69,9 +69,12 @@ All the views that you need for your application will live inside your `resource
 
 The active theme location is registered in the `theme` view namespace, so as an example if you wanted to reference a `home.blade.php` file inside the active theme you can return a view like so:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```php
 return view('theme::home');
 ```
+</div>
 
 That will return the view located at `resources/themes/anchor/home.blade.php`. 
 
@@ -122,10 +125,8 @@ When you want to build your assets for production you will run `npm run build`. 
 
 Understanding how the asset bundler works can help with debugging or adding functionality. When you  **Activate** a theme, a file named `theme.json` is stored in the root directory with contents resembling the following:
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
-    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">theme.json</span>
-</div>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="theme.json"></include>
+
 ```json
 {
     "name": "anchor"
@@ -135,10 +136,8 @@ Understanding how the asset bundler works can help with debugging or adding func
 
 This file contains the currently active theme, which is referenced inside our `vite.config.js`.
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
-    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">vite.config.js</span>
-</div>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="vite.config.js"></include>
+
 ```js
 const themeFilePath = path.resolve(__dirname, 'theme.json');
 const activeTheme = fs.existsSync(themeFilePath) ? JSON.parse(fs.readFileSync(themeFilePath, 'utf8')).name : 'anchor';
@@ -171,10 +170,8 @@ To fully control the appearance, you may consider creating your own theme. Even 
 
 Creating a theme is as simple as adding a new folder in the `resources/themes` folder. The folder name should be lowercase (e.g., `resources/views/example`). Then, add a `theme.json` file with the following contents:
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
-    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/theme.json</span>
-</div>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/example/theme.json"></include>
+
 ```json
 {
     "name": "Example",
@@ -199,10 +196,7 @@ This `theme.json` file defines the theme’s **name** and **version**. Next, add
 
 Since each theme uses Folio and Volt, you can create a `pages` folder and add an `index.blade.php` file.
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
-    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/pages/index.blade.php</span>
-</div>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/example/pages/index.blade.php"></include>
 
 ```html
 <!DOCTYPE html>
@@ -241,10 +235,8 @@ Instead of loading the Tailwind CSS CDN as shown in the example, you'll most-lik
 
 Next, add the following to your theme `app.css`
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
-    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/assets/css/app.css</span>
-</div>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/example/assets/css/app.css"></include>
+
 ```css
 @tailwind base;
 @tailwind components;
@@ -256,10 +248,8 @@ Feel free to add any JavaScript to your `app.js`. You don’t need to include Al
 
 Next, reference your `app.css` and `app.js` files in the <head> section of your layout:
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
-    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/components/layouts/app.blade.php</span>
-</div>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/example/components/layouts/app.blade.php"></include>
+
 ```php
 @vite(['resources/themes/anchor/assets/css/app.css', 'resources/themes/anchor/assets/js/app.js'])
 ```
@@ -267,10 +257,8 @@ Next, reference your `app.css` and `app.js` files in the <head> section of your 
 
 You should also include **filament** and **livewire** styles before the **@vite** helper:
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
-    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/components/layouts/app.blade.php</span>
-</div>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/example/components/layouts/app.blade.php"></include>
+
 ```php
 @filamentStyles
 @livewireStyles
@@ -284,10 +272,8 @@ You should also include **filament** and **livewire** styles before the **@vite*
 
 The final structure should look like this:
 
-<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
-<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
-    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/components/layouts/app.blade.php</span>
-</div>
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/example/components/layouts/app.blade.php"></include>
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -367,15 +353,21 @@ The **app** folder in the components stores application specific components (non
 
 The **elements** folder contains shared components that can be used throughout your application. Components inside this folder don’t need the `elements` prefix. For instance, if you had a file named `button.blade.php` file inside of the elements folder, you can reference it like this:
 
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+
 ```
 <x-button>Button Text</x-button>
 ```
+</div>
 
 instead of this:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```
 <x-elements.button>Button Text</x-elements.button>
 ```
+</div>
 
 The **marketing** folder holds components used on marketing pages, such as headers, hero sections, features, and more.
 

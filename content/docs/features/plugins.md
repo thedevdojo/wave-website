@@ -29,17 +29,21 @@ Here, you’ll see a list of available plugins. To activate one, simply click th
 
 Plugins are stored in the `resources/plugins` directory. Within this folder, you'll also find an installed.json file, this keeps track of the installed plugins. It contains an array of plugin names. For instance, if the `discussions` plugin is installed, the `installed.json` file would look like this:
 
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/plugins/installed.json"></include>
 ```json
 [
     "discussions"
 ]
 ```
+</div>
 
 #### The Plugin Class
 
 At the core of each plugin is the main plugin class (e.g., `example\ExamplePlugin.php`), which acts as the entry point for each plugin. The `ExamplePlugin.php` file allows plugin developers to utilize the `boot` and `register` methods to add functionality to their application.
 
 1. **Boot Method** The `boot()` method is where you add the main logic for your plug-in. Include any functionality you'd like to enhance your application with, such as loading components, views, or routes.​
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/plugins/example/ExamplePlugin.php"></include>
 
 ```php
 public function boot()
@@ -57,10 +61,13 @@ public function boot()
     Livewire::component('example-component', \App\Plugins\ExamplePlugin\Components\ExampleComponent::class);
 }
 ```
+</div>
 
 > The `boot` method is called during the application startup process; however, you may need to register services or configs before the app is fully booted, in that case you'll use the `register` method.
 
 2. **Register Method** The `register` method is used to register services and/or include utilities. It runs before all other plugins have executed their boot functionality. Ideal for setting up anything your app will need.
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/plugins/example/ExamplePlugin.php"></include>
 
 ```php
 public function register()
@@ -74,6 +81,7 @@ public function register()
     });
 }
 ```
+</div>
 
 > The Wave plugin system closely mimics the behavior of a Laravel package. The main Plug-in class extends the Laravel ServiceProvider class.
 
