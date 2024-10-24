@@ -43,7 +43,7 @@ It may be helpful to see an example. In this example we will create a projects p
 
 First we'll create the **migration** and the **model**. Add the following files to your Wave project:
 
-**database/migrations/create\_projects\_table.php**
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="database/migrations/create_projects_table.php"></include>
 
 ```php
 use Illuminate\Database\Migrations\Migration;
@@ -71,8 +71,9 @@ class CreateProjectsTable extends Migration
     }
 }
 ```
+</div>
 
-**app/Models/Project.php**
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="app/Models/Project.php"></include>
 
 ```php
 namespace App\Models;
@@ -100,12 +101,13 @@ class Project extends Model
     }
 }
 ```
+</div>
 
 Make sure to run `php artisan migrate` to add the project table.
 
 Next, let's create the **volt page** to list our projects. Add the following file contents:
 
-**resources/themes/{theme}/pages/projects/index.blade.php**
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/index.blade.php"></include>
 
 ```php
 <?php
@@ -181,15 +183,19 @@ Next, let's create the **volt page** to list our projects. Add the following fil
     @endvolt
 </x-layouts.app>
 ```
+</div>
 
-In order for the code above to work, you will need to add the `projects()` method to your `App/Models/User.php`
+In order for the code above to work, you will need to add the `projects()` method to your `User` model.
 
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file="App\Models\User.php"></include>
 ```php
 public function projects()
 {
     return $this->hasMany(Project::class);
 }
 ```
+</div>
 
 Visit your application URL at `app_url.test/projects` and you will see a screen like the following:
 
@@ -197,7 +203,8 @@ Visit your application URL at `app_url.test/projects` and you will see a screen 
 
 This page will output all the projects that belong to this specific user, but right now there are no projects. But, we can easily add a **create project volt page** to allow us to create projects. Create another file inside the `projects` folder called `create.blade.php`, with the following contents:
 
-**resources/themes/{theme}/pages/projects/create.blade.php**
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/create.blade.php"></include>
 
 ```php
 <?php
@@ -286,8 +293,9 @@ This page will output all the projects that belong to this specific user, but ri
     @endvolt
 </x-layouts.app>
 ```
+</div>
 
-Thsi will allow us to navigate to `app_url.test/projects/create`, where we can create a new project.
+This will allow us to navigate to `app_url.test/projects/create`, where we can create a new project.
 
 <img src="https://cdn.devdojo.com/images/october2024/projects-create.png" class="w-full rounded" alt="New Project Create">
 

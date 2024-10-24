@@ -48,26 +48,41 @@ Download Wave and unzip the file. Next, move the folder to your sites folder, an
 
 From inside the project folder, run the following command:
 
-<div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl leading-[24px] whitespace-break-spaces"><span class="text-[#62d6e8]">cp</span> <span class="text-[#f8e164]">.env.example</span> <span class="text-[#f8e164]">.env</span></div>
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+```bash
+cp .env.example .env
+```
+</div>
 
 ### 2. Install Composer Dependencies
 
 Next, we need to install the composer dependencies:
 
-<div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl leading-[24px] whitespace-break-spaces"><span class="text-[#62d6e8]">composer</span> <span class="text-[#f8e164]">install</span></div>
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+```bash
+composer install
+```
+</div>
 
 ### 3. Database Migrations and Seed
 
 Next, we need to migrate and seed the database:
 
-
-<div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl leading-[24px] whitespace-break-spaces"><span class="text-[#62d6e8]">php</span> <span class="text-[#f8e164]">artisan</span> <span class="text-[#f8e164]">migrate</span><br><span class="text-[#62d6e8]">php</span> <span class="text-[#f8e164]">artisan</span> <span class="text-[#f8e164]">db:seed</span></div>
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+```bash
+php artisan migrate
+php artisan db:seed
+```
+</div>
 
 > Wave has now been installed. Raise the anchor, man the helm, and prepare for the voyage ahead!
 
 ## Database
 
 By default Wave uses an `SQLite` connection stored at `database/database.sqlite`. If you wish, you can change this connection from inside your `.env` file. As an example, this is how a MySQL connection will look: 
+
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<include src="docs/filename.html" file=".env"></include>
 
 ```ini
 CONNECTION=mysql
@@ -77,6 +92,7 @@ DB_DATABASE=database-name
 DB_USERNAME=root
 DB_PASSWORD=''
 ```
+</div>
 
 In most cases `SQLite` will work totally fine.
 

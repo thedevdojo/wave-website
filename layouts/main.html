@@ -43,6 +43,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/dracula.min.css">
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"
+/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,15 +132,15 @@
 
       
      .prose blockquote{
-      background: #f1f1f5;
-      border: 1px solid #aeaeaf;
-      border-radius: 5px;
+      background: #f5f5f9;
+      border: 1px solid #eaeaef !important;
+      border-radius: 8px;
       padding:0px 22px;
      } 
 
      .dark .prose blockquote{
-      background: #19191b;
-      border: 1px solid #494949;
+      background: #29292b;
+      border: 1px solid #39393f !important;
      }
       
 
@@ -155,28 +159,36 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/powershell.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/es/languages/bash.min.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/shell.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/es/languages/ini.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
 
     <style>
 
-    .prose-sm pre code{
-  font-size:14px;
-}
+     .prose-sm pre code{
+        font-size:14px;
+    }
 
 .docs .prose pre {
   padding:0px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius:10px;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   white-space: break-spaces;
   display:grid;
 }
 
 
-
 .docs .prose pre code {
   padding:18px;
   white-space:pre;
+}
+
+.dark .prose pre{
+  background:rgba(23, 23, 23, 0.98);
 }
 
 @media (min-width: 640px) {

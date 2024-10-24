@@ -23,7 +23,8 @@ We will assume that you've already added the **database migration** and the **mo
 
 Inside of our `pages/projects/index.blade.php` page, we listed out a table view of projects owned by the user. To make things simpler, we can utilize the <a href="https://filamentphp.com/docs/tables/installation" target="_blank">Table Builder</a> to display our projects like so:
 
-**resources/themes/{theme}/pages/projects/index.blade.php**
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/index.blade.php"></include>
 
 ```php
 <?php
@@ -86,6 +87,7 @@ Inside of our `pages/projects/index.blade.php` page, we listed out a table view 
     @endvolt
 </x-layouts.app>
 ```
+</div>
 
 This code will generate a sortable and searchable table of user projects. Screenshot below.
 
@@ -97,7 +99,8 @@ Next, let's use the **Form Builder** to simplify the process of creating a new p
 
 We can utilize the <a href="https://filamentphp.com/docs/forms/installation" target="_blank">Form Builder</a> to make creating new projects easier. Here’s an example of what the code might look like in our `projects/create.blade.php` file:
 
-**resources/themes/{theme}/pages/projects/create.blade.php**
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/create.blade.php"></include>
 
 ```php
 <?php
@@ -179,6 +182,7 @@ We can utilize the <a href="https://filamentphp.com/docs/forms/installation" tar
     @endvolt
 </x-layouts.app>
 ```
+</div>
 
 Navigating to `app_url.test/projects/create` will allow us to create a new project with validation.
 
@@ -190,7 +194,8 @@ Utilizing the FilamentPHP form and table builder we can simplify the process eve
 
 We can simplify the process of viewing, creating, editing, and deleting our projects by creating a single Volt Page that will handle all these operations for us. We can do this by utilizing the **table** and **form** builder together:
 
-**resources/themes/{theme}/pages/projects/index.blade.php**
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<include src="docs/filename.html" file="resources/themes/{theme}/pages/projects/index.blade.php"></include>
 
 ```php
 <?php
@@ -350,6 +355,7 @@ We can simplify the process of viewing, creating, editing, and deleting our proj
     @endvolt
 </x-layouts.app>
 ```
+</div>
 
 Now, when we visit `app_url.test/projects` we can view, create, edit, and delete projects from a single page. Here is how our new `/projects` page will look.
 

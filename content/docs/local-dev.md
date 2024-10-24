@@ -15,7 +15,11 @@ Wave utilizes the <a href="https://laravel.com/docs/vite" target="_blank">Larave
 
 From your project folder, run the following command:
 
-<div class="p-5 font-mono whitespace-break-spaces bg-neutral-800 text-sm rounded-xl border border-white/[8%]"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">install</span></div>
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+```bash
+npm install
+```
+</div>
 
 This will install many dependencies including <a href="https://tailwindcss.com" target="_blank">Tailwind</a>, <a href="https://alpinejs.dev" target="_blank">Alpine</a>, and <a href="https://vite.dev" target="_blank">Vite</a>.
 
@@ -23,7 +27,11 @@ This will install many dependencies including <a href="https://tailwindcss.com" 
 
 After you've installed the node dependencies, you'll then need to run:
 
-<div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl whitespace-break-spaces"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">run</span> <span class="text-[#f8e164]">dev</span></div>
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+```bash
+npm run dev
+```
+</div>
 
 This will start your asset watcher, which listens for any changes made to your codebase. When a change is detected, it refreshes the current page and dynamically injects the necessary Tailwind CSS classes.
 
@@ -31,7 +39,11 @@ This will start your asset watcher, which listens for any changes made to your c
 
 When you are ready to build your assets and push your code to production you will want to run:
 
-<div class="p-5 font-mono text-sm bg-neutral-800 rounded-xl whitespace-break-spaces"><span class="text-[#62d6e8]">npm</span> <span class="text-[#f8e164]">run</span> <span class="text-[#f8e164]">build</span></div>
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+```bash
+npm run build
+```
+</div>
 
 This will compile and minify all your assets, resulting in a faster application and an improved experience.
 

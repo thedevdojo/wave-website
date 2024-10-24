@@ -1,8 +1,8 @@
 ---
 title: Volt Pages
 description: Learn how to use volt pages in your themes
-prevTitle: 'Creating Themes'
-prevURL: '/docs/concepts/creating-themes'
+prevTitle: 'Global Helpers'
+prevURL: '/docs/concepts/global-helpers'
 nextTitle: 'Create a User'
 nextURL: '/docs/prompts/create-user'
 ---

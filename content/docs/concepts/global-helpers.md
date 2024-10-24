@@ -3,8 +3,8 @@ title: Global Helpers
 description: Wave offers some global helper functions that you may use anywhere in your application
 prevTitle: 'Blade Directives'
 prevURL: '/docs/concepts/blade-directives'
-nextTitle: 'Creating Themes'
-nextURL: '/docs/concepts/creating-themes'
+nextTitle: 'Volt Pages'
+nextURL: '/docs/concepts/volt'
 ---
 
 # Global Helpers

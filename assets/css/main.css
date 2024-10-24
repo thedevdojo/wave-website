@@ -353,3 +353,132 @@ body {
 .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #494949;
 }
+
+
+/** hljs copy css */
+/* https://github.com/arronhunt/highlightjs-copy */
+
+.hljs-copy-wrapper {
+  position: relative;
+  overflow: visible;
+  transform: translateZ(0);
+}
+.hljs-copy-container {
+  position: absolute;
+  top: -47px;
+  right: -7px;
+  transition: transform 200ms ease-out;
+}
+.hljs-copy-button {
+  position: relative;
+  width: 30px;
+  height:26px;
+  padding-left:7px;
+  padding-right:7px;
+  font-size:10px;
+  text-indent: -9999px;
+  color: var(--hljs-theme-color);
+  border: 1px;
+  border-color:transparent;
+  border-radius:6px;
+  background-color: transparent;
+  transition: background-color 200ms ease;
+  overflow: hidden;
+}
+.hljs-copy-button:not([data-copied="true"])::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: currentColor;
+  mask: url('data:image/svg+xml;utf-8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 5C5.73478 5 5.48043 5.10536 5.29289 5.29289C5.10536 5.48043 5 5.73478 5 6V20C5 20.2652 5.10536 20.5196 5.29289 20.7071C5.48043 20.8946 5.73478 21 6 21H18C18.2652 21 18.5196 20.8946 18.7071 20.7071C18.8946 20.5196 19 20.2652 19 20V6C19 5.73478 18.8946 5.48043 18.7071 5.29289C18.5196 5.10536 18.2652 5 18 5H16C15.4477 5 15 4.55228 15 4C15 3.44772 15.4477 3 16 3H18C18.7956 3 19.5587 3.31607 20.1213 3.87868C20.6839 4.44129 21 5.20435 21 6V20C21 20.7957 20.6839 21.5587 20.1213 22.1213C19.5587 22.6839 18.7957 23 18 23H6C5.20435 23 4.44129 22.6839 3.87868 22.1213C3.31607 21.5587 3 20.7957 3 20V6C3 5.20435 3.31607 4.44129 3.87868 3.87868C4.44129 3.31607 5.20435 3 6 3H8C8.55228 3 9 3.44772 9 4C9 4.55228 8.55228 5 8 5H6Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M7 3C7 1.89543 7.89543 1 9 1H15C16.1046 1 17 1.89543 17 3V5C17 6.10457 16.1046 7 15 7H9C7.89543 7 7 6.10457 7 5V3ZM15 3H9V5H15V3Z" fill="black"/></svg>');
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center center;
+}
+.hljs-copy-button:hover {
+  border-color:#29292f;
+}
+.hljs-copy-button:active {
+  border-color: color-mix(in srgb, var(--hljs-theme-color), transparent 60%);
+}
+.hljs-copy-button[data-copied="true"] {
+  text-indent: 0;
+  width: auto;
+}
+.hljs-copy-container[data-autohide="true"] {
+  transform: translateX(calc(100% + 1.125em));
+}
+.hljs-copy-wrapper:focus-within .hljs-copy-container {
+  transition: none;
+  transform: translateX(0);
+}
+.hljs-copy-wrapper:hover .hljs-copy-container {
+  transform: translateX(0);
+}
+@media (prefers-reduced-motion) {
+  .hljs-copy-button {
+      transition: none;
+  }
+}
+.hljs-copy-alert {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.hljs-copy-button{
+  color:#79797f;
+}
+
+.hljs-copy-button:hover{
+  color:#ccc;
+}
+
+.language-bash.bash{
+  color:#f8e164;
+}
+
+.language-bash .hljs-built_in:first-child{
+  color:#62d6e8;
+}
+
+.language-bash .hljs-built_in {
+  color:#f8e164;
+}
+
+.hljs{
+  color:#00ff00;
+}
+
+:root {
+  --hljs-theme-color: #ff6347; /* Example color value */
+  --hljs-theme-background: #f0f0f0; /* Define background color as well */
+  --hljs-theme-padding: 8px; /* Optional: specify padding */
+}
+
+div.hljs-copy-container{
+  --hljs-theme-background: rgba(0, 0, 0, 0);
+    --hljs-theme-color: rgb(209, 213, 219) !important;
+    --hljs-theme-padding: 26px;
+}
+
+.hljs-copy-wrapper, .prose :where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *)){
+  overflow-x:visible !important;
+}
+
+.prose .hljs-copy-wrapper{
+  margin-top:0px !important;
+  margin-bottom:0px !important;
+}
+
+.filename-top > p{
+  display:none;
+}

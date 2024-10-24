@@ -305,6 +305,11 @@ window.markdownTOCClickFunc = function(){
 
 
 document.addEventListener("DOMContentLoaded", function() {
+    window.hljs.addPlugin(
+        new CopyButtonPlugin({
+        autohide: false, // Always show the copy button
+        })
+    );
     hljs.highlightAll();
     markdownTOCClickFunc();
 });
@@ -312,7 +317,13 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('htmx:afterSwap', function(evt) {
     setTimeout(function(){
         domReadyLoop();
+        hljs.addPlugin(
+            new CopyButtonPlugin({
+              autohide: false, // Always show the copy button
+            })
+          );
         hljs.highlightAll();
+       
         markdownTOCClickFunc();
         loadGsapAnimations();
         //createRadialBackgrounds();

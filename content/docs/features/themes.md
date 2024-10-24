@@ -9,19 +9,26 @@ nextURL: '/docs/features/plugins'
 
 # Themes
 
-Wave allows you to customize the look and feel of your application through a flexible and easy-to-use theme system.
+You can choose a theme to use as the starting point for your new SaaS. In this section you will learn all about themes and how they work.
+
+
 
 - [Themes](#themes)
+  - [Chossing a Theme](#chossing-a-theme)
+    - [Download Themes](#download-themes)
+    - [Installing Themes](#installing-themes)
+    - [Activate Themes](#activate-themes)
   - [Theme Views](#theme-views)
   - [Theme Pages](#theme-pages)
   - [Theme Assets](#theme-assets)
-    - [Compiling Assets \& HMR](#compiling-assets--hmr)
+    - [Compiling Assets and HMR](#compiling-assets-and-hmr)
     - [Building Assets](#building-assets)
     - [How Does It Work](#how-does-it-work)
-  - [Selecting Themes](#selecting-themes)
-    - [Download Themes](#download-themes)
-    - [Installing Themes](#installing-themes)
-    - [Activate Theme](#activate-theme)
+  - [Creating Themes](#creating-themes)
+    - [The Simplest Theme](#the-simplest-theme)
+    - [Add a homepage view](#add-a-homepage-view)
+    - [Creating Your Assets](#creating-your-assets)
+    - [Example Theme](#example-theme)
   - [Theme Structure](#theme-structure)
     - [Readme.md](#readmemd)
     - [theme.jpg](#themejpg)
@@ -32,8 +39,29 @@ Wave allows you to customize the look and feel of your application through a fle
     - [📁 partials](#-partials)
   - [Digging Deeper](#digging-deeper)
 
+## Chossing a Theme
 
-In this section you will learn where the themes are located and how to activate a specific theme.
+When you’re ready to start building, you will want to choose a theme as a starting point for your new SaaS.
+
+### Download Themes
+
+Visit the <a href="{ url('/themes') }" target="_blank">Themes Page</a> to browse available themes for download. Check back often as more themes will be released. Once you’ve downloaded a theme, we’ll need to install it.
+
+### Installing Themes
+
+After <a href="{ url('/themes') }" target="_blank">downloading a theme</a>, extract it move the theme folder to the `resources/themes` directory. For example, if you download the `blank` theme, it should be moved to `resources/themes/blank`.
+
+> You will want to rename the folder to be the name of the theme. As an example if you download the blank theme and it has a folder name of `blank-main`, you'll want to rename it to be `blank`.
+
+### Activate Themes
+
+Now that you have the theme installed, you'll need to head to the admin to activate it. Be sure to login as your admin user and visit <a href="/admin/themes" target="_blank">`/admin/themes`</a> and you’ll see the current themes available in your app.
+
+<img src="https://cdn.devdojo.com/images/august2024/activate-theme.png" class="w-full" alt="Wave Activate Theme" />
+
+To activate a Theme you can simply click the Activate button for the current theme you would like to activate, and that will be the current active theme.
+
+> After activating a theme you may need to make sure that you stop your asset watcher `npm run dev` and re-run it after the new theme has been activated.
 
 ## Theme Views
 
@@ -82,7 +110,7 @@ Every theme will have it's own assets located at the following locations:
 
 When you run your asset watchers and builder using `npm` it will look at these files.
 
-### Compiling Assets & HMR
+### Compiling Assets and HMR
 
 You can use the common `npm run dev` command to compile your assets and serve them up from your current theme. Running `npm run dev` also supports Hot Module Reloading so when you make a change to any theme file, your assets will automatically be compiled and the browser will refresh.
 
@@ -92,16 +120,25 @@ When you want to build your assets for production you will run `npm run build`. 
 
 ### How Does It Work
 
-You may want to know how the asset bundler works in case you need to debug an issue or implement some additional functionality. When you **Activate** a theme, a new file called `theme.json` will be stored in the root of your directory containing something like the following:
+Understanding how the asset bundler works can help with debugging or adding functionality. When you  **Activate** a theme, a file named `theme.json` is stored in the root directory with contents resembling the following:
 
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
+    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">theme.json</span>
+</div>
 ```json
 {
     "name": "anchor"
 }
 ```
+</div>
 
-This file stores the currently active theme inside of the `theme.json` file. This will be used inside our `vite.config.js`, file like so:
+This file contains the currently active theme, which is referenced inside our `vite.config.js`.
 
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
+    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">vite.config.js</span>
+</div>
 ```js
 const themeFilePath = path.resolve(__dirname, 'theme.json');
 const activeTheme = fs.existsSync(themeFilePath) ? JSON.parse(fs.readFileSync(themeFilePath, 'utf8')).name : 'anchor';
@@ -122,36 +159,171 @@ export default defineConfig({
     ],
 });
 ```
+</div>
 
-As you can see the `vite` config will read this file to find the currently active theme and then it will compile those assets.
+The `vite` config reads this file to determine the active theme and compiles its assets.
 
-## Selecting Themes
+## Creating Themes
 
-When you want to select a new theme to use, you will need to download and install the specific theme and then you'll need to login to the admin section and activate that theme.
+To fully control the appearance, you may consider creating your own theme. Even if you don’t plan to create a custom theme, this section will help you understand how themes work. Let’s begin with creating a simple theme.
 
-### Download Themes
+### The Simplest Theme
 
-Visit the <a href="{ url('/themes') }" target="_blank">Themes Page</a> from this website and you'll see a list of available themes to download. Be sure to return to this page often as we'll be releasing many more themes down the road. After you download the theme you'll need to install it (movie the contents).
+Creating a theme is as simple as adding a new folder in the `resources/themes` folder. The folder name should be lowercase (e.g., `resources/views/example`). Then, add a `theme.json` file with the following contents:
 
-### Installing Themes
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
+    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/theme.json</span>
+</div>
+```json
+{
+    "name": "Example",
+    "version": "1.0"
+}
+```
+</div>
 
-Installing themes are really simple. After you <a href="{ url('/themes') }" target="_blank">download the theme</a> you want to use make sure to extract the theme and move the contents of that folder to the `resources/themes` directory. So, for example if you download the `blank` theme, you should have a new theme folder located at `resources/themes/blank` and all the contents of that theme should be inside that folder.
+This `theme.json` file defines the theme’s **name** and **version**. Next, add an image named `theme.jpg` to your theme folder (e.g., `resources/themes/example/theme.jpg`) with a 16:9 ratio (at least 1280x720px).
 
-> You will want to rename the folder to be the name of the theme. As an example if you download the blank theme and it has a folder name of `blank-main`, you'll want to rename it to be `blank`.
+<div class="flex items-center px-4 py-4 my-6 text-blue-800 text-xs font-semibold bg-blue-100 border-l-4 border-blue-200 rounded-md">
+<span>That’s it! You’ve just created your first theme, and it will now appear in the admin panel ready for activation.</span>
+</div>
 
-### Activate Theme
+<div class="flex items-center px-4 py-4 my-6 text-orange-800 text-xs font-semibold bg-orange-100 border-l-4 border-orange-200 rounded-md">
+<span>Unfortunately, navigating to any page will result in an error because your theme doesn't haven't any views just yet.</span>
+</div>
 
-Now that you have the theme installed, you'll need to head to the admin to activate it. Be sure to login as your admin user and visit <a href="/admin/themes" target="_blank">`/admin/themes`</a> and you’ll see the current themes available in your app.
 
-<img src="https://cdn.devdojo.com/images/august2024/activate-theme.png" class="w-full" alt="Wave Activate Theme" />
 
-To activate a Theme you can simply click the Activate button for the current theme you would like to activate, and that will be the current active theme.
+### Add a homepage view
 
-> After activating a theme you may need to make sure that you stop your asset watcher `npm run dev` and re-run it after the new theme has been activated.
+Since each theme uses Folio and Volt, you can create a `pages` folder and add an `index.blade.php` file.
+
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
+    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/pages/index.blade.php</span>
+</div>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Theme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center w-screen h-screen">
+    <div class="relative text-center">
+        <h1 class="mb-3 text-4xl font-light">Example Theme</h1>
+        <p>This is a simple example of a blank theme. <a href="https://devdojo.com/wave/docs" target="_blank" class="underline">Click here to view the docs</a></p>
+    </div>
+</body>
+</html>
+```
+</div>
+
+Once added, you’ll be able to visit your homepage and see this view.
+
+Similarly, for the dashboard, create a file at resources/themes/example/pages/dashboard/index.blade.php, allowing access to the /dashboard route.
+
+You can follow this process for any other pages in your application. It’s a good idea to check an existing theme to see all the pages it includes.
+
+### Creating Your Assets
+
+Instead of loading the Tailwind CSS CDN as shown in the example, you'll most-likely want to create your own `app.css` and `app.js` files to manage assets using vite. To do this, create the following files:
+
+1. resources/themes/example/assets/css/app.css
+2. resources/themes/example/assets/js/app.js
+
+
+> Replace example with your folder’s actual name.
+
+Next, add the following to your theme `app.css`
+
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
+    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/assets/css/app.css</span>
+</div>
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+</div>
+
+Feel free to add any JavaScript to your `app.js`. You don’t need to include Alpine.js or Livewire’s JavaScript here—they will be automatically injected as we use the latest version of Livewire.
+
+Next, reference your `app.css` and `app.js` files in the <head> section of your layout:
+
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
+    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/components/layouts/app.blade.php</span>
+</div>
+```php
+@vite(['resources/themes/anchor/assets/css/app.css', 'resources/themes/anchor/assets/js/app.js'])
+```
+</div>
+
+You should also include **filament** and **livewire** styles before the **@vite** helper:
+
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
+    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/components/layouts/app.blade.php</span>
+</div>
+```php
+@filamentStyles
+@livewireStyles
+@vite(['resources/themes/example/assets/css/app.css', 'resources/themes/example/assets/js/app.js'])
+```
+</div>
+
+<div class="flex items-center px-4 py-4 my-6 text-red-800 text-xs font-normal bg-red-100 border-l-4 border-red-200 rounded-md">
+<span>Make sure the Filament and Livewire styles are added before the Vite helper. Adding them afterward may result in some unexpected results.</span>
+</div>
+
+The final structure should look like this:
+
+<div class="group opacity-[95%] hover:opacity-100 relative ease-out duration-300">
+<div class="bg-gray-700 text-gray-300 font-mono px-4 sm:px-6 py-3 font-medium text-[11px] -mb-7 relative rounded-t-lg">
+    <span class="opacity-50 group-hover:opacity-80 ease-out duration-300">resources/themes/example/components/layouts/app.blade.php</span>
+</div>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Theme</title>
+    @filamentStyles
+    @livewireStyles
+    @vite(['resources/themes/example/assets/css/app.css', 'resources/themes/example/assets/js/app.js'])
+</head>
+<body class="flex items-center justify-center w-screen h-screen">
+    <div class="relative text-center">
+        <h1 class="mb-3 text-4xl font-light">Example Theme</h1>
+        <p>This is a simple example of a blank theme. <a href="https://devdojo.com/wave/docs" target="_blank" class="underline">Click here to view the docs</a></p>
+    </div>
+</body>
+</html>
+```
+</div>
+
+<div class="flex items-center px-4 py-4 my-6 text-orange-800 text-xs font-normal bg-orange-100 border-l-4 border-orange-200 rounded-md">
+<span>The code in the &lt;head&gt; tag should be applied to both layouts <strong class="text-orange-900">app.blade.php</strong> and <strong class="text-orange-900">marketing.blade.php</strong></span>
+</div>
+
+Now, run `npm run dev` to enable hot reloading. When you’re ready for production, run `npm run build` to compile and minify your assets to the public directory.
+
+### Example Theme
+
+We've also created an <a href="https://github.com/thedevdojo/example" target="_blank">Example Theme</a> you can use as a starting point for building your own theme. It includes all the essential pages, layouts, and partials needed to build a custom theme. You can find this example theme at <a href="https://github.com/thedevdojo/example" target="_blank">https://github.com/thedevdojo/example</a>.
+
+Finally, it may be helpful to learn the basic **Structure of a Theme**, let's cover that next.
 
 ## Theme Structure
 
-It's beneficial to know how each theme is structured and organized. Here is the file contents of each theme:
+Files and folders inside a theme can vary; however, most will have a similar structure, like the following:
 
  - Readme.md
  - theme.jpg
