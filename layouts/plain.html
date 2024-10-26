@@ -14,7 +14,7 @@
 
 </head>
 <body class="w-screen overflow-hidden h-dvh"
-    x-data="{ themeOpen: false, menuOpen: false, theme: 'anchor', themeImage: 'anchor', collapsed: false, isTouchDevice: false, themeLoading:false, iframe_src: 'about:blank', demo_url: 'https://wave.devdojo.com', headerBarClasses: 'px-0' }" 
+    x-data="{ themeOpen: false, menuOpen: false, theme: 'anchor', themeImage: 'anchor', collapsed: false, isTouchDevice: false, themeLoading:false, iframe_src: 'about:blank', demo_url: 'https://wave.devdojo.com', headerBarClasses: 'px-0', version: '0' }" 
     x-init="
         window.addEventListener('load', function() {
             // Get the URL's query parameters
@@ -35,8 +35,16 @@
         // }, 2000);
             isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         });
+
+
         
 
+        fetch('https://api.github.com/repos/thedevdojo/wave/releases/latest')
+            .then(response => response.json())
+            .then(data => {
+                version = data.tag_name;
+            })
+            .catch(error => console.error('Error fetching latest release:', error));
         
         $watch('theme', function(value){
             iframe_src = demo_url + '?theme=' + theme;

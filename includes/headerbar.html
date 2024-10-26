@@ -53,7 +53,7 @@
                     MENU
                 </div>
                 <ul class="space-y-1 text-[13px] font-medium text-zinc-400">
-                    <li x-show="menuOpen" x-transition:enter="transition ease-out delay-300 duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0"><a href="{ url('/') }?newwave=true" class="duration-300 ease-out hover:text-white">Home</a></li>
+                    <li x-show="menuOpen" x-transition:enter="transition ease-out delay-300 duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0"><a href="{ url('/') }" class="duration-300 ease-out hover:text-white">Home</a></li>
                     <li x-show="menuOpen" x-transition:enter="transition ease-out delay-[350ms] duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0"><a href="{ url('/docs') }" class="duration-300 ease-out hover:text-white">Docs</a></li>
                     <li x-show="menuOpen" x-transition:enter="transition ease-out delay-[400ms] duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0"><a href="{ url('/themes') }" class="duration-300 ease-out hover:text-white">Themes</a></li>
                     <li x-show="menuOpen" x-transition:enter="transition ease-out delay-[450ms] duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0"><a href="https://github.com/thedevdojo/wave" target="_blank" class="duration-300 ease-out hover:text-white">Github</a></li>
@@ -69,7 +69,7 @@
         <div class="relative z-50 flex w-screen h-11 bg-gradient-to-b from-neutral-900 to-neutral-950">
             <div class="flex items-center justify-between w-full">
                 <div class="flex items-center justify-start flex-1 h-full text-xs">
-                    <a href="{ url('/') }?newwave=true" x-on:mouseenter="themeOpen=false; menuOpen=false;" class="flex items-center w-auto h-full pl-3 pr-1 -translate-y-px group">
+                    <a href="{ url('/') }" x-on:mouseenter="themeOpen=false; menuOpen=false;" class="flex items-center w-auto h-full pl-3 pr-1 -translate-y-px group">
                         <svg class="text-white h-3.5 w-auto opacity-100 group-hover:opacity-100 ease-out duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185 114" fill="none"><path fill="currentColor" d="M125.577 53.84 92.33 0 59.084 53.833 0 22.158l30.919 91.373h122.829l30.919-91.373-59.09 31.682Zm-33.24-23.07L111.3 61.49l-18.963 10.17-18.97-10.17 18.97-30.719ZM50.575 67.618l-11.71 18.964L28.43 55.741l22.145 11.877Zm.633 29.749 13.643-22.1 10.377 5.567 17.102 9.168 17.108-9.168 10.378-5.567 13.642 22.1h-82.25Zm94.593-10.779-11.716-18.97 22.158-11.877-10.442 30.847Z"></path><path fill="currentColor" d="m51.208 97.367 13.643-22.1 27.48 14.735.002-.001V71.657L73.366 61.49l18.967-30.714V.005L92.33 0 59.084 53.833 0 22.158l30.919 91.373h61.414V97.367H51.208ZM38.865 86.582 28.43 55.741l22.145 11.877-11.71 18.964Z"></path></svg>
                     </a>
                     <button x-on:click="menuOpen=!menuOpen; themeOpen=false" @mouseenter="if (!isTouchDevice) { menuOpen=true; themeOpen=false; }" class="h-full px-3.5 text-white flex items-center">
@@ -83,7 +83,7 @@
                     <div x-on:mouseenter="themeOpen=false" class="flex-1 w-full h-full bg-transparent"></div>
                 </div>
                 <div class="flex items-center justify-end flex-1 h-full text-xs font-medium text-white">
-                    <span class="px-2 mr-1.5 py-0.5 rounded-full text-[10px] font-medium bg-neutral-800 border border-neutral-600 text-neutral-100">Wave Demo v3.0.1</span>
+                    <span class="px-2 mr-1.5 py-0.5 rounded-full text-[10px] font-medium bg-neutral-800 border border-neutral-600 text-neutral-100">Wave Demo<span x-show="version!='0'" x-cloak> v<span x-text="version"></span></span></span>
 
                     <a :href="demo_url" target="_blank" class="h-full px-1.5 opacity-90 hover:opacity-100 flex items-center">
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.2501 4.75H7.74927C5.54013 4.75 3.74927 6.54086 3.74927 8.75V16.25C3.74927 18.4591 5.54013 20.25 7.74927 20.25H15.2508C17.4599 20.25 19.2508 18.4591 19.2508 16.25V14M20.25 3.74951V9.24951M20.25 3.74951L14.7496 3.75M20.25 3.74951L9.75 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
