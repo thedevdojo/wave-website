@@ -47,7 +47,18 @@ npm run build
 
 This will compile and minify all your assets, resulting in a faster application and an improved experience.
 
+## Optimizing Laravel for Production
+
+When you are ready to deploy your application to production, you should optimize your Laravel application on your production server. You can do this by running:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+```bash
+php artisan optimize
+```
+</div>
+
+This command will optimize your application by caching the configuration and routes, and pre-compiling your views. This will result in a faster application and improved performance.
+
 ## Themes
 
 Wave supports **Themes**, allowing you to change the appearance of your application simply by switching themes. When you start your asset watcher or build your assets, it will automatically handle the assets for the currently active theme. We'll explore this further in the themes section.
-
