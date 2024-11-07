@@ -59,6 +59,15 @@ php artisan optimize
 
 This command will optimize your application by caching the configuration and routes, and pre-compiling your views. This will result in a faster application and improved performance.
 
+You can also optimize Filament by running:
+
+<include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
+```bash
+php artisan filament:optimize
+```
+
+This will cache the Filament components and Blade icons.
+
 ## Themes
 
 Wave supports **Themes**, allowing you to change the appearance of your application simply by switching themes. When you start your asset watcher or build your assets, it will automatically handle the assets for the currently active theme. We'll explore this further in the themes section.
