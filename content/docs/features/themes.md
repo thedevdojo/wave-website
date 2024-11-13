@@ -14,7 +14,7 @@ You can choose a theme to use as the starting point for your new SaaS. In this s
 
 
 - [Themes](#themes)
-  - [Chossing a Theme](#chossing-a-theme)
+  - [Choosing a Theme](#choosing-a-theme)
     - [Download Themes](#download-themes)
     - [Installing Themes](#installing-themes)
     - [Activate Themes](#activate-themes)
@@ -39,7 +39,7 @@ You can choose a theme to use as the starting point for your new SaaS. In this s
     - [📁 partials](#-partials)
   - [Digging Deeper](#digging-deeper)
 
-## Chossing a Theme
+## Choosing a Theme
 
 When you’re ready to start building, you will want to choose a theme as a starting point for your new SaaS.
 
@@ -182,11 +182,11 @@ Creating a theme is as simple as adding a new folder in the `resources/themes` f
 
 This `theme.json` file defines the theme’s **name** and **version**. Next, add an image named `theme.jpg` to your theme folder (e.g., `resources/themes/example/theme.jpg`) with a 16:9 ratio (at least 1280x720px).
 
-<div class="flex items-center px-4 py-4 my-6 text-blue-800 text-xs font-semibold bg-blue-100 border-l-4 border-blue-200 rounded-md">
+<div class="flex items-center px-4 py-4 my-6 text-xs font-semibold text-blue-800 bg-blue-100 border-l-4 border-blue-200 rounded-md">
 <span>That’s it! You’ve just created your first theme, and it will now appear in the admin panel ready for activation.</span>
 </div>
 
-<div class="flex items-center px-4 py-4 my-6 text-orange-800 text-xs font-semibold bg-orange-100 border-l-4 border-orange-200 rounded-md">
+<div class="flex items-center px-4 py-4 my-6 text-xs font-semibold text-orange-800 bg-orange-100 border-l-4 border-orange-200 rounded-md">
 <span>Unfortunately, navigating to any page will result in an error because your theme doesn't haven't any views just yet.</span>
 </div>
 
@@ -266,7 +266,7 @@ You should also include **filament** and **livewire** styles before the **@vite*
 ```
 </div>
 
-<div class="flex items-center px-4 py-4 my-6 text-red-800 text-xs font-normal bg-red-100 border-l-4 border-red-200 rounded-md">
+<div class="flex items-center px-4 py-4 my-6 text-xs font-normal text-red-800 bg-red-100 border-l-4 border-red-200 rounded-md">
 <span>Make sure the Filament and Livewire styles are added before the Vite helper. Adding them afterward may result in some unexpected results.</span>
 </div>
 
@@ -295,7 +295,7 @@ The final structure should look like this:
 ```
 </div>
 
-<div class="flex items-center px-4 py-4 my-6 text-orange-800 text-xs font-normal bg-orange-100 border-l-4 border-orange-200 rounded-md">
+<div class="flex items-center px-4 py-4 my-6 text-xs font-normal text-orange-800 bg-orange-100 border-l-4 border-orange-200 rounded-md">
 <span>The code in the &lt;head&gt; tag should be applied to both layouts <strong class="text-orange-900">app.blade.php</strong> and <strong class="text-orange-900">marketing.blade.php</strong></span>
 </div>
 
