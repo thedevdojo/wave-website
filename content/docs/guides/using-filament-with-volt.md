@@ -3,8 +3,8 @@ title: Using Filament With Volt
 description: Learn how to use FilamentPHP with any Volt page
 prevTitle: 'About Guides'
 prevURL: '/docs/guides/about'
-nextTitle: ''
-nextURL: null
+nextTitle: 'Deploying Wave to DigitalOcean'
+nextURL: '/docs/guides/deploy-on-digitalocean'
 ---
 
 # Using Filament with Volt
@@ -75,11 +75,11 @@ Inside of our `pages/projects/index.blade.php` page, we listed out a table view 
 <x-layouts.app>
     @volt('projects')
         <x-app.container>
-            <div class="flex items-center mb-5 justify-between">
+            <div class="flex items-center justify-between mb-5">
                 <x-app.heading title="Projects" description="Check out your projects below" :border="false" />
                 <x-button tag="a" href="/projects/create">New Project</x-button>
             </div>
-            <div class="overflow-x-auto rounded-lg border">
+            <div class="overflow-x-auto border rounded-lg">
                 {{ $this->table }}
             </div>
         </x-app.container>
@@ -164,14 +164,14 @@ We can utilize the <a href="https://filamentphp.com/docs/forms/installation" tar
 <x-layouts.app>
     @volt('projects.create')
         <x-app.container class="max-w-xl">
-            <div class="flex items-center mb-5 justify-between">
+            <div class="flex items-center justify-between mb-5">
                 <x-app.heading title="Create Project" description="Fill out the form below to create a new project" :border="false" />
             </div>
             <form wire:submit="create" class="space-y-6">
                 {{ $this->form }}
                 <div class="flex justify-end gap-x-3">
                     <x-button tag="a" href="/projects" color="secondary">Cancel</x-button>
-                    <x-button type="submit" class="bg-primary-600 hover:bg-primary-500 text-white">
+                    <x-button type="submit" class="text-white bg-primary-600 hover:bg-primary-500">
                         Create Project
                     </x-button>
                 </div>
@@ -326,7 +326,7 @@ We can simplify the process of viewing, creating, editing, and deleting our proj
 <x-layouts.app>
     @volt('projects')
         <x-app.container class="max-w-5xl">
-            <div class="flex items-center mb-5 justify-between">
+            <div class="flex items-center justify-between mb-5">
                 <x-app.heading title="Projects" description="Check out your projects below" :border="false"/>
                 <x-modal id="create-project" width="md" :slide-over="true">
                     <x-slot name="trigger">
@@ -337,7 +337,7 @@ We can simplify the process of viewing, creating, editing, and deleting our proj
                     </x-slot>
                     <form wire:submit="create" class="space-y-6">
                         {{ $this->form }}
-                        <div class="mt-6 flex justify-end">
+                        <div class="flex justify-end mt-6">
                             <x-button type="submit" wire:target="create">
                                 Create Project
                             </x-button>
@@ -345,7 +345,7 @@ We can simplify the process of viewing, creating, editing, and deleting our proj
                     </form>
                 </x-modal>
             </div>
-            <div class="overflow-x-auto rounded-lg border">
+            <div class="overflow-x-auto border rounded-lg">
                 {{ $this->table }}
             </div>
         </x-app.container>
@@ -367,4 +367,3 @@ You can also click the **New Project** button and you'll see a slide-over open a
 <img src="https://cdn.devdojo.com/images/october2024/projects-create1.png" class="w-full rounded" alt="Projects Create">
 
 Combining the Table and the Form builder in the same page will make it easer to add functionality to our application.
-
