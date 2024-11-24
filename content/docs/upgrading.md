@@ -21,7 +21,7 @@ Upgrading Wave is very simple. Follow the steps below to upgrade.
 
 ## Automated Upgrade
 
-We are currently working on an automated upgrade process that will happen directly inside the admin. This will be an automated upgrade similar to that of Wordpress and other popular CMS frameworks.
+We are currently working on an automated upgrade process that will happen directly inside the admin. This will be an automated upgrade similar to that of WordPress and other popular CMS frameworks.
 
 ## How To Upgrade
 

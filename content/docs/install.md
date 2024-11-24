@@ -36,11 +36,11 @@ If you are using <a href="https://herd.laravel.com" target="_blank">Herd</a> to 
 3. Move the renamed folder to one of your <a href="https://herd.laravel.com/docs/1/getting-started/sites" target="_blank">site directories</a>. For example, you can move it to `~/Herd`.
 4. Open your browser and visit `foldername.test` to start the installation process. Remember to replace `foldername` with the actual name of the folder.
 
-> That's it! Wave is now installed. If you encounter any errors during the automated installer, you may follow the  steps to manually install below; otherwise, move on to the Database section.
+> That's it! Wave is now installed. If you encounter any errors during the automated installer, you may follow the steps to manually install below; otherwise, move on to the Database section.
 
 ## Manual Installation
 
-If you are hosting your Laravel projects locally with someting other than Hered, or if receive an error during the automated installer, you may want to manually install Wave. To do so, continue reading.
+If you are hosting your Laravel projects locally with something other than Herd, or if you receive an error during the automated installer, you may want to manually install Wave. To do so, continue reading.
 
 Download Wave and unzip the file. Next, move the folder to your sites folder, and follow these steps:
 
