@@ -9,7 +9,7 @@ nextURL: '/docs/guides/deploy-on-digitalocean'
 
 # Using Filament with Volt
 
-Using Filament within Wave will speed-up your productivity. In this guide we'll use the example from the <a href="{ url('/docs/your-functionality' )}">Your Functionality</a> section to implement the same functionality using the <a href="https://filamentphp.com/docs/tables/installation" target="_blank">Table Builder</a> and the <a href="https://filamentphp.com/docs/forms/installation" target="_blank">Form Builder</a>.
+Using Filament within Wave will speed-up your productivity. In this guide we'll use the example from the <a href="{ url('/docs/your-functionality') }">Your Functionality</a> section to implement the same functionality using the <a href="https://filamentphp.com/docs/tables/installation" target="_blank">Table Builder</a> and the <a href="https://filamentphp.com/docs/forms/installation" target="_blank">Form Builder</a>.
 
 - [Using Filament with Volt](#using-filament-with-volt)
   - [Using the Table Builder](#using-the-table-builder)
@@ -17,7 +17,7 @@ Using Filament within Wave will speed-up your productivity. In this guide we'll 
   - [Combining the Table and Form Builder](#combining-the-table-and-form-builder)
 
 
-We will assume that you've already added the **database migration** and the **model** for the `projects` table in <a href="{ url('/docs/your-functionality' )}">this section</a>. Be sure to finish the <a href="{ url('/docs/your-functionality' )}">Your Functionality</a> section before continuing with this guide.
+We will assume that you've already added the **database migration** and the **model** for the `projects` table in <a href="{ url('/docs/your-functionality') }">this section</a>. Be sure to finish the <a href="{ url('/docs/your-functionality') }">Your Functionality</a> section before continuing with this guide.
 
 ## Using the Table Builder
 
