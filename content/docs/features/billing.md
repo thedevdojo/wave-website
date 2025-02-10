@@ -83,7 +83,7 @@ The **Webhook Secret** key allows stripe to talk to your application and receive
 2. Click on the **Developers** button at the top right corner of the dashboard.
 3. From the dropdown menu, select **Webhooks**.
 4. From this page you will see a button to **Create new endpoint**
-5. From this screen you will need to check all of the **Checkout Events** and all of the **Billing Portal Events**, then click continue.
+5. From this screen you will need to check all of the **Checkout Events**, **Customer Subscription Events**, and all of the **Billing Portal Events**, then click continue.
 6. Enter your application endpoint. This will be your application URL with the `/webhook/stripe` path. So, if your URL is `https://wave.test` your endpoint will be `https://wave.test/webhook/stripe`.
 7. Optionally, add a description and click the **Create destination** button.
 8. On this page you will see a **Signing secret** key inside the **Destination Details** section. Copy this value and add it to your application *.env* file:
