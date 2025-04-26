@@ -11,7 +11,7 @@ nextURL: '/docs/features/api'
 
 Wave makes it easy to add a pages via the admin and have it show up on your site. 
 
-> Not to be confused this with <a href="{ url('/docs/features/volt') }">Volt Pages</a>, which are dynamic pages created inside your theme `pages` directory. <a href="{ url('/docs/features/volt') }">Learn more about those pages here</a>
+> Not to be confused this with <a href="{ url('/docs/features/volt') }">Volt Pages</a>, which are dynamic pages created inside your theme `pages` directory. <a href="{ url('/docs/concepts/volt') }">Learn more about those pages here</a>
 
 These pages in this section are content pages, such as a Terms or Privacy Policy page, or even an About Us page. These pages typically contain static content, and not much dynamic functionality or user interaction.
 

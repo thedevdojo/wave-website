@@ -65,6 +65,7 @@ You can also optimize Filament by running:
 ```bash
 php artisan filament:optimize
 ```
+</div>
 
 This will cache the Filament components and Blade icons.
 
