@@ -184,7 +184,7 @@ We can utilize the <a href="https://filamentphp.com/docs/forms/installation" tar
 
 Navigating to `app_url.test/projects/create` will allow us to create a new project with validation.
 
-<img src="https://cdn.devdojo.com/images/october2024/projects-form.png" class="w-full rounded" alt="create project with filament form builder">
+<img src="https://cdn.devdojo.com/images/october2024/projects-form.png" class="w-full rounded-sm" alt="create project with filament form builder">
 
 Utilizing the FilamentPHP form and table builder we can simplify the process even more by combining the table and form builder into a single <a href="https://livewire.laravel.com/docs/volt" target="_blank">Volt Page</a>. Let's take a look at that below.
 
@@ -356,14 +356,14 @@ We can simplify the process of viewing, creating, editing, and deleting our proj
 
 Now, when we visit `app_url.test/projects` we can view, create, edit, and delete projects from a single page. Here is how our new `/projects` page will look.
 
-<img src="https://cdn.devdojo.com/images/october2024/projects-table-form.png" class="w-full rounded" alt="Projects View and Create">
+<img src="https://cdn.devdojo.com/images/october2024/projects-table-form.png" class="w-full rounded-sm" alt="Projects View and Create">
 
 As you can see, when you click on the `edit` button next to a project a slide-over will open allowing you to edit the details for this project.
 
-<img src="https://cdn.devdojo.com/images/october2024/projects-edit.png" class="w-full rounded" alt="Projects Edit">
+<img src="https://cdn.devdojo.com/images/october2024/projects-edit.png" class="w-full rounded-sm" alt="Projects Edit">
 
 You can also click the **New Project** button and you'll see a slide-over open allowing you to create a new project.
 
-<img src="https://cdn.devdojo.com/images/october2024/projects-create1.png" class="w-full rounded" alt="Projects Create">
+<img src="https://cdn.devdojo.com/images/october2024/projects-create1.png" class="w-full rounded-sm" alt="Projects Create">
 
 Combining the Table and the Form builder in the same page will make it easer to add functionality to our application.

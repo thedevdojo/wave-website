@@ -1,4 +1,4 @@
-<section class="relative overflow-x-hidden bg-gradient-to-b from-neutral-50 to-white dark:from-neutral-900 dark:to-neutral-950 lg:after:absolute lg:after:top-0 lg:after:right-0 lg:after:h-full lg:after:w-96 lg:after:pointer-events-none lg:after:bg-gradient-to-l lg:after:from-neutral-100 lg:dark:after:from-neutral-900 after:hidden lg:after:block">
+<section class="overflow-x-hidden relative to-white bg-linear-to-b from-neutral-50 dark:from-neutral-900 dark:to-neutral-950 lg:after:absolute lg:after:top-0 lg:after:right-0 lg:after:h-full lg:after:w-96 lg:after:pointer-events-none lg:after:bg-linear-to-l lg:after:from-neutral-100 lg:dark:after:from-neutral-900 after:hidden lg:after:block">
     <div class="pt-12 md:pt-24">
 
         <include 
@@ -9,13 +9,13 @@
         ></include>
 
         <!-- Carousel -->
-        <div class="max-w-xl px-4 mx-auto mt-10 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-24 lg:max-w-7xl md:px-6 lg:px-10">
+        <div class="px-4 mx-auto mt-10 max-w-xl sm:mt-12 md:mt-16 lg:mt-20 xl:mt-24 lg:max-w-6xl">
             <div class="space-y-4 sm:space-y-8 lg:flex lg:space-y-0 lg:space-x-5 xl:space-x-8" x-data="{ tab: '1' }">
             
                 <!-- Content -->
                 <div class="lg:max-w-none lg:min-w-[524px]">
                     <div class="hidden mb-8">
-                        <div class="inline-flex text-sm font-medium text-neutral-600 dark:text-neutral-400 px-4 py-0.5 border dark:border-neutral-800 dark:bg-neutral-700 border-neutral-200 bg-neutral-200 rounded-full mb-4">Most Common SaaS Features</div>
+                        <div class="inline-flex px-4 py-0.5 mb-4 text-sm font-medium rounded-full border text-neutral-600 dark:text-neutral-400 dark:border-neutral-800 dark:bg-neutral-700 border-neutral-200 bg-neutral-200">Most Common SaaS Features</div>
                         <h3 class="mb-4 text-3xl font-bold text-neutral-900 font-inter-tight dark:text-neutral-200 giarek">Build Your SaaS with Speed and Confidence</h3>
                         <p class="text-lg text-neutral-500">Wave provides you with all the essential features found in many popular SaaS platforms. Now, you can quickly transform your idea into a profitable SaaS product.</p>
                     </div>
@@ -23,10 +23,10 @@
                     <div class="flex space-x-2 sm:space-y-6 sm:space-x-0 sm:block">
                         <button
                             :class="tab !== '1' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex flex-col items-center flex-1 w-full py-5 space-y-2 text-left duration-200 ease-out border rounded-lg sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
+                            class="flex flex-col flex-1 items-center py-5 space-y-2 w-full text-left rounded-lg border duration-200 ease-out sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
                             @click.prevent="tab = '1'"
                         >
-                            <svg :class="tab !== '1' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="140" r="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="160" x2="128" y2="184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="40" y="88" width="176" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M88,88V56a40,40,0,0,1,80,0V88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <svg :class="tab !== '1' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 fill-current sm:mr-3 shrink-0 text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="140" r="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="160" x2="128" y2="184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="40" y="88" width="176" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M88,88V56a40,40,0,0,1,80,0V88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
                             <div :class="tab !== '1' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" >
                                 <div class="mb-0 text-sm font-medium sm:text-lg sm:font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200">Auth<span class="hidden sm:inline">entication</span></div>
                                 <div class="hidden text-neutral-500 md:block">Visitors can register for an account, existing users can login. Fully customize your authentication screens.</div>
@@ -34,10 +34,10 @@
                         </button>
                         <button
                             :class="tab !== '2' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex flex-col items-center flex-1 w-full py-5 space-y-2 text-left duration-200 ease-out border rounded-lg sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
+                            class="flex flex-col flex-1 items-center py-5 space-y-2 w-full text-left rounded-lg border duration-200 ease-out sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
                             @click.prevent="tab = '2'"
                         >
-                            <svg :class="tab !== '2' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 128V32M211.14 80 44.86 176"/></svg>
+                            <svg :class="tab !== '2' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 fill-current sm:mr-3 shrink-0 text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 128V32M211.14 80 44.86 176"/></svg>
                             <div :class="tab !== '2' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'">
                                 <div class="mb-0 text-sm font-medium sm:text-lg sm:font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200"><span class="hidden sm:inline">User </span>Dash<span class="hidden sm:inline">board</span></div>
                                 <div class="hidden text-neutral-500 md:block">The user dashboard is where your customers will land when they login. Easily customize it to fit your brand.</div>
@@ -45,10 +45,10 @@
                         </button>
                         <button
                             :class="tab !== '3' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex flex-col items-center flex-1 w-full py-5 space-y-2 text-left duration-200 ease-out border rounded-lg sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
+                            class="flex flex-col flex-1 items-center py-5 space-y-2 w-full text-left rounded-lg border duration-200 ease-out sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
                             @click.prevent="tab = '3'"
                         >
-                            <svg :class="tab !== '3' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><rect x="32" y="80" width="160" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M64,80V56a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8V168a8,8,0,0,1-8,8H192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="32" y1="112" x2="192" y2="112" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <svg :class="tab !== '3' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 fill-current sm:mr-3 shrink-0 text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><rect x="32" y="80" width="160" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M64,80V56a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8V168a8,8,0,0,1-8,8H192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="32" y1="112" x2="192" y2="112" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
                             <div :class="tab !== '3' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'">
                                 <div class="mb-0 text-sm font-medium sm:text-lg sm:font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200"><span class="hidden sm:inline">Marketing</span> Pages</div>
                                 <div class="hidden text-neutral-500 md:block">Each theme includes beautifully designed marketing pages such as home, pricing, blog, and more.</div>
@@ -56,10 +56,10 @@
                         </button>
                         <button
                             :class="tab !== '4' ? 'hover:bg-white border-neutral-300/60 dark:border-neutral-800 hover:shadow-md hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:border-neutral-800 dark:hover:shadow-none' : 'dark:bg-neutral-950 bg-white shadow-md dark:shadow-none border-neutral-200 dark:border-neutral-800'"
-                            class="flex flex-col items-center flex-1 w-full py-5 space-y-2 text-left duration-200 ease-out border rounded-lg sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
+                            class="flex flex-col flex-1 items-center py-5 space-y-2 w-full text-left rounded-lg border duration-200 ease-out sm:px-6 sm:space-y-0 sm:items-start sm:flex-row sm:rounded-2xl group"
                             @click.prevent="tab = '4'"
                         >
-                            <svg :class="tab !== '4' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 sm:mr-3 shrink-0 fill-current text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 96v40M88 120l40 16M104 168l24-32M152 168l-24-32M168 120l-40 16M216 112V56a8 8 0 0 0-8-8H48a8 8 0 0 0-8 8v56c0 96 88 120 88 120s88-24 88-120Z"/></svg>
+                            <svg :class="tab !== '4' ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'" class="w-6 h-6 translate-y-0.5 fill-current sm:mr-3 shrink-0 text-neutral-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 96v40M88 120l40 16M104 168l24-32M152 168l-24-32M168 120l-40 16M216 112V56a8 8 0 0 0-8-8H48a8 8 0 0 0-8 8v56c0 96 88 120 88 120s88-24 88-120Z"/></svg>
                             <div :class="tab !== '4' ? 'opacity-80 hover:opacity-100' : 'opacity-100'">
                                 <div class="mb-0 text-sm font-medium sm:text-lg sm:font-semibold md:mb-1 text-neutral-700 font-inter-tight dark:text-neutral-200">Admin<span class="hidden sm:inline"> Panel</span></div>
                                 <div class="hidden text-neutral-500 md:block">Wave uses <a href="https://filamentphp.com" target="_blank" class="underline hover:text-neutral-900" onclick="event.stopImmediatePropagation()">Filament</a> as the admin panel, allowing you to utilize the <a href="https://filamentphp.com/docs/tables/installation" target="_blank" class="underline hover:text-neutral-900" onclick="event.stopImmediatePropagation()">table</a> and <a href="https://filamentphp.com/docs/forms/installation" target="_blank" class="underline hover:text-neutral-900" onclick="event.stopImmediatePropagation()">form builder</a> on any page.</div>
@@ -70,7 +70,7 @@
             
                 <!-- Tabs items -->
                 <div class="relative lg:max-w-none">
-                    <div class="relative flex flex-col">
+                    <div class="flex relative flex-col">
                         <!-- Item 1 -->
                         <div
                             class="w-full"
@@ -82,8 +82,8 @@
                             x-transition:leave-start="opacity-100 translate-x-0"
                             x-transition:leave-end="opacity-0 -translate-x-8"
                         >
-                            <div class="relative flex flex-col items-stretch justify-stretch">
-                                <div class="absolute top-0 right-0 z-20 hidden w-64 h-full bg-gradient-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
+                            <div class="flex relative flex-col items-stretch justify-stretch">
+                                <div class="hidden absolute top-0 right-0 z-20 w-64 h-full bg-linear-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
                                 <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-lg sm:rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/auth.jpg') }" alt="Authentication Image" />
                                 <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-lg sm:rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/auth.jpg') }" alt="Authentication Image" />
                             </div>
@@ -100,7 +100,7 @@
                             x-transition:leave-end="opacity-0 -translate-x-8"
                         >
                             <div>
-                                <div class="absolute top-0 right-0 z-20 hidden w-64 h-full bg-gradient-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
+                                <div class="hidden absolute top-0 right-0 z-20 w-64 h-full bg-linear-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
                                 <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-lg sm:rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/dashboard.jpg') }" alt="User Dashboard Image" />
                                 <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-lg sm:rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/dashboard.jpg') }" alt="User Dashboard Image" />
                             </div>
@@ -117,7 +117,7 @@
                             x-transition:leave-end="opacity-0 -translate-x-8"
                         >
                             <div>
-                                <div class="absolute top-0 right-0 z-20 hidden w-64 h-full bg-gradient-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
+                                <div class="hidden absolute top-0 right-0 z-20 w-64 h-full bg-linear-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
                                 <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-lg sm:rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/home.jpg') }" alt="Marketing Pages Image" />
                                 <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-lg sm:rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/home.jpg') }" alt="Marketing Pages Image" />
                             </div>
@@ -134,7 +134,7 @@
                             x-transition:leave-end="opacity-0 -translate-x-8"
                         >
                             <div>
-                                <div class="absolute top-0 right-0 z-20 hidden w-64 h-full bg-gradient-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
+                                <div class="hidden absolute top-0 right-0 z-20 w-64 h-full bg-linear-to-l from-neutral-100 dark:from-neutral-900 lg:block"></div>
                                 <img class="hidden w-auto h-auto lg:h-full max-h-[560px] mx-auto rounded-lg sm:rounded-2xl dark:block shadow-md border border-neutral-800 lg:max-w-none" src="{ url('/assets/images/screens/dark/admin.jpg') }" alt="Admin Image" />
                                 <img class="block mx-auto w-auto h-auto lg:h-full max-h-[560px] rounded-lg sm:rounded-2xl  dark:hidden shadow-md border border-neutral-200 lg:max-w-none" src="{ url('/assets/images/screens/light/admin.jpg') }" alt="Admin Image" />
                             </div>
@@ -145,14 +145,14 @@
             </div>
         </div>
 
-        <div class="relative z-20 w-full pb-12 bg-gradient-to-t from-white dark:from-neutral-950 md:pb-24">
+        <div class="relative z-20 pb-12 w-full from-white bg-linear-to-t dark:from-neutral-950 md:pb-24">
             <!-- Features blocks -->
-            <div class="max-w-xl px-6 mx-auto mt-10 lg:mt-16 lg:max-w-7xl lg:px-12">
+            <div class="px-4 mx-auto mt-10 max-w-xl lg:mt-16 lg:max-w-6xl">
                 <div class="grid grid-cols-1 gap-4 space-y-5 md:gap-6 lg:space-y-0 lg:grid-cols-3 lg:gap-16">
                     <!-- Block #1 -->
                     <div>
                         <div class="flex items-center mb-1">
-                            <svg class="mr-2 fill-current text-neutral-700 w-7 h-7 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="96" y1="112" x2="176" y2="112" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="96" y1="144" x2="176" y2="144" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M32,200a16,16,0,0,0,16-16V64a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8V184a16,16,0,0,1-16,16Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M32,200a16,16,0,0,1-16-16V88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <svg class="mr-2 w-7 h-7 fill-current text-neutral-700 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="96" y1="112" x2="176" y2="112" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="96" y1="144" x2="176" y2="144" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M32,200a16,16,0,0,0,16-16V64a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8V184a16,16,0,0,1-16,16Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M32,200a16,16,0,0,1-16-16V88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
                             <h3 class="font-semibold text-neutral-700 font-inter-tight dark:text-neutral-200">Blog</h3>
                         </div>
                         <p class="text-sm text-neutral-500">With a full featured blog, you can write posts related to your product to gain free SEO traffic.</p>
@@ -160,7 +160,7 @@
                     <!-- Block #2 -->
                     <div>
                         <div class="flex items-center mb-1">
-                            <svg class="mr-2 fill-current text-neutral-700 w-7 h-7 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M152 112h40M152 144h40"/><rect width="192" height="160" x="32" y="48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" rx="8"/><circle cx="96" cy="120" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M64 168c3.55-13.8 17.09-24 32-24s28.46 10.19 32 24"/></svg>
+                            <svg class="mr-2 w-7 h-7 fill-current text-neutral-700 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M152 112h40M152 144h40"/><rect width="192" height="160" x="32" y="48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" rx="8"/><circle cx="96" cy="120" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M64 168c3.55-13.8 17.09-24 32-24s28.46 10.19 32 24"/></svg>
                             <h3 class="font-semibold text-neutral-700 font-inter-tight dark:text-neutral-200">User Profiles</h3>
                         </div>
                         <p class="text-sm text-neutral-500">Customizable user profiles. Allow your users to enter data and easily customize.</p>
@@ -168,7 +168,7 @@
                     <!-- Block #3 -->
                     <div>
                         <div class="flex items-center mb-1">
-                            <svg class="mr-2 fill-current text-neutral-700 w-7 h-7 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M93.17 122.83A71.68 71.68 0 0 1 88 95.91c0-38.58 31.08-70.64 69.64-71.87A72 72 0 0 1 232 98.36c-1.27 38.56-33.33 69.64-71.91 69.64a71.68 71.68 0 0 1-26.92-5.17h0L120 176H96v24H72v24H40a8 8 0 0 1-8-8v-28.69a8 8 0 0 1 2.34-5.65l58.83-58.83Z"/><circle cx="180" cy="76" r="12"/></svg>
+                            <svg class="mr-2 w-7 h-7 fill-current text-neutral-700 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M93.17 122.83A71.68 71.68 0 0 1 88 95.91c0-38.58 31.08-70.64 69.64-71.87A72 72 0 0 1 232 98.36c-1.27 38.56-33.33 69.64-71.91 69.64a71.68 71.68 0 0 1-26.92-5.17h0L120 176H96v24H72v24H40a8 8 0 0 1-8-8v-28.69a8 8 0 0 1 2.34-5.65l58.83-58.83Z"/><circle cx="180" cy="76" r="12"/></svg>
                             <h3 class="font-semibold text-neutral-700 font-inter-tight dark:text-neutral-200">User Roles</h3>
                         </div>
                         <p class="text-sm text-neutral-500">Grant user permissions based on roles, you can then assign a role to a specific plan.</p>
@@ -176,7 +176,7 @@
                     <!-- Block #4 -->
                     <div>
                         <div class="flex items-center mb-1">
-                            <svg class="mr-2 fill-current text-neutral-700 w-7 h-7 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><rect width="208" height="144" x="24" y="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" rx="8"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M168 168h32M120 168h16M24 96h208"/></svg>
+                            <svg class="mr-2 w-7 h-7 fill-current text-neutral-700 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><rect width="208" height="144" x="24" y="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" rx="8"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M168 168h32M120 168h16M24 96h208"/></svg>
                             <h3 class="font-semibold text-neutral-700 font-inter-tight dark:text-neutral-200">Billing</h3>
                         </div>
                         <p class="text-sm text-neutral-500">Easily setup billing and charge your users a recurring monthly price.</p>
@@ -184,7 +184,7 @@
                     <!-- Block #5 -->
                     <div>
                         <div class="flex items-center mb-1">
-                            <svg class="mr-2 fill-current text-neutral-700 w-7 h-7 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M160 80v120.67a8 8 0 0 0 3.56 6.65l11 7.33a8 8 0 0 0 12.2-4.72L200 160"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M40 200a8 8 0 0 0 13.15 6.12C105.55 162.16 160 160 160 160h40a40 40 0 0 0 0-80h-40s-54.45-2.16-106.85-46.11A8 8 0 0 0 40 40Z"/></svg>
+                            <svg class="mr-2 w-7 h-7 fill-current text-neutral-700 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M160 80v120.67a8 8 0 0 0 3.56 6.65l11 7.33a8 8 0 0 0 12.2-4.72L200 160"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M40 200a8 8 0 0 0 13.15 6.12C105.55 162.16 160 160 160 160h40a40 40 0 0 0 0-80h-40s-54.45-2.16-106.85-46.11A8 8 0 0 0 40 40Z"/></svg>
                             <h3 class="font-semibold text-neutral-700 font-inter-tight dark:text-neutral-200">Changelog</h3>
                         </div>
                         <p class="text-sm text-neutral-500">Keep your users informed about updates, bug fixes, and new features.</p>
@@ -192,7 +192,7 @@
                     <!-- Block #6 -->
                     <div>
                         <div class="flex items-center mb-1">
-                            <svg class="mr-2 fill-current text-neutral-700 w-7 h-7 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m208 139.48-79.83 79.83a16 16 0 0 1-22.63 0l-84.85-84.85a16 16 0 0 1 0-22.63L116.52 16 232 131.48Z"/><circle cx="124" cy="116" r="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M109.86 101.86 39.99 32M248 208a16 16 0 0 1-32 0c0-16 16-40 16-40s16 24 16 40Z"/></svg>
+                            <svg class="mr-2 w-7 h-7 fill-current text-neutral-700 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m208 139.48-79.83 79.83a16 16 0 0 1-22.63 0l-84.85-84.85a16 16 0 0 1 0-22.63L116.52 16 232 131.48Z"/><circle cx="124" cy="116" r="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M109.86 101.86 39.99 32M248 208a16 16 0 0 1-32 0c0-16 16-40 16-40s16 24 16 40Z"/></svg>
                             <h3 class="font-semibold text-neutral-700 font-inter-tight dark:text-neutral-200">Themes</h3>
                         </div>
                         <p class="text-sm text-neutral-500">Wave offers a theme system that allows you to install, activate, and switch between themes.</p>
@@ -200,11 +200,11 @@
                 </div>
             </div>
 
-            <div class="flex flex-col items-center justify-center px-4 mt-5 space-y-3 sm:mt-16 sm:px-0">
+            <div class="flex flex-col justify-center items-center px-4 mt-5 space-y-3 sm:mt-16 sm:px-0">
                 <p class="hidden text-xs text-neutral-500">
                     For a full list of all of Waves features, click the button below.
                 </p>
-                <a href="{ url('/docs/getting-started#key-features') }" target="_blank" class="flex items-center justify-center w-full px-5 py-2 text-sm font-medium text-center text-white rounded-lg sm:rounded-full sm:w-auto bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:ring-offset-neutral-100">
+                <a href="{ url('/docs/getting-started#key-features') }" target="_blank" class="flex justify-center items-center px-5 py-2 w-full text-sm font-medium text-center text-white rounded-lg sm:rounded-full sm:w-auto bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:ring-offset-neutral-100">
                     <span>View All Features</span>
                 </a>
             </div>

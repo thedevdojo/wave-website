@@ -38,7 +38,7 @@ If you follow this recommended approach, it may still be beneficial to abstract 
 
 It may be helpful to see an example. In this example we will create a projects page where users can view, add, or delete projects. Here's a screenshot of the functional projects page that we will create.
 
-<img src="https://cdn.devdojo.com/images/october2024/projects-list.png" class="w-full rounded" alt="Project List View">
+<img src="https://cdn.devdojo.com/images/october2024/projects-list.png" class="w-full rounded-sm" alt="Project List View">
 
 
 First we'll create the **migration** and the **model**. Add the following files to your Wave project:
@@ -199,7 +199,7 @@ public function projects()
 
 Visit your application URL at `app_url.test/projects` and you will see a screen like the following:
 
-<img src="https://cdn.devdojo.com/images/october2024/projects.png" class="w-full rounded" alt="Projects Empty">
+<img src="https://cdn.devdojo.com/images/october2024/projects.png" class="w-full rounded-sm" alt="Projects Empty">
 
 This page will output all the projects that belong to this specific user, but right now there are no projects. But, we can easily add a **create project volt page** to allow us to create projects. Create another file inside the `projects` folder called `create.blade.php`, with the following contents:
 
@@ -261,24 +261,24 @@ This page will output all the projects that belong to this specific user, but ri
             <form wire:submit="save" class="space-y-4">
                 <div>
                     <label for="description" class="block mb-2 text-sm font-medium text-gray-700">Project name</label>
-                    <input type="text" id="name" wire:model.live="name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <input type="text" id="name" wire:model.live="name" class="block w-full mt-1 border-gray-300 rounded-md shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200 focus:ring-opacity-50">
                     @error('name') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                 </div>
                 <div>
                     <label for="description" class="block mb-2 text-sm font-medium text-gray-700">Description</label>
-                    <textarea id="description" wire:model.live="description" rows="3" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+                    <textarea id="description" wire:model.live="description" rows="3" class="block w-full mt-1 border-gray-300 rounded-md shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
                     @error('description') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label for="start_date" class="block mb-2 text-sm font-medium text-gray-700">Start Date</label>
-                    <input type="date" id="start_date" wire:model.live="start_date" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <input type="date" id="start_date" wire:model.live="start_date" class="block w-full mt-1 border-gray-300 rounded-md shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200 focus:ring-opacity-50">
                     @error('start_date') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label for="end_date" class="block mb-2 text-sm font-medium text-gray-700">End Date</label>
-                    <input type="date" id="end_date" wire:model.live="end_date" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <input type="date" id="end_date" wire:model.live="end_date" class="block w-full mt-1 border-gray-300 rounded-md shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200 focus:ring-opacity-50">
                     @error('end_date') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                 </div>
 
@@ -296,11 +296,11 @@ This page will output all the projects that belong to this specific user, but ri
 
 This will allow us to navigate to `app_url.test/projects/create`, where we can create a new project.
 
-<img src="https://cdn.devdojo.com/images/october2024/projects-create.png" class="w-full rounded" alt="New Project Create">
+<img src="https://cdn.devdojo.com/images/october2024/projects-create.png" class="w-full rounded-sm" alt="New Project Create">
 
 After creating a few new projects, you can navigate back the `app_url.test/projects` and see a list of these new projects.
 
-<img src="https://cdn.devdojo.com/images/october2024/projects-list.png" class="w-full rounded" alt="Project List View">
+<img src="https://cdn.devdojo.com/images/october2024/projects-list.png" class="w-full rounded-sm" alt="Project List View">
 
 This is just an example of how you can add custom logic for your application. But again, there is no right or wrong way to do this. However you're most comfortable adding and maintaining the logic in your app is the way to go.
 

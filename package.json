@@ -8,9 +8,12 @@
         "@alpinejs/collapse": "^3.14.1",
         "@alpinejs/focus": "^3.13.0",
         "@alpinejs/morph": "^3.13.0",
-        "@tailwindcss/typography": "^0.5.10",
+        "@tailwindcss/typography": "^0.5.16",
         "alpinejs": "^3.13.0",
         "gsap": "^3.12.2",
         "markdown-toc": "^1.2.0"
+    },
+    "devDependencies": {
+        "tailwindcss": "^4.1.4"
     }
 }

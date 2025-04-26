@@ -1,7 +1,7 @@
 <layout title="Wave · {frontmatter.title}" src="main.html">
    
     <div class="border-t border-gray-200 dark:border-neutral-800">
-        <div  class="flex items-start w-full px-6 mx-auto max-w-7xl md:px-8 docs">
+        <div  class="flex items-start px-4 mx-auto w-full max-w-6xl docs">
 
             <include src="sidebar.html"></include>
 
@@ -10,18 +10,18 @@
                 <div class="mx-auto mt-1.5 mr-0 max-w-4xl md:pr-5 lg:mr-5 lg:pr-0">
 
                 
-                    <article class="w-full max-w-full pt-3.5 prose-sm prose break-words text-neutral-500 dark:text-neutral-300 lg:prose-md dark:prose-invert">
+                    <article class="pt-3.5 w-full max-w-full break-words prose-sm prose text-neutral-500 dark:text-neutral-300 lg:prose-md dark:prose-invert">
                         {content}
                     </article>
 
-                    <div class="w-full h-px mt-8 bg-gradient-to-r from-neutral-50 via-neutral-200 to-neutral-50 dark:from-neutral-950 dark:via-neutral-800 dark:to-neutral-950"></div>
+                    <div class="mt-8 w-full h-px bg-linear-to-r from-neutral-50 via-neutral-200 to-neutral-50 dark:from-neutral-950 dark:via-neutral-800 dark:to-neutral-950"></div>
 
-                    <div class="flex flex-row items-stretch justify-between gap-5 my-8">
+                    <div class="flex flex-row gap-5 justify-between items-stretch my-8">
                         <If condition="frontmatter.prevURL != 'undefined' && frontmatter.prevURL != null">
                             <button id="prev-active-button" hx-get="{ url('{frontmatter.prevURL}') }" @keyup.left.window="$el.click()" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
-                                class="flex items-center w-full p-4 ease-linear border rounded-md shadow-sm md:w-1/2 duration-50 border-neutral-100 dark:border-transparent hover:bg-black hover:border-black text-neutral-600 dark:text-neutral-400 group hover:text-white">
+                                class="flex items-center p-4 w-full rounded-md border ease-linear shadow-xs md:w-1/2 duration-50 border-neutral-100 dark:border-transparent hover:bg-black hover:border-black text-neutral-600 dark:text-neutral-400 group hover:text-white">
                                 <svg class="mr-4 ml-1.5 w-6 h-6 duration-300 ease-out group-hover:-translate-x-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="none"><path d="M3.75 12h16.5m-16.5 0l6.5 6.25M3.75 12l6.5-6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
-                                <div class="flex flex-col items-start justify-center">
+                                <div class="flex flex-col justify-center items-start">
                                     <small>Back</small>
                                     <p class="hidden text-xl md:block group-hover:text-white">{frontmatter.prevTitle}</p>
                                 </div>
@@ -29,15 +29,15 @@
                         </If>
 
                         <If condition="frontmatter.prevURL == 'undefined' || frontmatter.prevURL == null || frontmatter.prevURL == ''">
-                            <div class="items-center justify-center hidden w-full py-8 text-sm ease-linear border rounded-md opacity-50 bg-neutral-50 dark:bg-neutral-800 md:flex md:w-1/2 duration-50 border-neutral-200 dark:border-neutral-800 text-neutral-400 group">
+                            <div class="hidden justify-center items-center py-8 w-full text-sm rounded-md border opacity-50 ease-linear bg-neutral-50 dark:bg-neutral-800 md:flex md:w-1/2 duration-50 border-neutral-200 dark:border-neutral-800 text-neutral-400 group">
                                 No Previous Section
                             </div>
                         </If>
 
                         <If condition="frontmatter.nextURL != null">
                             <button id="next-active-button" hx-get="{ url('{frontmatter.nextURL}') }" @keyup.right.window="$el.click()" hx-target="#docs-content" hx-select="#docs-content" hx-swap="outerHTML" hx-push-url="true" @click="scrollTop(); route=$el.getAttribute('hx-get')"
-                                class="flex items-center justify-end w-full p-4 ease-linear border rounded-md shadow-sm border-neutral-100 dark:border-transparent md:w-1/2 duration-50 hover:bg-black hover:border-black text-neutral-600 dark:text-neutral-400 group hover:text-white">
-                                <div class="flex flex-col items-end justify-center">
+                                class="flex justify-end items-center p-4 w-full rounded-md border ease-linear shadow-xs border-neutral-100 dark:border-transparent md:w-1/2 duration-50 hover:bg-black hover:border-black text-neutral-600 dark:text-neutral-400 group hover:text-white">
+                                <div class="flex flex-col justify-center items-end">
                                     <small>Next Page</small>
                                     <p class="hidden text-xl md:block group-hover:text-white">{frontmatter.nextTitle}</p>
                                 </div>
@@ -46,7 +46,7 @@
                         </If>
 
                         <If condition="frontmatter.nextURL == 'undefined' || frontmatter.nextURL == null || frontmatter.nextURL == ''">
-                            <div class="items-center justify-center hidden w-full py-8 text-sm ease-linear border rounded-md opacity-50 bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 md:flex md:w-1/2 duration-50 border-neutral-200 text-neutral-400 group">
+                            <div class="hidden justify-center items-center py-8 w-full text-sm rounded-md border opacity-50 ease-linear bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 md:flex md:w-1/2 duration-50 border-neutral-200 text-neutral-400 group">
                                 No Next Section
                             </div>
                         </If>

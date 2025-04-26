@@ -3,7 +3,7 @@
         "url" : "http://localhost:3000"
     },
     "build" : {
-        "url" : "https://devdojo.com/wave",
+        "url" : "/wave/",
         "directory" : "/Users/tonylea/Sites/devdojo/public/wave"
     }
  }

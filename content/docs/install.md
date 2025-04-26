@@ -17,11 +17,11 @@ To download a fresh copy of Wave, click the download button below.<span class="h
 
 <div class="relative flex items-start justify-start w-full sm:w-auto">
 <div class="relative flex items-center justify-center w-full p-1 mb-5 overflow-hidden duration-300 ease-out border rounded-lg sm:w-auto sm:rounded-full border-neutral-200 dark:border-neutral-800 group">
-    <div class="absolute sm:block hidden top-1/2 left-1/2 -translate-x-1/2 w-[250px] rounded-lg sm:rounded-full group-hover:opacity-100 opacity-0 blur-sm duration-300 ease-out scale-100 h-[250px] -translate-y-1/2 origin-center">
-        <span class="absolute inset-0 w-full h-full rounded-lg sm:rounded-full bg-gradient-to-r from-indigo-500 via-teal-300 to-blue-500 group-hover:animate-spin-slow"></span>
+    <div class="absolute sm:block hidden top-1/2 left-1/2 -translate-x-1/2 w-[250px] rounded-lg sm:rounded-full group-hover:opacity-100 opacity-0 blur-xs duration-300 ease-out scale-100 h-[250px] -translate-y-1/2 origin-center">
+        <span class="absolute inset-0 w-full h-full rounded-lg sm:rounded-full bg-linear-to-r from-indigo-500 via-teal-300 to-blue-500 group-hover:animate-spin-slow"></span>
     </div>
     
-    <a href="/wave/download" class="relative flex-shrink-0 inline-block w-full px-6 py-3 text-sm font-bold text-center text-white no-underline rounded-md shadow-xl sm:rounded-full bg-neutral-900 dark:text-neutral-900 dark:bg-neutral-100 dark:hover:bg-white sm:w-auto hover:bg-neutral-950">Download Wave V3</a>
+    <a href="/wave/download" class="relative shrink-0 inline-block w-full px-6 py-3 text-sm font-bold text-center text-white no-underline rounded-md shadow-xl sm:rounded-full bg-neutral-900 dark:text-neutral-900 dark:bg-neutral-100 dark:hover:bg-white sm:w-auto hover:bg-neutral-950">Download Wave V3</a>
 </div>
 </div>
 
