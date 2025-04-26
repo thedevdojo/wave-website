@@ -112,7 +112,7 @@ Here's a simple version `todos` Volt single-file component:
                 </div>
 
                 <form wire:submit="add" class="mt-6">
-                    <input type="text" wire:model="todo" placeholder="My new todo..." class="block py-1.5 w-full text-neutral-900 rounded-md border-0 ring-1 ring-inset ring-neutral-300 shadow-sm placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <input type="text" wire:model.live="todo" placeholder="My new todo..." class="block py-1.5 w-full text-neutral-900 rounded-md border-0 ring-1 ring-inset ring-neutral-300 shadow-sm placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </form>
             </div>
         </div>

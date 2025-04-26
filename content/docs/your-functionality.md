@@ -261,24 +261,24 @@ This page will output all the projects that belong to this specific user, but ri
             <form wire:submit="save" class="space-y-4">
                 <div>
                     <label for="description" class="block mb-2 text-sm font-medium text-gray-700">Project name</label>
-                    <input type="text" id="name" wire:model="name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <input type="text" id="name" wire:model.live="name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     @error('name') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                 </div>
                 <div>
                     <label for="description" class="block mb-2 text-sm font-medium text-gray-700">Description</label>
-                    <textarea id="description" wire:model="description" rows="3" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+                    <textarea id="description" wire:model.live="description" rows="3" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
                     @error('description') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label for="start_date" class="block mb-2 text-sm font-medium text-gray-700">Start Date</label>
-                    <input type="date" id="start_date" wire:model="start_date" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <input type="date" id="start_date" wire:model.live="start_date" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     @error('start_date') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label for="end_date" class="block mb-2 text-sm font-medium text-gray-700">End Date</label>
-                    <input type="date" id="end_date" wire:model="end_date" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <input type="date" id="end_date" wire:model.live="end_date" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     @error('end_date') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                 </div>
 
