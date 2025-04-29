@@ -59,7 +59,7 @@ Below is a list of technologies that are being used to power the propellers and 
 
 - <a href="https://laravel.com" target="_blank" class="font-bold">Laravel</a>
 - <a href="https://livewire.laravel.com" target="_blank" class="font-bold">Livewire</a>
-- <a href="https://tailwidcss.com" target="_blank" class="font-bold">Tailwind CSS</a>
+- <a href="https://tailwindcss.com" target="_blank" class="font-bold">Tailwind CSS</a>
 - <a href="https://alpinejs.dev" target="_blank" class="font-bold">Alpine</a>
 - <a href="https://vitejs.dev/" target="_blank" class="font-bold">Vite</a>
 
