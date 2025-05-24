@@ -8,6 +8,7 @@
         "@alpinejs/collapse": "^3.14.1",
         "@alpinejs/focus": "^3.13.0",
         "@alpinejs/morph": "^3.13.0",
+        "@devdojo/static": "^1.0.27",
         "@tailwindcss/typography": "^0.5.16",
         "alpinejs": "^3.13.0",
         "gsap": "^3.12.2",

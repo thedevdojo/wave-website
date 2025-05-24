@@ -272,11 +272,13 @@ function domReadyLoop(){
                     // start the slide down
                     const tl = gsap.timeline();
 
-                    tl.set('.slideDown', { y: 0, yPercent: -100, position: 'fixed' })
-                                    .to('.slideDown', { duration: 2, ease: 'power3.out', yPercent: 100, force3D: true});
+                    tl.set('.slideDown', { y: 0, translateY: 0, position: 'fixed' })
+                                    .to('.slideDown', { duration: 2, ease: 'power3.out', translateY: '100%', force3D: true});
 
                     setTimeout(function(){
-                        document.querySelector('.slideDown').remove();
+                        if(document.querySelector('.slideDown')){
+                            document.querySelector('.slideDown').remove();
+                        }
                     }, 2000);
 
                     // setTimeout(function(){
