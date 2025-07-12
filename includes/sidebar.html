@@ -8,7 +8,7 @@
         :class="{ 'md:-translate-y-[120px] md:pt-[120px]' : !scrolled, 'md:-translate-y-[70px] md:pt-[70px]' : scrolled }"
         class="overflow-auto relative h-screen min-h-screen md:h-full custom-scrollbar">
     
-        <div id="left-sidebar" class="px-5 pt-5 pr-5 pb-5 h-full duration-300 ease-out md:pl-0.5">
+        <div id="left-sidebar" class="px-5 pt-[138px] md:pt-5 pr-5 pb-5 h-full duration-300 ease-out md:pl-0.5">
 
             <div class="flex relative flex-col md:hidden text-neutral-900">
                 <div class="flex justify-between items-center">
@@ -43,6 +43,7 @@
                         <span class="relative truncate">Documentation</span>
                     </a>
                     <a href="{ url('/demo') }"
+                        target="_blank"
                         class="flex relative gap-2 items-center px-2.5 py-2 w-full text-xs font-medium rounded-md border group focus:outline-hidden focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-75 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-400 text-neutral-700 dark:text-neutral-400 dark:hover:text-white hover:text-black border-neutral-200 dark:border-neutral-700 dark:hover:bg-neutral-900 hover:bg-neutral-200">
                         <svg class="z-20 w-4 h-4 stroke-current shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.206 5.06669L16.1251 17.6457C15.8353 18.5391 14.585 18.5762 14.2427 17.7016L12.574 13.4376L6.16967 19.8422C5.61739 20.3945 4.72195 20.3945 4.16965 19.8422C3.61738 19.2899 3.61737 18.3945 4.16963 17.8422L10.5775 11.4341L6.36147 9.77011C5.48972 9.42605 5.52769 8.17952 6.41877 7.88915L18.9449 3.80732C19.722 3.55411 20.4582 4.28933 20.206 5.06669Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <span class="relative truncate">Demo</span>

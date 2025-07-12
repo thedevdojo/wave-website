@@ -482,10 +482,10 @@
     @set-page-full-width="fullWidth=true" @show-template-preview.window="showTemplatePreview(event.detail.url);" @set-active-template.window="setActiveTemplate(event.detail.slug);" @close-left-sidebar.window="leftSidebar = false" @set-route.window="route=removeQueryParams(event.detail.route)" data-docsurl="{ url('/docs') }" @ajax-loaded.window="ajaxLoaded()" id="site">
 
 
-    <main id="site-content" class="flex overflow-hidden top-0 flex-col items-stretch pt-11 pl-10 h-screen max-h-screen duration-300 ease-out">
+    <main id="site-content" class="flex overflow-hidden top-0 flex-col items-stretch px-2 pt-11 h-screen max-h-screen duration-300 ease-out sm:pl-10">
       
 
-    <div x-data="{ headerBarCollapsed: false }" @header-bar-collapsed.window="headerBarCollapsed = true" @header-bar-expanded.window="headerBarCollapsed = false" class="fixed left-0 top-0 z-[999998]">
+    <div x-data="{ headerBarCollapsed: false }" @header-bar-collapsed.window="headerBarCollapsed = true" @header-bar-expanded.window="headerBarCollapsed = false" class="fixed sm:block hidden left-0 top-0 z-[999998]">
       <div
           :class="{ 'pl-[60px]': !headerBarCollapsed }" class="relative left-0 top-0 mx-auto flex h-10 w-[100vh] max-w-full origin-bottom-left -translate-y-10 rotate-90 items-center border-t border-white/10 bg-black pl-4 text-white transition-[padding] duration-300 ease-out" x-cloak>
           <nav class="pr-2.5 text-sm md:pr-3.5 md:text-xs" aria-label="Breadcrumb">
@@ -505,7 +505,7 @@
 
   
         
-        <div :class="{ 'z-20': desktop, 'z-999': !desktop && leftSidebar }" class="overflow-hidden relative top-0 w-full h-full bg-white rounded-tl-xl dark:bg-stone-950">
+        <div :class="{ 'z-20': desktop, 'z-999': !desktop && leftSidebar }" class="overflow-hidden relative top-0 w-full h-full bg-white rounded-t-xl sm:rounded-tl-xl dark:bg-stone-950">
           
           <div id="base-container" class="overflow-scroll w-full h-full">
           <include src="header.html"></include>
