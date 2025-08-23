@@ -31,7 +31,7 @@
     <div x-show="communityOpen || platformOpen || moreOpen" x-on:click="platformOpen=false; communityOpen=false; moreOpen=false;" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" :class="{ 'backdrop-blur' : platformOpen || communityOpen || moreOpen }" class="fixed inset-0 z-20 bg-black/50" x-cloak></div>
 
     <div x-on:mouseleave="communityOpen=false; platformOpen=false; moreOpen=false;" class="relative">
-        <div x-show="platformOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="-translate-y-full" x-transition:enter-end="translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="translate-y-0" x-transition:leave-end="-translate-y-full" @mouseenter="cancelDebounce(); platformOpen=true" @mouseleave="debounceClose('platformOpen')" class="absolute top-0 z-40 pt-11 pb-5 w-screen h-auto border-b bg-stone-950 border-black/10" x-cloak>
+        <div x-show="platformOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="-translate-y-full" x-transition:enter-end="translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="translate-y-0" x-transition:leave-end="-translate-y-full" @mouseenter="cancelDebounce(); platformOpen=true" @mouseleave="debounceClose('platformOpen')" class="absolute top-0 z-40 pt-11 pb-5 w-screen h-auto bg-black border-b border-black/10" x-cloak>
     <div x-show="platformOpen" x-transition:enter="transition ease-out delay-200 duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="relative h-full w-full pl-[45px] max-w-full mx-auto duration-300 ease-out">
         <div class="flex absolute top-0 left-0 text-xs flex-col font-medium text-white opacity-40 rotate-90 -translate-x-[11px] translate-y-[26px]">
             PLATFORM
@@ -54,6 +54,22 @@
     </div>
 </div>                </li>
                             <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[150ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
+                    <div onclick=" window.location.href='https://devdojo.com/blocks' " class="flex relative items-center w-full opacity-95 transition-all duration-75 ease-out cursor-pointer group hover:opacity-100">
+
+        <div class="flex relative flex-shrink-0 justify-center items-center mr-2.5 w-10 h-10 text-white bg-gradient-to-br rounded-lg border opacity-90 from-stone-800 via-stone-900 to-stone-800 border-white/[14%] group-hover:opacity-100">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 -translate-x-px -translate-y-px ease-out w-10 flex items-center justify-center h-10 mb-0 duration-300 rounded-lg z-10 [background:linear-gradient(45deg,#090912,--theme(--color-black)_50%,#090912)_padding-box,conic-gradient(from_var(--border-angle),--theme(--color-slate-900/.48)_80%,#696969_86%,#dfdfdf_90%,#696969_94%,--theme(--color-slate-900/.48))_border-box] border border-transparent animate-border"></div>
+                        <div class="absolute inset-0 z-20 w-full h-full to-black rounded-md from-stone-950 bg-conic-180 via-stone-800"></div>
+            <span class="z-30 w-4 h-4 fill-current"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 310" class="w-full h-full fill-current" fill="none"><path fill="currentColor" d="M165.98 146.819h109.075V37.744H165.98v109.075ZM165.98 272.256h109.075V163.181H165.98v109.075ZM34.945 272.256H144.02V163.18H34.945v109.076ZM34.945 146.819H144.02V37.744H34.945v109.075Z"/></svg></span>
+        </div>
+    <div class="flex relative flex-col justify-center items-start h-10">
+        <h3 class="flex relative items-center -mt-px mb-1 text-sm font-medium leading-none text-white/90 group-hover:text-white/100">
+            <span>Blocks</span>
+                            <svg class="ml-1 w-2.5 h-2.5 duration-200 ease-out transform -translate-x-1 stroke-current group-hover:translate-x-0" viewBox="0 0 13 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="svg" transform="translate(0.666667, 2.333333)" stroke="currentColor" stroke-width="2.4"><g><polyline class="opacity-0 transition-all duration-200 ease-out delay-0 group-hover:opacity-100" points="5.33333333 0 10.8333333 5.5 5.33333333 11"></polyline><line class="opacity-0 transition-all duration-200 ease-out transform -translate-x-1 group-hover:ml-0 group-hover:translate-x-0 group-hover:opacity-100" x1="10.8333333" y1="5.5" x2="0.833333333" y2="5.16666667"></line></g></g></g></svg>
+                    </h3>
+        <p class="text-xs font-light leading-none text-white/50 group-hover:text-white/70">Design blocks for your website</p>
+    </div>
+</div>                </li>
+                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[225ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
                     <div onclick=" window.location.href='https://devdojo.com/wave' " class="flex relative items-center w-full opacity-95 transition-all duration-75 ease-out cursor-pointer group hover:opacity-100">
 
         <div class="flex relative flex-shrink-0 justify-center items-center mr-2.5 w-10 h-10 text-white bg-gradient-to-br rounded-lg border opacity-90 from-stone-800 via-stone-900 to-stone-800 border-white/[14%] group-hover:opacity-100">
@@ -69,7 +85,7 @@
         <p class="text-xs font-light leading-none text-white/50 group-hover:text-white/70">Start building the next great SAAS</p>
     </div>
 </div>                </li>
-                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[225ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
+                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[300ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
                     <div onclick=" window.location.href='https://devdojo.com/pines' " class="flex relative items-center w-full opacity-95 transition-all duration-75 ease-out cursor-pointer group hover:opacity-100">
 
         <div class="flex relative flex-shrink-0 justify-center items-center mr-2.5 w-10 h-10 text-white bg-gradient-to-br rounded-lg border opacity-90 from-stone-800 via-stone-900 to-stone-800 border-white/[14%] group-hover:opacity-100">
@@ -85,7 +101,7 @@
         <p class="text-xs font-light leading-none text-white/50 group-hover:text-white/70">Alpine &amp; Tailwind UI Library</p>
     </div>
 </div>                </li>
-                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[300ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
+                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[375ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
                     <div onclick=" window.location.href='https://devdojo.com/auth' " class="flex relative items-center w-full opacity-95 transition-all duration-75 ease-out cursor-pointer group hover:opacity-100">
 
         <div class="flex relative flex-shrink-0 justify-center items-center mr-2.5 w-10 h-10 text-white bg-gradient-to-br rounded-lg border opacity-90 from-stone-800 via-stone-900 to-stone-800 border-white/[14%] group-hover:opacity-100">
@@ -101,7 +117,7 @@
         <p class="text-xs font-light leading-none text-white/50 group-hover:text-white/70">Plug&#039;n Play Authentication for Laravel</p>
     </div>
 </div>                </li>
-                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[375ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
+                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[450ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
                     <div onclick=" window.location.href='https://devdojo.com/designer' " class="flex relative items-center w-full opacity-95 transition-all duration-75 ease-out cursor-pointer group hover:opacity-100">
 
         <div class="flex relative flex-shrink-0 justify-center items-center mr-2.5 w-10 h-10 text-white bg-gradient-to-br rounded-lg border opacity-90 from-stone-800 via-stone-900 to-stone-800 border-white/[14%] group-hover:opacity-100">
@@ -121,7 +137,7 @@
         <p class="text-xs font-light leading-none text-white/50 group-hover:text-white/70">Create website designs with AI</p>
     </div>
 </div>                </li>
-                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[450ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
+                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[525ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
                     <div onclick=" window.location.href='https://devdojo.com/devblog' " class="flex relative items-center w-full opacity-95 transition-all duration-75 ease-out cursor-pointer group hover:opacity-100">
 
         <div class="flex relative flex-shrink-0 justify-center items-center mr-2.5 w-10 h-10 text-white bg-gradient-to-br rounded-lg border opacity-90 from-stone-800 via-stone-900 to-stone-800 border-white/[14%] group-hover:opacity-100">
@@ -141,7 +157,7 @@
         <p class="text-xs font-light leading-none text-white/50 group-hover:text-white/70">Blog platform for developers</p>
     </div>
 </div>                </li>
-                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[525ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
+                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[600ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
                     <div onclick=" window.open('https://static.devdojo.com', '_blank'); " class="flex relative items-center w-full opacity-95 transition-all duration-75 ease-out cursor-pointer group hover:opacity-100">
 
         <div class="flex relative flex-shrink-0 justify-center items-center mr-2.5 w-10 h-10 text-white bg-gradient-to-br rounded-lg border opacity-90 from-stone-800 via-stone-900 to-stone-800 border-white/[14%] group-hover:opacity-100">
@@ -157,7 +173,7 @@
         <p class="text-xs font-light leading-none text-white/50 group-hover:text-white/70">Build a simple static website</p>
     </div>
 </div>                </li>
-                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[600ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
+                            <li x-show="platformOpen" x-transition:enter="transition ease-in-out delay-[675ms]  duration-300" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
                     <div onclick=" window.open('https://saasadventure.io', '_blank'); " class="flex relative items-center w-full opacity-95 transition-all duration-75 ease-out cursor-pointer group hover:opacity-100">
 
         <div class="flex relative flex-shrink-0 justify-center items-center mr-2.5 w-10 h-10 text-white bg-gradient-to-br rounded-lg border opacity-90 from-stone-800 via-stone-900 to-stone-800 border-white/[14%] group-hover:opacity-100">
@@ -242,7 +258,7 @@
     </div>
 </div>
 
-        <div class="flex relative z-50 w-screen h-11 bg-stone-950" :class="{ 'border-white/10' : (!platformOpen && !communityOpen && !moreOpen) && !collapsed, 'border-b-transparent': (platformOpen || communityOpen || moreOpen) || collapsed }" x-cloak>
+        <div class="flex relative z-50 w-screen h-11 bg-black" :class="{ 'border-white/10' : (!platformOpen && !communityOpen && !moreOpen) && !collapsed, 'border-b-transparent': (platformOpen || communityOpen || moreOpen) || collapsed }" x-cloak>
             <div class="flex justify-between items-center mx-auto w-full max-w-full">
                 <div class="flex flex-1 justify-start items-center h-full text-xs text-white">
                     <a href="https://devdojo.com" class="block flex relative justify-center items-center px-5 pr-6">
