@@ -13,7 +13,7 @@ The Wave admin is built using <a href="https://filamentphp.com/" target="_blank"
 
 - [Admin](#admin)
     - [Admin Interface](#admin-interface)
-    - [Dashboard Analytics](#dashboard-analytics)
+    - [Dashboard Widget](#dashboard-widget)
   - [Filament Admin](#filament-admin)
     - [Filament Customer Panel](#filament-customer-panel)
     - [Filament Table Builder](#filament-table-builder)
@@ -26,34 +26,13 @@ The Wave admin is built using <a href="https://filamentphp.com/" target="_blank"
 
 You can visit the admin interface by navigating to `/admin` and you will see the admin interface similar to the image below.
 
-<img src="https://cdn.devdojo.com/images/august2024/admin.png" alt="Admin Interface" class="w-full" />
+<img src="https://cdn.devdojo.com/images/september2025/wave-admin.png" alt="Admin Interface" class="w-full" />
 
-You can collapse or uncollapse the sidebar, by clicking on the sidebar button.
+From here, you can administer many parts of your application such as the Users, Roles, Permissions, Plans, Posts, Media, Pages, Categories, Changelogs, Themes, and Settings.
 
-<img src="https://cdn.devdojo.com/images/august2024/admin-sidebar-toggle.png" alt="Admin Sidebar Toggle" class="w-full" />
+### Dashboard Widget
 
-You'll see that you can administer many parts of your application such as the Users, Roles, Permissions, Plans, Posts, Media, Pages, Categories, Changelogs, Themes, and Settings.
-
-### Dashboard Analytics
-
-We are using the <a href="https://filamentphp.com/plugins/bezhansalleh-google-analytics" target="_blank">Filament Google Analytics Plugin</a>, which under the hood uses the <a href="https://github.com/spatie/laravel-analytics" target="_blank">Spatie Laravel Analytics</a> package.
-
-This is great because you can easily add your Google Analytics API keys and you'll see live analytics of visitors and users directly from the admin dashboard.
-
-Inside of your `.env` file you will need to add your `ANALYTICS_PROPERTY_ID`, like so:
-
-<include src="docs/filename-top.html"></include><include src="docs/filename.html" file=".env"></include>
-
-```bash
-ANALYTICS_PROPERTY_ID=XXXXXXXXX
-```
-</div>
-
-You will also need to add your Google Analytics **Service Account Credentials**. This will be a JSON file that you download from your Google Console and place it located at `storage/app/analytics/servive-account-credentials.json`. Here are detailed instructions here [https://github.com/spatie/laravel-analytics](https://github.com/spatie/laravel-analytics#how-to-obtain-the-credentials-to-communicate-with-google-analytics) on how to obtain those credentials.
-
-After you've correclty added your Google Analytics keys you'll be able to view real-time analytics from your Admin Dashboard.
-
-<img src="https://cdn.devdojo.com/images/august2024/admin-analytics.png" class="w-full" />
+You can modify the main dashboard widget by opening and modifying the file located at `resources/views/filament/widgets/dashboard-widget.blade.php`.
 
 ## Filament Admin
 
