@@ -50,7 +50,7 @@ After a user has created an account through your application, they can login by 
 
 ### Registration
 
-By default, all users can register for a free account; however, if you wanted users to be a subscriber before accessng your app, you can add the `subscribed` middleware to the dashboard and many other pages. This will restrict access to a specific page unless a user is a subscriber.
+By default, all users can register for a free account; however, if you wanted users to be a subscriber before accessing your app, you can add the `subscribed` middleware to the dashboard and many other pages. This will restrict access to a specific page unless a user is a subscriber.
 
 > You can use the `subscribed` middleware in place of the `auth` middleware, no need to include them both. The `subscribed` middleware will also check that the user is logged in and if not it will redirect them to the login page.
 
