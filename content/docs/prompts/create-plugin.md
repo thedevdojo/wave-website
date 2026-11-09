@@ -1,8 +1,8 @@
 ---
 title: Creating a Plugin
 description: Create a plugin using an artisan command
-prevTitle: 'Create a Role'
-prevURL: '/docs/prompts/create-role' 
+prevTitle: 'Create a Permission'
+prevURL: '/docs/prompts/create-permission' 
 nextTitle: 'About Guides'
 nextURL: '/docs/guides/about'
 ---
