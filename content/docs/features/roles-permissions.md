@@ -19,6 +19,7 @@ Roles and Permissions allow you to manage who can access different parts of your
     - [Checking if a user has role](#checking-if-a-user-has-role)
   - [Permissions](#permissions)
     - [Creating Permissions](#creating-permissions)
+    - [Assigning Permissions to Roles](#assigning-permissions-to-roles)
     - [Revoking Permissions](#revoking-permissions)
     - [Checking Permissions](#checking-permissions)
   - [Digging Deeper](#digging-deeper)
@@ -30,7 +31,7 @@ Roles and Permissions allow you to manage who can access different parts of your
 Roles are labels that you give to users to define what they can or cannot do. By default, Wave ships with five roles:
 
 1. **Admin** - This is the role you will have as the developer and administrator.
-2. **Registerd** - This is the default role for a newly registered user
+2. **Registered** - This is the default role for a newly registered user
 3. **Basic** - This is a role associated with a Basic Subscriber Plan
 4. **Premium** - This is a role associated with a Premium Subscriber Plan
 5. **Pro** - This is a role associated with a Pro Subscriber plan
@@ -47,7 +48,7 @@ It’s not mandatory for the user **Role** to have the same name as the **Plan**
 
 ### Creating Roles
 
-You can easily create a role inside of your application from adding it in the admin. Alternatively, you may also create the new permission via code, like so:
+You can create a role from the **Roles** section of the admin. Alternatively, you may also create the new role in code, like so:
 
 <include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
@@ -130,14 +131,21 @@ $permission = Permission::create(['name' => 'edit articles']);
 ```
 </div>
 
-Then, you can assign assign a permission to any role:
+### Assigning Permissions to Roles
+
+In the admin, open **Roles**, edit a role and tick the permissions it should have. You can also go the other way: open a permission under **Permissions** and pick the roles that should get it. Every user with one of those roles gets the permission straight away.
+
+From the command line, `php artisan app:create-permission` creates a permission and lets you pick the roles to assign it to, and `php artisan app:create-role` lets you pick permissions for a new role.
+
+To assign a permission to a role in code:
 
 <include src="docs/filename-top.html"></include><include src="docs/file-buttons.html" file="none"></include>
 
 ```php
 use Spatie\Permission\Models\Role;
 
-$role = Role::where('name', 'writer')->first();
+$role = Role::findByName('writer');
+$role->givePermissionTo('edit articles');
 ```
 </div>
 
@@ -163,13 +171,13 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 $role = Role::where('name', 'writer')->first();
-$permission = Permission::were('name', 'edit articles')->first();
+$permission = Permission::where('name', 'edit articles')->first();
 
 $role->revokePermissionTo($permission);
 ```
 </div>
 
-This means that all users of that role will all have that permission removed. You may also revokePermissions from a user.
+This means that all users of that role will all have that permission removed. You may also revoke a direct permission from a user with `auth()->user()->revokePermissionTo('edit articles')`.
 
 ### Checking Permissions
 

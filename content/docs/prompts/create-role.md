@@ -1,10 +1,10 @@
 ---
 title: Create a Role
-description: Learn how you can host your website and make it live for the world to see.
+description: Create a role and assign permissions to it using an artisan command
 prevTitle: 'Create a User'
 prevURL: '/docs/prompts/create-user' 
-nextTitle: 'Create a Plugin'
-nextURL: '/docs/prompts/create-plugin'
+nextTitle: 'Create a Permission'
+nextURL: '/docs/prompts/create-permission'
 ---
 
 ## Create a Role
