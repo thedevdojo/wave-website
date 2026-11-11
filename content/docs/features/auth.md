@@ -20,6 +20,7 @@ Wave is built on top of <a href="https://devdojo.com/auth" target="_blank">DevDo
     - [Password Confirmation](#password-confirmation)
     - [Password Reset/Request](#password-resetrequest)
     - [Two-Factor Challenge](#two-factor-challenge)
+  - [Sending Email](#sending-email)
   - [Social Authentication](#social-authentication)
 
 # Auth Customizations
@@ -101,6 +102,8 @@ In order to turn on Email Verification and require your users to verify their em
 
 Please refer to <a href="https://devdojo.com/auth/docs/config/email/" target="_blank">this documentation</a> to learn how to modify the logo in your emails.
 
+> Verification emails need a working mailer. See [Sending Email](#sending-email) below.
+
 
 ### Password Confirmation
 
@@ -113,6 +116,43 @@ The password Request page allows users to enter in their email address. They wil
 ### Two-Factor Challenge
 
 You can also give your users the option of enabling Two-Factor auth to gaurantee security in their account. Learn more about <a href="https://devdojo.com/auth/docs/config/two-factor-auth/" target="_blank">setting up 2FA and enabling it for your users here</a>.
+
+## Sending Email
+
+The Verify Email and Password Reset pages send emails, so your application needs a working mailer. Wave uses the standard Laravel mail configuration, so any <a href="https://laravel.com/docs/12.x/mail" target="_blank">Laravel mailer</a> works.
+
+### Local Development
+
+The `.env.example` file is set up for <a href="https://mailtrap.io/sandboxes" target="_blank">Mailtrap Email Sandbox</a>. It catches the emails that your app sends, so they do not reach real inboxes. Create a free account, open your sandbox, and copy the SMTP credentials from the **Integration** tab into your `.env` file:
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file=".env"></include>
+
+```bash
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=your-sandbox-username
+MAIL_PASSWORD=your-sandbox-password
+```
+</div>
+
+### Production
+
+To send real emails to your users, you can use <a href="https://docs.mailtrap.io/getting-started/email-api-smtp" target="_blank">Mailtrap Email API/SMTP</a>. Add and verify your sending domain in Mailtrap, then use your API token as the SMTP password:
+
+<include src="docs/filename-top.html"></include><include src="docs/filename.html" file=".env"></include>
+
+```bash
+MAIL_MAILER=smtp
+MAIL_HOST=live.smtp.mailtrap.io
+MAIL_PORT=587
+MAIL_USERNAME=api
+MAIL_PASSWORD=your-api-token
+MAIL_FROM_ADDRESS="hello@your-domain.com"
+```
+</div>
+
+The `MAIL_FROM_ADDRESS` must use the domain that you verified in Mailtrap.
 
 ## Social Authentication
 
